@@ -1,1 +1,1385 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
+<title>Seitō-ryū Aiki-Jūjutsu</title>
+
+<meta
+  name="description"
+  content="Seitō-ryū Aiki-Jūjutsu · Holy City Aiki Jujutsu"
+/>
+
+<style>
+:root {
+  --paper: #f3e4d6;
+  --folio: #f8efe6;
+  --ink: #171411;
+  --muted: #6b645d;
+  --shu: #b02a20;
+
+  --header-height: 82px;
+  --max-width: 940px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  background: var(--paper);
+
+  font-family:
+    "Bodoni 72",
+    "Baskerville",
+    "Iowan Old Style",
+    "Times New Roman",
+    serif;
+
+  line-height: 1.48;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+
+/* =========================================================
+   STICKY HEADER
+   ========================================================= */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  min-height: var(--header-height);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 14px;
+
+  padding:
+    10px
+    14px
+    10px
+    max(18px, env(safe-area-inset-left));
+
+  background: var(--paper);
+
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+
+  box-shadow:
+    0 3px 12px rgba(40, 25, 15, 0.05);
+}
+
+
+/*
+OPTIONAL HEADER ART
+
+File:
+assets/cherry-blossom-header.png
+*/
+
+.header-art {
+  position: absolute;
+
+  left: -12px;
+  top: -5px;
+
+  width: 125px;
+
+  opacity: 0.82;
+
+  pointer-events: none;
+
+  transform: scaleX(-1);
+
+  mix-blend-mode: multiply;
+
+  mask-image:
+    linear-gradient(
+      to right,
+      rgba(0,0,0,1),
+      rgba(0,0,0,.88) 65%,
+      transparent
+    );
+}
+
+
+.brand {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  min-width: 0;
+
+  margin-left: 10px;
+
+  color: inherit;
+  text-decoration: none;
+}
+
+.brand-mon {
+  width: 58px;
+  flex: 0 0 auto;
+}
+
+.brand-stack {
+  line-height: 1;
+}
+
+.brand-jp {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  font-size: clamp(17px, 4.4vw, 24px);
+
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+}
+
+.brand-romaji {
+  display: block;
+
+  margin-bottom: 4px;
+
+  font-size: clamp(11px, 2.8vw, 14px);
+
+  letter-spacing: 0.12em;
+}
+
+.brand-en {
+  display: block;
+
+  font-size: clamp(12px, 3.2vw, 18px);
+
+  letter-spacing: 0.02em;
+}
+
+
+.menu-button {
+  position: relative;
+  z-index: 3;
+
+  width: 44px;
+  height: 44px;
+
+  flex: 0 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  padding: 0;
+
+  border: 2px solid var(--shu);
+  border-radius: 2px;
+
+  background: var(--paper);
+
+  cursor: pointer;
+}
+
+.menu-button span {
+  width: 22px;
+  height: 3px;
+
+  display: block;
+
+  background: var(--shu);
+
+  border-radius: 1px;
+}
+
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+main {
+  overflow: hidden;
+}
+
+.hero {
+  position: relative;
+
+  min-height: calc(100svh - var(--header-height));
+
+  display: grid;
+  justify-items: center;
+  align-content: center;
+
+  padding: 36px 20px 44px;
+
+  text-align: center;
+
+  background: var(--paper);
+}
+
+
+/*
+OPTIONAL HERO BLOSSOM
+
+File:
+assets/cherry-blossom-hero.png
+*/
+
+.hero-blossom {
+  position: absolute;
+
+  right: -10px;
+  top: 45px;
+
+  width: min(31vw, 175px);
+
+  opacity: 0.9;
+
+  pointer-events: none;
+
+  mix-blend-mode: multiply;
+}
+
+
+.hero-mon {
+  width: min(60vw, 320px);
+
+  margin-bottom: 20px;
+}
+
+
+.hero h1 {
+  margin: 0;
+
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  font-size: clamp(40px, 11vw, 63px);
+
+  line-height: 1.04;
+
+  font-weight: 700;
+
+  letter-spacing: 0.02em;
+}
+
+
+.hero-romaji {
+  margin-top: 14px;
+
+  font-size: clamp(20px, 5.9vw, 32px);
+
+  line-height: 1.08;
+
+  letter-spacing: 0.12em;
+}
+
+
+.hero-english {
+  margin-top: 11px;
+
+  font-size: clamp(28px, 7.8vw, 40px);
+
+  line-height: 1.08;
+
+  letter-spacing: 0.02em;
+}
+
+
+.ornament {
+  width: min(52vw, 290px);
+
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  margin: 20px auto;
+}
+
+.ornament::before,
+.ornament::after {
+  content: "";
+
+  flex: 1;
+
+  height: 1px;
+
+  background: rgba(176, 42, 32, 0.72);
+}
+
+.ornament i {
+  width: 8px;
+  height: 8px;
+
+  display: block;
+
+  border-radius: 50%;
+
+  background: var(--shu);
+
+  box-shadow:
+    -9px 0 var(--shu),
+     9px 0 var(--shu),
+     0 -9px var(--shu);
+}
+
+
+.soryuki {
+  line-height: 1.22;
+}
+
+.soryuki span {
+  display: block;
+}
+
+.soryuki-jp {
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  font-size: clamp(18px, 5.6vw, 30px);
+}
+
+.soryuki-romaji,
+.soryuki-en {
+  font-size: clamp(16px, 4.6vw, 24px);
+}
+
+.soryuki-place {
+  margin-top: 7px;
+
+  font-size: clamp(14px, 4.2vw, 20px);
+}
+
+
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
+.section {
+  width: min(100%, var(--max-width));
+
+  margin: 0 auto;
+
+  padding:
+    50px
+    24px
+    60px;
+
+  background: transparent;
+}
+
+
+.section-title {
+  margin-bottom: 32px;
+
+  text-align: center;
+}
+
+.section-title .ornament {
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+
+.section-title-jp {
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  font-size: clamp(19px, 5vw, 29px);
+
+  font-weight: 700;
+
+  line-height: 1.15;
+}
+
+
+.section-title-en {
+  margin-top: 6px;
+
+  font-size: clamp(13px, 3.6vw, 17px);
+
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================================================
+   PARAGRAPH PAIRS
+   Japanese = folio card
+   English = open on parchment
+   Exact 50 / 50 columns
+   ========================================================= */
+
+.pair-row {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(0, 1fr);
+
+  column-gap: 20px;
+
+  align-items: start;
+
+  margin-bottom: 40px;
+}
+
+
+/* Japanese folio */
+
+.jp-card {
+  width: 100%;
+
+  height: var(--jp-h, 28rem);
+
+  min-width: 0;
+
+  padding: 18px 16px;
+
+  writing-mode: vertical-rl;
+
+  text-orientation: mixed;
+
+  overflow: hidden;
+
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  font-size: 18px;
+
+  line-height: 1.72;
+
+  letter-spacing: 0.025em;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.34),
+      transparent 36%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(85,65,45,.012) 0 1px,
+      transparent 1px 4px
+    ),
+    var(--folio);
+
+  border:
+    1px solid rgba(72, 52, 37, 0.13);
+
+  border-radius: 2px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.50),
+    0 1px 2px rgba(74,45,25,.055),
+    0 8px 20px rgba(74,45,25,.085);
+}
+
+
+.jp-card p {
+  margin: 0;
+}
+
+
+/* English */
+
+.en-block {
+  min-width: 0;
+
+  padding-top: 18px;
+
+  background: transparent;
+
+  font-family:
+    "Bodoni 72",
+    "Baskerville",
+    "Iowan Old Style",
+    "Times New Roman",
+    serif;
+
+  font-size: 19.6px;
+
+  font-weight: 500;
+
+  line-height: 1.47;
+
+  letter-spacing: 0.032em;
+
+  font-kerning: normal;
+
+  overflow-wrap: anywhere;
+}
+
+
+.en-block p {
+  margin:
+    0
+    0
+    1.08em;
+
+  text-align: justify;
+
+  text-align-last: left;
+
+  hyphens: auto;
+}
+
+
+.en-block .sequence {
+  font-size: 0.92em;
+
+  line-height: 1.55;
+
+  letter-spacing: 0.025em;
+
+  text-align: left;
+}
+
+
+.en-block .closing {
+  font-size: 1.42em;
+
+  line-height: 1.14;
+
+  text-align: left;
+}
+
+
+/* =========================================================
+   OPTIONAL LOWER ART
+   ========================================================= */
+
+/*
+Files:
+
+assets/dojo-veranda.png
+assets/osensei-portrait.png
+*/
+
+.heritage-art {
+  position: relative;
+
+  height: 290px;
+
+  margin-top: 20px;
+
+  overflow: hidden;
+}
+
+
+.dojo-art {
+  position: absolute;
+
+  left: -12px;
+  bottom: 0;
+
+  width: min(58vw, 360px);
+
+  opacity: 0.9;
+
+  mix-blend-mode: multiply;
+}
+
+
+.osensei-art {
+  position: absolute;
+
+  right: -4px;
+  bottom: 0;
+
+  width: min(43vw, 245px);
+
+  opacity: 0.92;
+
+  mix-blend-mode: multiply;
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.colophon {
+  padding: 30px 20px 80px;
+
+  text-align: center;
+
+  color: var(--muted);
+}
+
+
+.colophon-mon {
+  width: 82px;
+
+  margin:
+    0
+    auto
+    12px;
+}
+
+
+.colophon-jp {
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  font-size: 23px;
+
+  font-weight: 700;
+
+  color: var(--ink);
+}
+
+
+.colophon-romaji {
+  margin-top: 4px;
+
+  font-size: 12px;
+
+  letter-spacing: 0.11em;
+
+  color: var(--ink);
+}
+
+
+.colophon-en {
+  margin-top: 4px;
+
+  font-size: 17px;
+
+  color: var(--ink);
+}
+
+
+.colophon-meta {
+  margin-top: 12px;
+
+  font-size: 13px;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+  .section {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+
+  .pair-row {
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(0, 1fr);
+
+    column-gap: 14px;
+
+    margin-bottom: 34px;
+  }
+
+
+  .jp-card {
+    padding: 16px 12px;
+
+    font-size: 16.8px;
+
+    line-height: 1.66;
+  }
+
+
+  .en-block {
+    padding-top: 16px;
+
+    font-size: 18.2px;
+
+    line-height: 1.44;
+  }
+
+
+  .brand-mon {
+    width: 50px;
+  }
+
+
+  .menu-button {
+    width: 40px;
+    height: 40px;
+  }
+
+
+  .menu-button span {
+    width: 20px;
+  }
+
+
+  .hero-mon {
+    width: 56vw;
+  }
+
+
+  .hero h1 {
+    font-size: 36px;
+  }
+
+
+  .hero-romaji {
+    font-size: 18px;
+
+    letter-spacing: 0.08em;
+  }
+
+
+  .hero-english {
+    font-size: 24px;
+  }
+}
+
+
+/* =========================================================
+   TABLET / DESKTOP
+   ========================================================= */
+
+@media (min-width: 760px) {
+
+  :root {
+    --header-height: 90px;
+  }
+
+
+  .section {
+    padding-left: 38px;
+    padding-right: 38px;
+  }
+
+
+  .pair-row {
+    column-gap: 30px;
+  }
+
+
+  .jp-card {
+    padding: 22px 20px;
+
+    font-size: 21.6px;
+  }
+
+
+  .en-block {
+    padding-top: 22px;
+
+    font-size: 25.2px;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+</style>
+</head>
+
+
+<body>
+
+
+<header class="site-header">
+
+  <!--
+  OPTIONAL HEADER BLOSSOM
+
+  <img
+    class="header-art"
+    src="assets/cherry-blossom-header.png"
+    alt=""
+  >
+  -->
+
+
+  <a class="brand" href="#top">
+
+    <img
+      class="brand-mon"
+      src="assets/seito-mon.png"
+      alt="Seitō-ryū mon"
+    >
+
+    <div class="brand-stack">
+
+      <span class="brand-jp">
+        聖都流合気柔術
+      </span>
+
+      <span class="brand-romaji">
+        SEITŌ-RYŪ AIKI-JŪJUTSU
+      </span>
+
+      <span class="brand-en">
+        Holy City Aiki Jujutsu
+      </span>
+
+    </div>
+
+  </a>
+
+
+  <button
+    class="menu-button"
+    aria-label="Open menu"
+  >
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+</header>
+
+
+<main id="top">
+
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+
+  <section class="hero">
+
+
+    <!--
+    OPTIONAL HERO BLOSSOM
+
+    <img
+      class="hero-blossom"
+      src="assets/cherry-blossom-hero.png"
+      alt=""
+    >
+    -->
+
+
+    <img
+      class="hero-mon"
+      src="assets/seito-mon.png"
+      alt="Seitō-ryū mon"
+    >
+
+
+    <h1>
+      聖都流合気柔術
+    </h1>
+
+
+    <div class="hero-romaji">
+      SEITŌ-RYŪ AIKI-JŪJUTSU
+    </div>
+
+
+    <div class="hero-english">
+      Holy City Aiki Jujutsu
+    </div>
+
+
+    <div class="ornament">
+      <i></i>
+    </div>
+
+
+    <div class="soryuki">
+
+      <span class="soryuki-jp">
+        創流期
+      </span>
+
+      <span class="soryuki-romaji">
+        Sōryū-ki
+      </span>
+
+      <span class="soryuki-en">
+        Formative Period
+      </span>
+
+      <span class="soryuki-place">
+        Charleston, South Carolina · 2026
+      </span>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       ABOUT
+       ===================================================== -->
+
+  <section class="section" id="about">
+
+
+    <div class="section-title">
+
+      <div class="ornament">
+        <i></i>
+      </div>
+
+      <div class="section-title-jp">
+        概要
+      </div>
+
+      <div class="section-title-en">
+        About
+      </div>
+
+    </div>
+
+
+
+    <!-- PARAGRAPH 1 -->
+
+    <div class="pair-row">
+
+      <div
+        class="jp-card"
+        lang="ja"
+        style="--jp-h:32rem"
+      >
+        <p>
+          聖都流は、二〇二六年、サウスカロライナ州チャールストンにおいて、合気柔術の研究と稽古のために設立された、形成途上にある武道校である。本校はホーリー・シティ・ソサエティの後援のもとに置かれ、その名「聖都」は “Holy City” に由来する。
+        </p>
+      </div>
+
+
+      <div class="en-block">
+        <p>
+          Seitō-ryū is a budō school in formation, established in Charleston, South Carolina, in 2026 for the study and practice of Aiki Jujutsu. The school is established under the patronage of Holy City Society, from which the name Seitō — 聖都, “Holy City” — is taken.
+        </p>
+      </div>
+
+    </div>
+
+
+
+    <!-- PARAGRAPH 2 -->
+
+    <div class="pair-row">
+
+      <div
+        class="jp-card"
+        lang="ja"
+        style="--jp-h:34rem"
+      >
+        <p>
+          その歩みは、先行する伝統と諸師への敬意から始まる。古典柔術諸流、嘉納治五郎と講道館、武田惣角と大東流、植芝盛平と合気武道を主要な学びの源とする。
+        </p>
+      </div>
+
+
+      <div class="en-block">
+        <p>
+          Its work begins with respect for the traditions and teachers that came before us: the classical schools of jūjutsu; Kanō Jigorō and the Kōdōkan; Takeda Sōkaku and Daitō-ryū; and Ueshiba Morihei and Aiki-budō.
+        </p>
+      </div>
+
+    </div>
+
+
+
+    <!-- PARAGRAPH 3 -->
+
+    <div class="pair-row">
+
+      <div
+        class="jp-card"
+        lang="ja"
+        style="--jp-h:36rem"
+      >
+        <p>
+          創流期の研究では、後代の教師・研究者である富木謙治、望月稔、斉藤守弘、西尾昭二、ロイ・スエナカ、カツミ・ニイクラ、白川竜次らの仕事からも学ぶ。彼らの仕事は、その時々の問いに照らして研究資料として扱うものであり、実際に存在しない系譜を称するものではない。
+        </p>
+      </div>
+
+
+      <div class="en-block">
+        <p>
+          Our formative study also draws upon the work of later teachers and investigators including Tomiki Kenji, Mochizuki Minoru, Saitō Morihiro, Nishio Shōji, Roy Suenaka, Katsumi Niikura, and Ryuji Shirakawa. Their work is approached as a source of study according to the questions before us, and not as a claim of lineage where no such lineage exists.
+        </p>
+      </div>
+
+    </div>
+
+
+
+    <!-- PARAGRAPH 4 -->
+
+    <div class="pair-row">
+
+      <div
+        class="jp-card"
+        lang="ja"
+        style="--jp-h:30rem"
+      >
+        <p>
+          聖都流は、継承された流派ではなく、形成途上にある武道校として率直に提示される。その目的は、受け取ったものを忠実に学び、伝承と再構成を明確に区別し、稽古を通じて探究を続けることにある。
+        </p>
+      </div>
+
+
+      <div class="en-block">
+        <p>
+          Seitō-ryū is presented openly as a school in formation rather than an inherited ryūha. Its purpose is to study what has been received faithfully, to distinguish inheritance from reconstruction, and to continue the investigation through practice.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       CLASSICAL FORM AND THE MISSING BEGINNING
+       ===================================================== -->
+
+  <section class="section">
+
+
+    <div class="section-title">
+
+      <div class="ornament">
+        <i></i>
+      </div>
+
+      <div class="section-title-jp">
+        古典形と失われた前段
+      </div>
+
+      <div class="section-title-en">
+        Classical Form and the Missing Beginning
+      </div>
+
+    </div>
+
+
+    <div class="pair-row">
+
+      <div
+        class="jp-card"
+        lang="ja"
+        style="--jp-h:34rem"
+      >
+        <p>
+          古典の形は、われわれの出発点である。攻撃を定め、稽古相手の間に特定の関係を設定することによって、形は姿勢、動き、つながり、崩し、技、制御、受け身を精密に学ぶことを可能にする。このように状況を整えることは、形稽古の大きな長所の一つである。
+        </p>
+      </div>
+
+
+      <div class="en-block">
+        <p>
+          Classical kata remains our starting point. By prescribing an attack and establishing a particular relationship between training partners, kata allows posture, movement, connection, kuzushi, waza, control, and ukemi to be studied with precision. This ordering of circumstances is one of its great strengths.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="pair-row">
+
+      <div
+        class="jp-card"
+        lang="ja"
+        style="--jp-h:36rem"
+      >
+        <p>
+          しかし、その同じ条件は研究方法そのものに属している。攻撃は既知であり、距離は整えられ、役割は定められ、技術的な関係はあらかじめ与えられている場合がある。抵抗する相手は、それらを提供する義務を負わない。手を引き、再び打ち、方向を変え、身体をつかみ、接触に抵抗し、あるいは打撃と組みを組み合わせるかもしれない。
+        </p>
+      </div>
+
+
+      <div class="en-block">
+        <p>
+          Those same conditions, however, belong to the method of study. The attack may be known, the distance arranged, the roles established, and the technical relationship supplied in advance. An unwilling opponent is under no obligation to provide them. He may withdraw the hand, strike again, change direction, seize the body, resist contact, or combine striking and grappling.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="pair-row">
+
+      <div
+        class="jp-card"
+        lang="ja"
+        style="--jp-h:30rem"
+      >
+        <p>
+          ゆえに聖都流は、遭遇の開始局面に特別な注意を払う。古典合気柔術に必要な条件があらかじめ与えられていないとき、それらはいかにして生じるのか。この始まりを、技のための単なる準備とはみなさない。それ自体が武の問題の一部である。
+        </p>
+      </div>
+
+
+      <div class="en-block">
+        <p>
+          Seitō-ryū therefore gives particular attention to the opening of the encounter. The question is how the conditions required by classical Aiki Jujutsu arise when they have not been supplied beforehand. The beginning is not treated merely as preparation for the technique. It is part of the martial problem itself.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================================
+       WHOLE ENCOUNTER
+       ===================================================== -->
+
+  <section class="section">
+
+
+    <div class="section-title">
+
+      <div class="ornament">
+        <i></i>
+      </div>
+
+      <div class="section-title-jp">
+        遭遇の全体
+      </div>
+
+      <div class="section-title-en">
+        The Whole Encounter
+      </div>
+
+    </div>
+
+
+    <div class="pair-row">
+
+      <div
+        class="jp-card"
+        lang="ja"
+        style="--jp-h:24rem"
+      >
+        <p>
+          聖都流は、遭遇を一つの連続した武の出来事として検討する。
+        </p>
+      </div>
+
+
+      <div class="en-block">
+
+        <p>
+          Seitō-ryū examines the encounter as one continuous martial event:
+        </p>
+
+        <p class="sequence">
+          KAMAE → MA-AI → ATTACK → TAI-SABAKI → TSUKURI → KUZUSHI → WAZA → [OSAE] → ZANSHIN
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="pair-row">
+
+      <div
+        class="jp-card"
+        lang="ja"
+        style="--jp-h:30rem"
+      >
+        <p>
+          これは研究のための枠組みであり、武田惣角や植芝盛平が、これらの見出しのもとに固定された歴史的順序を教えたと主張するものではない。実際には、各要素は重なり合い、ほとんど同時に起こることもある。
+        </p>
+      </div>
+
+
+      <div class="en-block">
+        <p>
+          This is a framework for study, not a claim that Takeda Sōkaku or Ueshiba Morihei taught a fixed historical sequence under these headings. In practice, its elements overlap and may occur almost simultaneously.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="pair-row">
+
+      <div
+        class="jp-card"
+        lang="ja"
+        style="--jp-h:38rem"
+      >
+        <p>
+          構えは即応の準備を整える。間合は距離、機、機会、危険を扱う。攻撃は直面すべき問題を生み出す。体捌きはその攻撃との関係において身体を再編成する。作りは、用いることのできる構造的関係を成立させる。崩しは、相手が構造上の自由を保つ能力を損なう。技はそれらの条件から生じる。必要であれば抑えが制御を維持し、残心は見かけ上の完了後にも残る。
+        </p>
+      </div>
+
+
+      <div class="en-block">
+        <p>
+          Kamae establishes readiness. Ma-ai concerns distance, timing, opportunity, and danger. The attack creates the immediate problem. Tai-sabaki reorganizes the body in relation to it. Tsukuri establishes a usable structural relationship. Kuzushi compromises the opponent’s ability to remain structurally free. Waza arises from those conditions. Osae, where necessary, maintains control, and zanshin remains after apparent completion.
+        </p>
+      </div>
+
+    </div>
+
+
+    <div class="pair-row">
+
+      <div
+        class="jp-card"
+        lang="ja"
+        style="--jp-h:32rem"
+      >
+        <p>
+          合気は、この連続の中の一地点に限定されない。入り身、転換、合わせ、結び、当身もまた状況に応じて働く。当身は入りを守り、注意を制し、姿勢を変え、継続する攻撃を中断し、作りや崩しに寄与し、あるいはそれ自体で遭遇を終わらせることがある。
+        </p>
+      </div>
+
+
+      <div class="en-block">
+        <p>
+          Aiki is not confined to a single point in the sequence. Irimi, tenkan, awase, musubi, and atemi likewise operate according to circumstance. Atemi may protect entry, command attention, alter posture, interrupt continuing attack, contribute to tsukuri or kuzushi, or resolve the encounter in its own right.
+        </p>
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!--
+  CONTINUE THE SAME .pair-row STRUCTURE
+  FOR:
+
+  From Waza Toward Encounter
+  From Encounter Toward Waza
+  Proficiency and Appropriate Response
+  Applied Formative Research
+  Resistance, Control, and Safety
+  Learning From Other Budō
+  The Formative Record
+  Budō
+  -->
+
+
+
+  <!-- =====================================================
+       OPTIONAL LOWER ART
+       ===================================================== -->
+
+  <!--
+
+  <div class="heritage-art">
+
+    <img
+      class="dojo-art"
+      src="assets/dojo-veranda.png"
+      alt=""
+    >
+
+    <img
+      class="osensei-art"
+      src="assets/osensei-portrait.png"
+      alt=""
+    >
+
+  </div>
+
+  -->
+
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer class="colophon">
+
+    <img
+      class="colophon-mon"
+      src="assets/seito-mon.png"
+      alt=""
+    >
+
+    <div class="colophon-jp">
+      聖都流合気柔術
+    </div>
+
+    <div class="colophon-romaji">
+      SEITŌ-RYŪ AIKI-JŪJUTSU
+    </div>
+
+    <div class="colophon-en">
+      Holy City Aiki Jujutsu
+    </div>
+
+    <div class="colophon-meta">
+      創流期 — Sōryū-ki — Formative Period
+    </div>
+
+    <div class="colophon-meta">
+      Charleston, South Carolina · 2026
+    </div>
+
+  </footer>
+
+
+</main>
+
+</body>
+</html>
