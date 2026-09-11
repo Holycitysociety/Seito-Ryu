@@ -17,7 +17,6 @@
 <style>
 
 :root {
-
   --paper:#f3e4d6;
   --folio:#f8efe6;
 
@@ -27,13 +26,11 @@
 
   --header-h:82px;
 
-  /*
-   * READING SYSTEM
-   *
-   * Mobile:
-   * the Japanese folio fills its 50% column.
-   */
   --reader-max:940px;
+
+  /*
+   * MOBILE READING SYSTEM
+   */
 
   --folio-w:100%;
 
@@ -60,18 +57,14 @@
   box-sizing:border-box;
 }
 
-
 html {
   scroll-behavior:smooth;
 }
 
-
 body {
-
   margin:0;
 
   color:var(--ink);
-
   background:var(--paper);
 
   font-family:
@@ -85,12 +78,10 @@ body {
   line-height:1.48;
 }
 
-
 img {
   display:block;
   max-width:100%;
 }
-
 
 
 /* =========================================================
@@ -98,7 +89,6 @@ img {
    ========================================================= */
 
 .site-header {
-
   position:sticky;
   top:0;
 
@@ -107,7 +97,6 @@ img {
   min-height:var(--header-h);
 
   display:flex;
-
   align-items:center;
   justify-content:space-between;
 
@@ -117,7 +106,7 @@ img {
     10px
     14px
     10px
-    max(18px,env(safe-area-inset-left));
+    max(18px, env(safe-area-inset-left));
 
   background:var(--paper);
 
@@ -130,11 +119,8 @@ img {
   overflow:hidden;
 }
 
-
 .brand {
-
   display:flex;
-
   align-items:center;
 
   gap:12px;
@@ -144,29 +130,21 @@ img {
   margin-left:10px;
 
   color:inherit;
-
   text-decoration:none;
 }
 
-
 .brand .mon {
-
   width:58px;
 
   flex:0 0 auto;
 }
 
-
 .brand-stack {
-
   min-width:0;
-
   line-height:1;
 }
 
-
 .brand-stack .jp {
-
   display:block;
 
   margin-bottom:4px;
@@ -186,9 +164,7 @@ img {
   letter-spacing:.03em;
 }
 
-
 .brand-stack .romaji {
-
   display:block;
 
   margin-bottom:4px;
@@ -199,9 +175,7 @@ img {
   letter-spacing:.12em;
 }
 
-
 .brand-stack .en {
-
   display:block;
 
   font-size:
@@ -210,9 +184,7 @@ img {
   letter-spacing:.022em;
 }
 
-
 .menu {
-
   width:44px;
   height:44px;
 
@@ -226,7 +198,6 @@ img {
   background:var(--paper);
 
   display:flex;
-
   flex-direction:column;
 
   align-items:center;
@@ -237,9 +208,7 @@ img {
   cursor:pointer;
 }
 
-
 .menu span {
-
   width:22px;
   height:3px;
 
@@ -251,19 +220,15 @@ img {
 }
 
 
-
 /* =========================================================
    HERO
    ========================================================= */
 
 main {
-
   overflow:hidden;
 }
 
-
 .hero {
-
   min-height:
     calc(100svh - var(--header-h));
 
@@ -280,18 +245,14 @@ main {
   text-align:center;
 }
 
-
 .hero-mon {
-
   width:
     min(60vw,320px);
 
   margin-bottom:18px;
 }
 
-
 .hero h1 {
-
   margin:0;
 
   font-family:
@@ -309,9 +270,7 @@ main {
   letter-spacing:.02em;
 }
 
-
 .hero .romaji {
-
   margin-top:12px;
 
   font-size:
@@ -322,9 +281,7 @@ main {
   line-height:1.07;
 }
 
-
 .hero .english {
-
   margin-top:10px;
 
   font-size:
@@ -335,11 +292,8 @@ main {
   letter-spacing:.022em;
 }
 
-
 .ornament {
-
   display:flex;
-
   align-items:center;
 
   gap:12px;
@@ -351,10 +305,8 @@ main {
     18px auto;
 }
 
-
 .ornament::before,
 .ornament::after {
-
   content:"";
 
   flex:1;
@@ -365,9 +317,7 @@ main {
     rgba(176,42,32,.72);
 }
 
-
 .ornament i {
-
   width:8px;
   height:8px;
 
@@ -383,23 +333,17 @@ main {
      0 -9px var(--shu);
 }
 
-
 .soryuki {
-
   line-height:1.22;
 
   margin-bottom:24px;
 }
 
-
 .soryuki span {
-
   display:block;
 }
 
-
 .soryuki .jp {
-
   font-family:
     "Hiragino Mincho ProN",
     "Yu Mincho",
@@ -411,17 +355,13 @@ main {
     clamp(18px,5.6vw,30px);
 }
 
-
 .soryuki .rom,
 .soryuki .en {
-
   font-size:
     clamp(16px,4.6vw,24px);
 }
 
-
 .soryuki .place {
-
   margin-top:7px;
 
   font-size:
@@ -429,13 +369,11 @@ main {
 }
 
 
-
 /* =========================================================
-   CONTENT SECTIONS
+   CONTENT
    ========================================================= */
 
 .section {
-
   width:
     min(100%,var(--reader-max));
 
@@ -448,25 +386,18 @@ main {
     56px;
 }
 
-
 .section-title {
-
   text-align:center;
 
   margin-bottom:28px;
 }
 
-
 .section-title .ornament {
-
   margin-top:0;
-
   margin-bottom:14px;
 }
 
-
 .section-title .kicker {
-
   font-family:
     "Hiragino Mincho ProN",
     "Yu Mincho",
@@ -482,9 +413,7 @@ main {
   line-height:1.15;
 }
 
-
 .section-title .sub {
-
   margin-top:6px;
 
   font-size:
@@ -496,13 +425,11 @@ main {
 }
 
 
-
 /* =========================================================
    BILINGUAL PAIR
    ========================================================= */
 
 .pair-row {
-
   width:100%;
 
   display:grid;
@@ -523,21 +450,11 @@ main {
 }
 
 
-
 /* =========================================================
    JAPANESE FOLIO
    ========================================================= */
 
-/*
- * WIDTH is controlled by the viewport system.
- *
- * HEIGHT is not manually assigned.
- * JavaScript calculates the minimum height required
- * for the Japanese paragraph to fit completely.
- */
-
 .jp-card {
-
   width:
     min(var(--folio-w),100%);
 
@@ -550,7 +467,6 @@ main {
     var(--folio-pad-x);
 
   writing-mode:vertical-rl;
-
   text-orientation:mixed;
 
   overflow:hidden;
@@ -594,12 +510,9 @@ main {
     0 8px 20px rgba(74,45,25,.085);
 }
 
-
 .jp-card p {
-
   margin:0;
 }
-
 
 
 /* =========================================================
@@ -607,13 +520,8 @@ main {
    ========================================================= */
 
 .en-block {
-
   min-width:0;
 
-  /*
-   * Starts at the same optical level
-   * as the Japanese text inside the folio.
-   */
   padding-top:
     var(--folio-pad-y);
 
@@ -632,28 +540,22 @@ main {
   overflow-wrap:anywhere;
 }
 
-
 .en-block p {
-
   margin:
     0
     0
     1.08em;
 
   text-align:justify;
-
   text-align-last:left;
 
   hyphens:auto;
-
   -webkit-hyphens:auto;
 
   word-spacing:.02em;
 }
 
-
 .en-block .sequence {
-
   font-size:.92em;
 
   line-height:1.55;
@@ -663,9 +565,7 @@ main {
   text-align:left;
 }
 
-
 .en-block .closing {
-
   font-size:1.42em;
 
   line-height:1.13;
@@ -674,13 +574,65 @@ main {
 }
 
 
+/* =========================================================
+   TABLET / DESKTOP
+   ========================================================= */
+
+/*
+ * LARGE SCREEN RULES
+ *
+ * Every Japanese folio becomes the same physical page:
+ *
+ * 17rem wide
+ * 25rem tall
+ *
+ * Japanese grows to 22px.
+ * English grows to 21px.
+ *
+ * The mobile auto-height system is switched off.
+ */
+
+@media(min-width:760px) {
+
+  :root {
+    --header-h:90px;
+
+    --reader-max:68rem;
+
+    --folio-w:17rem;
+
+    --jp-size:22px;
+    --jp-leading:1.68;
+
+    --en-size:21px;
+    --en-leading:1.46;
+
+    --pair-gap:30px;
+
+    --folio-pad-x:18px;
+    --folio-pad-y:20px;
+
+    --section-pad-x:38px;
+  }
+
+  .jp-card {
+    width:var(--folio-w);
+
+    height:25rem !important;
+
+    max-width:100%;
+
+    justify-self:end;
+  }
+
+}
+
 
 /* =========================================================
    FOOTER
    ========================================================= */
 
 .colophon {
-
   text-align:center;
 
   padding:
@@ -691,9 +643,7 @@ main {
   color:var(--muted);
 }
 
-
 .colophon .mon {
-
   width:82px;
 
   margin:
@@ -702,9 +652,7 @@ main {
     10px;
 }
 
-
 .colophon .jp {
-
   color:var(--ink);
 
   font-family:
@@ -719,9 +667,7 @@ main {
   font-weight:700;
 }
 
-
 .colophon .romaji {
-
   color:var(--ink);
 
   margin-top:4px;
@@ -731,9 +677,7 @@ main {
   letter-spacing:.11em;
 }
 
-
 .colophon .en {
-
   color:var(--ink);
 
   margin-top:4px;
@@ -741,58 +685,11 @@ main {
   font-size:17px;
 }
 
-
 .colophon .meta {
-
   margin-top:12px;
 
   font-size:13px;
 }
-
-
-
-/* =========================================================
-   TABLET / DESKTOP
-   ========================================================= */
-
-/*
- * This is the key large-screen change.
- *
- * The GRID remains 50 / 50.
- *
- * Every Japanese folio becomes exactly the same width.
- *
- * Paragraph length changes HEIGHT only.
- *
- * Extra tablet / desktop space becomes MA around the folio.
- */
-
-@media(min-width:760px) {
-
-  :root {
-
-    --header-h:90px;
-
-    --reader-max:68rem;
-
-    --folio-w:17rem;
-
-    --jp-size:18px;
-    --jp-leading:1.72;
-
-    --en-size:20px;
-    --en-leading:1.47;
-
-    --pair-gap:30px;
-
-    --folio-pad-x:16px;
-    --folio-pad-y:18px;
-
-    --section-pad-x:38px;
-  }
-
-}
-
 
 
 /* =========================================================
@@ -857,11 +754,9 @@ main {
         })
     "
   >
-
     <span></span>
     <span></span>
     <span></span>
-
   </button>
 
 </header>
@@ -972,18 +867,12 @@ main {
 const sections = [
 
   {
-
-    jpTitle:
-      "概要",
-
-    enTitle:
-      "About",
+    jpTitle:"概要",
+    enTitle:"About",
 
     rows:[
 
-
       {
-
         jp:
           "聖都流は、二〇二六年、サウスカロライナ州チャールストンにおいて、合気柔術の研究と稽古のために設立された、形成途上にある武道校である。本校はホーリー・シティ・ソサエティの後援のもとに置かれ、その名「聖都」は “Holy City” に由来する。",
 
@@ -995,12 +884,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "その歩みは、先行する伝統と諸師への敬意から始まる。古典柔術諸流、嘉納治五郎と講道館、武田惣角と大東流、植芝盛平と合気武道を主要な学びの源とする。",
 
@@ -1012,12 +898,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "創流期の研究では、後代の教師・研究者である富木謙治、望月稔、斉藤守弘、西尾昭二、ロイ・スエナカ、カツミ・ニイクラ、白川竜次らの仕事からも学ぶ。彼らの仕事は、その時々の問いに照らして研究資料として扱うものであり、実際に存在しない系譜を称するものではない。",
 
@@ -1029,12 +912,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "聖都流は、継承された流派ではなく、形成途上にある武道校として率直に提示される。その目的は、受け取ったものを忠実に学び、伝承と再構成を明確に区別し、稽古を通じて探究を続けることにある。",
 
@@ -1046,17 +926,13 @@ const sections = [
             class:""
           }
         ]
-
       }
 
     ]
-
   },
 
 
-
   {
-
     jpTitle:
       "古典形と失われた前段",
 
@@ -1065,9 +941,7 @@ const sections = [
 
     rows:[
 
-
       {
-
         jp:
           "古典の形は、われわれの出発点である。攻撃を定め、稽古相手の間に特定の関係を設定することによって、形は姿勢、動き、つながり、崩し、技、制御、受け身を精密に学ぶことを可能にする。このように状況を整えることは、形稽古の大きな長所の一つである。",
 
@@ -1079,12 +953,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "しかし、その同じ条件は研究方法そのものに属している。攻撃は既知であり、距離は整えられ、役割は定められ、技術的な関係はあらかじめ与えられている場合がある。抵抗する相手は、それらを提供する義務を負わない。手を引き、再び打ち、方向を変え、身体をつかみ、接触に抵抗し、あるいは打撃と組みを組み合わせるかもしれない。",
 
@@ -1096,12 +967,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "ゆえに聖都流は、遭遇の開始局面に特別な注意を払う。古典合気柔術に必要な条件があらかじめ与えられていないとき、それらはいかにして生じるのか。この始まりを、技のための単なる準備とはみなさない。それ自体が武の問題の一部である。",
 
@@ -1113,17 +981,13 @@ const sections = [
             class:""
           }
         ]
-
       }
 
     ]
-
   },
 
 
-
   {
-
     jpTitle:
       "遭遇の全体",
 
@@ -1132,9 +996,7 @@ const sections = [
 
     rows:[
 
-
       {
-
         jp:
           "聖都流は、遭遇を一つの連続した武の出来事として検討する。",
 
@@ -1153,12 +1015,9 @@ const sections = [
             class:"sequence"
           }
         ]
-
       },
 
-
       {
-
         jp:
           "これは研究のための枠組みであり、武田惣角や植芝盛平が、これらの見出しのもとに固定された歴史的順序を教えたと主張するものではない。実際には、各要素は重なり合い、ほとんど同時に起こることもある。",
 
@@ -1170,12 +1029,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "構えは即応の準備を整える。間合は距離、機、機会、危険を扱う。攻撃は直面すべき問題を生み出す。体捌きはその攻撃との関係において身体を再編成する。作りは、用いることのできる構造的関係を成立させる。崩しは、相手が構造上の自由を保つ能力を損なう。技はそれらの条件から生じる。必要であれば抑えが制御を維持し、残心は見かけ上の完了後にも残る。",
 
@@ -1187,12 +1043,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "合気は、この連続の中の一地点に限定されない。入り身、転換、合わせ、結び、当身もまた状況に応じて働く。当身は入りを守り、注意を制し、姿勢を変え、継続する攻撃を中断し、作りや崩しに寄与し、あるいはそれ自体で遭遇を終わらせることがある。",
 
@@ -1204,17 +1057,13 @@ const sections = [
             class:""
           }
         ]
-
       }
 
     ]
-
   },
 
 
-
   {
-
     jpTitle:
       "技から遭遇へ",
 
@@ -1223,9 +1072,7 @@ const sections = [
 
     rows:[
 
-
       {
-
         jp:
           "古典の形は、この術の技術的語彙を与える。まず一つの技を忠実に学ぶ。姿勢、身体構造、つながり、動き、作り、崩し、実行、制御、受け身を、形の中で理解してからこそ、その形を取り巻く条件を知的に検討することができる。",
 
@@ -1237,12 +1084,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "次に探究は後ろ向きに進む。その技が正しく機能するためには、どのような条件がすでに存在していなければならないのか。距離、構造、接続、姿勢、均衡にはどのような関係が必要か。形が前提とする把持、腕の位置、タイミング、攻撃への入り込み、位置関係を相手が自発的に与えないとき、それらの条件はいかにして生じるのか。",
 
@@ -1254,12 +1098,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "そのため聖都流は、技へ至る道筋を意図的に研究する。目的は、古典技に現代的な護身術の答えを寄せ集めて飾ることではない。変化する状況を受け取り、整え、変換して、古典形に保存された関係が実際に成立するまでの過程を理解することにある。",
 
@@ -1271,17 +1112,13 @@ const sections = [
             class:""
           }
         ]
-
       }
 
     ]
-
   },
 
 
-
   {
-
     jpTitle:
       "遭遇から技へ",
 
@@ -1290,9 +1127,7 @@ const sections = [
 
     rows:[
 
-
       {
-
         jp:
           "探究は反対方向にも進む。起こりうる攻撃を、あらかじめ一教、小手返し、四方投げ、その他の名のある技に終わらせると決めずに研究する。まず距離、機、保護、体捌き、当身、つながり、作り、崩しを扱う。",
 
@@ -1304,12 +1139,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "その後で初めて、生じた技を特定する。状況が応答を導き、応答が技を明らかにする。これにより、変化する状況に記憶した答えを押しつけるだけの訓練を避ける。",
 
@@ -1321,12 +1153,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "したがって形は、単なる再現のためではなく、身体を教育するものとして学ぶ。継続する稽古を通じて、姿勢、動き、機、つながり、均衡が身体化され、適切な技が意識的な選択なしに生じうるようになる。",
 
@@ -1338,17 +1167,13 @@ const sections = [
             class:""
           }
         ]
-
       }
 
     ]
-
   },
 
 
-
   {
-
     jpTitle:
       "習熟度と相応しい応答",
 
@@ -1357,9 +1182,7 @@ const sections = [
 
     rows:[
 
-
       {
-
         jp:
           "聖都流は、初心者に上級者の外見だけを模倣させない。同じ遭遇でも、習熟度によって異なる表現を必要とする。初心者には、より強い保護、大きな動き、確かな接続、明確な位置制御が必要になる場合がある。",
 
@@ -1371,12 +1194,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "技能が高まるにつれ、動きは小さくなり、接触は一時的になり、機はより正確となり、筋力による努力は次第に構造、位置、関係へ置き換えられる。目標は初心者の粗さを保存することでも、早すぎる繊細さを要求することでもない。稽古は、より洗練された合気へ向かう。",
 
@@ -1388,17 +1208,13 @@ const sections = [
             class:""
           }
         ]
-
       }
 
     ]
-
   },
 
 
-
   {
-
     jpTitle:
       "創流期の応用研究",
 
@@ -1407,9 +1223,7 @@ const sections = [
 
     rows:[
 
-
       {
-
         jp:
           "創流期には、選ばれた上級実践者、指導者、適格な協力者が、通常の形稽古を超える問題を検討することがある。研究は、あらかじめ技術的な答えを決めるのではなく、起こりうる攻防状況から始める。複数の道筋を試し、弱い解決を捨て、有用な関係を調べ、遭遇の開始と古典技とのつながりを稽古によって再構成する。",
 
@@ -1421,12 +1235,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "その検証を経た内容は、さらに規定を減らした条件のもとで稽古されることがある。目的は、台本のない武の問題から、古典技が生じる条件へ移行する過程を、再現可能な形で研究する方法を確立することにある。",
 
@@ -1438,12 +1249,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "こうした内容を開発し、検証し、習熟度に応じて調整し、課程へ採用するための詳細な手続きは、本校内部の教授法に属する。",
 
@@ -1455,17 +1263,13 @@ const sections = [
             class:""
           }
         ]
-
       }
 
     ]
-
   },
 
 
-
   {
-
     jpTitle:
       "抵抗・制御・安全",
 
@@ -1474,9 +1278,7 @@ const sections = [
 
     rows:[
 
-
       {
-
         jp:
           "協力的な形稽古と抵抗稽古は、異なる問いに答える。形は、型そのものを精密に学ぶことを可能にする。抵抗は、受けがその関係を自発的に与えなくなったときにも、その関係が有効であるかを明らかにする。どちらの稽古も、もう一方と取り違えるべきではない。",
 
@@ -1488,12 +1290,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "抵抗は、稽古の目的と実践者の経験に応じて導入する。ある稽古は、位置やつながりを得た時点で終えてよい。あるものは、制御された崩しまで進めてよい。また、得られた関係を適切な制御のもとで完全な古典技へつなぎ直すこともある。",
 
@@ -1505,12 +1304,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "上級者は、遭遇のより多くの部分を再構成し、より高い速度で行うことができる。しかし、速さだけが妥当性の証拠ではなく、負傷も武の有効性の証明ではない。抵抗稽古の目的は、稽古相手を守りながら誤りを露わにすることである。",
 
@@ -1522,17 +1318,13 @@ const sections = [
             class:""
           }
         ]
-
       }
 
     ]
-
   },
 
 
-
   {
-
     jpTitle:
       "他の武道から学ぶ",
 
@@ -1541,9 +1333,7 @@ const sections = [
 
     rows:[
 
-
       {
-
         jp:
           "聖都流は、雑多な技の寄せ集めを作ろうとはしない。他の武道が、合気柔術にも関わる問題について特に明晰な研究方法を発達させているなら、その成果を比較研究の資料とすることがある。",
 
@@ -1555,12 +1345,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "柔道は、組み手、作り、崩し、投げ、乱取りを高度に研究してきた。レスリングは、抵抗する身体に対する捕捉、接続、位置制御、移動を直接研究する。打撃系武道は、間合、機、保護、入りの弱点を露わにする。ブラジリアン柔術は、持続的な抵抗下で位置制御を検討する強力な方法を提供する。",
 
@@ -1572,12 +1359,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "問題は、どの武道を合気道に加えるべきかではない。他の武道が、合気柔術にも存在する問題について何を学んできたのか、そしてその知見をこの術の研究へ戻したときに何が理解できるのか、ということである。",
 
@@ -1589,17 +1373,13 @@ const sections = [
             class:""
           }
         ]
-
       }
 
     ]
-
   },
 
 
-
   {
-
     jpTitle:
       "創流期の記録",
 
@@ -1608,9 +1388,7 @@ const sections = [
 
     rows:[
 
-
       {
-
         jp:
           "聖都流は、形成の過程を公開して進める。その創流期の記録は、直接受け継いだもの、歴史的に文書化されたもの、他の武道から比較的に学んだもの、自ら再構成したもの、なお実験段階にあるもの、そして最終的に十分安定して伝えるに値すると判断されたものを区別すべきである。",
 
@@ -1622,12 +1400,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "失敗した実験も、その記録に属する。目的は、後から神話を作り上げることではなく、後世の実践者に、この学校がいかに形成されたかについて正確な記録を残すことにある。不確かなものは不確かなものとして、暫定的なものは、稽古が保存するだけの十分な理由を与えるまで暫定的なものとして扱う。",
 
@@ -1639,12 +1414,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "一つの学校は、自らが何を受け継ぎ、何を創り出したのかを知っていなければならない。",
 
@@ -1656,17 +1428,13 @@ const sections = [
             class:""
           }
         ]
-
       }
 
     ]
-
   },
 
 
-
   {
-
     jpTitle:
       "武道",
 
@@ -1675,9 +1443,7 @@ const sections = [
 
     rows:[
 
-
       {
-
         jp:
           "技術的な有効性だけが武道の目的ではない。稽古は、規律、節度、勇気、礼、自制、他者への責任も養うべきである。技術が高まるほど、いつ、なぜ、どの程度の力を用いるのかを律する責任も大きくなる。",
 
@@ -1689,12 +1455,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "聖都流はいま創流期にある。われわれの務めは、完成した体系を宣言することではない。慎重に稽古し、誠実に学び、古典合気柔術に保存された原理が、遭遇の始まりから技へといかに続いていくのかを、経験によって確かめることである。",
 
@@ -1706,12 +1469,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "われわれは、受け取ったものを守り、他者から学んだことを明らかにし、自ら再構成したものを明確に区別し、稽古によって十分に理解されたものだけを伝えることを目指す。",
 
@@ -1723,12 +1483,9 @@ const sections = [
             class:""
           }
         ]
-
       },
 
-
       {
-
         jp:
           "形を忠実に学ぶ。遭遇を誠実に学ぶ。",
 
@@ -1740,15 +1497,12 @@ const sections = [
             class:"closing"
           }
         ]
-
       }
 
     ]
-
   }
 
 ];
-
 
 
 /* =========================================================
@@ -1771,10 +1525,8 @@ sections.forEach(
 
 
     if(index === 0) {
-
       sectionElement.id =
         "about";
-
     }
 
 
@@ -1842,10 +1594,8 @@ sections.forEach(
 
 
             if(paragraph.class) {
-
               node.className =
                 paragraph.class;
-
             }
 
 
@@ -1880,24 +1630,28 @@ sections.forEach(
 );
 
 
-
 /* =========================================================
-   AUTOMATIC JAPANESE FOLIO HEIGHT
+   MOBILE FOLIO FITTING ONLY
    ========================================================= */
 
 /*
- * Every folio at a given viewport has the SAME WIDTH.
+ * MOBILE:
  *
- * This function finds the minimum HEIGHT required
- * for the Japanese paragraph to fit inside that width.
+ * Folio width is determined by the left 50% column.
+ * Height is calculated from the actual Japanese paragraph.
  *
- * That means:
  *
- * short paragraph = shorter folio
- * long paragraph  = taller folio
+ * TABLET / DESKTOP:
  *
- * but WIDTH never changes from paragraph to paragraph.
+ * CSS takes over completely.
+ *
+ * Every card is:
+ *
+ * 17rem × 25rem
+ *
+ * and this script removes any mobile inline height.
  */
+
 
 function folioFits(card) {
 
@@ -1912,21 +1666,14 @@ function folioFits(card) {
 }
 
 
+function fitMobileFolio(card) {
 
-function fitFolio(card) {
+  let low =
+    220;
 
-  /*
-   * Start with a reasonable minimum.
-   */
+  let high =
+    320;
 
-  let low = 220;
-
-  let high = 320;
-
-
-  /*
-   * Find a height that definitely fits.
-   */
 
   card.style.height =
     `${high}px`;
@@ -1945,11 +1692,6 @@ function fitFolio(card) {
 
   }
 
-
-  /*
-   * Binary-search between the minimum
-   * and known fitting height.
-   */
 
   while(
     low < high
@@ -1984,11 +1726,6 @@ function fitFolio(card) {
   }
 
 
-  /*
-   * A little breathing room
-   * after the final Japanese character.
-   */
-
   const fontSize =
     parseFloat(
       getComputedStyle(card)
@@ -2004,30 +1741,66 @@ function fitFolio(card) {
 
 
   card.style.height =
-    `${Math.ceil(high + breathingRoom)}px`;
+    `${Math.ceil(
+      high + breathingRoom
+    )}px`;
 
 }
 
 
-
-/* =========================================================
-   LAYOUT ALL FOLIOS
-   ========================================================= */
-
 function layoutFolios() {
 
-  document
-    .querySelectorAll(".jp-card")
-    .forEach(
+  const cards =
+    document.querySelectorAll(
+      ".jp-card"
+    );
+
+
+  /*
+   * TABLET / DESKTOP
+   */
+
+  if(
+    window.innerWidth >= 760
+  ) {
+
+    cards.forEach(
       card => {
 
-        fitFolio(card);
+        /*
+         * Remove the mobile inline height.
+         *
+         * CSS then supplies:
+         * height:25rem !important
+         */
+
+        card.style.height =
+          "";
 
       }
     );
 
-}
 
+    return;
+
+  }
+
+
+  /*
+   * MOBILE
+   */
+
+  cards.forEach(
+    card => {
+
+      fitMobileFolio(
+        card
+      );
+
+    }
+  );
+
+}
 
 
 /* =========================================================
@@ -2044,7 +1817,9 @@ function debounce(
 
   return function() {
 
-    clearTimeout(timer);
+    clearTimeout(
+      timer
+    );
 
 
     timer =
@@ -2058,13 +1833,9 @@ function debounce(
 }
 
 
-
-/*
- * Wait until fonts are actually loaded.
- *
- * Japanese dimensions can change slightly
- * after the Mincho font resolves.
- */
+/* =========================================================
+   INITIAL LAYOUT
+   ========================================================= */
 
 if(
   document.fonts
@@ -2094,12 +1865,9 @@ else {
 }
 
 
-
-/*
- * Recalculate if the device rotates,
- * browser width changes,
- * or tablet enters split-screen.
- */
+/* =========================================================
+   RESPONSIVE RECALCULATION
+   ========================================================= */
 
 window.addEventListener(
   "resize",
