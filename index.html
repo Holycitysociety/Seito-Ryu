@@ -1,1447 +1,721 @@
 <!doctype html>
-
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-
-<meta
-
-  name="viewport"
-
-  content="width=device-width, initial-scale=1, viewport-fit=cover"
-
->
-
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Seitō-ryū Aiki-Jūjutsu</title>
-
-<meta
-
-  name="description"
-
-  content="Seitō-ryū Aiki-Jūjutsu"
-
->
+<meta name="description" content="Seitō-ryū Aiki-Jūjutsu">
 
 <style>
-
 :root{
-
-  /* Slightly richer / more saturated paper so it doesn’t white out */
-
   --paper:#e8d7c7;
-
   --folio:#f2e7db;
-
   --ink:#171411;
-
   --muted:#6b645d;
-
   --shu:#b02a20;
 
   --header-h:58px;
-
   --reader-max:940px;
 
   --jp-size:16.5px;
-
   --jp-leading:1.68;
 
   --en-size:18.2px;
-
   --en-leading:1.44;
 
   --pair-gap:14px;
-
   --folio-pad-x:12px;
-
   --folio-pad-y:18px;
-
   --paragraph-gap:30px;
-
   --section-pad-x:18px;
 
-  /* =======================================================
-
-     HERO — MOBILE
-
-     ======================================================= */
-
-  --hero-pad-top:34px;
-
+  --hero-pad-top:18px;
   --hero-pad-bottom:38px;
-
   --hero-poster-max:640px;
 
-  --hero-mon-w:min(84vw,360px);
+  --hero-crest-h:360px;
+  --hero-mon-w:min(84vw,420px);
+  --hero-mon-y:-18px;
+  --hero-wordmark-lift:-54px;
 
-  --hero-wordmark-lift:-78px;
+  --hero-side-size:20px;
+  --hero-side-opacity:.52;
+  --hero-side-track:.18em;
+  --hero-side-gap:18px;
 
-  --hero-title-size:
-
-    clamp(36.8px,8.96vw,60.8px);
-
-  --hero-title-line:1.02;
-
+  --hero-title-size:clamp(34px,8.1vw,56px);
+  --hero-title-line:1.03;
   --hero-title-track:.02em;
 
   --hero-rule-w:88px;
-
   --hero-rule-h:2px;
-
   --hero-rule-gap-top:10px;
-
   --hero-rule-gap-bottom:12px;
 
-  --hero-romaji-size:
-
-    clamp(15.2px,4.08vw,24.8px);
-
-  --hero-romaji-line:1.15;
-
-  --hero-romaji-track:.12em;
+  --hero-romaji-size:clamp(14.8px,3.8vw,24px);
+  --hero-romaji-line:1.16;
+  --hero-romaji-track:.18em;
 
   --hero-mark-gap-top:24px;
-
-  --hero-mark-gap-bottom:32px;
-
+  --hero-mark-gap-bottom:28px;
   --hero-mark-size:32px;
 
-  --hero-soryuki-jp:
-
-    clamp(14.4px,4.64vw,27.2px);
-
-  --hero-soryuki-sub:
-
-    clamp(12.8px,3.92vw,22.4px);
-
-  --hero-place-size:
-
-    clamp(11.2px,3.52vw,17.6px);
-
+  --hero-soryuki-jp:clamp(14.4px,4.5vw,27px);
+  --hero-soryuki-sub:clamp(12.8px,3.7vw,22px);
+  --hero-place-size:clamp(11.2px,3.2vw,17px);
 }
 
-/* =========================================================
-
-   RESET
-
-   ========================================================= */
-
-*{
-
-  box-sizing:border-box;
-
-}
-
-html{
-
-  scroll-behavior:smooth;
-
-}
+*{ box-sizing:border-box; }
+html{ scroll-behavior:smooth; }
 
 body{
-
   margin:0;
-
   color:var(--ink);
-
   background:var(--paper);
-
   font-family:
-
     "Bodoni 72",
-
     "Bodoni 72 Smallcaps",
-
     "Baskerville",
-
     "Iowan Old Style",
-
     "Times New Roman",
-
     serif;
-
   line-height:1.48;
-
 }
 
 img{
-
   display:block;
-
   max-width:100%;
-
 }
 
-main{
+main{ overflow:hidden; }
 
-  overflow:hidden;
-
-}
-
-/* =========================================================
-
-   HEADER — MOBILE
-
-   ========================================================= */
+/* =========================
+   HEADER
+   ========================= */
 
 .site-header{
-
   position:sticky;
-
   top:0;
-
   z-index:100;
 
   height:var(--header-h);
-
   min-height:var(--header-h);
 
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
 
   gap:10px;
 
   padding:
-
     0
-
     14px
-
     0
-
     max(12px,env(safe-area-inset-left));
 
   background:var(--paper);
-
-  border-bottom:
-
-    1px solid rgba(0,0,0,.08);
-
-  box-shadow:
-
-    0 4px 14px rgba(0,0,0,.045);
-
+  border-bottom:1px solid rgba(0,0,0,.08);
+  box-shadow:0 4px 14px rgba(0,0,0,.045);
   overflow:visible;
-
   isolation:isolate;
-
 }
-
-/* =========================================================
-
-   FLOATING CHERRY BLOSSOM
-
-   ========================================================= */
 
 .header-blossom{
-
   position:absolute;
-
   z-index:0;
-
   left:-18px;
-
   bottom:-25px;
-
   width:165px;
-
   height:auto;
-
   max-width:none;
-
   opacity:1;
-
   pointer-events:none;
-
   user-select:none;
-
 }
 
-/* =========================================================
-
-   HEADER IDENTITY
-
-   ========================================================= */
-
 .brand{
-
   position:relative;
-
   z-index:2;
-
   display:flex;
-
   align-items:center;
-
   gap:10px;
-
   min-width:0;
-
   margin-left:56px;
-
   color:inherit;
-
   text-decoration:none;
-
 }
 
 .brand .mon{
-
   width:64px;
-
   height:auto;
-
   flex:0 0 auto;
-
   opacity:1;
-
-  transform:translateX(7px);
-
+  transform:translateX(10px);
 }
 
 .brand-stack{
-
   min-width:0;
-
   line-height:1;
-
   opacity:1;
-
 }
 
 .brand-stack .jp{
-
   display:block;
-
   margin-bottom:5px;
-
   font-family:
-
     "Hiragino Mincho ProN",
-
     "Yu Mincho",
-
     "YuMincho",
-
     "Noto Serif JP",
-
     serif;
-
   font-weight:700;
-
   font-size:20px;
-
   line-height:1;
-
   letter-spacing:.025em;
-
   white-space:nowrap;
-
 }
 
 .brand-stack .romaji{
-
   display:block;
-
   font-size:11.5px;
-
   line-height:1;
-
   letter-spacing:.065em;
-
   white-space:nowrap;
-
 }
 
-/* =========================================================
-
-   MENU
-
-   ========================================================= */
-
 .menu{
-
   position:relative;
-
   z-index:3;
-
   width:40px;
-
   height:40px;
-
   flex:0 0 auto;
-
-  border:
-
-    2px solid var(--shu);
-
+  border:2px solid var(--shu);
   border-radius:2px;
-
   background:var(--paper);
-
   display:flex;
-
   flex-direction:column;
-
   align-items:center;
-
   justify-content:center;
-
   gap:4px;
-
   cursor:pointer;
-
 }
 
 .menu span{
-
   width:20px;
-
   height:3px;
-
   display:block;
-
   background:var(--shu);
-
   border-radius:1px;
-
 }
 
-/* =========================================================
-
-   NARROW PHONE
-
-   ========================================================= */
-
 @media(max-width:390px){
-
   .brand{
-
     margin-left:48px;
-
     gap:8px;
-
   }
 
   .brand .mon{
-
     width:58px;
-
-    transform:translateX(6px);
-
+    transform:translateX(8px);
   }
 
   .brand-stack .jp{
-
     font-size:18px;
-
   }
 
   .brand-stack .romaji{
-
     font-size:10.2px;
-
     letter-spacing:.045em;
-
   }
-
 }
 
-/* =========================================================
-
+/* =========================
    HERO
-
-   ========================================================= */
+   ========================= */
 
 .hero{
-
-  min-height:
-
-    calc(100svh - var(--header-h));
-
+  min-height:calc(100svh - var(--header-h));
   display:grid;
-
-  align-content:center;
-
+  align-content:start;
   justify-items:center;
-
   padding:
-
     var(--hero-pad-top)
-
     18px
-
     var(--hero-pad-bottom);
-
   text-align:center;
-
 }
 
 .hero-poster{
-
-  width:
-
-    min(100%,var(--hero-poster-max));
-
+  width:min(100%,var(--hero-poster-max));
   display:grid;
-
   justify-items:center;
-
   align-content:start;
-
 }
 
-/* =========================================================
-
-   LARGE HERO MON
-
-   ========================================================= */
+.hero-crest-field{
+  position:relative;
+  width:min(100%,680px);
+  min-height:var(--hero-crest-h);
+  display:grid;
+  place-items:center;
+}
 
 .hero-mon{
-
-  width:
-
-    var(--hero-mon-w);
-
+  width:var(--hero-mon-w);
   margin:0;
-
+  position:relative;
+  z-index:2;
+  transform:translateY(var(--hero-mon-y));
 }
 
-/* =========================================================
+.hero-side-label{
+  position:absolute;
+  z-index:1;
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+  writing-mode:vertical-rl;
+  text-orientation:upright;
+  font-size:var(--hero-side-size);
+  line-height:1.08;
+  letter-spacing:var(--hero-side-track);
+  color:rgba(23,20,17,var(--hero-side-opacity));
+  user-select:none;
+  pointer-events:none;
+}
 
-   HERO WORDMARK
+.hero-side-label.left.top{
+  left:10px;
+  top:8px;
+}
 
-   ========================================================= */
+.hero-side-label.left.bottom{
+  left:18px;
+  bottom:14px;
+}
+
+.hero-side-label.right.top{
+  right:10px;
+  top:8px;
+}
+
+.hero-side-label.right.bottom{
+  right:18px;
+  bottom:14px;
+}
 
 .hero-wordmark{
-
   display:grid;
-
   justify-items:center;
-
   width:max-content;
-
   max-width:100%;
-
-  margin-top:
-
-    var(--hero-wordmark-lift);
-
+  margin-top:var(--hero-wordmark-lift);
 }
 
 .hero-title-block{
-
   width:max-content;
-
   max-width:100%;
-
   display:grid;
-
   justify-items:center;
-
 }
 
 .hero h1{
-
   --match-extra:0px;
-
   margin:0;
-
   width:max-content;
-
   max-width:100%;
-
   font-family:
-
     "Hiragino Mincho ProN",
-
     "Yu Mincho",
-
     "YuMincho",
-
     "Noto Serif JP",
-
     serif;
-
-  font-size:
-
-    var(--hero-title-size);
-
-  line-height:
-
-    var(--hero-title-line);
-
-  letter-spacing:
-
-    calc(
-
-      var(--hero-title-track)
-
-      +
-
-      var(--match-extra)
-
-    );
-
+  font-size:var(--hero-title-size);
+  line-height:var(--hero-title-line);
+  letter-spacing:calc(var(--hero-title-track) + var(--match-extra));
   white-space:nowrap;
-
 }
 
 .hero-rule{
-
-  width:
-
-    var(--hero-rule-w);
-
-  height:
-
-    var(--hero-rule-h);
-
-  margin-top:
-
-    var(--hero-rule-gap-top);
-
-  margin-bottom:
-
-    var(--hero-rule-gap-bottom);
-
-  background:
-
-    rgba(176,42,32,.72);
-
+  width:var(--hero-rule-w);
+  height:var(--hero-rule-h);
+  margin-top:var(--hero-rule-gap-top);
+  margin-bottom:var(--hero-rule-gap-bottom);
+  background:rgba(176,42,32,.72);
 }
 
 .hero .romaji{
-
   --match-extra:0px;
-
   width:max-content;
-
   max-width:100%;
-
-  font-size:
-
-    var(--hero-romaji-size);
-
-  line-height:
-
-    var(--hero-romaji-line);
-
-  letter-spacing:
-
-    calc(
-
-      var(--hero-romaji-track)
-
-      +
-
-      var(--match-extra)
-
-    );
-
+  font-size:var(--hero-romaji-size);
+  line-height:var(--hero-romaji-line);
+  letter-spacing:calc(var(--hero-romaji-track) + var(--match-extra));
   white-space:nowrap;
-
 }
 
-/* =========================================================
-
-   WORDMARK MON
-
-   ========================================================= */
-
 .hero-mark{
-
   margin:
-
     var(--hero-mark-gap-top)
-
     auto
-
     var(--hero-mark-gap-bottom);
-
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
 }
 
 .hero-mark img{
-
-  width:
-
-    var(--hero-mark-size);
-
+  width:var(--hero-mark-size);
   height:auto;
-
 }
-
-/* =========================================================
-
-   SORYU-KI
-
-   ========================================================= */
 
 .soryuki{
-
   line-height:1.24;
-
   margin-bottom:20px;
-
 }
 
-.soryuki span{
-
-  display:block;
-
-}
+.soryuki span{ display:block; }
 
 .soryuki .jp{
-
   font-family:
-
     "Hiragino Mincho ProN",
-
     "Yu Mincho",
-
     "YuMincho",
-
     "Noto Serif JP",
-
     serif;
-
-  font-size:
-
-    var(--hero-soryuki-jp);
-
+  font-size:var(--hero-soryuki-jp);
 }
 
 .soryuki .rom,
-
 .soryuki .en{
-
-  font-size:
-
-    var(--hero-soryuki-sub);
-
+  font-size:var(--hero-soryuki-sub);
 }
 
 .soryuki .place{
-
   margin-top:10px;
-
-  font-size:
-
-    var(--hero-place-size);
-
+  font-size:var(--hero-place-size);
 }
 
-/* =========================================================
-
+/* =========================
    SECTIONS
-
-   ========================================================= */
+   ========================= */
 
 .section{
-
-  width:
-
-    min(100%,var(--reader-max));
-
-  margin:
-
-    0 auto;
-
-  padding:
-
-    48px
-
-    var(--section-pad-x)
-
-    72px;
-
+  width:min(100%,var(--reader-max));
+  margin:0 auto;
+  padding:48px var(--section-pad-x) 72px;
 }
 
 .section-title{
-
   text-align:center;
-
   margin-bottom:32px;
-
 }
 
 .section-title .kicker{
-
   font-family:
-
     "Hiragino Mincho ProN",
-
     "Yu Mincho",
-
     "YuMincho",
-
     "Noto Serif JP",
-
     serif;
-
-  font-size:
-
-    clamp(19px,5vw,29px);
-
+  font-size:clamp(19px,5vw,29px);
   font-weight:700;
-
   line-height:1.15;
-
 }
 
 .section-title .sub{
-
   margin-top:8px;
-
-  font-size:
-
-    clamp(13px,3.8vw,17px);
-
+  font-size:clamp(13px,3.8vw,17px);
   font-weight:600;
-
   letter-spacing:.08em;
-
 }
 
-/* =========================================================
-
-   SECTION MON
-
-   ========================================================= */
-
 .section-mark{
-
-  margin:
-
-    0
-
-    auto
-
-    28px;
-
+  margin:0 auto 28px;
   display:flex;
-
   align-items:center;
-
   justify-content:center;
-
 }
 
 .section-mark img{
-
   width:24px;
-
   height:auto;
-
 }
-
-/* =========================================================
-
-   CONTINUOUS BILINGUAL FIELD
-
-   ========================================================= */
 
 .section-body{
-
   position:relative;
-
   width:100%;
-
   display:grid;
-
-  grid-template-columns:
-
-    minmax(0,1fr)
-
-    minmax(0,1fr);
-
-  column-gap:
-
-    var(--pair-gap);
-
-  row-gap:
-
-    var(--paragraph-gap);
-
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  column-gap:var(--pair-gap);
+  row-gap:var(--paragraph-gap);
   align-items:start;
-
-  padding-top:
-
-    var(--folio-pad-y);
-
-  padding-bottom:
-
-    var(--folio-pad-y);
-
+  padding-top:var(--folio-pad-y);
+  padding-bottom:var(--folio-pad-y);
 }
-
-/* =========================================================
-
-   CONTINUOUS JAPANESE FOLIO
-
-   ========================================================= */
 
 .section-body::before{
-
   content:"";
-
   position:absolute;
-
   z-index:0;
-
   top:0;
-
   bottom:0;
-
-  right:
-
-    calc(
-
-      50% +
-
-      (var(--pair-gap) / 2)
-
-    );
-
-  width:
-
-    min(
-
-      17rem,
-
-      calc(
-
-        (100% - var(--pair-gap)) / 2
-
-      )
-
-    );
-
+  right:calc(50% + (var(--pair-gap) / 2));
+  width:min(17rem, calc((100% - var(--pair-gap)) / 2));
   background:
-
-    linear-gradient(
-
-      145deg,
-
-      rgba(255,255,255,.34),
-
-      transparent 36%
-
-    ),
-
-    repeating-linear-gradient(
-
-      0deg,
-
-      rgba(85,65,45,.012) 0 1px,
-
-      transparent 1px 4px
-
-    ),
-
+    linear-gradient(145deg, rgba(255,255,255,.34), transparent 36%),
+    repeating-linear-gradient(0deg, rgba(85,65,45,.012) 0 1px, transparent 1px 4px),
     var(--folio);
-
-  border:
-
-    1px solid rgba(72,52,37,.13);
-
+  border:1px solid rgba(72,52,37,.13);
   border-radius:2px;
-
   box-shadow:
-
     inset 0 1px 0 rgba(255,255,255,.50),
-
     0 1px 2px rgba(74,45,25,.055),
-
     0 8px 20px rgba(74,45,25,.085);
-
   pointer-events:none;
-
 }
-
-/* =========================================================
-
-   JAPANESE TEXT
-
-   ========================================================= */
 
 .jp-paragraph{
-
   position:relative;
-
   z-index:1;
-
   grid-column:1;
-
-  width:
-
-    min(17rem,100%);
-
+  width:min(17rem,100%);
   justify-self:end;
-
-  padding-left:
-
-    var(--folio-pad-x);
-
-  padding-right:
-
-    var(--folio-pad-x);
-
+  padding-left:var(--folio-pad-x);
+  padding-right:var(--folio-pad-x);
   writing-mode:vertical-rl;
-
   text-orientation:mixed;
-
   overflow:hidden;
-
   font-family:
-
     "Hiragino Mincho ProN",
-
     "Yu Mincho",
-
     "YuMincho",
-
     "Noto Serif JP",
-
     serif;
-
-  font-size:
-
-    var(--jp-size);
-
-  line-height:
-
-    var(--jp-leading);
-
+  font-size:var(--jp-size);
+  line-height:var(--jp-leading);
   letter-spacing:.14em;
-
 }
 
-/* =========================================================
-
-   ENGLISH TEXT
-
-   ========================================================= */
-
 .en-group{
-
   position:relative;
-
   z-index:1;
-
   grid-column:2;
-
   min-width:0;
-
-  font-size:
-
-    var(--en-size);
-
+  font-size:var(--en-size);
   font-weight:500;
-
-  line-height:
-
-    var(--en-leading);
-
+  line-height:var(--en-leading);
   letter-spacing:.015em;
-
   font-kerning:normal;
-
   overflow-wrap:anywhere;
-
 }
 
 .en-group p{
-
-  margin:
-
-    0
-
-    0
-
-    1.38em;
-
+  margin:0 0 1.38em;
   text-align:left;
-
   hyphens:auto;
-
   -webkit-hyphens:auto;
-
   word-spacing:.08em;
-
 }
 
 .en-group p:last-child{
-
   margin-bottom:0;
-
 }
 
 .en-group .sequence{
-
   font-size:.92em;
-
   line-height:1.75;
-
   letter-spacing:.05em;
-
   text-align:left;
-
 }
 
 .en-group .closing{
-
   font-size:1.34em;
-
   line-height:1.25;
-
   text-align:left;
-
 }
 
-/* =========================================================
-
+/* =========================
    TABLET / DESKTOP
-
-   ========================================================= */
+   ========================= */
 
 @media(min-width:760px){
-
   :root{
-
-    /* desktop header gets more body */
-
     --header-h:82px;
-
     --reader-max:68rem;
 
     --jp-size:18px;
-
     --jp-leading:1.72;
 
     --en-size:20px;
-
     --en-leading:1.62;
-
     --en-measure:25ch;
 
     --pair-gap:30px;
-
     --folio-pad-x:18px;
-
     --folio-pad-y:20px;
-
     --paragraph-gap:36px;
-
     --section-pad-x:38px;
 
-    /* HERO */
-
-    --hero-pad-top:48px;
-
+    --hero-pad-top:14px;
     --hero-pad-bottom:44px;
-
     --hero-poster-max:1000px;
 
-    --hero-mon-w:
+    --hero-crest-h:440px;
+    --hero-mon-w:min(44vw,560px);
+    --hero-mon-y:-26px;
+    --hero-wordmark-lift:-88px;
 
-      min(45vw,525.6px);
+    --hero-side-size:30px;
+    --hero-side-gap:28px;
 
-    --hero-wordmark-lift:-108px;
-
-    --hero-title-size:
-
-      clamp(54.4px,4.8vw,89.6px);
-
+    --hero-title-size:clamp(54px,4.8vw,90px);
     --hero-title-line:1;
-
     --hero-title-track:.022em;
 
     --hero-rule-w:130px;
-
     --hero-rule-h:2px;
-
     --hero-rule-gap-top:12px;
-
     --hero-rule-gap-bottom:14px;
 
-    --hero-romaji-size:
-
-      clamp(21.6px,1.8vw,32px);
-
+    --hero-romaji-size:clamp(22px,1.8vw,32px);
     --hero-romaji-line:1.12;
-
     --hero-romaji-track:.14em;
 
     --hero-mark-gap-top:28px;
-
     --hero-mark-gap-bottom:36px;
-
     --hero-mark-size:36px;
 
-    --hero-soryuki-jp:
-
-      clamp(19.2px,2.24vw,33.6px);
-
-    --hero-soryuki-sub:
-
-      clamp(14.4px,1.68vw,24.8px);
-
-    --hero-place-size:
-
-      clamp(12.8px,1.28vw,19.2px);
-
+    --hero-soryuki-jp:clamp(19px,2.24vw,34px);
+    --hero-soryuki-sub:clamp(14px,1.68vw,25px);
+    --hero-place-size:clamp(13px,1.28vw,19px);
   }
 
   .header-blossom{
-
-    /*
-
-     * Slightly smaller and tucked higher so the header brand
-
-     * only lightly overlaps it.
-
-     */
-
     left:-16px;
-
     bottom:-62px;
-
     width:360px;
-
     height:auto;
-
     opacity:1;
-
   }
 
   .brand{
-
-    /*
-
-     * Push the brand farther right so the mon only overlaps
-
-     * the blossom image a little.
-
-     */
-
     margin-left:205px;
-
     gap:14px;
-
   }
 
   .brand .mon{
-
-    /*
-
-     * Slightly smaller on desktop so header feels less cramped.
-
-     */
-
     width:88px;
-
     height:auto;
-
     opacity:1;
-
-    transform:translateX(0);
-
-  }
-
-  .brand-stack{
-
-    opacity:1;
-
+    transform:translateX(10px);
   }
 
   .brand-stack .jp{
-
-    font-size:
-
-      clamp(24px,2.25vw,36px);
-
+    font-size:clamp(24px,2.25vw,36px);
     line-height:1;
-
     margin-bottom:6px;
-
     white-space:nowrap;
-
   }
 
   .brand-stack .romaji{
-
-    font-size:
-
-      clamp(14px,1.05vw,18px);
-
+    font-size:clamp(14px,1.05vw,18px);
     line-height:1;
-
     letter-spacing:.085em;
-
     white-space:nowrap;
-
   }
 
   .menu{
-
     width:44px;
-
     height:44px;
-
   }
 
   .menu span{
-
     width:22px;
-
   }
 
-  .section-mark{
-
-    margin-bottom:32px;
-
+  .hero-crest-field{
+    width:min(100%,900px);
   }
 
-  .section-mark img{
-
-    width:30px;
-
+  .hero-side-label.left.top{
+    left:62px;
+    top:16px;
   }
 
-  .jp-paragraph{
-
-    width:17rem;
-
+  .hero-side-label.left.bottom{
+    left:86px;
+    bottom:22px;
   }
+
+  .hero-side-label.right.top{
+    right:62px;
+    top:16px;
+  }
+
+  .hero-side-label.right.bottom{
+    right:86px;
+    bottom:22px;
+  }
+
+  .section-mark{ margin-bottom:32px; }
+  .section-mark img{ width:30px; }
+  .jp-paragraph{ width:17rem; }
 
   .en-group{
-
-    width:
-
-      min(100%,var(--en-measure));
-
+    width:min(100%,var(--en-measure));
     justify-self:start;
-
-    font-size:
-
-      var(--en-size);
-
-    line-height:
-
-      var(--en-leading);
-
+    font-size:var(--en-size);
+    line-height:var(--en-leading);
   }
-
 }
 
-/* =========================================================
-
+/* =========================
    FOOTER
-
-   ========================================================= */
+   ========================= */
 
 .colophon{
-
   text-align:center;
-
-  padding:
-
-    28px
-
-    16px
-
-    78px;
-
+  padding:28px 16px 78px;
   color:var(--muted);
-
 }
 
 .colophon .mon{
-
   width:82px;
-
-  margin:
-
-    0
-
-    auto
-
-    10px;
-
+  margin:0 auto 10px;
 }
 
 .colophon .jp{
-
   color:var(--ink);
-
   font-family:
-
     "Hiragino Mincho ProN",
-
     "Yu Mincho",
-
     "YuMincho",
-
     "Noto Serif JP",
-
     serif;
-
   font-size:23px;
-
   font-weight:700;
-
 }
 
 .colophon .romaji{
-
   color:var(--ink);
-
   margin-top:6px;
-
   font-size:12px;
-
   letter-spacing:.11em;
-
 }
 
 .colophon .meta{
-
   margin-top:12px;
-
   font-size:13px;
-
 }
-
-/* =========================================================
-
-   REDUCED MOTION
-
-   ========================================================= */
 
 @media(prefers-reduced-motion:reduce){
-
-  html{
-
-    scroll-behavior:auto;
-
-  }
-
+  html{ scroll-behavior:auto; }
 }
-
 </style>
-
 </head>
 
 <body>
@@ -1449,81 +723,35 @@ main{
 <header class="site-header">
 
   <img
-
     class="header-blossom"
-
     src="/assets/cherry_blossom_header.png"
-
     alt=""
-
     aria-hidden="true"
-
   >
 
-  <a
-
-    class="brand"
-
-    href="#top"
-
-  >
+  <a class="brand" href="#top">
 
     <img
-
       class="mon"
-
       src="/assets/seito-mon.png"
-
       alt="Seitō-ryū mon"
-
     >
 
     <div class="brand-stack">
-
-      <span class="jp">
-
-        聖都流合気柔術
-
-      </span>
-
-      <span class="romaji">
-
-        SEITŌ-RYŪ AIKI-JŪJUTSU
-
-      </span>
-
+      <span class="jp">聖都流合気柔術</span>
+      <span class="romaji">SEITŌ-RYŪ AIKI-JŪJUTSU</span>
     </div>
 
   </a>
 
   <button
-
     class="menu"
-
     aria-label="Go to About"
-
-    onclick="
-
-      document
-
-        .getElementById('about')
-
-        .scrollIntoView({
-
-          behavior:'smooth'
-
-        })
-
-    "
-
+    onclick="document.getElementById('about').scrollIntoView({ behavior:'smooth' })"
   >
-
     <span></span>
-
     <span></span>
-
     <span></span>
-
   </button>
 
 </header>
@@ -1534,94 +762,47 @@ main{
 
   <div class="hero-poster">
 
-    <img
+    <div class="hero-crest-field">
 
-      class="hero-mon"
+      <div class="hero-side-label left top" aria-hidden="true">合気道</div>
+      <div class="hero-side-label left bottom" aria-hidden="true">柔道</div>
 
-      src="/assets/seito-mon.png"
+      <img
+        class="hero-mon"
+        src="/assets/seito-mon.png"
+        alt="Seitō-ryū mon"
+      >
 
-      alt="Seitō-ryū mon"
+      <div class="hero-side-label right top" aria-hidden="true">柔術</div>
+      <div class="hero-side-label right bottom" aria-hidden="true">礼法</div>
 
-    >
+    </div>
 
     <div class="hero-wordmark">
 
-      <div
+      <div class="hero-title-block" data-title-equalizer>
 
-        class="hero-title-block"
+        <h1 data-title-jp>聖都流合気柔術</h1>
 
-        data-title-equalizer
+        <div class="hero-rule" aria-hidden="true"></div>
 
-      >
-
-        <h1 data-title-jp>
-
-          聖都流合気柔術
-
-        </h1>
-
-        <div
-
-          class="hero-rule"
-
-          aria-hidden="true"
-
-        ></div>
-
-        <div
-
-          class="romaji"
-
-          data-title-romaji
-
-        >
-
+        <div class="romaji" data-title-romaji>
           SEITŌ-RYŪ AIKI-JŪJUTSU
-
         </div>
 
       </div>
 
       <div class="hero-mark">
-
-        <img
-
-          src="/assets/seito-mon.png"
-
-          alt=""
-
-        >
-
+        <img src="/assets/seito-mon.png" alt="">
       </div>
 
     </div>
 
     <div class="soryuki">
-
-      <span class="jp">
-
-        創流期
-
-      </span>
-
-      <span class="rom">
-
-        Sōryū-ki
-
-      </span>
-
-      <span class="en">
-
-        Formative Period
-
-      </span>
-
-      <span class="place">
-
-        Charleston, South Carolina · 2026
-
-      </span>
-
+      <span class="jp">創流期</span>
+      <span class="rom">Sōryū-ki</span>
+      <span class="en">Formative Period</span>
+      <span class="place">Charleston, South Carolina · 2026</span>
     </div>
 
   </div>
@@ -1632,38 +813,17 @@ main{
 
 <footer class="colophon">
 
-  <img
+  <img class="mon" src="/assets/seito-mon.png" alt="">
 
-    class="mon"
-
-    src="/assets/seito-mon.png"
-
-    alt=""
-
-  >
-
-  <div class="jp">
-
-    聖都流合気柔術
-
-  </div>
-
-  <div class="romaji">
-
-    SEITŌ-RYŪ AIKI-JŪJUTSU
-
-  </div>
+  <div class="jp">聖都流合気柔術</div>
+  <div class="romaji">SEITŌ-RYŪ AIKI-JŪJUTSU</div>
 
   <div class="meta">
-
     創流期 — Sōryū-ki — Formative Period
-
   </div>
 
   <div class="meta">
-
     Charleston, South Carolina · 2026
-
   </div>
 
 </footer>
@@ -1671,1659 +831,482 @@ main{
 </main>
 
 <script>
-
-/* =========================================================
-
-   CONTENT
-
-   ========================================================= */
-
 const sections = [
-
   {
-
     jpTitle:"概要",
-
     enTitle:"About",
-
     rows:[
-
       {
-
-        jp:
-
-          "聖都流は、二〇二六年、サウスカロライナ州チャールストンにおいて、合気柔術の研究と稽古のために設立された、形成途上にある武道校である。本校はホーリー・シティ・ソサエティの後援のもとに置かれ、その名「聖都」は “Holy City” に由来する。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Seitō-ryū is a budō school in formation, established in Charleston, South Carolina, in 2026 for the study and practice of Aiki Jujutsu. The school is established under the patronage of Holy City Society, from which the name Seitō — 聖都, “Holy City” — is taken.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"聖都流は、二〇二六年、サウスカロライナ州チャールストンにおいて、合気柔術の研究と稽古のために設立された、形成途上にある武道校である。本校はホーリー・シティ・ソサエティの後援のもとに置かれ、その名「聖都」は “Holy City” に由来する。",
+        en:[{
+          text:"Seitō-ryū is a budō school in formation, established in Charleston, South Carolina, in 2026 for the study and practice of Aiki Jujutsu. The school is established under the patronage of Holy City Society, from which the name Seitō — 聖都, “Holy City” — is taken.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "その歩みは、先行する伝統と諸師への敬意から始まる。古典柔術諸流、嘉納治五郎と講道館、武田惣角と大東流、植芝盛平と合気武道を主要な学びの源とする。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Its work begins with respect for the traditions and teachers that came before us: the classical schools of jūjutsu; Kanō Jigorō and the Kōdōkan; Takeda Sōkaku and Daitō-ryū; and Ueshiba Morihei and Aiki-budō.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"その歩みは、先行する伝統と諸師への敬意から始まる。古典柔術諸流、嘉納治五郎と講道館、武田惣角と大東流、植芝盛平と合気武道を主要な学びの源とする。",
+        en:[{
+          text:"Its work begins with respect for the traditions and teachers that came before us: the classical schools of jūjutsu; Kanō Jigorō and the Kōdōkan; Takeda Sōkaku and Daitō-ryū; and Ueshiba Morihei and Aiki-budō.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "創流期の研究では、後代の教師・研究者である富木謙治、望月稔、斉藤守弘、西尾昭二、ロイ・スエナカ、カツミ・ニイクラ、白川竜次らの仕事からも学ぶ。彼らの仕事は、その時々の問いに照らして研究資料として扱うものであり、実際に存在しない系譜を称するものではない。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Our formative study also draws upon the work of later teachers and investigators including Tomiki Kenji, Mochizuki Minoru, Saitō Morihiro, Nishio Shōji, Roy Suenaka, Katsumi Niikura, and Ryuji Shirakawa. Their work is approached as a source of study according to the questions before us, and not as a claim of lineage where no such lineage exists.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"創流期の研究では、後代の教師・研究者である富木謙治、望月稔、斉藤守弘、西尾昭二、ロイ・スエナカ、カツミ・ニイクラ、白川竜次らの仕事からも学ぶ。彼らの仕事は、その時々の問いに照らして研究資料として扱うものであり、実際に存在しない系譜を称するものではない。",
+        en:[{
+          text:"Our formative study also draws upon the work of later teachers and investigators including Tomiki Kenji, Mochizuki Minoru, Saitō Morihiro, Nishio Shōji, Roy Suenaka, Katsumi Niikura, and Ryuji Shirakawa. Their work is approached as a source of study according to the questions before us, and not as a claim of lineage where no such lineage exists.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "聖都流は、継承された流派ではなく、形成途上にある武道校として率直に提示される。その目的は、受け取ったものを忠実に学び、伝承と再構成を明確に区別し、稽古を通じて探究を続けることにある。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Seitō-ryū is presented openly as a school in formation rather than an inherited ryūha. Its purpose is to study what has been received faithfully, to distinguish inheritance from reconstruction, and to continue the investigation through practice.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"聖都流は、継承された流派ではなく、形成途上にある武道校として率直に提示される。その目的は、受け取ったものを忠実に学び、伝承と再構成を明確に区別し、稽古を通じて探究を続けることにある。",
+        en:[{
+          text:"Seitō-ryū is presented openly as a school in formation rather than an inherited ryūha. Its purpose is to study what has been received faithfully, to distinguish inheritance from reconstruction, and to continue the investigation through practice.",
+          class:""
+        }]
       }
-
     ]
-
   },
-
   {
-
-    jpTitle:
-
-      "古典形と失われた前段",
-
-    enTitle:
-
-      "Classical Form and the Missing Beginning",
-
+    jpTitle:"古典形と失われた前段",
+    enTitle:"Classical Form and the Missing Beginning",
     rows:[
-
       {
-
-        jp:
-
-          "古典の形は、われわれの出発点である。攻撃を定め、稽古相手の間に特定の関係を設定することによって、形は姿勢、動き、つながり、崩し、技、制御、受け身を精密に学ぶことを可能にする。このように状況を整えることは、形稽古の大きな長所の一つである。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Classical kata remains our starting point. By prescribing an attack and establishing a particular relationship between training partners, kata allows posture, movement, connection, kuzushi, waza, control, and ukemi to be studied with precision. This ordering of circumstances is one of its great strengths.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"古典の形は、われわれの出発点である。攻撃を定め、稽古相手の間に特定の関係を設定することによって、形は姿勢、動き、つながり、崩し、技、制御、受け身を精密に学ぶことを可能にする。このように状況を整えることは、形稽古の大きな長所の一つである。",
+        en:[{
+          text:"Classical kata remains our starting point. By prescribing an attack and establishing a particular relationship between training partners, kata allows posture, movement, connection, kuzushi, waza, control, and ukemi to be studied with precision. This ordering of circumstances is one of its great strengths.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "しかし、その同じ条件は研究方法そのものに属している。攻撃は既知であり、距離は整えられ、役割は定められ、技術的な関係はあらかじめ与えられている場合がある。抵抗する相手は、それらを提供する義務を負わない。手を引き、再び打ち、方向を変え、身体をつかみ、接触に抵抗し、あるいは打撃と組みを組み合わせるかもしれない。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Those same conditions, however, belong to the method of study. The attack may be known, the distance arranged, the roles established, and the technical relationship supplied in advance. An unwilling opponent is under no obligation to provide them. He may withdraw the hand, strike again, change direction, seize the body, resist contact, or combine striking and grappling.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"しかし、その同じ条件は研究方法そのものに属している。攻撃は既知であり、距離は整えられ、役割は定められ、技術的な関係はあらかじめ与えられている場合がある。抵抗する相手は、それらを提供する義務を負わない。手を引き、再び打ち、方向を変え、身体をつかみ、接触に抵抗し、あるいは打撃と組みを組み合わせるかもしれない。",
+        en:[{
+          text:"Those same conditions, however, belong to the method of study. The attack may be known, the distance arranged, the roles established, and the technical relationship supplied in advance. An unwilling opponent is under no obligation to provide them. He may withdraw the hand, strike again, change direction, seize the body, resist contact, or combine striking and grappling.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "ゆえに聖都流は、遭遇の開始局面に特別な注意を払う。古典合気柔術に必要な条件があらかじめ与えられていないとき、それらはいかにして生じるのか。この始まりを、技のための単なる準備とはみなさない。それ自体が武の問題の一部である。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Seitō-ryū therefore gives particular attention to the opening of the encounter. The question is how the conditions required by classical Aiki Jujutsu arise when they have not been supplied beforehand. The beginning is not treated merely as preparation for the technique. It is part of the martial problem itself.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"ゆえに聖都流は、遭遇の開始局面に特別な注意を払う。古典合気柔術に必要な条件があらかじめ与えられていないとき、それらはいかにして生じるのか。この始まりを、技のための単なる準備とはみなさない。それ自体が武の問題の一部である。",
+        en:[{
+          text:"Seitō-ryū therefore gives particular attention to the opening of the encounter. The question is how the conditions required by classical Aiki Jujutsu arise when they have not been supplied beforehand. The beginning is not treated merely as preparation for the technique. It is part of the martial problem itself.",
+          class:""
+        }]
       }
-
     ]
-
   },
-
   {
-
-    jpTitle:
-
-      "遭遇の全体",
-
-    enTitle:
-
-      "The Whole Encounter",
-
+    jpTitle:"遭遇の全体",
+    enTitle:"The Whole Encounter",
     rows:[
-
       {
-
-        jp:
-
-          "聖都流は、遭遇を一つの連続した武の出来事として検討する。",
-
+        jp:"聖都流は、遭遇を一つの連続した武の出来事として検討する。",
         en:[
-
           {
-
-            text:
-
-              "Seitō-ryū examines the encounter as one continuous martial event:",
-
+            text:"Seitō-ryū examines the encounter as one continuous martial event:",
             class:""
-
           },
-
           {
-
-            text:
-
-              "KAMAE → MA-AI → ATTACK → TAI-SABAKI → TSUKURI → KUZUSHI → WAZA → [OSAE] → ZANSHIN",
-
+            text:"KAMAE → MA-AI → ATTACK → TAI-SABAKI → TSUKURI → KUZUSHI → WAZA → [OSAE] → ZANSHIN",
             class:"sequence"
-
           }
-
         ]
-
       },
-
       {
-
-        jp:
-
-          "これは研究のための枠組みであり、武田惣角や植芝盛平が、これらの見出しのもとに固定された歴史的順序を教えたと主張するものではない。実際には、各要素は重なり合い、ほとんど同時に起こることもある。",
-
-        en:[
-
-          {
-
-            text:
-
-              "This is a framework for study, not a claim that Takeda Sōkaku or Ueshiba Morihei taught a fixed historical sequence under these headings. In practice, its elements overlap and may occur almost simultaneously.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"これは研究のための枠組みであり、武田惣角や植芝盛平が、これらの見出しのもとに固定された歴史的順序を教えたと主張するものではない。実際には、各要素は重なり合い、ほとんど同時に起こることもある。",
+        en:[{
+          text:"This is a framework for study, not a claim that Takeda Sōkaku or Ueshiba Morihei taught a fixed historical sequence under these headings. In practice, its elements overlap and may occur almost simultaneously.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "構えは即応の準備を整える。間合は距離、機、機会、危険を扱う。攻撃は直面すべき問題を生み出す。体捌きはその攻撃との関係において身体を再編成する。作りは、用いることのできる構造的関係を成立させる。崩しは、相手が構造上の自由を保つ能力を損なう。技はそれらの条件から生じる。必要であれば抑えが制御を維持し、残心は見かけ上の完了後にも残る。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Kamae establishes readiness. Ma-ai concerns distance, timing, opportunity, and danger. The attack creates the immediate problem. Tai-sabaki reorganizes the body in relation to it. Tsukuri establishes a usable structural relationship. Kuzushi compromises the opponent’s ability to remain structurally free. Waza arises from those conditions. Osae, where necessary, maintains control, and zanshin remains after apparent completion.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"構えは即応の準備を整える。間合は距離、機、機会、危険を扱う。攻撃は直面すべき問題を生み出す。体捌きはその攻撃との関係において身体を再編成する。作りは、用いることのできる構造的関係を成立させる。崩しは、相手が構造上の自由を保つ能力を損なう。技はそれらの条件から生じる。必要であれば抑えが制御を維持し、残心は見かけ上の完了後にも残る。",
+        en:[{
+          text:"Kamae establishes readiness. Ma-ai concerns distance, timing, opportunity, and danger. The attack creates the immediate problem. Tai-sabaki reorganizes the body in relation to it. Tsukuri establishes a usable structural relationship. Kuzushi compromises the opponent’s ability to remain structurally free. Waza arises from those conditions. Osae, where necessary, maintains control, and zanshin remains after apparent completion.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "合気は、この連続の中の一地点に限定されない。入り身、転換、合わせ、結び、当身もまた状況に応じて働く。当身は入りを守り、注意を制し、姿勢を変え、継続する攻撃を中断し、作りや崩しに寄与し、あるいはそれ自体で遭遇を終わらせることがある。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Aiki is not confined to a single point in the sequence. Irimi, tenkan, awase, musubi, and atemi likewise operate according to circumstance. Atemi may protect entry, command attention, alter posture, interrupt continuing attack, contribute to tsukuri or kuzushi, or resolve the encounter in its own right.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"合気は、この連続の中の一地点に限定されない。入り身、転換、合わせ、結び、当身もまた状況に応じて働く。当身は入りを守り、注意を制し、姿勢を変え、継続する攻撃を中断し、作りや崩しに寄与し、あるいはそれ自体で遭遇を終わらせることがある。",
+        en:[{
+          text:"Aiki is not confined to a single point in the sequence. Irimi, tenkan, awase, musubi, and atemi likewise operate according to circumstance. Atemi may protect entry, command attention, alter posture, interrupt continuing attack, contribute to tsukuri or kuzushi, or resolve the encounter in its own right.",
+          class:""
+        }]
       }
-
     ]
-
   },
-
   {
-
-    jpTitle:
-
-      "技から遭遇へ",
-
-    enTitle:
-
-      "From Waza Toward Encounter",
-
+    jpTitle:"技から遭遇へ",
+    enTitle:"From Waza Toward Encounter",
     rows:[
-
       {
-
-        jp:
-
-          "古典の形は、この術の技術的語彙を与える。まず一つの技を忠実に学ぶ。姿勢、身体構造、つながり、動き、作り、崩し、実行、制御、受け身を、形の中で理解してからこそ、その形を取り巻く条件を知的に検討することができる。",
-
-        en:[
-
-          {
-
-            text:
-
-              "The classical forms provide the technical vocabulary of the art. A waza is first studied faithfully: posture, body organization, connection, movement, tsukuri, kuzushi, execution, control, and ukemi must be understood in the form before the conditions around the form can be examined intelligently.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"古典の形は、この術の技術的語彙を与える。まず一つの技を忠実に学ぶ。姿勢、身体構造、つながり、動き、作り、崩し、実行、制御、受け身を、形の中で理解してからこそ、その形を取り巻く条件を知的に検討することができる。",
+        en:[{
+          text:"The classical forms provide the technical vocabulary of the art. A waza is first studied faithfully: posture, body organization, connection, movement, tsukuri, kuzushi, execution, control, and ukemi must be understood in the form before the conditions around the form can be examined intelligently.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "次に探究は後ろ向きに進む。その技が正しく機能するためには、どのような条件がすでに存在していなければならないのか。距離、構造、接続、姿勢、均衡にはどのような関係が必要か。形が前提とする把持、腕の位置、タイミング、攻撃への入り込み、位置関係を相手が自発的に与えないとき、それらの条件はいかにして生じるのか。",
-
-        en:[
-
-          {
-
-            text:
-
-              "The investigation then moves backward. What conditions must already exist for the technique to function correctly? What relation of distance, structure, attachment, posture, and balance is required? How might those conditions arise when the opponent has not voluntarily supplied the grip, arm, timing, commitment, or position assumed by the kata?",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"次に探究は後ろ向きに進む。その技が正しく機能するためには、どのような条件がすでに存在していなければならないのか。距離、構造、接続、姿勢、均衡にはどのような関係が必要か。形が前提とする把持、腕の位置、タイミング、攻撃への入り込み、位置関係を相手が自発的に与えないとき、それらの条件はいかにして生じるのか。",
+        en:[{
+          text:"The investigation then moves backward. What conditions must already exist for the technique to function correctly? What relation of distance, structure, attachment, posture, and balance is required? How might those conditions arise when the opponent has not voluntarily supplied the grip, arm, timing, commitment, or position assumed by the kata?",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "そのため聖都流は、技へ至る道筋を意図的に研究する。目的は、古典技に現代的な護身術の答えを寄せ集めて飾ることではない。変化する状況を受け取り、整え、変換して、古典形に保存された関係が実際に成立するまでの過程を理解することにある。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Seitō-ryū therefore gives deliberate study to the road leading into the waza. The purpose is not to decorate classical technique with a collection of modern self-defense answers, but to understand how changing circumstances may be received, organized, and transformed until the relationships preserved in the classical form genuinely exist.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"そのため聖都流は、技へ至る道筋を意図的に研究する。目的は、古典技に現代的な護身術の答えを寄せ集めて飾ることではない。変化する状況を受け取り、整え、変換して、古典形に保存された関係が実際に成立するまでの過程を理解することにある。",
+        en:[{
+          text:"Seitō-ryū therefore gives deliberate study to the road leading into the waza. The purpose is not to decorate classical technique with a collection of modern self-defense answers, but to understand how changing circumstances may be received, organized, and transformed until the relationships preserved in the classical form genuinely exist.",
+          class:""
+        }]
       }
-
     ]
-
   },
-
   {
-
-    jpTitle:
-
-      "遭遇から技へ",
-
-    enTitle:
-
-      "From Encounter Toward Waza",
-
+    jpTitle:"遭遇から技へ",
+    enTitle:"From Encounter Toward Waza",
     rows:[
-
       {
-
-        jp:
-
-          "探究は反対方向にも進む。起こりうる攻撃を、あらかじめ一教、小手返し、四方投げ、その他の名のある技に終わらせると決めずに研究する。まず距離、機、保護、体捌き、当身、つながり、作り、崩しを扱う。",
-
-        en:[
-
-          {
-
-            text:
-
-              "The investigation also proceeds in the opposite direction. A plausible attack may be studied without deciding beforehand that it must conclude in ikkyo, kote-gaeshi, shihōnage, or any other named technique. Distance, timing, protection, tai-sabaki, atemi, connection, tsukuri, and kuzushi are dealt with first.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"探究は反対方向にも進む。起こりうる攻撃を、あらかじめ一教、小手返し、四方投げ、その他の名のある技に終わらせると決めずに研究する。まず距離、機、保護、体捌き、当身、つながり、作り、崩しを扱う。",
+        en:[{
+          text:"The investigation also proceeds in the opposite direction. A plausible attack may be studied without deciding beforehand that it must conclude in ikkyo, kote-gaeshi, shihōnage, or any other named technique. Distance, timing, protection, tai-sabaki, atemi, connection, tsukuri, and kuzushi are dealt with first.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "その後で初めて、生じた技を特定する。状況が応答を導き、応答が技を明らかにする。これにより、変化する状況に記憶した答えを押しつけるだけの訓練を避ける。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Only then is the resulting waza identified. The situation informs the response, and the response reveals the technique. In this way the practitioner is not trained merely to impose a memorized answer upon a changing circumstance.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"その後で初めて、生じた技を特定する。状況が応答を導き、応答が技を明らかにする。これにより、変化する状況に記憶した答えを押しつけるだけの訓練を避ける。",
+        en:[{
+          text:"Only then is the resulting waza identified. The situation informs the response, and the response reveals the technique. In this way the practitioner is not trained merely to impose a memorized answer upon a changing circumstance.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "したがって形は、単なる再現のためではなく、身体を教育するものとして学ぶ。継続する稽古を通じて、姿勢、動き、機、つながり、均衡が身体化され、適切な技が意識的な選択なしに生じうるようになる。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Kata is therefore studied not simply for its reproduction, but for the education it gives the body. Through continued practice, posture, movement, timing, connection, and balance become embodied, and appropriate waza may arise without conscious selection.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"したがって形は、単なる再現のためではなく、身体を教育するものとして学ぶ。継続する稽古を通じて、姿勢、動き、機、つながり、均衡が身体化され、適切な技が意識的な選択なしに生じうるようになる。",
+        en:[{
+          text:"Kata is therefore studied not simply for its reproduction, but for the education it gives the body. Through continued practice, posture, movement, timing, connection, and balance become embodied, and appropriate waza may arise without conscious selection.",
+          class:""
+        }]
       }
-
     ]
-
   },
-
   {
-
-    jpTitle:
-
-      "習熟度と相応しい応答",
-
-    enTitle:
-
-      "Proficiency and Appropriate Response",
-
+    jpTitle:"習熟度と相応しい応答",
+    enTitle:"Proficiency and Appropriate Response",
     rows:[
-
       {
-
-        jp:
-
-          "聖都流は、初心者に上級者の外見だけを模倣させない。同じ遭遇でも、習熟度によって異なる表現を必要とする。初心者には、より強い保護、大きな動き、確かな接続、明確な位置制御が必要になる場合がある。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Seitō-ryū does not require a beginner to imitate the outward appearance of an advanced practitioner. The same encounter may require different expressions according to proficiency. A beginner may require stronger protection, larger movement, firmer connection, and more obvious positional control.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"聖都流は、初心者に上級者の外見だけを模倣させない。同じ遭遇でも、習熟度によって異なる表現を必要とする。初心者には、より強い保護、大きな動き、確かな接続、明確な位置制御が必要になる場合がある。",
+        en:[{
+          text:"Seitō-ryū does not require a beginner to imitate the outward appearance of an advanced practitioner. The same encounter may require different expressions according to proficiency. A beginner may require stronger protection, larger movement, firmer connection, and more obvious positional control.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "技能が高まるにつれ、動きは小さくなり、接触は一時的になり、機はより正確となり、筋力による努力は次第に構造、位置、関係へ置き換えられる。目標は初心者の粗さを保存することでも、早すぎる繊細さを要求することでもない。稽古は、より洗練された合気へ向かう。",
-
-        en:[
-
-          {
-
-            text:
-
-              "With increasing skill, movement may become smaller, contact more temporary, timing more exact, and muscular effort increasingly replaced by structure, positioning, and relationship. The aim is neither to preserve beginner crudeness nor to demand premature subtlety. Training proceeds toward increasingly refined aiki.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"技能が高まるにつれ、動きは小さくなり、接触は一時的になり、機はより正確となり、筋力による努力は次第に構造、位置、関係へ置き換えられる。目標は初心者の粗さを保存することでも、早すぎる繊細さを要求することでもない。稽古は、より洗練された合気へ向かう。",
+        en:[{
+          text:"With increasing skill, movement may become smaller, contact more temporary, timing more exact, and muscular effort increasingly replaced by structure, positioning, and relationship. The aim is neither to preserve beginner crudeness nor to demand premature subtlety. Training proceeds toward increasingly refined aiki.",
+          class:""
+        }]
       }
-
     ]
-
   },
-
   {
-
-    jpTitle:
-
-      "創流期の応用研究",
-
-    enTitle:
-
-      "Applied Formative Research",
-
+    jpTitle:"創流期の応用研究",
+    enTitle:"Applied Formative Research",
     rows:[
-
       {
-
-        jp:
-
-          "創流期には、選ばれた上級実践者、指導者、適格な協力者が、通常の形稽古を超える問題を検討することがある。研究は、あらかじめ技術的な答えを決めるのではなく、起こりうる攻防状況から始める。複数の道筋を試し、弱い解決を捨て、有用な関係を調べ、遭遇の開始と古典技とのつながりを稽古によって再構成する。",
-
-        en:[
-
-          {
-
-            text:
-
-              "During Sōryū-ki, selected senior practitioners, instructors, and qualified contributors may examine problems beyond the ordinary practice of kata. The work begins from plausible attack-and-defense situations rather than from a predetermined technical answer. Different pathways may be explored, weak solutions discarded, useful relationships studied, and the connection between the opening encounter and classical waza reconstructed through practice.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"創流期には、選ばれた上級実践者、指導者、適格な協力者が、通常の形稽古を超える問題を検討することがある。研究は、あらかじめ技術的な答えを決めるのではなく、起こりうる攻防状況から始める。複数の道筋を試し、弱い解決を捨て、有用な関係を調べ、遭遇の開始と古典技とのつながりを稽古によって再構成する。",
+        en:[{
+          text:"During Sōryū-ki, selected senior practitioners, instructors, and qualified contributors may examine problems beyond the ordinary practice of kata. The work begins from plausible attack-and-defense situations rather than from a predetermined technical answer. Different pathways may be explored, weak solutions discarded, useful relationships studied, and the connection between the opening encounter and classical waza reconstructed through practice.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "その検証を経た内容は、さらに規定を減らした条件のもとで稽古されることがある。目的は、台本のない武の問題から、古典技が生じる条件へ移行する過程を、再現可能な形で研究する方法を確立することにある。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Material that survives such examination may then be practiced under progressively less prescribed conditions. The aim is to establish repeatable ways of studying the transition from an unscripted martial problem toward the conditions from which classical waza arise.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"その検証を経た内容は、さらに規定を減らした条件のもとで稽古されることがある。目的は、台本のない武の問題から、古典技が生じる条件へ移行する過程を、再現可能な形で研究する方法を確立することにある。",
+        en:[{
+          text:"Material that survives such examination may then be practiced under progressively less prescribed conditions. The aim is to establish repeatable ways of studying the transition from an unscripted martial problem toward the conditions from which classical waza arise.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "こうした内容を開発し、検証し、習熟度に応じて調整し、課程へ採用するための詳細な手続きは、本校内部の教授法に属する。",
-
-        en:[
-
-          {
-
-            text:
-
-              "The detailed procedures by which such material is developed, tested, adapted to proficiency, and admitted into the curriculum belong to the internal pedagogy of the school.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"こうした内容を開発し、検証し、習熟度に応じて調整し、課程へ採用するための詳細な手続きは、本校内部の教授法に属する。",
+        en:[{
+          text:"The detailed procedures by which such material is developed, tested, adapted to proficiency, and admitted into the curriculum belong to the internal pedagogy of the school.",
+          class:""
+        }]
       }
-
     ]
-
   },
-
   {
-
-    jpTitle:
-
-      "抵抗・制御・安全",
-
-    enTitle:
-
-      "Resistance, Control, and Safety",
-
+    jpTitle:"抵抗・制御・安全",
+    enTitle:"Resistance, Control, and Safety",
     rows:[
-
       {
-
-        jp:
-
-          "協力的な形稽古と抵抗稽古は、異なる問いに答える。形は、型そのものを精密に学ぶことを可能にする。抵抗は、受けがその関係を自発的に与えなくなったときにも、その関係が有効であるかを明らかにする。どちらの稽古も、もう一方と取り違えるべきではない。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Cooperative kata and resistant practice answer different questions. Kata allows the form to be studied precisely. Resistance reveals whether a relationship remains valid when uke no longer supplies it voluntarily. Neither mode should be mistaken for the other.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"協力的な形稽古と抵抗稽古は、異なる問いに答える。形は、型そのものを精密に学ぶことを可能にする。抵抗は、受けがその関係を自発的に与えなくなったときにも、その関係が有効であるかを明らかにする。どちらの稽古も、もう一方と取り違えるべきではない。",
+        en:[{
+          text:"Cooperative kata and resistant practice answer different questions. Kata allows the form to be studied precisely. Resistance reveals whether a relationship remains valid when uke no longer supplies it voluntarily. Neither mode should be mistaken for the other.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "抵抗は、稽古の目的と実践者の経験に応じて導入する。ある稽古は、位置やつながりを得た時点で終えてよい。あるものは、制御された崩しまで進めてよい。また、得られた関係を適切な制御のもとで完全な古典技へつなぎ直すこともある。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Resistance is introduced according to the purpose of the exercise and the experience of the practitioners. Some practice may end when position or connection has been obtained. Some may continue through controlled kuzushi. Some may reconnect the acquired relationship to the complete classical waza under appropriate control.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"抵抗は、稽古の目的と実践者の経験に応じて導入する。ある稽古は、位置やつながりを得た時点で終えてよい。あるものは、制御された崩しまで進めてよい。また、得られた関係を適切な制御のもとで完全な古典技へつなぎ直すこともある。",
+        en:[{
+          text:"Resistance is introduced according to the purpose of the exercise and the experience of the practitioners. Some practice may end when position or connection has been obtained. Some may continue through controlled kuzushi. Some may reconnect the acquired relationship to the complete classical waza under appropriate control.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "上級者は、遭遇のより多くの部分を再構成し、より高い速度で行うことができる。しかし、速さだけが妥当性の証拠ではなく、負傷も武の有効性の証明ではない。抵抗稽古の目的は、稽古相手を守りながら誤りを露わにすることである。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Advanced practitioners may reconstruct more of the encounter and may do so at greater tempo, but speed alone is not evidence of validity, nor is injury proof of martial effectiveness. The purpose of resistance is to expose error while preserving the training partner.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"上級者は、遭遇のより多くの部分を再構成し、より高い速度で行うことができる。しかし、速さだけが妥当性の証拠ではなく、負傷も武の有効性の証明ではない。抵抗稽古の目的は、稽古相手を守りながら誤りを露わにすることである。",
+        en:[{
+          text:"Advanced practitioners may reconstruct more of the encounter and may do so at greater tempo, but speed alone is not evidence of validity, nor is injury proof of martial effectiveness. The purpose of resistance is to expose error while preserving the training partner.",
+          class:""
+        }]
       }
-
     ]
-
   },
-
   {
-
-    jpTitle:
-
-      "他の武道から学ぶ",
-
-    enTitle:
-
-      "Learning From Other Budō",
-
+    jpTitle:"他の武道から学ぶ",
+    enTitle:"Learning From Other Budō",
     rows:[
-
       {
-
-        jp:
-
-          "聖都流は、雑多な技の寄せ集めを作ろうとはしない。他の武道が、合気柔術にも関わる問題について特に明晰な研究方法を発達させているなら、その成果を比較研究の資料とすることがある。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Seitō-ryū does not seek to assemble an eclectic collection of techniques. Where another martial discipline has developed unusually clear methods for studying a problem relevant to Aiki Jujutsu, that work may become a source of comparative study.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"聖都流は、雑多な技の寄せ集めを作ろうとはしない。他の武道が、合気柔術にも関わる問題について特に明晰な研究方法を発達させているなら、その成果を比較研究の資料とすることがある。",
+        en:[{
+          text:"Seitō-ryū does not seek to assemble an eclectic collection of techniques. Where another martial discipline has developed unusually clear methods for studying a problem relevant to Aiki Jujutsu, that work may become a source of comparative study.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "柔道は、組み手、作り、崩し、投げ、乱取りを高度に研究してきた。レスリングは、抵抗する身体に対する捕捉、接続、位置制御、移動を直接研究する。打撃系武道は、間合、機、保護、入りの弱点を露わにする。ブラジリアン柔術は、持続的な抵抗下で位置制御を検討する強力な方法を提供する。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Jūdō offers highly developed methods for studying gripping, tsukuri, kuzushi, throwing, and randori. Wrestling provides direct study of acquisition, attachment, positional control, and movement against an unwilling body. Striking arts expose weaknesses in ma-ai, timing, protection, and entry. Brazilian Jiu-Jitsu offers powerful methods for examining positional control under sustained resistance.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"柔道は、組み手、作り、崩し、投げ、乱取りを高度に研究してきた。レスリングは、抵抗する身体に対する捕捉、接続、位置制御、移動を直接研究する。打撃系武道は、間合、機、保護、入りの弱点を露わにする。ブラジリアン柔術は、持続的な抵抗下で位置制御を検討する強力な方法を提供する。",
+        en:[{
+          text:"Jūdō offers highly developed methods for studying gripping, tsukuri, kuzushi, throwing, and randori. Wrestling provides direct study of acquisition, attachment, positional control, and movement against an unwilling body. Striking arts expose weaknesses in ma-ai, timing, protection, and entry. Brazilian Jiu-Jitsu offers powerful methods for examining positional control under sustained resistance.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "問題は、どの武道を合気道に加えるべきかではない。他の武道が、合気柔術にも存在する問題について何を学んできたのか、そしてその知見をこの術の研究へ戻したときに何が理解できるのか、ということである。",
-
-        en:[
-
-          {
-
-            text:
-
-              "The question is not which arts should be added to Aikido. The question is what another discipline has learned about a problem also present in Aiki Jujutsu, and what may be understood when that knowledge is returned to the study of the art.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"問題は、どの武道を合気道に加えるべきかではない。他の武道が、合気柔術にも存在する問題について何を学んできたのか、そしてその知見をこの術の研究へ戻したときに何が理解できるのか、ということである。",
+        en:[{
+          text:"The question is not which arts should be added to Aikido. The question is what another discipline has learned about a problem also present in Aiki Jujutsu, and what may be understood when that knowledge is returned to the study of the art.",
+          class:""
+        }]
       }
-
     ]
-
   },
-
   {
-
-    jpTitle:
-
-      "創流期の記録",
-
-    enTitle:
-
-      "The Formative Record",
-
+    jpTitle:"創流期の記録",
+    enTitle:"The Formative Record",
     rows:[
-
       {
-
-        jp:
-
-          "聖都流は、形成の過程を公開して進める。その創流期の記録は、直接受け継いだもの、歴史的に文書化されたもの、他の武道から比較的に学んだもの、自ら再構成したもの、なお実験段階にあるもの、そして最終的に十分安定して伝えるに値すると判断されたものを区別すべきである。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Seitō-ryū is being formed openly. Its formative record should distinguish what has been directly received, what is historically documented, what has been learned comparatively from other martial traditions, what has been reconstructed, what remains experimental, and what eventually proves sufficiently stable to transmit.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"聖都流は、形成の過程を公開して進める。その創流期の記録は、直接受け継いだもの、歴史的に文書化されたもの、他の武道から比較的に学んだもの、自ら再構成したもの、なお実験段階にあるもの、そして最終的に十分安定して伝えるに値すると判断されたものを区別すべきである。",
+        en:[{
+          text:"Seitō-ryū is being formed openly. Its formative record should distinguish what has been directly received, what is historically documented, what has been learned comparatively from other martial traditions, what has been reconstructed, what remains experimental, and what eventually proves sufficiently stable to transmit.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "失敗した実験も、その記録に属する。目的は、後から神話を作り上げることではなく、後世の実践者に、この学校がいかに形成されたかについて正確な記録を残すことにある。不確かなものは不確かなものとして、暫定的なものは、稽古が保存するだけの十分な理由を与えるまで暫定的なものとして扱う。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Failed experiments belong to that record as well. The purpose is not to manufacture a mythology afterward, but to leave later practitioners an accurate account of how the school developed. What is uncertain should remain identified as uncertain. What is provisional should remain provisional until practice gives sufficient reason to preserve it.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"失敗した実験も、その記録に属する。目的は、後から神話を作り上げることではなく、後世の実践者に、この学校がいかに形成されたかについて正確な記録を残すことにある。不確かなものは不確かなものとして、暫定的なものは、稽古が保存するだけの十分な理由を与えるまで暫定的なものとして扱う。",
+        en:[{
+          text:"Failed experiments belong to that record as well. The purpose is not to manufacture a mythology afterward, but to leave later practitioners an accurate account of how the school developed. What is uncertain should remain identified as uncertain. What is provisional should remain provisional until practice gives sufficient reason to preserve it.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "一つの学校は、自らが何を受け継ぎ、何を創り出したのかを知っていなければならない。",
-
-        en:[
-
-          {
-
-            text:
-
-              "A school should know what it inherited and what it created.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"一つの学校は、自らが何を受け継ぎ、何を創り出したのかを知っていなければならない。",
+        en:[{
+          text:"A school should know what it inherited and what it created.",
+          class:""
+        }]
       }
-
     ]
-
   },
-
   {
-
-    jpTitle:
-
-      "武道",
-
-    enTitle:
-
-      "Budō",
-
+    jpTitle:"武道",
+    enTitle:"Budō",
     rows:[
-
       {
-
-        jp:
-
-          "技術的な有効性だけが武道の目的ではない。稽古は、規律、節度、勇気、礼、自制、他者への責任も養うべきである。技術が高まるほど、いつ、なぜ、どの程度の力を用いるのかを律する責任も大きくなる。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Technical effectiveness is not the whole purpose of budō. Practice should also cultivate discipline, restraint, courage, courtesy, self-command, and responsibility toward others. Greater technical ability brings a greater obligation to govern when, why, and to what degree force is used.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"技術的な有効性だけが武道の目的ではない。稽古は、規律、節度、勇気、礼、自制、他者への責任も養うべきである。技術が高まるほど、いつ、なぜ、どの程度の力を用いるのかを律する責任も大きくなる。",
+        en:[{
+          text:"Technical effectiveness is not the whole purpose of budō. Practice should also cultivate discipline, restraint, courage, courtesy, self-command, and responsibility toward others. Greater technical ability brings a greater obligation to govern when, why, and to what degree force is used.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "聖都流はいま創流期にある。われわれの務めは、完成した体系を宣言することではない。慎重に稽古し、誠実に学び、古典合気柔術に保存された原理が、遭遇の始まりから技へといかに続いていくのかを、経験によって確かめることである。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Seitō-ryū is presently in Sōryū-ki, its formative period. Our task is not to proclaim a completed system, but to practice carefully, study honestly, and establish through experience how the principles preserved in classical Aiki Jujutsu continue from the beginning of an encounter into waza.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"聖都流はいま創流期にある。われわれの務めは、完成した体系を宣言することではない。慎重に稽古し、誠実に学び、古典合気柔術に保存された原理が、遭遇の始まりから技へといかに続いていくのかを、経験によって確かめることである。",
+        en:[{
+          text:"Seitō-ryū is presently in Sōryū-ki, its formative period. Our task is not to proclaim a completed system, but to practice carefully, study honestly, and establish through experience how the principles preserved in classical Aiki Jujutsu continue from the beginning of an encounter into waza.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "われわれは、受け取ったものを守り、他者から学んだことを明らかにし、自ら再構成したものを明確に区別し、稽古によって十分に理解されたものだけを伝えることを目指す。",
-
-        en:[
-
-          {
-
-            text:
-
-              "We seek to preserve what has been received, acknowledge what we learn from others, distinguish clearly what we reconstruct ourselves, and transmit only what has been sufficiently understood through practice.",
-
-            class:""
-
-          }
-
-        ]
-
+        jp:"われわれは、受け取ったものを守り、他者から学んだことを明らかにし、自ら再構成したものを明確に区別し、稽古によって十分に理解されたものだけを伝えることを目指す。",
+        en:[{
+          text:"We seek to preserve what has been received, acknowledge what we learn from others, distinguish clearly what we reconstruct ourselves, and transmit only what has been sufficiently understood through practice.",
+          class:""
+        }]
       },
-
       {
-
-        jp:
-
-          "形を忠実に学ぶ。遭遇を誠実に学ぶ。",
-
-        en:[
-
-          {
-
-            text:
-
-              "Study the form faithfully. Study the encounter honestly.",
-
-            class:"closing"
-
-          }
-
-        ]
-
+        jp:"形を忠実に学ぶ。遭遇を誠実に学ぶ。",
+        en:[{
+          text:"Study the form faithfully. Study the encounter honestly.",
+          class:"closing"
+        }]
       }
-
     ]
-
   }
-
 ];
 
-/* =========================================================
+const root = document.getElementById("sections");
 
-   RENDER
+sections.forEach((section,index) => {
+  const sectionElement = document.createElement("section");
+  sectionElement.className = "section";
 
-   ========================================================= */
-
-const root =
-
-  document.getElementById("sections");
-
-sections.forEach(
-
-  (section,index) => {
-
-    const sectionElement =
-
-      document.createElement("section");
-
-    sectionElement.className =
-
-      "section";
-
-    if(index === 0){
-
-      sectionElement.id =
-
-        "about";
-
-    }
-
-    sectionElement.innerHTML = `
-
-      <div class="section-title">
-
-        <div class="section-mark">
-
-          <img
-
-            src="/assets/seito-mon.png"
-
-            alt=""
-
-          >
-
-        </div>
-
-        <div class="kicker">
-
-          ${section.jpTitle}
-
-        </div>
-
-        <div class="sub">
-
-          ${section.enTitle}
-
-        </div>
-
-      </div>
-
-      <div class="section-body"></div>
-
-    `;
-
-    const body =
-
-      sectionElement.querySelector(
-
-        ".section-body"
-
-      );
-
-    section.rows.forEach(
-
-      (row,rowIndex) => {
-
-        const jp =
-
-          document.createElement("div");
-
-        jp.className =
-
-          "jp-paragraph";
-
-        jp.lang =
-
-          "ja";
-
-        jp.textContent =
-
-          row.jp;
-
-        const en =
-
-          document.createElement("div");
-
-        en.className =
-
-          "en-group";
-
-        row.en.forEach(
-
-          paragraph => {
-
-            const node =
-
-              document.createElement("p");
-
-            if(paragraph.class){
-
-              node.className =
-
-                paragraph.class;
-
-            }
-
-            node.textContent =
-
-              paragraph.text;
-
-            en.appendChild(
-
-              node
-
-            );
-
-          }
-
-        );
-
-        const gridRow =
-
-          rowIndex + 1;
-
-        jp.style.gridRow =
-
-          gridRow;
-
-        en.style.gridRow =
-
-          gridRow;
-
-        body.append(
-
-          jp,
-
-          en
-
-        );
-
-      }
-
-    );
-
-    root.appendChild(
-
-      sectionElement
-
-    );
-
+  if(index === 0){
+    sectionElement.id = "about";
   }
 
-);
+  sectionElement.innerHTML = `
+    <div class="section-title">
+      <div class="section-mark">
+        <img src="/assets/seito-mon.png" alt="">
+      </div>
+      <div class="kicker">${section.jpTitle}</div>
+      <div class="sub">${section.enTitle}</div>
+    </div>
+    <div class="section-body"></div>
+  `;
 
-/* =========================================================
+  const body = sectionElement.querySelector(".section-body");
 
-   HERO TITLE WIDTH EQUALIZER
+  section.rows.forEach((row,rowIndex) => {
+    const jp = document.createElement("div");
+    jp.className = "jp-paragraph";
+    jp.lang = "ja";
+    jp.textContent = row.jp;
 
-   ========================================================= */
+    const en = document.createElement("div");
+    en.className = "en-group";
+
+    row.en.forEach(paragraph => {
+      const node = document.createElement("p");
+      if(paragraph.class){
+        node.className = paragraph.class;
+      }
+      node.textContent = paragraph.text;
+      en.appendChild(node);
+    });
+
+    const gridRow = rowIndex + 1;
+    jp.style.gridRow = gridRow;
+    en.style.gridRow = gridRow;
+
+    body.append(jp, en);
+  });
+
+  root.appendChild(sectionElement);
+});
 
 function equalizeHeroTitle(){
+  document.querySelectorAll("[data-title-equalizer]").forEach(group => {
+    const japanese = group.querySelector("[data-title-jp]");
+    const romaji = group.querySelector("[data-title-romaji]");
 
-  document
+    if(!japanese || !romaji) return;
 
-    .querySelectorAll(
+    japanese.style.setProperty("--match-extra","0px");
+    romaji.style.setProperty("--match-extra","0px");
 
-      "[data-title-equalizer]"
+    const jpWidth = japanese.getBoundingClientRect().width;
+    const romajiWidth = romaji.getBoundingClientRect().width;
+    const targetWidth = Math.max(jpWidth, romajiWidth);
 
-    )
+    function expandLine(element,currentWidth){
+      if(currentWidth >= targetWidth - .5) return;
 
-    .forEach(
+      const characters = Array.from(element.textContent.trim()).length;
+      if(characters < 2) return;
 
-      group => {
+      const extra = (targetWidth - currentWidth) / (characters - 1);
+      element.style.setProperty("--match-extra", `${extra}px`);
+    }
 
-        const japanese =
-
-          group.querySelector(
-
-            "[data-title-jp]"
-
-          );
-
-        const romaji =
-
-          group.querySelector(
-
-            "[data-title-romaji]"
-
-          );
-
-        if(
-
-          !japanese
-
-          ||
-
-          !romaji
-
-        ){
-
-          return;
-
-        }
-
-        japanese.style
-
-          .setProperty(
-
-            "--match-extra",
-
-            "0px"
-
-          );
-
-        romaji.style
-
-          .setProperty(
-
-            "--match-extra",
-
-            "0px"
-
-          );
-
-        const jpWidth =
-
-          japanese
-
-            .getBoundingClientRect()
-
-            .width;
-
-        const romajiWidth =
-
-          romaji
-
-            .getBoundingClientRect()
-
-            .width;
-
-        const targetWidth =
-
-          Math.max(
-
-            jpWidth,
-
-            romajiWidth
-
-          );
-
-        function expandLine(
-
-          element,
-
-          currentWidth
-
-        ){
-
-          if(
-
-            currentWidth >=
-
-            targetWidth - .5
-
-          ){
-
-            return;
-
-          }
-
-          const characters =
-
-            Array.from(
-
-              element
-
-                .textContent
-
-                .trim()
-
-            ).length;
-
-          if(
-
-            characters < 2
-
-          ){
-
-            return;
-
-          }
-
-          const extra =
-
-            (
-
-              targetWidth -
-
-              currentWidth
-
-            )
-
-            /
-
-            (
-
-              characters -
-
-              1
-
-            );
-
-          element.style
-
-            .setProperty(
-
-              "--match-extra",
-
-              `${extra}px`
-
-            );
-
-        }
-
-        expandLine(
-
-          japanese,
-
-          jpWidth
-
-        );
-
-        expandLine(
-
-          romaji,
-
-          romajiWidth
-
-        );
-
-      }
-
-    );
-
+    expandLine(japanese, jpWidth);
+    expandLine(romaji, romajiWidth);
+  });
 }
 
-/* =========================================================
-
-   JAPANESE VERTICAL FITTING
-
-   ========================================================= */
-
-function paragraphFits(
-
-  paragraph
-
-){
-
-  const tolerance =
-
-    1.5;
-
-  return(
-
-    paragraph.scrollWidth <=
-
-      paragraph.clientWidth + tolerance
-
-    &&
-
-    paragraph.scrollHeight <=
-
-      paragraph.clientHeight + tolerance
-
+function paragraphFits(paragraph){
+  const tolerance = 1.5;
+  return (
+    paragraph.scrollWidth <= paragraph.clientWidth + tolerance &&
+    paragraph.scrollHeight <= paragraph.clientHeight + tolerance
   );
-
 }
 
-function fitVerticalParagraph(
+function fitVerticalParagraph(paragraph){
+  const minimum = window.innerWidth >= 760 ? 220 : 200;
 
-  paragraph
+  let low = minimum;
+  let high = minimum;
 
-){
+  paragraph.style.height = `${high}px`;
 
-  const minimum =
-
-    window.innerWidth >= 760
-
-      ? 220
-
-      : 200;
-
-  let low =
-
-    minimum;
-
-  let high =
-
-    minimum;
-
-  paragraph.style.height =
-
-    `${high}px`;
-
-  while(
-
-    !paragraphFits(paragraph)
-
-    &&
-
-    high < 1800
-
-  ){
-
+  while(!paragraphFits(paragraph) && high < 1800){
     high += 60;
-
-    paragraph.style.height =
-
-      `${high}px`;
-
+    paragraph.style.height = `${high}px`;
   }
 
-  while(
+  while(low < high){
+    const middle = Math.floor((low + high) / 2);
+    paragraph.style.height = `${middle}px`;
 
-    low < high
-
-  ){
-
-    const middle =
-
-      Math.floor(
-
-        (low + high) / 2
-
-      );
-
-    paragraph.style.height =
-
-      `${middle}px`;
-
-    if(
-
-      paragraphFits(paragraph)
-
-    ){
-
-      high =
-
-        middle;
-
+    if(paragraphFits(paragraph)){
+      high = middle;
+    } else {
+      low = middle + 1;
     }
-
-    else{
-
-      low =
-
-        middle + 1;
-
-    }
-
   }
 
-  const fontSize =
+  const fontSize = parseFloat(getComputedStyle(paragraph).fontSize);
+  const breathingRoom = Math.max(10, fontSize * .55);
 
-    parseFloat(
-
-      getComputedStyle(
-
-        paragraph
-
-      ).fontSize
-
-    );
-
-  const breathingRoom =
-
-    Math.max(
-
-      10,
-
-      fontSize * .55
-
-    );
-
-  paragraph.style.height =
-
-    `${Math.ceil(
-
-      high + breathingRoom
-
-    )}px`;
-
+  paragraph.style.height = `${Math.ceil(high + breathingRoom)}px`;
 }
-
-/* =========================================================
-
-   COMPLETE PAGE LAYOUT
-
-   ========================================================= */
 
 function layoutPage(){
-
   equalizeHeroTitle();
 
-  document
-
-    .querySelectorAll(
-
-      ".jp-paragraph"
-
-    )
-
-    .forEach(
-
-      paragraph => {
-
-        fitVerticalParagraph(
-
-          paragraph
-
-        );
-
-      }
-
-    );
-
+  document.querySelectorAll(".jp-paragraph").forEach(paragraph => {
+    fitVerticalParagraph(paragraph);
+  });
 }
 
-/* =========================================================
-
-   DEBOUNCE
-
-   ========================================================= */
-
-function debounce(
-
-  callback,
-
-  delay
-
-){
-
+function debounce(callback, delay){
   let timer;
-
   return function(){
-
-    clearTimeout(
-
-      timer
-
-    );
-
-    timer =
-
-      setTimeout(
-
-        callback,
-
-        delay
-
-      );
-
+    clearTimeout(timer);
+    timer = setTimeout(callback, delay);
   };
-
 }
 
-/* =========================================================
-
-   INITIAL LAYOUT
-
-   ========================================================= */
-
-if(
-
-  document.fonts
-
-  &&
-
-  document.fonts.ready
-
-){
-
-  document.fonts.ready.then(
-
-    () => {
-
-      requestAnimationFrame(
-
-        () => {
-
-          requestAnimationFrame(
-
-            layoutPage
-
-          );
-
-        }
-
-      );
-
-    }
-
-  );
-
+if(document.fonts && document.fonts.ready){
+  document.fonts.ready.then(() => {
+    requestAnimationFrame(() => {
+      requestAnimationFrame(layoutPage);
+    });
+  });
+} else {
+  window.addEventListener("load", layoutPage);
 }
 
-else{
+const relayout = debounce(layoutPage, 120);
 
-  window.addEventListener(
+window.addEventListener("resize", relayout);
 
-    "load",
+window.addEventListener("orientationchange", () => {
+  setTimeout(layoutPage, 250);
+});
 
-    layoutPage
-
-  );
-
+if(window.visualViewport){
+  window.visualViewport.addEventListener("resize", relayout);
 }
-
-/* =========================================================
-
-   RESPONSIVE RECALCULATION
-
-   ========================================================= */
-
-const relayout =
-
-  debounce(
-
-    layoutPage,
-
-    120
-
-  );
-
-window.addEventListener(
-
-  "resize",
-
-  relayout
-
-);
-
-window.addEventListener(
-
-  "orientationchange",
-
-  () => {
-
-    setTimeout(
-
-      layoutPage,
-
-      250
-
-    );
-
-  }
-
-);
-
-if(
-
-  window.visualViewport
-
-){
-
-  window.visualViewport
-
-    .addEventListener(
-
-      "resize",
-
-      relayout
-
-    );
-
-}
-
 </script>
 
 </body>
-
 </html>
