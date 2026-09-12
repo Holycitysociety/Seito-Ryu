@@ -19,8 +19,9 @@
 
 :root{
 
-  --paper:#f3e4d6;
-  --folio:#f8efe6;
+  /* Slightly richer / more saturated paper so it doesn’t white out */
+  --paper:#e8d7c7;
+  --folio:#f2e7db;
 
   --ink:#171411;
   --muted:#6b645d;
@@ -57,10 +58,6 @@
 
   --hero-mon-w:min(84vw,360px);
 
-  /*
-   * Pull the entire wordmark upward toward
-   * the large mon.
-   */
   --hero-wordmark-lift:-78px;
 
   --hero-title-size:
@@ -238,10 +235,6 @@ main{
 
   opacity:1;
 
-  /*
-   * Mon only:
-   * slightly farther right.
-   */
   transform:translateX(7px);
 }
 
@@ -349,31 +342,21 @@ main{
 @media(max-width:390px){
 
   .brand{
-
     margin-left:48px;
-
     gap:8px;
   }
 
-
   .brand .mon{
-
     width:58px;
-
     transform:translateX(6px);
   }
 
-
   .brand-stack .jp{
-
     font-size:18px;
   }
 
-
   .brand-stack .romaji{
-
     font-size:10.2px;
-
     letter-spacing:.045em;
   }
 
@@ -432,11 +415,6 @@ main{
 /* =========================================================
    HERO WORDMARK
    ========================================================= */
-
-/*
- * Japanese title + rule + Roman title + small mon
- * now behave as one graphic unit.
- */
 
 .hero-wordmark{
 
@@ -582,7 +560,6 @@ main{
 
 
 .soryuki span{
-
   display:block;
 }
 
@@ -884,7 +861,6 @@ main{
 
 
 .en-group p:last-child{
-
   margin-bottom:0;
 }
 
@@ -919,7 +895,8 @@ main{
 
   :root{
 
-    --header-h:70px;
+    /* desktop header gets more body */
+    --header-h:82px;
 
     --reader-max:68rem;
 
@@ -951,9 +928,6 @@ main{
     --hero-mon-w:
       min(45vw,525.6px);
 
-    /*
-     * Desktop gets its own wordmark lift.
-     */
     --hero-wordmark-lift:-108px;
 
     --hero-title-size:
@@ -992,12 +966,14 @@ main{
 
   .header-blossom{
 
-    left:-12px;
+    /*
+     * Slightly smaller and tucked higher so the header brand
+     * only lightly overlaps it.
+     */
+    left:-16px;
+    bottom:-62px;
 
-    bottom:-92px;
-
-    width:470px;
-
+    width:360px;
     height:auto;
 
     opacity:1;
@@ -1006,26 +982,32 @@ main{
 
   .brand{
 
-    margin-left:150px;
+    /*
+     * Push the brand farther right so the mon only overlaps
+     * the blossom image a little.
+     */
+    margin-left:205px;
 
-    gap:18px;
+    gap:14px;
   }
 
 
   .brand .mon{
 
-    width:110px;
+    /*
+     * Slightly smaller on desktop so header feels less cramped.
+     */
+    width:88px;
 
     height:auto;
 
     opacity:1;
 
-    transform:translateX(10px);
+    transform:translateX(0);
   }
 
 
   .brand-stack{
-
     opacity:1;
   }
 
@@ -1033,11 +1015,11 @@ main{
   .brand-stack .jp{
 
     font-size:
-      clamp(26px,2.8vw,42px);
+      clamp(24px,2.25vw,36px);
 
     line-height:1;
 
-    margin-bottom:8px;
+    margin-bottom:6px;
 
     white-space:nowrap;
   }
@@ -1046,43 +1028,38 @@ main{
   .brand-stack .romaji{
 
     font-size:
-      clamp(16px,1.35vw,22px);
+      clamp(14px,1.05vw,18px);
 
     line-height:1;
 
-    letter-spacing:.10em;
+    letter-spacing:.085em;
 
     white-space:nowrap;
   }
 
 
   .menu{
-
     width:44px;
     height:44px;
   }
 
 
   .menu span{
-
     width:22px;
   }
 
 
   .section-mark{
-
     margin-bottom:32px;
   }
 
 
   .section-mark img{
-
     width:30px;
   }
 
 
   .jp-paragraph{
-
     width:17rem;
   }
 
