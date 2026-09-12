@@ -28,7 +28,6 @@
 
   /* =======================================================
      MOBILE HEADER
-     68px → 58px
      ======================================================= */
 
   --header-h:58px;
@@ -63,19 +62,26 @@
   --hero-poster-max:640px;
 
   /*
-   * Previous:
-   * min(56vw,240px)
+   * Hero mon increased another 20%.
    *
-   * Now 125% of previous:
+   * Previous:
    * min(70vw,300px)
+   *
+   * New:
+   * min(84vw,360px)
    */
 
-  --hero-mon-w:min(70vw,300px);
+  --hero-mon-w:min(84vw,360px);
 
   --hero-mon-gap:26px;
 
+
+  /*
+   * All hero typography reduced 20%.
+   */
+
   --hero-title-size:
-    clamp(46px,11.2vw,76px);
+    clamp(36.8px,8.96vw,60.8px);
 
   --hero-title-line:1.02;
 
@@ -86,7 +92,7 @@
   --hero-rule-gap:14px;
 
   --hero-romaji-size:
-    clamp(19px,5.1vw,31px);
+    clamp(15.2px,4.08vw,24.8px);
 
   --hero-romaji-line:1.15;
 
@@ -98,13 +104,13 @@
   --hero-mark-size:32px;
 
   --hero-soryuki-jp:
-    clamp(18px,5.8vw,34px);
+    clamp(14.4px,4.64vw,27.2px);
 
   --hero-soryuki-sub:
-    clamp(16px,4.9vw,28px);
+    clamp(12.8px,3.92vw,22.4px);
 
   --hero-place-size:
-    clamp(14px,4.4vw,22px);
+    clamp(11.2px,3.52vw,17.6px);
 }
 
 
@@ -447,12 +453,6 @@ main{
 
 
 .hero h1{
-
-  /*
-   * JS adds --match-extra when necessary
-   * so the Japanese and Roman lines finish
-   * at the same visual width.
-   */
 
   --match-extra:0px;
 
@@ -909,11 +909,7 @@ main{
 
   :root{
 
-    /* =====================================================
-       DESKTOP HEADER
-       55px was too thin.
-       70px gives it presence without returning to 78px.
-       ===================================================== */
+    /* HEADER */
 
     --header-h:70px;
 
@@ -942,9 +938,16 @@ main{
 
     /* =====================================================
        HERO — DESKTOP
-       Hero mon increased to 125% of previous size.
-       Previous: min(30vw,350px)
-       New:      min(37.5vw,438px)
+
+       Mon increased 20%.
+
+       Previous:
+       min(37.5vw,438px)
+
+       New:
+       min(45vw,525.6px)
+
+       All hero typography reduced 20%.
        ===================================================== */
 
     --hero-pad-top:48px;
@@ -953,12 +956,12 @@ main{
     --hero-poster-max:1000px;
 
     --hero-mon-w:
-      min(37.5vw,438px);
+      min(45vw,525.6px);
 
     --hero-mon-gap:40px;
 
     --hero-title-size:
-      clamp(68px,6vw,112px);
+      clamp(54.4px,4.8vw,89.6px);
 
     --hero-title-line:1;
 
@@ -969,7 +972,7 @@ main{
     --hero-rule-gap:18px;
 
     --hero-romaji-size:
-      clamp(27px,2.25vw,40px);
+      clamp(21.6px,1.8vw,32px);
 
     --hero-romaji-line:1.12;
 
@@ -981,13 +984,13 @@ main{
     --hero-mark-size:36px;
 
     --hero-soryuki-jp:
-      clamp(24px,2.8vw,42px);
+      clamp(19.2px,2.24vw,33.6px);
 
     --hero-soryuki-sub:
-      clamp(18px,2.1vw,31px);
+      clamp(14.4px,1.68vw,24.8px);
 
     --hero-place-size:
-      clamp(16px,1.6vw,24px);
+      clamp(12.8px,1.28vw,19.2px);
   }
 
 
@@ -2269,15 +2272,6 @@ sections.forEach(
    HERO TITLE WIDTH EQUALIZER
    ========================================================= */
 
-/*
- * The two title lines keep their natural
- * font sizes.
- *
- * We then add tracking only to whichever
- * line is shorter until both lines occupy
- * the same rendered width.
- */
-
 function equalizeHeroTitle(){
 
   document
@@ -2307,10 +2301,6 @@ function equalizeHeroTitle(){
           return;
         }
 
-
-        /*
-         * Reset previous calculation first.
-         */
 
         japanese.style
           .setProperty(
