@@ -631,17 +631,16 @@ main {
 
     --folio-w:17rem;
 
-    --jp-size:22px;
+    /*
+     * Slightly smaller Japanese than previous version.
+     * This keeps the long paragraphs safely inside the folio.
+     */
+
+    --jp-size:20px;
     --jp-leading:1.68;
 
     --en-size:21px;
     --en-leading:1.46;
-
-    /*
-     * Narrow English reading measure
-     * makes it descend vertically
-     * with the Japanese folio.
-     */
 
     --en-measure:24ch;
 
@@ -658,7 +657,7 @@ main {
 
     width:var(--folio-w);
 
-    height:25rem !important;
+    height:25.5rem !important;
 
     max-width:100%;
 
@@ -880,8 +879,6 @@ main {
   </div>
 
 
-  <!-- Tiny Seitō mon replaces old hero ornament -->
-
   <div class="hero-mark">
 
     <img
@@ -956,10 +953,6 @@ main {
 
 
 <script>
-
-/* =========================================================
-   CONTENT
-   ========================================================= */
 
 const sections = [
 
