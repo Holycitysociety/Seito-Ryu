@@ -1,8 +1,6 @@
 <!doctype html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
 
 <meta
@@ -28,8 +26,11 @@
   --muted:#6b645d;
   --shu:#b02a20;
 
-  /* reduced from 82px */
-  --header-h:66px;
+  /*
+   * Header reduced from 82px to 64px.
+   */
+
+  --header-h:64px;
 
   --reader-max:940px;
 
@@ -102,17 +103,14 @@ img {
   min-height:var(--header-h);
 
   display:flex;
-
   align-items:center;
   justify-content:space-between;
 
-  gap:12px;
-
   padding:
-    5px
+    0
     14px
-    5px
-    max(14px,env(safe-area-inset-left));
+    0
+    0;
 
   background:var(--paper);
 
@@ -120,7 +118,7 @@ img {
     1px solid rgba(0,0,0,.08);
 
   box-shadow:
-    0 3px 10px rgba(0,0,0,.04);
+    0 4px 14px rgba(0,0,0,.045);
 
   overflow:hidden;
 
@@ -128,15 +126,29 @@ img {
 }
 
 
-/* =========================================================
-   HEADER BLOSSOM
-   ========================================================= */
-
 /*
- * Size from HEADER HEIGHT rather than viewport width.
- * This keeps the branch anchored to the same bottom-left
- * relationship on mobile and larger displays.
+ * Left half of header contains both
+ * decorative branch and identity.
  */
+
+.header-left {
+
+  position:relative;
+
+  flex:1 1 auto;
+
+  height:100%;
+
+  min-width:0;
+
+  display:flex;
+  align-items:center;
+}
+
+
+/* =========================================================
+   HEADER CHERRY BLOSSOM
+   ========================================================= */
 
 .header-blossom {
 
@@ -147,14 +159,16 @@ img {
   left:0;
   bottom:0;
 
-  width:auto;
-  height:90%;
+  width:118px;
 
   max-width:none;
+
+  height:auto;
 
   opacity:1;
 
   pointer-events:none;
+
   user-select:none;
 }
 
@@ -172,34 +186,27 @@ img {
   display:flex;
   align-items:center;
 
-  gap:10px;
+  gap:9px;
 
   min-width:0;
 
-  margin-left:8px;
+  /*
+   * Mobile intentionally retains a little
+   * overlap with the cherry branch.
+   */
+
+  margin-left:67px;
 
   color:inherit;
-
   text-decoration:none;
 }
 
 
-/*
- * Header mon only:
- * black, 75% opacity.
- */
-
 .brand .mon {
 
-  width:46px;
+  width:45px;
 
   flex:0 0 auto;
-
-  filter:
-    grayscale(1)
-    brightness(0);
-
-  opacity:.75;
 }
 
 
@@ -217,6 +224,8 @@ img {
 
   margin-bottom:4px;
 
+  white-space:nowrap;
+
   font-family:
     "Hiragino Mincho ProN",
     "Yu Mincho",
@@ -227,9 +236,9 @@ img {
   font-weight:700;
 
   font-size:
-    clamp(16px,4vw,21px);
+    clamp(15px,4.1vw,20px);
 
-  letter-spacing:.03em;
+  letter-spacing:.025em;
 }
 
 
@@ -237,10 +246,12 @@ img {
 
   display:block;
 
-  font-size:
-    clamp(10px,2.6vw,13px);
+  white-space:nowrap;
 
-  letter-spacing:.12em;
+  font-size:
+    clamp(9.5px,2.6vw,12.5px);
+
+  letter-spacing:.11em;
 }
 
 
@@ -252,7 +263,7 @@ img {
 
   position:relative;
 
-  z-index:2;
+  z-index:3;
 
   width:40px;
   height:40px;
@@ -267,13 +278,14 @@ img {
   background:var(--paper);
 
   display:flex;
-
   flex-direction:column;
 
   align-items:center;
   justify-content:center;
 
   gap:4px;
+
+  padding:0;
 
   cursor:pointer;
 }
@@ -293,17 +305,13 @@ img {
 
 
 /* =========================================================
-   MAIN
+   HERO
    ========================================================= */
 
 main {
   overflow:hidden;
 }
 
-
-/* =========================================================
-   HERO
-   ========================================================= */
 
 .hero {
 
@@ -316,7 +324,7 @@ main {
   justify-items:center;
 
   padding:
-    22px
+    20px
     18px
     30px;
 
@@ -325,11 +333,11 @@ main {
 
 
 /*
- * Keep the large mobile mon.
+ * Hero mon remains large.
  *
- * The negative bottom margin compensates for the
- * transparent canvas surrounding the actual artwork
- * inside the PNG.
+ * Negative bottom margin compensates for
+ * transparent canvas around the PNG and
+ * visually connects it to the title.
  */
 
 .hero-mon {
@@ -338,20 +346,13 @@ main {
     min(72vw,384px);
 
   margin:
-    0
-    0
-    clamp(-96px,-15vw,-58px);
+    -18px
+    auto
+    -46px;
 }
 
 
-/* =========================================================
-   HERO TITLE
-   ========================================================= */
-
 .hero h1 {
-
-  position:relative;
-  z-index:1;
 
   margin:0;
 
@@ -373,33 +374,29 @@ main {
 
 .hero .romaji {
 
-  position:relative;
-  z-index:1;
-
-  margin-top:10px;
+  margin-top:8px;
 
   font-size:
     clamp(16px,4.72vw,25.6px);
 
-  line-height:1.07;
-
   letter-spacing:.12em;
+
+  line-height:1.07;
 }
 
 
 /* =========================================================
-   HERO SMALL MON
+   HERO TINY MON
    ========================================================= */
 
 .hero-mark {
 
   margin:
-    24px
+    18px
     auto
-    28px;
+    24px;
 
   display:flex;
-
   align-items:center;
   justify-content:center;
 }
@@ -419,9 +416,9 @@ main {
 
 .soryuki {
 
-  line-height:1.22;
+  line-height:1.18;
 
-  margin-bottom:12px;
+  margin-bottom:0;
 }
 
 
@@ -447,6 +444,8 @@ main {
 .soryuki .rom,
 .soryuki .en {
 
+  margin-top:3px;
+
   font-size:
     clamp(16px,4.6vw,24px);
 }
@@ -454,7 +453,7 @@ main {
 
 .soryuki .place {
 
-  margin-top:7px;
+  margin-top:10px;
 
   font-size:
     clamp(14px,4.2vw,20px);
@@ -520,7 +519,7 @@ main {
 
 
 /* =========================================================
-   SECTION SMALL MON
+   SECTION TINY MON
    ========================================================= */
 
 .section-mark {
@@ -546,7 +545,7 @@ main {
 
 
 /* =========================================================
-   BILINGUAL READING FIELD
+   CONTINUOUS BILINGUAL READING FIELD
    ========================================================= */
 
 .section-body {
@@ -680,7 +679,7 @@ main {
 
 
 /* =========================================================
-   ENGLISH
+   ENGLISH PARAGRAPH GROUP
    ========================================================= */
 
 .en-group {
@@ -729,6 +728,7 @@ main {
 
 
 .en-group p:last-child {
+
   margin-bottom:0;
 }
 
@@ -763,8 +763,12 @@ main {
 
   :root {
 
-    /* reduced from 90px */
-    --header-h:72px;
+    /*
+     * Previously 90px.
+     * Reduced by more than 20%.
+     */
+
+    --header-h:70px;
 
     --reader-max:68rem;
 
@@ -788,7 +792,8 @@ main {
 
 
   /*
-   * Same bottom-left relationship as mobile.
+   * Large display:
+   * branch remains bottom-left.
    */
 
   .header-blossom {
@@ -796,36 +801,44 @@ main {
     left:0;
     bottom:0;
 
-    width:auto;
-    height:92%;
-
-    max-width:none;
+    width:180px;
 
     opacity:1;
   }
 
 
   /*
-   * Move the complete identity farther right,
-   * away from the blossom.
+   * Mon + wordmark move completely
+   * to the RIGHT of the blossom.
    */
 
   .brand {
 
-    margin-left:
-      clamp(90px,10vw,150px);
+    margin-left:190px;
+
+    gap:11px;
   }
 
 
   .brand .mon {
 
     width:50px;
+  }
 
-    filter:
-      grayscale(1)
-      brightness(0);
 
-    opacity:.75;
+  .brand-stack .jp {
+
+    font-size:22px;
+
+    margin-bottom:4px;
+  }
+
+
+  .brand-stack .romaji {
+
+    font-size:13px;
+
+    letter-spacing:.12em;
   }
 
 
@@ -836,56 +849,45 @@ main {
   }
 
 
+  .menu span {
+
+    width:21px;
+  }
+
+
   /*
-   * Hero is intentionally smaller on broad screens,
-   * particularly landscape tablets.
+   * Large hero gets tighter still.
    */
 
   .hero {
 
-    padding-top:18px;
+    padding-top:16px;
     padding-bottom:26px;
   }
 
 
   .hero-mon {
 
-    width:
-      min(30vw,320px);
-
-    margin-bottom:-72px;
-  }
-
-
-  .hero h1 {
-
-    font-size:
-      clamp(36px,4.4vw,48px);
+    margin-top:-28px;
+    margin-bottom:-58px;
   }
 
 
   .hero .romaji {
 
-    margin-top:9px;
-
-    font-size:
-      clamp(18px,2.3vw,24px);
+    margin-top:8px;
   }
 
 
   .hero-mark {
 
-    margin-top:24px;
-    margin-bottom:26px;
-  }
-
-
-  .hero-mark img {
-    width:30px;
+    margin-top:18px;
+    margin-bottom:22px;
   }
 
 
   .jp-paragraph {
+
     width:17rem;
   }
 
@@ -906,12 +908,20 @@ main {
 
 
   .section-mark {
+
     margin-bottom:32px;
   }
 
 
   .section-mark img {
+
     width:30px;
+  }
+
+
+  .hero-mark img {
+
+    width:32px;
   }
 
 }
@@ -995,7 +1005,6 @@ main {
 }
 
 </style>
-
 </head>
 
 
@@ -1004,38 +1013,42 @@ main {
 
 <header class="site-header">
 
-  <img
-    class="header-blossom"
-    src="/assets/cherry_blossom_header.png"
-    alt=""
-    aria-hidden="true"
-  >
-
-
-  <a
-    class="brand"
-    href="#top"
-  >
+  <div class="header-left">
 
     <img
-      class="mon"
-      src="/assets/seito-mon.png"
-      alt="Seitō-ryū mon"
+      class="header-blossom"
+      src="/assets/cherry_blossom_header.png"
+      alt=""
+      aria-hidden="true"
     >
 
-    <div class="brand-stack">
 
-      <span class="jp">
-        聖都流合気柔術
-      </span>
+    <a
+      class="brand"
+      href="#top"
+    >
 
-      <span class="romaji">
-        SEITŌ-RYŪ AIKI-JŪJUTSU
-      </span>
+      <img
+        class="mon"
+        src="/assets/seito-mon.png"
+        alt="Seitō-ryū mon"
+      >
 
-    </div>
+      <div class="brand-stack">
 
-  </a>
+        <span class="jp">
+          聖都流合気柔術
+        </span>
+
+        <span class="romaji">
+          SEITŌ-RYŪ AIKI-JŪJUTSU
+        </span>
+
+      </div>
+
+    </a>
+
+  </div>
 
 
   <button
