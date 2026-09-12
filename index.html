@@ -26,7 +26,9 @@
   --muted:#6b645d;
   --shu:#b02a20;
 
-  /* shortened from 82px */
+  /*
+   * Header reduced from 82px → 66px.
+   */
   --header-h:66px;
 
   --reader-max:940px;
@@ -106,10 +108,10 @@ img {
   gap:10px;
 
   padding:
-    5px
+    4px
     14px
-    5px
-    max(12px,env(safe-area-inset-left));
+    4px
+    max(14px,env(safe-area-inset-left));
 
   background:var(--paper);
 
@@ -117,7 +119,7 @@ img {
     1px solid rgba(0,0,0,.08);
 
   box-shadow:
-    0 3px 10px rgba(0,0,0,.04);
+    0 4px 14px rgba(0,0,0,.04);
 
   overflow:hidden;
 
@@ -130,10 +132,11 @@ img {
    ========================================================= */
 
 /*
- * Locked to the same physical location at all sizes:
- * top-left, full header height.
+ * Same behavior at every size:
  *
- * This eliminates the old mobile/desktop positional drift.
+ * - anchored top-left
+ * - fills the header vertically
+ * - no breakpoint-specific vertical shift
  */
 
 .header-blossom {
@@ -142,17 +145,18 @@ img {
 
   z-index:0;
 
-  top:0;
   left:0;
+  top:0;
 
   height:100%;
   width:auto;
+
   max-width:none;
+
+  opacity:1;
 
   object-fit:contain;
   object-position:left top;
-
-  opacity:.75;
 
   pointer-events:none;
   user-select:none;
@@ -172,16 +176,15 @@ img {
   display:flex;
   align-items:center;
 
-  gap:9px;
+  gap:8px;
 
   min-width:0;
 
   /*
-   * Mobile retains some visual integration
-   * with the branch without collision.
+   * Mobile retains the successful slight overlap
+   * with the blossom composition.
    */
-
-  margin-left:44px;
+  margin-left:10px;
 
   color:inherit;
   text-decoration:none;
@@ -189,18 +192,22 @@ img {
 
 
 /*
- * Mon now approximately matches
- * the two-line title stack in height.
+ * Size by HEIGHT instead of width.
+ *
+ * This makes the mon visually equal to
+ * the two-line wordmark stack.
+ *
+ * Only the header mon gets 75% opacity.
  */
 
 .brand .mon {
 
   width:auto;
-  height:36px;
-
-  max-width:none;
+  height:40px;
 
   flex:0 0 auto;
+
+  opacity:.75;
 }
 
 
@@ -216,7 +223,7 @@ img {
 
   display:block;
 
-  margin-bottom:3px;
+  margin-bottom:4px;
 
   font-family:
     "Hiragino Mincho ProN",
@@ -228,9 +235,9 @@ img {
   font-weight:700;
 
   font-size:
-    clamp(16px,4.2vw,21px);
+    clamp(17px,4.4vw,22px);
 
-  letter-spacing:.025em;
+  letter-spacing:.03em;
 
   white-space:nowrap;
 }
@@ -241,9 +248,9 @@ img {
   display:block;
 
   font-size:
-    clamp(10px,2.65vw,13px);
+    clamp(10.5px,2.8vw,13px);
 
-  letter-spacing:.11em;
+  letter-spacing:.12em;
 
   white-space:nowrap;
 }
@@ -285,7 +292,7 @@ img {
 
 .menu span {
 
-  width:21px;
+  width:20px;
   height:3px;
 
   display:block;
@@ -315,36 +322,34 @@ main {
   align-content:center;
   justify-items:center;
 
-  /*
-   * Tighter overall composition.
-   */
-
   padding:
-    clamp(42px,6svh,68px)
+    26px
     18px
-    clamp(44px,6svh,70px);
+    30px;
 
   text-align:center;
 }
 
 
 /*
- * Width AND viewport height constrain the hero mon.
+ * The additional 40svh limit matters primarily
+ * on landscape tablets.
  *
- * This keeps portrait generous but prevents the
- * landscape/tablet treatment from becoming enormous.
+ * Portrait mobile still resolves from 72vw.
  */
 
 .hero-mon {
 
   width:
     min(
-      68vw,
-      36svh,
-      350px
+      72vw,
+      384px,
+      40svh
     );
 
-  margin-bottom:8px;
+  height:auto;
+
+  margin-bottom:6px;
 }
 
 
@@ -370,7 +375,7 @@ main {
 
 .hero .romaji {
 
-  margin-top:9px;
+  margin-top:8px;
 
   font-size:
     clamp(16px,4.72vw,25.6px);
@@ -388,7 +393,7 @@ main {
 .hero-mark {
 
   margin:
-    18px
+    15px
     auto
     22px;
 
@@ -412,9 +417,9 @@ main {
 
 .soryuki {
 
-  line-height:1.18;
+  line-height:1.2;
 
-  margin-bottom:14px;
+  margin-bottom:0;
 }
 
 
@@ -440,8 +445,6 @@ main {
 .soryuki .rom,
 .soryuki .en {
 
-  margin-top:3px;
-
   font-size:
     clamp(16px,4.6vw,24px);
 }
@@ -449,7 +452,7 @@ main {
 
 .soryuki .place {
 
-  margin-top:8px;
+  margin-top:7px;
 
   font-size:
     clamp(14px,4.2vw,20px);
@@ -760,7 +763,11 @@ main {
   :root {
 
     /*
-     * shortened from 90px
+     * Previous desktop header:
+     * 90px
+     *
+     * New:
+     * 72px
      */
 
     --header-h:72px;
@@ -786,107 +793,67 @@ main {
   }
 
 
-  .site-header {
-
-    padding:
-      5px
-      26px
-      5px
-      max(18px,env(safe-area-inset-left));
-  }
-
-
   /*
-   * Blossom remains top-left and fills
-   * exactly the same header-height relationship.
+   * Blossom remains top-left.
+   * No second positioning system.
    */
 
   .header-blossom {
 
-    top:0;
     left:0;
+    top:0;
 
     height:100%;
     width:auto;
 
-    opacity:.75;
+    opacity:1;
   }
 
 
   /*
-   * On large formats, identity begins to the
-   * right of the blossom rather than over it.
+   * Large format has sufficient width,
+   * so the identity now clears the blossom
+   * rather than sitting on top of it.
    */
 
   .brand {
 
-    margin-left:
-      clamp(180px,16vw,235px);
+    margin-left:132px;
 
-    gap:12px;
+    gap:10px;
   }
 
 
   .brand .mon {
 
-    height:42px;
+    height:46px;
+
+    opacity:.75;
   }
 
 
   .brand-stack .jp {
 
-    font-size:23px;
-
-    margin-bottom:3px;
+    font-size:24px;
   }
 
 
   .brand-stack .romaji {
 
-    font-size:13px;
+    font-size:13.5px;
   }
 
 
   .menu {
 
-    width:42px;
-    height:42px;
+    width:44px;
+    height:44px;
   }
 
 
-  /*
-   * Landscape hero becomes substantially
-   * more controlled vertically.
-   */
+  .menu span {
 
-  .hero {
-
-    padding:
-      clamp(34px,5svh,58px)
-      30px
-      clamp(38px,5svh,62px);
-  }
-
-
-  .hero-mon {
-
-    width:
-      min(
-        44vw,
-        34svh,
-        330px
-      );
-
-    margin-bottom:6px;
-  }
-
-
-  .hero-mark {
-
-    margin:
-      16px
-      auto
-      20px;
+    width:22px;
   }
 
 
@@ -926,6 +893,87 @@ main {
   .hero-mark img {
 
     width:32px;
+  }
+
+}
+
+
+/* =========================================================
+   SHORT LANDSCAPE VIEWPORTS
+   ========================================================= */
+
+@media(
+  min-width:760px
+)
+and
+(
+  max-height:700px
+) {
+
+  .hero {
+
+    padding-top:18px;
+    padding-bottom:20px;
+  }
+
+
+  /*
+   * Keeps the hero composition visible
+   * as a complete unit on landscape tablets.
+   */
+
+  .hero-mon {
+
+    width:
+      min(
+        30vw,
+        310px,
+        34svh
+      );
+
+    margin-bottom:2px;
+  }
+
+
+  .hero h1 {
+
+    font-size:
+      clamp(30px,5vw,44px);
+  }
+
+
+  .hero .romaji {
+
+    margin-top:6px;
+
+    font-size:
+      clamp(15px,2.5vw,21px);
+  }
+
+
+  .hero-mark {
+
+    margin-top:10px;
+    margin-bottom:14px;
+  }
+
+
+  .soryuki .jp {
+
+    font-size:23px;
+  }
+
+
+  .soryuki .rom,
+  .soryuki .en {
+
+    font-size:18px;
+  }
+
+
+  .soryuki .place {
+
+    font-size:16px;
   }
 
 }
