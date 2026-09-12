@@ -45,7 +45,12 @@
   --folio-pad-x:12px;
   --folio-pad-y:18px;
 
-  --jp-paragraph-gap:26px;
+  /*
+   * Shared gap between matching
+   * Japanese / English paragraphs.
+   */
+
+  --paragraph-gap:30px;
 
   --section-pad-x:18px;
 }
@@ -270,14 +275,34 @@ main {
 }
 
 
+/*
+ * Main mon increased exactly 20%.
+ *
+ * Previous:
+ * min(60vw,320px)
+ *
+ * New:
+ * min(72vw,384px)
+ */
+
 .hero-mon {
 
   width:
-    min(60vw,320px);
+    min(72vw,384px);
 
   margin-bottom:18px;
 }
 
+
+/*
+ * Hero title typography reduced 20%.
+ *
+ * Previous:
+ * 40 / 63
+ *
+ * New:
+ * 32 / 50.4
+ */
 
 .hero h1 {
 
@@ -291,7 +316,7 @@ main {
     serif;
 
   font-size:
-    clamp(40px,11vw,63px);
+    clamp(32px,8.8vw,50.4px);
 
   line-height:1.04;
 
@@ -299,12 +324,20 @@ main {
 }
 
 
+/*
+ * Previous:
+ * 20 / 32
+ *
+ * New:
+ * 16 / 25.6
+ */
+
 .hero .romaji {
 
   margin-top:12px;
 
   font-size:
-    clamp(20px,5.9vw,32px);
+    clamp(16px,4.72vw,25.6px);
 
   letter-spacing:.12em;
 
@@ -312,12 +345,20 @@ main {
 }
 
 
+/*
+ * Previous:
+ * 28 / 40
+ *
+ * New:
+ * 22.4 / 32
+ */
+
 .hero .english {
 
   margin-top:10px;
 
   font-size:
-    clamp(28px,7.8vw,40px);
+    clamp(22.4px,6.24vw,32px);
 
   line-height:1.08;
 
@@ -483,10 +524,27 @@ main {
 
 
 /* =========================================================
-   SECTION READING FIELD
+   CONTINUOUS BILINGUAL READING FIELD
    ========================================================= */
 
+/*
+ * Japanese and English now occupy the SAME GRID.
+ *
+ * Every matching JP/EN paragraph is assigned
+ * exactly the same grid row.
+ *
+ * Therefore:
+ *
+ * Japanese paragraph 1  = English paragraph 1
+ * Japanese paragraph 2  = English paragraph 2
+ * etc.
+ *
+ * Their starting positions always line up.
+ */
+
 .section-body {
+
+  position:relative;
 
   width:100%;
 
@@ -499,25 +557,75 @@ main {
   column-gap:
     var(--pair-gap);
 
+  row-gap:
+    var(--paragraph-gap);
+
   align-items:start;
+
+  /*
+   * This creates the upper/lower paper margin
+   * while keeping both languages aligned.
+   */
+
+  padding-top:
+    var(--folio-pad-y);
+
+  padding-bottom:
+    var(--folio-pad-y);
 }
 
 
 /* =========================================================
-   CONTINUOUS JAPANESE FOLIO
+   ONE CONTINUOUS JAPANESE PAPER
    ========================================================= */
 
-.jp-folio {
+/*
+ * This pseudo-element is the actual folio.
+ *
+ * It extends continuously from the top of the
+ * first paragraph to the bottom of the last.
+ *
+ * Individual Japanese paragraphs have no
+ * separate card backgrounds.
+ */
 
-  width:100%;
+.section-body::before {
 
-  max-width:17rem;
+  content:"";
 
-  justify-self:end;
+  position:absolute;
 
-  padding:
-    var(--folio-pad-y)
-    var(--folio-pad-x);
+  z-index:0;
+
+  top:0;
+  bottom:0;
+
+  /*
+   * Right edge of the Japanese sheet
+   * aligns with the inner edge of
+   * the left half of the grid.
+   */
+
+  right:
+    calc(
+      50% +
+      (var(--pair-gap) / 2)
+    );
+
+  /*
+   * On small screens use the whole left column.
+   *
+   * On larger displays cap at the traditional
+   * 17rem folio width.
+   */
+
+  width:
+    min(
+      17rem,
+      calc(
+        (100% - var(--pair-gap)) / 2
+      )
+    );
 
   background:
     linear-gradient(
@@ -542,23 +650,36 @@ main {
     0 1px 2px rgba(74,45,25,.055),
     0 8px 20px rgba(74,45,25,.085);
 
-  overflow:hidden;
+  pointer-events:none;
 }
 
 
-/*
- * Each paragraph is a vertical-writing block.
- *
- * JavaScript calculates only the HEIGHT required
- * for this fixed font size to fit inside the
- * available folio width.
- *
- * The paper itself stays continuous.
- */
+/* =========================================================
+   JAPANESE PARAGRAPH
+   ========================================================= */
 
 .jp-paragraph {
 
-  width:100%;
+  position:relative;
+
+  z-index:1;
+
+  grid-column:1;
+
+  width:
+    min(17rem,100%);
+
+  justify-self:end;
+
+  /*
+   * Horizontal inset inside the continuous folio.
+   */
+
+  padding-left:
+    var(--folio-pad-x);
+
+  padding-right:
+    var(--folio-pad-x);
 
   writing-mode:vertical-rl;
 
@@ -580,30 +701,22 @@ main {
     var(--jp-leading);
 
   letter-spacing:.025em;
-
-  margin:
-    0
-    0
-    var(--jp-paragraph-gap);
-}
-
-
-.jp-paragraph:last-child {
-
-  margin-bottom:0;
 }
 
 
 /* =========================================================
-   ENGLISH SECTION
+   ENGLISH PARAGRAPH GROUP
    ========================================================= */
 
-.en-section {
+.en-group {
+
+  position:relative;
+
+  z-index:1;
+
+  grid-column:2;
 
   min-width:0;
-
-  padding-top:
-    var(--folio-pad-y);
 
   font-size:
     var(--en-size);
@@ -621,22 +734,7 @@ main {
 }
 
 
-.en-group {
-
-  margin:
-    0
-    0
-    1.8em;
-}
-
-
-.en-group:last-child {
-
-  margin-bottom:0;
-}
-
-
-.en-section p {
+.en-group p {
 
   margin:
     0
@@ -655,13 +753,13 @@ main {
 }
 
 
-.en-section p:last-child {
+.en-group p:last-child {
 
   margin-bottom:0;
 }
 
 
-.en-section .sequence {
+.en-group .sequence {
 
   font-size:.92em;
 
@@ -673,7 +771,7 @@ main {
 }
 
 
-.en-section .closing {
+.en-group .closing {
 
   font-size:1.42em;
 
@@ -701,6 +799,11 @@ main {
     --en-size:21px;
     --en-leading:1.46;
 
+    /*
+     * Keep English tall rather than spreading
+     * too far horizontally.
+     */
+
     --en-measure:24ch;
 
     --pair-gap:30px;
@@ -708,27 +811,24 @@ main {
     --folio-pad-x:18px;
     --folio-pad-y:20px;
 
-    --jp-paragraph-gap:34px;
+    --paragraph-gap:36px;
 
     --section-pad-x:38px;
   }
 
 
-  .jp-folio {
+  .jp-paragraph {
 
     width:17rem;
   }
 
 
-  .en-section {
+  .en-group {
 
     width:
       min(100%,var(--en-measure));
 
     justify-self:start;
-
-    padding-top:
-      var(--folio-pad-y);
 
     font-size:
       var(--en-size);
@@ -1100,7 +1200,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1110,7 +1209,6 @@ const sections = [
       "Classical Form and the Missing Beginning",
 
     rows:[
-
 
       {
 
@@ -1167,7 +1265,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1177,7 +1274,6 @@ const sections = [
       "The Whole Encounter",
 
     rows:[
-
 
       {
 
@@ -1258,7 +1354,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1268,7 +1363,6 @@ const sections = [
       "From Waza Toward Encounter",
 
     rows:[
-
 
       {
 
@@ -1325,7 +1419,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1335,7 +1428,6 @@ const sections = [
       "From Encounter Toward Waza",
 
     rows:[
-
 
       {
 
@@ -1392,7 +1484,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1402,7 +1493,6 @@ const sections = [
       "Proficiency and Appropriate Response",
 
     rows:[
-
 
       {
 
@@ -1442,7 +1532,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1452,7 +1541,6 @@ const sections = [
       "Applied Formative Research",
 
     rows:[
-
 
       {
 
@@ -1509,7 +1597,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1519,7 +1606,6 @@ const sections = [
       "Resistance, Control, and Safety",
 
     rows:[
-
 
       {
 
@@ -1576,7 +1662,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1586,7 +1671,6 @@ const sections = [
       "Learning From Other Budō",
 
     rows:[
-
 
       {
 
@@ -1643,7 +1727,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1653,7 +1736,6 @@ const sections = [
       "The Formative Record",
 
     rows:[
-
 
       {
 
@@ -1710,7 +1792,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1720,7 +1801,6 @@ const sections = [
       "Budō",
 
     rows:[
-
 
       {
 
@@ -1846,69 +1926,49 @@ sections.forEach(
 
       </div>
 
-
-      <div class="section-body">
-
-        <div
-          class="jp-folio"
-          lang="ja"
-        ></div>
-
-        <div
-          class="en-section"
-          lang="en"
-        ></div>
-
-      </div>
+      <div class="section-body"></div>
 
     `;
 
 
-    const jpFolio =
+    const body =
       sectionElement.querySelector(
-        ".jp-folio"
-      );
-
-
-    const enSection =
-      sectionElement.querySelector(
-        ".en-section"
+        ".section-body"
       );
 
 
     section.rows.forEach(
-      row => {
+      (row,rowIndex) => {
 
         /*
          * JAPANESE
          */
 
-        const jpParagraph =
+        const jp =
           document.createElement("div");
 
 
-        jpParagraph.className =
+        jp.className =
           "jp-paragraph";
 
 
-        jpParagraph.textContent =
+        jp.lang =
+          "ja";
+
+
+        jp.textContent =
           row.jp;
-
-
-        jpFolio.appendChild(
-          jpParagraph
-        );
 
 
         /*
          * ENGLISH
          */
 
-        const group =
+        const en =
           document.createElement("div");
 
 
-        group.className =
+        en.className =
           "en-group";
 
 
@@ -1931,7 +1991,7 @@ sections.forEach(
               paragraph.text;
 
 
-            group.appendChild(
+            en.appendChild(
               node
             );
 
@@ -1939,8 +1999,26 @@ sections.forEach(
         );
 
 
-        enSection.appendChild(
-          group
+        /*
+         * Explicitly place both languages
+         * in exactly the same grid row.
+         */
+
+        const gridRow =
+          rowIndex + 1;
+
+
+        jp.style.gridRow =
+          gridRow;
+
+
+        en.style.gridRow =
+          gridRow;
+
+
+        body.append(
+          jp,
+          en
         );
 
       }
@@ -1956,15 +2034,18 @@ sections.forEach(
 
 
 /* =========================================================
-   VERTICAL PARAGRAPH FITTING
+   JAPANESE VERTICAL FITTING
    ========================================================= */
 
 /*
- * Japanese font size never changes paragraph-by-paragraph.
+ * Font size remains constant.
  *
- * We only determine how tall each vertical paragraph
- * needs to be so its columns fit inside the fixed
- * width of the continuous folio.
+ * Only the vertical measure of each Japanese
+ * paragraph changes enough to prevent clipping.
+ *
+ * The matching English paragraph shares the
+ * same CSS Grid row, so the NEXT pair always
+ * starts together.
  */
 
 
@@ -1990,22 +2071,19 @@ function paragraphFits(paragraph) {
 
 
 /* =========================================================
-   FIT ONE PARAGRAPH
+   FIT ONE JAPANESE PARAGRAPH
    ========================================================= */
 
 function fitVerticalParagraph(paragraph) {
 
   /*
-   * Minimum vertical measure.
-   *
-   * Short paragraphs still receive enough vertical
-   * space to look intentional rather than cramped.
+   * Short paragraphs don't need huge blocks.
    */
 
   const minimum =
     window.innerWidth >= 760
-      ? 250
-      : 220;
+      ? 220
+      : 200;
 
 
   let low =
@@ -2021,8 +2099,7 @@ function fitVerticalParagraph(paragraph) {
 
 
   /*
-   * Increase until all vertical columns
-   * fit within the folio width.
+   * Find a vertical measure that definitely fits.
    */
 
   while(
@@ -2031,7 +2108,7 @@ function fitVerticalParagraph(paragraph) {
     high < 1800
   ) {
 
-    high += 80;
+    high += 60;
 
 
     paragraph.style.height =
@@ -2041,8 +2118,7 @@ function fitVerticalParagraph(paragraph) {
 
 
   /*
-   * Binary-search for the smallest clean
-   * height that still fits everything.
+   * Find the smallest fitting height.
    */
 
   while(
@@ -2079,8 +2155,8 @@ function fitVerticalParagraph(paragraph) {
 
 
   /*
-   * Add a little vertical breathing room
-   * after the final character.
+   * Small safety allowance so the final
+   * Japanese glyph never gets clipped.
    */
 
   const fontSize =
@@ -2092,8 +2168,8 @@ function fitVerticalParagraph(paragraph) {
 
   const breathingRoom =
     Math.max(
-      14,
-      fontSize * 0.8
+      10,
+      fontSize * .55
     );
 
 
@@ -2106,7 +2182,7 @@ function fitVerticalParagraph(paragraph) {
 
 
 /* =========================================================
-   FIT ALL JAPANESE PARAGRAPHS
+   LAYOUT ALL JAPANESE
    ========================================================= */
 
 function layoutJapanese() {
