@@ -30,9 +30,7 @@
 
   --reader-max:940px;
 
-  /*
-   * MOBILE
-   */
+  /* MOBILE */
 
   --folio-w:100%;
 
@@ -64,6 +62,7 @@ html {
 }
 
 body {
+
   margin:0;
 
   color:var(--ink);
@@ -122,6 +121,7 @@ img {
   overflow:hidden;
 }
 
+
 .brand {
 
   display:flex;
@@ -137,6 +137,7 @@ img {
   text-decoration:none;
 }
 
+
 .brand .mon {
 
   width:58px;
@@ -144,12 +145,14 @@ img {
   flex:0 0 auto;
 }
 
+
 .brand-stack {
 
   min-width:0;
 
   line-height:1;
 }
+
 
 .brand-stack .jp {
 
@@ -172,6 +175,7 @@ img {
   letter-spacing:.03em;
 }
 
+
 .brand-stack .romaji {
 
   display:block;
@@ -184,6 +188,7 @@ img {
   letter-spacing:.12em;
 }
 
+
 .brand-stack .en {
 
   display:block;
@@ -193,6 +198,7 @@ img {
 
   letter-spacing:.022em;
 }
+
 
 .menu {
 
@@ -219,6 +225,7 @@ img {
   cursor:pointer;
 }
 
+
 .menu span {
 
   width:22px;
@@ -240,6 +247,7 @@ main {
   overflow:hidden;
 }
 
+
 .hero {
 
   min-height:
@@ -258,6 +266,7 @@ main {
   text-align:center;
 }
 
+
 .hero-mon {
 
   width:
@@ -265,6 +274,7 @@ main {
 
   margin-bottom:18px;
 }
+
 
 .hero h1 {
 
@@ -285,6 +295,7 @@ main {
   letter-spacing:.02em;
 }
 
+
 .hero .romaji {
 
   margin-top:12px;
@@ -296,6 +307,7 @@ main {
 
   line-height:1.07;
 }
+
 
 .hero .english {
 
@@ -327,6 +339,7 @@ main {
   justify-content:center;
 }
 
+
 .hero-mark img {
 
   width:28px;
@@ -346,9 +359,11 @@ main {
   margin-bottom:24px;
 }
 
+
 .soryuki span {
   display:block;
 }
+
 
 .soryuki .jp {
 
@@ -363,12 +378,14 @@ main {
     clamp(18px,5.6vw,30px);
 }
 
+
 .soryuki .rom,
 .soryuki .en {
 
   font-size:
     clamp(16px,4.6vw,24px);
 }
+
 
 .soryuki .place {
 
@@ -397,12 +414,14 @@ main {
     56px;
 }
 
+
 .section-title {
 
   text-align:center;
 
   margin-bottom:30px;
 }
+
 
 .section-title .kicker {
 
@@ -420,6 +439,7 @@ main {
 
   line-height:1.15;
 }
+
 
 .section-title .sub {
 
@@ -450,6 +470,7 @@ main {
   align-items:center;
   justify-content:center;
 }
+
 
 .section-mark img {
 
@@ -547,6 +568,7 @@ main {
     0 8px 20px rgba(74,45,25,.085);
 }
 
+
 .jp-card p {
   margin:0;
 }
@@ -578,6 +600,7 @@ main {
   overflow-wrap:anywhere;
 }
 
+
 .en-block p {
 
   margin:
@@ -596,6 +619,7 @@ main {
   word-spacing:.02em;
 }
 
+
 .en-block .sequence {
 
   font-size:.92em;
@@ -606,6 +630,7 @@ main {
 
   text-align:left;
 }
+
 
 .en-block .closing {
 
@@ -629,19 +654,29 @@ main {
 
     --reader-max:68rem;
 
-    --folio-w:17rem;
+    /*
+     * FIXED JAPANESE FOLIO
+     */
 
-    --jp-size:22px;
-    --jp-leading:1.68;
+    --folio-w:17rem;
+    --folio-h:25rem;
+
+    /*
+     * Japanese font is now dynamically fitted
+     * between these two limits by JavaScript.
+     */
+
+    --jp-fit-min:15px;
+    --jp-fit-max:22px;
+
+    --jp-leading:1.64;
+
+    /*
+     * English
+     */
 
     --en-size:21px;
     --en-leading:1.46;
-
-    /*
-     * Narrow English reading measure
-     * makes it descend vertically
-     * with the Japanese folio.
-     */
 
     --en-measure:24ch;
 
@@ -656,13 +691,23 @@ main {
 
   .jp-card {
 
-    width:var(--folio-w);
+    width:
+      var(--folio-w);
 
-    height:25rem !important;
+    height:
+      var(--folio-h);
 
     max-width:100%;
 
     justify-self:end;
+
+    /*
+     * JS replaces this with the largest
+     * individual font size that fits.
+     */
+
+    font-size:
+      var(--jp-fit-max);
   }
 
 
@@ -726,6 +771,7 @@ main {
   color:var(--muted);
 }
 
+
 .colophon .mon {
 
   width:82px;
@@ -735,6 +781,7 @@ main {
     auto
     10px;
 }
+
 
 .colophon .jp {
 
@@ -752,6 +799,7 @@ main {
   font-weight:700;
 }
 
+
 .colophon .romaji {
 
   color:var(--ink);
@@ -763,6 +811,7 @@ main {
   letter-spacing:.11em;
 }
 
+
 .colophon .en {
 
   color:var(--ink);
@@ -771,6 +820,7 @@ main {
 
   font-size:17px;
 }
+
 
 .colophon .meta {
 
@@ -879,8 +929,6 @@ main {
     Holy City Aiki Jujutsu
   </div>
 
-
-  <!-- Tiny Seitō mon replaces old hero ornament -->
 
   <div class="hero-mark">
 
@@ -1858,27 +1906,50 @@ sections.forEach(
 
 
 /* =========================================================
-   MOBILE FOLIO FITTING
+   FIT HELPERS
    ========================================================= */
 
 function folioFits(card) {
 
+  /*
+   * A small safety allowance prevents
+   * one final glyph from getting clipped
+   * by browser rounding.
+   */
+
+  const safety =
+    2;
+
+
   return (
 
     card.scrollWidth <=
-      card.clientWidth + 1
+      card.clientWidth - safety
 
     &&
 
     card.scrollHeight <=
-      card.clientHeight + 1
+      card.clientHeight - safety
 
   );
 
 }
 
 
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+/*
+ * Mobile keeps the font size stable
+ * and adjusts folio HEIGHT instead.
+ */
+
 function fitMobileFolio(card) {
+
+  card.style.fontSize =
+    "";
+
 
   let low =
     220;
@@ -1961,7 +2032,167 @@ function fitMobileFolio(card) {
 
 
 /* =========================================================
-   RESPONSIVE FOLIO LAYOUT
+   TABLET / DESKTOP
+   ========================================================= */
+
+/*
+ * Fixed folio.
+ *
+ * Font dynamically finds the largest
+ * size that fits inside that folio.
+ */
+
+function getRootPxVariable(
+  name,
+  fallback
+) {
+
+  const value =
+    getComputedStyle(
+      document.documentElement
+    )
+    .getPropertyValue(name)
+    .trim();
+
+
+  const parsed =
+    parseFloat(value);
+
+
+  return Number.isFinite(parsed)
+    ? parsed
+    : fallback;
+
+}
+
+
+
+function fitDesktopFolioFont(card) {
+
+  /*
+   * Fixed physical folio.
+   */
+
+  card.style.height =
+    "";
+
+
+  /*
+   * Read limits from CSS.
+   */
+
+  const minimum =
+    getRootPxVariable(
+      "--jp-fit-min",
+      15
+    );
+
+
+  const maximum =
+    getRootPxVariable(
+      "--jp-fit-max",
+      22
+    );
+
+
+  /*
+   * Check minimum first.
+   *
+   * If even the minimum is too large,
+   * continue downward rather than clip.
+   */
+
+  let absoluteMinimum =
+    minimum;
+
+
+  card.style.fontSize =
+    `${absoluteMinimum}px`;
+
+
+  while(
+    !folioFits(card)
+    &&
+    absoluteMinimum > 11
+  ) {
+
+    absoluteMinimum -= .5;
+
+    card.style.fontSize =
+      `${absoluteMinimum}px`;
+
+  }
+
+
+  /*
+   * Find largest size that fits.
+   */
+
+  let low =
+    absoluteMinimum;
+
+  let high =
+    maximum;
+
+  let best =
+    absoluteMinimum;
+
+
+  for(
+    let i = 0;
+    i < 14;
+    i++
+  ) {
+
+    const middle =
+      (low + high) / 2;
+
+
+    card.style.fontSize =
+      `${middle}px`;
+
+
+    if(
+      folioFits(card)
+    ) {
+
+      best =
+        middle;
+
+      low =
+        middle;
+
+    }
+
+    else {
+
+      high =
+        middle;
+
+    }
+
+  }
+
+
+  /*
+   * Give browser rendering a tiny
+   * final safety margin.
+   */
+
+  best -= .15;
+
+
+  card.style.fontSize =
+    `${Math.max(
+      absoluteMinimum,
+      best
+    ).toFixed(2)}px`;
+
+}
+
+
+/* =========================================================
+   RESPONSIVE LAYOUT
    ========================================================= */
 
 function layoutFolios() {
@@ -1971,6 +2202,13 @@ function layoutFolios() {
       ".jp-card"
     );
 
+
+  /*
+   * TABLET / DESKTOP
+   *
+   * Same physical folio.
+   * Font size changes paragraph by paragraph.
+   */
 
   if(
     window.innerWidth >= 760
@@ -1982,6 +2220,31 @@ function layoutFolios() {
         card.style.height =
           "";
 
+        card.style.fontSize =
+          "";
+
+      }
+    );
+
+
+    /*
+     * Wait one paint so the fixed CSS
+     * folio dimensions are established.
+     */
+
+    requestAnimationFrame(
+      () => {
+
+        cards.forEach(
+          card => {
+
+            fitDesktopFolioFont(
+              card
+            );
+
+          }
+        );
+
       }
     );
 
@@ -1991,8 +2254,18 @@ function layoutFolios() {
   }
 
 
+  /*
+   * MOBILE
+   *
+   * Restore normal font size,
+   * then calculate height.
+   */
+
   cards.forEach(
     card => {
+
+      card.style.fontSize =
+        "";
 
       fitMobileFolio(
         card
