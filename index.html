@@ -26,10 +26,15 @@
   --muted:#6b645d;
   --shu:#b02a20;
 
-  /*
-   * Header reduced from 82px → 66px.
-   */
   --header-h:66px;
+
+  /*
+   * Blossom is deliberately width-driven now.
+   * This prevents it becoming tiny merely because
+   * the header itself is shallow.
+   */
+  --header-blossom-w:
+    clamp(165px,44vw,210px);
 
   --reader-max:940px;
 
@@ -71,8 +76,6 @@ body {
   background:var(--paper);
 
   font-family:
-    "Bodoni 72",
-    "Bodoni 72 Smallcaps",
     "Baskerville",
     "Iowan Old Style",
     "Times New Roman",
@@ -108,10 +111,10 @@ img {
   gap:10px;
 
   padding:
-    4px
+    0
     14px
-    4px
-    max(14px,env(safe-area-inset-left));
+    0
+    max(12px,env(safe-area-inset-left));
 
   background:var(--paper);
 
@@ -131,14 +134,6 @@ img {
    HEADER CHERRY BLOSSOM
    ========================================================= */
 
-/*
- * Same behavior at every size:
- *
- * - anchored top-left
- * - fills the header vertically
- * - no breakpoint-specific vertical shift
- */
-
 .header-blossom {
 
   position:absolute;
@@ -148,17 +143,16 @@ img {
   left:0;
   top:0;
 
-  height:100%;
-  width:auto;
+  width:var(--header-blossom-w);
+
+  height:auto;
 
   max-width:none;
 
   opacity:1;
 
-  object-fit:contain;
-  object-position:left top;
-
   pointer-events:none;
+
   user-select:none;
 }
 
@@ -181,10 +175,10 @@ img {
   min-width:0;
 
   /*
-   * Mobile retains the successful slight overlap
-   * with the blossom composition.
+   * Mobile retains some integration
+   * with the cherry branch.
    */
-  margin-left:10px;
+  margin-left:26px;
 
   color:inherit;
   text-decoration:none;
@@ -192,18 +186,14 @@ img {
 
 
 /*
- * Size by HEIGHT instead of width.
- *
- * This makes the mon visually equal to
- * the two-line wordmark stack.
- *
- * Only the header mon gets 75% opacity.
+ * 40px → 60px:
+ * exact 50% increase.
  */
 
 .brand .mon {
 
   width:auto;
-  height:40px;
+  height:60px;
 
   flex:0 0 auto;
 
@@ -215,15 +205,30 @@ img {
 
   min-width:0;
 
+  width:max-content;
+
   line-height:1;
+
+  opacity:.75;
 }
 
 
+/*
+ * Open Japanese tracking substantially.
+ *
+ * JS may add a little more tracking in order
+ * to equalize its final width with the Roman line.
+ */
+
 .brand-stack .jp {
+
+  --base-track:.08em;
 
   display:block;
 
-  margin-bottom:4px;
+  width:max-content;
+
+  margin-bottom:5px;
 
   font-family:
     "Hiragino Mincho ProN",
@@ -235,22 +240,46 @@ img {
   font-weight:700;
 
   font-size:
-    clamp(17px,4.4vw,22px);
+    clamp(16px,4.2vw,21px);
 
-  letter-spacing:.03em;
+  letter-spacing:
+    calc(
+      var(--base-track) +
+      var(--match-extra,0px)
+    );
 
   white-space:nowrap;
 }
 
 
+/*
+ * Non-condensed Roman face.
+ */
+
 .brand-stack .romaji {
+
+  --base-track:.035em;
 
   display:block;
 
-  font-size:
-    clamp(10.5px,2.8vw,13px);
+  width:max-content;
 
-  letter-spacing:.12em;
+  font-family:
+    "Baskerville",
+    "Iowan Old Style",
+    "Times New Roman",
+    serif;
+
+  font-size:
+    clamp(10px,2.65vw,13px);
+
+  font-weight:500;
+
+  letter-spacing:
+    calc(
+      var(--base-track) +
+      var(--match-extra,0px)
+    );
 
   white-space:nowrap;
 }
@@ -323,20 +352,13 @@ main {
   justify-items:center;
 
   padding:
-    26px
+    24px
     18px
     30px;
 
   text-align:center;
 }
 
-
-/*
- * The additional 40svh limit matters primarily
- * on landscape tablets.
- *
- * Portrait mobile still resolves from 72vw.
- */
 
 .hero-mon {
 
@@ -349,11 +371,31 @@ main {
 
   height:auto;
 
-  margin-bottom:6px;
+  margin-bottom:2px;
+}
+
+
+/* =========================================================
+   HERO NAME STACK
+   ========================================================= */
+
+.hero-name {
+
+  width:max-content;
+
+  max-width:100%;
+
+  display:grid;
+
+  justify-items:start;
 }
 
 
 .hero h1 {
+
+  --base-track:.08em;
+
+  width:max-content;
 
   margin:0;
 
@@ -367,22 +409,48 @@ main {
   font-size:
     clamp(32px,8.8vw,50.4px);
 
+  font-weight:700;
+
   line-height:1.04;
 
-  letter-spacing:.02em;
+  letter-spacing:
+    calc(
+      var(--base-track) +
+      var(--match-extra,0px)
+    );
+
+  white-space:nowrap;
 }
 
 
 .hero .romaji {
 
+  --base-track:.04em;
+
+  width:max-content;
+
   margin-top:8px;
+
+  font-family:
+    "Baskerville",
+    "Iowan Old Style",
+    "Times New Roman",
+    serif;
 
   font-size:
     clamp(16px,4.72vw,25.6px);
 
-  letter-spacing:.12em;
+  font-weight:500;
+
+  letter-spacing:
+    calc(
+      var(--base-track) +
+      var(--match-extra,0px)
+    );
 
   line-height:1.07;
+
+  white-space:nowrap;
 }
 
 
@@ -393,9 +461,9 @@ main {
 .hero-mark {
 
   margin:
-    15px
+    16px
     auto
-    22px;
+    23px;
 
   display:flex;
   align-items:center;
@@ -762,15 +830,13 @@ main {
 
   :root {
 
-    /*
-     * Previous desktop header:
-     * 90px
-     *
-     * New:
-     * 72px
-     */
-
     --header-h:72px;
+
+    /*
+     * Much larger blossom on larger formats.
+     */
+    --header-blossom-w:
+      clamp(245px,25vw,360px);
 
     --reader-max:68rem;
 
@@ -793,40 +859,49 @@ main {
   }
 
 
-  /*
-   * Blossom remains top-left.
-   * No second positioning system.
-   */
-
   .header-blossom {
 
     left:0;
     top:0;
 
-    height:100%;
-    width:auto;
+    width:var(--header-blossom-w);
+
+    height:auto;
 
     opacity:1;
   }
 
 
   /*
-   * Large format has sufficient width,
-   * so the identity now clears the blossom
-   * rather than sitting on top of it.
+   * Identity begins completely beyond
+   * the blossom on the large layout.
    */
 
   .brand {
 
-    margin-left:132px;
+    margin-left:
+      calc(
+        var(--header-blossom-w) + 14px
+      );
 
-    gap:10px;
+    gap:11px;
   }
 
 
+  /*
+   * Previous desktop mon was 46px.
+   * 46 × 1.5 = 69px.
+   */
+
   .brand .mon {
 
-    height:46px;
+    height:69px;
+
+    opacity:.75;
+  }
+
+
+  .brand-stack {
 
     opacity:.75;
   }
@@ -840,7 +915,7 @@ main {
 
   .brand-stack .romaji {
 
-    font-size:13.5px;
+    font-size:14px;
   }
 
 
@@ -902,36 +977,25 @@ main {
    SHORT LANDSCAPE VIEWPORTS
    ========================================================= */
 
-@media(
-  min-width:760px
-)
-and
-(
-  max-height:700px
-) {
+@media(min-width:760px) and (max-height:700px) {
 
   .hero {
 
-    padding-top:18px;
-    padding-bottom:20px;
+    padding-top:14px;
+    padding-bottom:18px;
   }
 
-
-  /*
-   * Keeps the hero composition visible
-   * as a complete unit on landscape tablets.
-   */
 
   .hero-mon {
 
     width:
       min(
         30vw,
-        310px,
+        300px,
         34svh
       );
 
-    margin-bottom:2px;
+    margin-bottom:0;
   }
 
 
@@ -944,7 +1008,7 @@ and
 
   .hero .romaji {
 
-    margin-top:6px;
+    margin-top:5px;
 
     font-size:
       clamp(15px,2.5vw,21px);
@@ -954,7 +1018,7 @@ and
   .hero-mark {
 
     margin-top:10px;
-    margin-bottom:14px;
+    margin-bottom:13px;
   }
 
 
@@ -1030,9 +1094,15 @@ and
 
   margin-top:4px;
 
+  font-family:
+    "Baskerville",
+    "Iowan Old Style",
+    "Times New Roman",
+    serif;
+
   font-size:12px;
 
-  letter-spacing:.11em;
+  letter-spacing:.08em;
 }
 
 
@@ -1084,13 +1154,22 @@ and
       alt="Seitō-ryū mon"
     >
 
-    <div class="brand-stack">
+    <div
+      class="brand-stack"
+      data-match-title
+    >
 
-      <span class="jp">
+      <span
+        class="jp"
+        data-match-jp
+      >
         聖都流合気柔術
       </span>
 
-      <span class="romaji">
+      <span
+        class="romaji"
+        data-match-romaji
+      >
         SEITŌ-RYŪ AIKI-JŪJUTSU
       </span>
 
@@ -1133,13 +1212,25 @@ and
   >
 
 
-  <h1>
-    聖都流合気柔術
-  </h1>
+  <div
+    class="hero-name"
+    data-match-title
+  >
+
+    <h1
+      data-match-jp
+    >
+      聖都流合気柔術
+    </h1>
 
 
-  <div class="romaji">
-    SEITŌ-RYŪ AIKI-JŪJUTSU
+    <div
+      class="romaji"
+      data-match-romaji
+    >
+      SEITŌ-RYŪ AIKI-JŪJUTSU
+    </div>
+
   </div>
 
 
@@ -1977,7 +2068,7 @@ const sections = [
 
 
 /* =========================================================
-   RENDER
+   RENDER SECTIONS
    ========================================================= */
 
 const root =
@@ -2121,6 +2212,148 @@ sections.forEach(
 
 
 /* =========================================================
+   AUTOMATIC TITLE WIDTH MATCHING
+   ========================================================= */
+
+/*
+ * The Japanese and Roman title lines keep their
+ * natural font sizes.
+ *
+ * We measure them after the fonts load.
+ *
+ * Whichever line is shorter receives only enough
+ * additional character spacing to make its rendered
+ * width equal to the longer line.
+ *
+ * This preserves the typeface proportions instead
+ * of horizontally scaling or condensing the letters.
+ */
+
+function matchTitleWidths() {
+
+  document
+    .querySelectorAll(
+      "[data-match-title]"
+    )
+    .forEach(
+      group => {
+
+        const jp =
+          group.querySelector(
+            "[data-match-jp]"
+          );
+
+
+        const romaji =
+          group.querySelector(
+            "[data-match-romaji]"
+          );
+
+
+        if(
+          !jp ||
+          !romaji
+        ) {
+          return;
+        }
+
+
+        /*
+         * Remove previous dynamic tracking
+         * before measuring again.
+         */
+
+        jp.style
+          .removeProperty(
+            "--match-extra"
+          );
+
+
+        romaji.style
+          .removeProperty(
+            "--match-extra"
+          );
+
+
+        const jpWidth =
+          jp.getBoundingClientRect()
+            .width;
+
+
+        const romajiWidth =
+          romaji.getBoundingClientRect()
+            .width;
+
+
+        const target =
+          Math.max(
+            jpWidth,
+            romajiWidth
+          );
+
+
+        function expandToTarget(
+          element,
+          currentWidth
+        ) {
+
+          const characters =
+            Array.from(
+              element
+                .textContent
+                .trim()
+            ).length;
+
+
+          if(
+            characters < 2 ||
+            currentWidth >= target - .5
+          ) {
+
+            return;
+
+          }
+
+
+          const requiredExtra =
+            (
+              target -
+              currentWidth
+            )
+            /
+            (
+              characters -
+              1
+            );
+
+
+          element.style
+            .setProperty(
+              "--match-extra",
+              `${requiredExtra}px`
+            );
+
+        }
+
+
+        expandToTarget(
+          jp,
+          jpWidth
+        );
+
+
+        expandToTarget(
+          romaji,
+          romajiWidth
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
    JAPANESE VERTICAL FITTING
    ========================================================= */
 
@@ -2144,10 +2377,6 @@ function paragraphFits(paragraph) {
 
 }
 
-
-/* =========================================================
-   FIT ONE JAPANESE PARAGRAPH
-   ========================================================= */
 
 function fitVerticalParagraph(paragraph) {
 
@@ -2239,10 +2468,6 @@ function fitVerticalParagraph(paragraph) {
 }
 
 
-/* =========================================================
-   LAYOUT ALL JAPANESE
-   ========================================================= */
-
 function layoutJapanese() {
 
   document
@@ -2258,6 +2483,19 @@ function layoutJapanese() {
 
       }
     );
+
+}
+
+
+/* =========================================================
+   COMPLETE LAYOUT
+   ========================================================= */
+
+function layoutPage() {
+
+  matchTitleWidths();
+
+  layoutJapanese();
 
 }
 
@@ -2309,7 +2547,7 @@ if(
         () => {
 
           requestAnimationFrame(
-            layoutJapanese
+            layoutPage
           );
 
         }
@@ -2324,7 +2562,7 @@ else {
 
   window.addEventListener(
     "load",
-    layoutJapanese
+    layoutPage
   );
 
 }
@@ -2336,7 +2574,7 @@ else {
 
 const relayout =
   debounce(
-    layoutJapanese,
+    layoutPage,
     120
   );
 
@@ -2352,7 +2590,7 @@ window.addEventListener(
   () => {
 
     setTimeout(
-      layoutJapanese,
+      layoutPage,
       250
     );
 
