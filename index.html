@@ -31,23 +31,11 @@
   --reader-max:940px;
 
   /*
-   * FOLIO PROPORTION
-   *
-   * width : height
-   * 17    : 25
-   */
-
-  --folio-ratio:0.68;
-
-  /*
    * MOBILE TYPOGRAPHY
-   *
-   * JS may reduce Japanese from this
-   * maximum when necessary to fit.
    */
 
-  --jp-font-max:17px;
-  --jp-leading:1.66;
+  --jp-size:16.5px;
+  --jp-leading:1.68;
 
   --en-size:18.2px;
   --en-leading:1.44;
@@ -55,7 +43,9 @@
   --pair-gap:14px;
 
   --folio-pad-x:12px;
-  --folio-pad-y:16px;
+  --folio-pad-y:18px;
+
+  --jp-paragraph-gap:26px;
 
   --section-pad-x:18px;
 }
@@ -347,7 +337,6 @@ main {
     34px;
 
   display:flex;
-
   align-items:center;
   justify-content:center;
 }
@@ -410,7 +399,7 @@ main {
 
 
 /* =========================================================
-   CONTENT
+   SECTIONS
    ========================================================= */
 
 .section {
@@ -424,7 +413,7 @@ main {
   padding:
     48px
     var(--section-pad-x)
-    56px;
+    72px;
 }
 
 
@@ -432,7 +421,7 @@ main {
 
   text-align:center;
 
-  margin-bottom:30px;
+  margin-bottom:32px;
 }
 
 
@@ -494,10 +483,10 @@ main {
 
 
 /* =========================================================
-   BILINGUAL PAIR
+   SECTION READING FIELD
    ========================================================= */
 
-.pair-row {
+.section-body {
 
   width:100%;
 
@@ -511,56 +500,24 @@ main {
     var(--pair-gap);
 
   align-items:start;
-
-  margin:
-    0
-    0
-    38px;
 }
 
 
 /* =========================================================
-   JAPANESE FOLIO
+   CONTINUOUS JAPANESE FOLIO
    ========================================================= */
 
-/*
- * Width + height are calculated in JavaScript.
- *
- * Every folio keeps exactly the same 17:25 ratio.
- *
- * Japanese font size is also fitted by JavaScript.
- */
+.jp-folio {
 
-.jp-card {
+  width:100%;
 
-  min-width:0;
+  max-width:17rem;
 
   justify-self:end;
 
   padding:
     var(--folio-pad-y)
     var(--folio-pad-x);
-
-  writing-mode:vertical-rl;
-
-  text-orientation:mixed;
-
-  overflow:hidden;
-
-  font-family:
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    "YuMincho",
-    "Noto Serif JP",
-    serif;
-
-  font-size:
-    var(--jp-font-max);
-
-  line-height:
-    var(--jp-leading);
-
-  letter-spacing:.025em;
 
   background:
     linear-gradient(
@@ -584,22 +541,64 @@ main {
     inset 0 1px 0 rgba(255,255,255,.50),
     0 1px 2px rgba(74,45,25,.055),
     0 8px 20px rgba(74,45,25,.085);
+
+  overflow:hidden;
 }
 
 
-.jp-card p {
+/*
+ * Each paragraph is a vertical-writing block.
+ *
+ * JavaScript calculates only the HEIGHT required
+ * for this fixed font size to fit inside the
+ * available folio width.
+ *
+ * The paper itself stays continuous.
+ */
 
-  margin:0;
+.jp-paragraph {
 
-  padding:0;
+  width:100%;
+
+  writing-mode:vertical-rl;
+
+  text-orientation:mixed;
+
+  overflow:hidden;
+
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  font-size:
+    var(--jp-size);
+
+  line-height:
+    var(--jp-leading);
+
+  letter-spacing:.025em;
+
+  margin:
+    0
+    0
+    var(--jp-paragraph-gap);
+}
+
+
+.jp-paragraph:last-child {
+
+  margin-bottom:0;
 }
 
 
 /* =========================================================
-   ENGLISH
+   ENGLISH SECTION
    ========================================================= */
 
-.en-block {
+.en-section {
 
   min-width:0;
 
@@ -622,7 +621,22 @@ main {
 }
 
 
-.en-block p {
+.en-group {
+
+  margin:
+    0
+    0
+    1.8em;
+}
+
+
+.en-group:last-child {
+
+  margin-bottom:0;
+}
+
+
+.en-section p {
 
   margin:
     0
@@ -641,7 +655,13 @@ main {
 }
 
 
-.en-block .sequence {
+.en-section p:last-child {
+
+  margin-bottom:0;
+}
+
+
+.en-section .sequence {
 
   font-size:.92em;
 
@@ -653,7 +673,7 @@ main {
 }
 
 
-.en-block .closing {
+.en-section .closing {
 
   font-size:1.42em;
 
@@ -675,19 +695,11 @@ main {
 
     --reader-max:68rem;
 
-    /*
-     * JS starts here and reduces when needed.
-     */
-
-    --jp-font-max:20px;
-    --jp-leading:1.68;
+    --jp-size:18px;
+    --jp-leading:1.72;
 
     --en-size:21px;
     --en-leading:1.46;
-
-    /*
-     * Narrow classical English measure.
-     */
 
     --en-measure:24ch;
 
@@ -696,11 +708,19 @@ main {
     --folio-pad-x:18px;
     --folio-pad-y:20px;
 
+    --jp-paragraph-gap:34px;
+
     --section-pad-x:38px;
   }
 
 
-  .en-block {
+  .jp-folio {
+
+    width:17rem;
+  }
+
+
+  .en-section {
 
     width:
       min(100%,var(--en-measure));
@@ -1826,42 +1846,70 @@ sections.forEach(
 
       </div>
 
+
+      <div class="section-body">
+
+        <div
+          class="jp-folio"
+          lang="ja"
+        ></div>
+
+        <div
+          class="en-section"
+          lang="en"
+        ></div>
+
+      </div>
+
     `;
+
+
+    const jpFolio =
+      sectionElement.querySelector(
+        ".jp-folio"
+      );
+
+
+    const enSection =
+      sectionElement.querySelector(
+        ".en-section"
+      );
 
 
     section.rows.forEach(
       row => {
 
-        const pair =
+        /*
+         * JAPANESE
+         */
+
+        const jpParagraph =
           document.createElement("div");
 
 
-        pair.className =
-          "pair-row";
+        jpParagraph.className =
+          "jp-paragraph";
 
 
-        const jp =
+        jpParagraph.textContent =
+          row.jp;
+
+
+        jpFolio.appendChild(
+          jpParagraph
+        );
+
+
+        /*
+         * ENGLISH
+         */
+
+        const group =
           document.createElement("div");
 
 
-        jp.className =
-          "jp-card";
-
-
-        jp.lang =
-          "ja";
-
-
-        jp.innerHTML =
-          `<p>${row.jp}</p>`;
-
-
-        const en =
-          document.createElement("div");
-
-
-        en.className =
-          "en-block";
+        group.className =
+          "en-group";
 
 
         row.en.forEach(
@@ -1883,7 +1931,7 @@ sections.forEach(
               paragraph.text;
 
 
-            en.appendChild(
+            group.appendChild(
               node
             );
 
@@ -1891,16 +1939,9 @@ sections.forEach(
         );
 
 
-        pair.append(
-          jp,
-          en
+        enSection.appendChild(
+          group
         );
-
-
-        sectionElement
-          .appendChild(
-            pair
-          );
 
       }
     );
@@ -1915,213 +1956,19 @@ sections.forEach(
 
 
 /* =========================================================
-   FOLIO LAYOUT ENGINE
+   VERTICAL PARAGRAPH FITTING
    ========================================================= */
 
 /*
- * The paper is now the fixed object.
+ * Japanese font size never changes paragraph-by-paragraph.
  *
- * Every folio:
- *
- *     width : height = 17 : 25
- *
- *
- * MOBILE / SMALL TABLET:
- *
- * Maximum height is the visible viewport
- * minus the sticky header and safety space.
- *
- * If the left grid column is narrower,
- * the column width becomes the limiting factor.
- *
- *
- * DESKTOP:
- *
- * Maximum folio height is 25rem / 400px.
- *
- *
- * After the page dimensions are established,
- * Japanese type is reduced only as much as
- * necessary to fit inside the page.
+ * We only determine how tall each vertical paragraph
+ * needs to be so its columns fit inside the fixed
+ * width of the continuous folio.
  */
 
 
-const FOLIO_RATIO =
-  17 / 25;
-
-
-const MOBILE_BREAKPOINT =
-  760;
-
-
-/* =========================================================
-   VIEWPORT HEIGHT
-   ========================================================= */
-
-function getVisibleViewportHeight() {
-
-  if(
-    window.visualViewport
-  ) {
-
-    return window.visualViewport.height;
-
-  }
-
-
-  return window.innerHeight;
-
-}
-
-
-/* =========================================================
-   AVAILABLE GRID COLUMN WIDTH
-   ========================================================= */
-
-function getColumnWidth(pair) {
-
-  const pairWidth =
-    pair.getBoundingClientRect().width;
-
-
-  const styles =
-    getComputedStyle(pair);
-
-
-  const gap =
-    parseFloat(
-      styles.columnGap
-    ) || 0;
-
-
-  return (
-    pairWidth - gap
-  ) / 2;
-
-}
-
-
-/* =========================================================
-   SET ONE FOLIO'S PHYSICAL SIZE
-   ========================================================= */
-
-function sizeFolio(card) {
-
-  const pair =
-    card.closest(
-      ".pair-row"
-    );
-
-
-  if(!pair) {
-    return;
-  }
-
-
-  const columnWidth =
-    getColumnWidth(pair);
-
-
-  const header =
-    document.querySelector(
-      ".site-header"
-    );
-
-
-  const headerHeight =
-    header
-      ? header.getBoundingClientRect().height
-      : 0;
-
-
-  const viewportHeight =
-    getVisibleViewportHeight();
-
-
-  /*
-   * Leave a little open space under the folio
-   * even when it is positioned directly below
-   * the sticky header.
-   */
-
-  const screenSafety =
-    window.innerWidth < MOBILE_BREAKPOINT
-      ? 28
-      : 48;
-
-
-  const viewportMaxHeight =
-    Math.max(
-      220,
-      viewportHeight
-      - headerHeight
-      - screenSafety
-    );
-
-
-  /*
-   * Desktop shouldn't grow indefinitely.
-   *
-   * 25rem = the large-page height we already liked.
-   */
-
-  const designMaxHeight =
-    window.innerWidth >= MOBILE_BREAKPOINT
-      ? 400
-      : viewportMaxHeight;
-
-
-  const maxHeight =
-    Math.min(
-      viewportMaxHeight,
-      designMaxHeight
-    );
-
-
-  /*
-   * Calculate the largest possible page
-   * that:
-   *
-   * 1. fits inside its grid column
-   * 2. fits within maximum screen height
-   * 3. always retains 17:25 proportion
-   */
-
-  const heightFromColumn =
-    columnWidth / FOLIO_RATIO;
-
-
-  const height =
-    Math.min(
-      maxHeight,
-      heightFromColumn
-    );
-
-
-  const width =
-    height * FOLIO_RATIO;
-
-
-  card.style.width =
-    `${Math.floor(width)}px`;
-
-
-  card.style.height =
-    `${Math.floor(height)}px`;
-
-}
-
-
-/* =========================================================
-   CHECK WHETHER JAPANESE FITS
-   ========================================================= */
-
-function japaneseFits(card) {
-
-  /*
-   * Tiny tolerance avoids false overflow reports
-   * caused by fractional browser rendering.
-   */
+function paragraphFits(paragraph) {
 
   const tolerance =
     1.5;
@@ -2129,13 +1976,13 @@ function japaneseFits(card) {
 
   return (
 
-    card.scrollWidth <=
-      card.clientWidth + tolerance
+    paragraph.scrollWidth <=
+      paragraph.clientWidth + tolerance
 
     &&
 
-    card.scrollHeight <=
-      card.clientHeight + tolerance
+    paragraph.scrollHeight <=
+      paragraph.clientHeight + tolerance
 
   );
 
@@ -2143,106 +1990,88 @@ function japaneseFits(card) {
 
 
 /* =========================================================
-   FIT JAPANESE FONT TO ONE FOLIO
+   FIT ONE PARAGRAPH
    ========================================================= */
 
-function fitJapaneseFont(card) {
-
-  const styles =
-    getComputedStyle(card);
-
+function fitVerticalParagraph(paragraph) {
 
   /*
-   * CSS controls the preferred maximum:
+   * Minimum vertical measure.
    *
-   * mobile   17px
-   * desktop  20px
-   */
-
-  const preferredMax =
-    parseFloat(
-      styles.getPropertyValue(
-        "--jp-font-max"
-      )
-    ) || 17;
-
-
-  /*
-   * Safety floor.
-   *
-   * These paragraphs should not need to get
-   * anywhere near this small, but this ensures
-   * nothing is ever clipped.
+   * Short paragraphs still receive enough vertical
+   * space to look intentional rather than cramped.
    */
 
   const minimum =
-    10.5;
+    window.innerWidth >= 760
+      ? 250
+      : 220;
 
-
-  /*
-   * Test the preferred size first.
-   */
-
-  card.style.fontSize =
-    `${preferredMax}px`;
-
-
-  if(
-    japaneseFits(card)
-  ) {
-
-    return;
-
-  }
-
-
-  /*
-   * Binary search for the largest size
-   * that completely fits the fixed folio.
-   */
 
   let low =
     minimum;
 
 
   let high =
-    preferredMax;
-
-
-  let best =
     minimum;
 
 
-  for(
-    let i = 0;
-    i < 16;
-    i++
+  paragraph.style.height =
+    `${high}px`;
+
+
+  /*
+   * Increase until all vertical columns
+   * fit within the folio width.
+   */
+
+  while(
+    !paragraphFits(paragraph)
+    &&
+    high < 1800
   ) {
 
-    const test =
-      (low + high) / 2;
+    high += 80;
 
 
-    card.style.fontSize =
-      `${test}px`;
+    paragraph.style.height =
+      `${high}px`;
+
+  }
+
+
+  /*
+   * Binary-search for the smallest clean
+   * height that still fits everything.
+   */
+
+  while(
+    low < high
+  ) {
+
+    const middle =
+      Math.floor(
+        (low + high) / 2
+      );
+
+
+    paragraph.style.height =
+      `${middle}px`;
 
 
     if(
-      japaneseFits(card)
+      paragraphFits(paragraph)
     ) {
 
-      best =
-        test;
-
-      low =
-        test;
+      high =
+        middle;
 
     }
 
     else {
 
-      high =
-        test;
+      low =
+        middle + 1;
 
     }
 
@@ -2250,67 +2079,51 @@ function fitJapaneseFont(card) {
 
 
   /*
-   * Small optical safety reduction.
-   *
-   * Prevents the final glyph from touching
-   * or disappearing beneath an edge because
-   * of sub-pixel rendering differences.
+   * Add a little vertical breathing room
+   * after the final character.
    */
 
-  best =
-    Math.max(
-      minimum,
-      best - 0.15
+  const fontSize =
+    parseFloat(
+      getComputedStyle(paragraph)
+        .fontSize
     );
 
 
-  card.style.fontSize =
-    `${best.toFixed(2)}px`;
+  const breathingRoom =
+    Math.max(
+      14,
+      fontSize * 0.8
+    );
+
+
+  paragraph.style.height =
+    `${Math.ceil(
+      high + breathingRoom
+    )}px`;
 
 }
 
 
 /* =========================================================
-   COMPLETE PAGE LAYOUT
+   FIT ALL JAPANESE PARAGRAPHS
    ========================================================= */
 
-function layoutFolios() {
+function layoutJapanese() {
 
-  const cards =
-    document.querySelectorAll(
-      ".jp-card"
+  document
+    .querySelectorAll(
+      ".jp-paragraph"
+    )
+    .forEach(
+      paragraph => {
+
+        fitVerticalParagraph(
+          paragraph
+        );
+
+      }
     );
-
-
-  /*
-   * First establish identical paper dimensions.
-   */
-
-  cards.forEach(
-    card => {
-
-      sizeFolio(
-        card
-      );
-
-    }
-  );
-
-
-  /*
-   * Then fit each Japanese paragraph
-   * inside its already-established folio.
-   */
-
-  cards.forEach(
-    card => {
-
-      fitJapaneseFont(
-        card
-      );
-
-    }
-  );
 
 }
 
@@ -2362,7 +2175,7 @@ if(
         () => {
 
           requestAnimationFrame(
-            layoutFolios
+            layoutJapanese
           );
 
         }
@@ -2377,7 +2190,7 @@ else {
 
   window.addEventListener(
     "load",
-    layoutFolios
+    layoutJapanese
   );
 
 }
@@ -2389,7 +2202,7 @@ else {
 
 const relayout =
   debounce(
-    layoutFolios,
+    layoutJapanese,
     120
   );
 
@@ -2405,20 +2218,13 @@ window.addEventListener(
   () => {
 
     setTimeout(
-      layoutFolios,
+      layoutJapanese,
       250
     );
 
   }
 );
 
-
-/*
- * Safari / iOS changes the visible viewport
- * when the browser chrome expands or collapses.
- *
- * Recalculate against the real visible height.
- */
 
 if(
   window.visualViewport
