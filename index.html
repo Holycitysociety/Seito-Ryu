@@ -26,13 +26,7 @@
   --muted:#6b645d;
   --shu:#b02a20;
 
-  /* =======================================================
-     MOBILE HEADER
-     ======================================================= */
-
   --header-h:58px;
-
-  /* READER */
 
   --reader-max:940px;
 
@@ -61,45 +55,34 @@
 
   --hero-poster-max:640px;
 
-  /*
-   * Hero mon increased another 20%.
-   *
-   * Previous:
-   * min(70vw,300px)
-   *
-   * New:
-   * min(84vw,360px)
-   */
-
   --hero-mon-w:min(84vw,360px);
 
-  --hero-mon-gap:26px;
-
-
   /*
-   * All hero typography reduced 20%.
+   * Pull the entire wordmark upward toward
+   * the large mon.
    */
+  --hero-wordmark-lift:-78px;
 
   --hero-title-size:
     clamp(36.8px,8.96vw,60.8px);
 
   --hero-title-line:1.02;
-
   --hero-title-track:.02em;
 
   --hero-rule-w:88px;
   --hero-rule-h:2px;
-  --hero-rule-gap:14px;
+
+  --hero-rule-gap-top:10px;
+  --hero-rule-gap-bottom:12px;
 
   --hero-romaji-size:
     clamp(15.2px,4.08vw,24.8px);
 
   --hero-romaji-line:1.15;
-
   --hero-romaji-track:.12em;
 
-  --hero-mark-gap-top:28px;
-  --hero-mark-gap-bottom:30px;
+  --hero-mark-gap-top:24px;
+  --hero-mark-gap-bottom:32px;
 
   --hero-mark-size:32px;
 
@@ -196,7 +179,7 @@ main{
 
 
 /* =========================================================
-   FLOATING CHERRY BLOSSOM — MOBILE
+   FLOATING CHERRY BLOSSOM
    ========================================================= */
 
 .header-blossom{
@@ -222,7 +205,7 @@ main{
 
 
 /* =========================================================
-   HEADER IDENTITY — MOBILE
+   HEADER IDENTITY
    ========================================================= */
 
 .brand{
@@ -254,6 +237,12 @@ main{
   flex:0 0 auto;
 
   opacity:1;
+
+  /*
+   * Mon only:
+   * slightly farther right.
+   */
+  transform:translateX(7px);
 }
 
 
@@ -354,7 +343,7 @@ main{
 
 
 /* =========================================================
-   NARROW PHONE PROTECTION
+   NARROW PHONE
    ========================================================= */
 
 @media(max-width:390px){
@@ -370,6 +359,8 @@ main{
   .brand .mon{
 
     width:58px;
+
+    transform:translateX(6px);
   }
 
 
@@ -390,7 +381,7 @@ main{
 
 
 /* =========================================================
-   HERO — POSTER PRESENTATION
+   HERO
    ========================================================= */
 
 .hero{
@@ -401,7 +392,6 @@ main{
   display:grid;
 
   align-content:center;
-
   justify-items:center;
 
   padding:
@@ -426,19 +416,41 @@ main{
 }
 
 
+/* =========================================================
+   LARGE HERO MON
+   ========================================================= */
+
 .hero-mon{
 
   width:
     var(--hero-mon-w);
 
-  margin-bottom:
-    var(--hero-mon-gap);
+  margin:0;
 }
 
 
 /* =========================================================
-   HERO TITLE BLOCK
+   HERO WORDMARK
    ========================================================= */
+
+/*
+ * Japanese title + rule + Roman title + small mon
+ * now behave as one graphic unit.
+ */
+
+.hero-wordmark{
+
+  display:grid;
+
+  justify-items:center;
+
+  width:max-content;
+  max-width:100%;
+
+  margin-top:
+    var(--hero-wordmark-lift);
+}
+
 
 .hero-title-block{
 
@@ -495,10 +507,10 @@ main{
     var(--hero-rule-h);
 
   margin-top:
-    var(--hero-rule-gap);
+    var(--hero-rule-gap-top);
 
   margin-bottom:
-    var(--hero-rule-gap);
+    var(--hero-rule-gap-bottom);
 
   background:
     rgba(176,42,32,.72);
@@ -531,7 +543,7 @@ main{
 
 
 /* =========================================================
-   HERO TINY MON
+   WORDMARK MON
    ========================================================= */
 
 .hero-mark{
@@ -544,7 +556,6 @@ main{
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 }
 
@@ -679,7 +690,6 @@ main{
   display:flex;
 
   align-items:center;
-
   justify-content:center;
 }
 
@@ -909,12 +919,7 @@ main{
 
   :root{
 
-    /* HEADER */
-
     --header-h:70px;
-
-
-    /* READER */
 
     --reader-max:68rem;
 
@@ -936,19 +941,7 @@ main{
     --section-pad-x:38px;
 
 
-    /* =====================================================
-       HERO — DESKTOP
-
-       Mon increased 20%.
-
-       Previous:
-       min(37.5vw,438px)
-
-       New:
-       min(45vw,525.6px)
-
-       All hero typography reduced 20%.
-       ===================================================== */
+    /* HERO */
 
     --hero-pad-top:48px;
     --hero-pad-bottom:44px;
@@ -958,27 +951,30 @@ main{
     --hero-mon-w:
       min(45vw,525.6px);
 
-    --hero-mon-gap:40px;
+    /*
+     * Desktop gets its own wordmark lift.
+     */
+    --hero-wordmark-lift:-108px;
 
     --hero-title-size:
       clamp(54.4px,4.8vw,89.6px);
 
     --hero-title-line:1;
-
     --hero-title-track:.022em;
 
     --hero-rule-w:130px;
     --hero-rule-h:2px;
-    --hero-rule-gap:18px;
+
+    --hero-rule-gap-top:12px;
+    --hero-rule-gap-bottom:14px;
 
     --hero-romaji-size:
       clamp(21.6px,1.8vw,32px);
 
     --hero-romaji-line:1.12;
-
     --hero-romaji-track:.14em;
 
-    --hero-mark-gap-top:36px;
+    --hero-mark-gap-top:28px;
     --hero-mark-gap-bottom:36px;
 
     --hero-mark-size:36px;
@@ -1023,6 +1019,8 @@ main{
     height:auto;
 
     opacity:1;
+
+    transform:translateX(10px);
   }
 
 
@@ -1263,38 +1261,42 @@ main{
     >
 
 
-    <div
-      class="hero-title-block"
-      data-title-equalizer
-    >
-
-      <h1 data-title-jp>
-        聖都流合気柔術
-      </h1>
-
+    <div class="hero-wordmark">
 
       <div
-        class="hero-rule"
-        aria-hidden="true"
-      ></div>
-
-
-      <div
-        class="romaji"
-        data-title-romaji
+        class="hero-title-block"
+        data-title-equalizer
       >
-        SEITŌ-RYŪ AIKI-JŪJUTSU
+
+        <h1 data-title-jp>
+          聖都流合気柔術
+        </h1>
+
+
+        <div
+          class="hero-rule"
+          aria-hidden="true"
+        ></div>
+
+
+        <div
+          class="romaji"
+          data-title-romaji
+        >
+          SEITŌ-RYŪ AIKI-JŪJUTSU
+        </div>
+
       </div>
 
-    </div>
 
+      <div class="hero-mark">
 
-    <div class="hero-mark">
+        <img
+          src="/assets/seito-mon.png"
+          alt=""
+        >
 
-      <img
-        src="/assets/seito-mon.png"
-        alt=""
-      >
+      </div>
 
     </div>
 
