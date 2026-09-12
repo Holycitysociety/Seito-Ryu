@@ -31,21 +31,22 @@
   --reader-max:940px;
 
   /*
-   * FOLIO GEOMETRY
+   * FOLIO PROPORTION
    *
-   * 14 : 25 = .56
-   *
-   * The width cap also guarantees that the
-   * resulting height cannot exceed:
-   *
-   * 31rem
-   * or
-   * 78% of the visible screen height.
+   * width : height
+   * 17    : 25
    */
 
-  --folio-max-w:min(17.36rem,43.68svh);
+  --folio-ratio:0.68;
 
-  --jp-size:16.8px;
+  /*
+   * MOBILE TYPOGRAPHY
+   *
+   * JS may reduce Japanese from this
+   * maximum when necessary to fit.
+   */
+
+  --jp-font-max:17px;
   --jp-leading:1.66;
 
   --en-size:18.2px;
@@ -77,6 +78,7 @@ body {
   margin:0;
 
   color:var(--ink);
+
   background:var(--paper);
 
   font-family:
@@ -342,7 +344,7 @@ main {
   margin:
     22px
     auto
-    32px;
+    34px;
 
   display:flex;
 
@@ -354,6 +356,7 @@ main {
 .hero-mark img {
 
   width:28px;
+
   height:auto;
 }
 
@@ -473,7 +476,7 @@ main {
   margin:
     0
     auto
-    26px;
+    28px;
 
   display:flex;
 
@@ -485,6 +488,7 @@ main {
 .section-mark img {
 
   width:24px;
+
   height:auto;
 }
 
@@ -520,26 +524,14 @@ main {
    ========================================================= */
 
 /*
- * ALL folios now have the same proportion.
+ * Width + height are calculated in JavaScript.
  *
- * Width changes responsively.
- * Height follows from aspect-ratio.
+ * Every folio keeps exactly the same 17:25 ratio.
  *
- * JavaScript is NOT allowed to alter folio dimensions.
+ * Japanese font size is also fitted by JavaScript.
  */
 
 .jp-card {
-
-  width:
-    min(
-      100%,
-      var(--folio-max-w)
-    );
-
-  aspect-ratio:
-    14 / 25;
-
-  height:auto;
 
   min-width:0;
 
@@ -549,11 +541,9 @@ main {
     var(--folio-pad-y)
     var(--folio-pad-x);
 
-  writing-mode:
-    vertical-rl;
+  writing-mode:vertical-rl;
 
-  text-orientation:
-    mixed;
+  text-orientation:mixed;
 
   overflow:hidden;
 
@@ -565,7 +555,7 @@ main {
     serif;
 
   font-size:
-    var(--jp-size);
+    var(--jp-font-max);
 
   line-height:
     var(--jp-leading);
@@ -598,7 +588,10 @@ main {
 
 
 .jp-card p {
+
   margin:0;
+
+  padding:0;
 }
 
 
@@ -683,23 +676,18 @@ main {
     --reader-max:68rem;
 
     /*
-     * Same 14:25 folio ratio.
-     *
-     * This cap produces approximately:
-     *
-     * 17.36rem × 31rem
-     *
-     * unless screen height requires smaller.
+     * JS starts here and reduces when needed.
      */
 
-    --folio-max-w:
-      min(17.36rem,43.68svh);
-
-    --jp-size:20px;
-    --jp-leading:1.66;
+    --jp-font-max:20px;
+    --jp-leading:1.68;
 
     --en-size:21px;
     --en-leading:1.46;
+
+    /*
+     * Narrow classical English measure.
+     */
 
     --en-measure:24ch;
 
@@ -715,18 +703,24 @@ main {
   .en-block {
 
     width:
-      min(
-        100%,
-        var(--en-measure)
-      );
+      min(100%,var(--en-measure));
 
     justify-self:start;
+
+    padding-top:
+      var(--folio-pad-y);
+
+    font-size:
+      var(--en-size);
+
+    line-height:
+      var(--en-leading);
   }
 
 
   .section-mark {
 
-    margin-bottom:30px;
+    margin-bottom:32px;
   }
 
 
@@ -738,7 +732,7 @@ main {
 
   .hero-mark {
 
-    margin-bottom:36px;
+    margin-bottom:38px;
   }
 
 
@@ -1009,6 +1003,7 @@ const sections = [
   {
 
     jpTitle:"概要",
+
     enTitle:"About",
 
     rows:[
@@ -1085,6 +1080,7 @@ const sections = [
   },
 
 
+
   {
 
     jpTitle:
@@ -1094,6 +1090,7 @@ const sections = [
       "Classical Form and the Missing Beginning",
 
     rows:[
+
 
       {
 
@@ -1150,6 +1147,7 @@ const sections = [
   },
 
 
+
   {
 
     jpTitle:
@@ -1159,6 +1157,7 @@ const sections = [
       "The Whole Encounter",
 
     rows:[
+
 
       {
 
@@ -1239,6 +1238,7 @@ const sections = [
   },
 
 
+
   {
 
     jpTitle:
@@ -1248,6 +1248,7 @@ const sections = [
       "From Waza Toward Encounter",
 
     rows:[
+
 
       {
 
@@ -1304,6 +1305,7 @@ const sections = [
   },
 
 
+
   {
 
     jpTitle:
@@ -1313,6 +1315,7 @@ const sections = [
       "From Encounter Toward Waza",
 
     rows:[
+
 
       {
 
@@ -1369,6 +1372,7 @@ const sections = [
   },
 
 
+
   {
 
     jpTitle:
@@ -1378,6 +1382,7 @@ const sections = [
       "Proficiency and Appropriate Response",
 
     rows:[
+
 
       {
 
@@ -1417,6 +1422,7 @@ const sections = [
   },
 
 
+
   {
 
     jpTitle:
@@ -1426,6 +1432,7 @@ const sections = [
       "Applied Formative Research",
 
     rows:[
+
 
       {
 
@@ -1482,6 +1489,7 @@ const sections = [
   },
 
 
+
   {
 
     jpTitle:
@@ -1491,6 +1499,7 @@ const sections = [
       "Resistance, Control, and Safety",
 
     rows:[
+
 
       {
 
@@ -1547,6 +1556,7 @@ const sections = [
   },
 
 
+
   {
 
     jpTitle:
@@ -1556,6 +1566,7 @@ const sections = [
       "Learning From Other Budō",
 
     rows:[
+
 
       {
 
@@ -1612,6 +1623,7 @@ const sections = [
   },
 
 
+
   {
 
     jpTitle:
@@ -1621,6 +1633,7 @@ const sections = [
       "The Formative Record",
 
     rows:[
+
 
       {
 
@@ -1677,6 +1690,7 @@ const sections = [
   },
 
 
+
   {
 
     jpTitle:
@@ -1686,6 +1700,7 @@ const sections = [
       "Budō",
 
     rows:[
+
 
       {
 
@@ -1900,52 +1915,280 @@ sections.forEach(
 
 
 /* =========================================================
-   JAPANESE TYPE FITTING
+   FOLIO LAYOUT ENGINE
    ========================================================= */
 
 /*
- * IMPORTANT:
+ * The paper is now the fixed object.
  *
- * The paper NEVER changes shape.
+ * Every folio:
  *
- * If a long paragraph does not fit,
- * only the Japanese type is reduced.
+ *     width : height = 17 : 25
  *
- * Short paragraphs keep the standard size.
+ *
+ * MOBILE / SMALL TABLET:
+ *
+ * Maximum height is the visible viewport
+ * minus the sticky header and safety space.
+ *
+ * If the left grid column is narrower,
+ * the column width becomes the limiting factor.
+ *
+ *
+ * DESKTOP:
+ *
+ * Maximum folio height is 25rem / 400px.
+ *
+ *
+ * After the page dimensions are established,
+ * Japanese type is reduced only as much as
+ * necessary to fit inside the page.
  */
 
-function cardFits(card) {
+
+const FOLIO_RATIO =
+  17 / 25;
+
+
+const MOBILE_BREAKPOINT =
+  760;
+
+
+/* =========================================================
+   VIEWPORT HEIGHT
+   ========================================================= */
+
+function getVisibleViewportHeight() {
+
+  if(
+    window.visualViewport
+  ) {
+
+    return window.visualViewport.height;
+
+  }
+
+
+  return window.innerHeight;
+
+}
+
+
+/* =========================================================
+   AVAILABLE GRID COLUMN WIDTH
+   ========================================================= */
+
+function getColumnWidth(pair) {
+
+  const pairWidth =
+    pair.getBoundingClientRect().width;
+
+
+  const styles =
+    getComputedStyle(pair);
+
+
+  const gap =
+    parseFloat(
+      styles.columnGap
+    ) || 0;
+
 
   return (
-    card.scrollWidth <= card.clientWidth + 1
+    pairWidth - gap
+  ) / 2;
+
+}
+
+
+/* =========================================================
+   SET ONE FOLIO'S PHYSICAL SIZE
+   ========================================================= */
+
+function sizeFolio(card) {
+
+  const pair =
+    card.closest(
+      ".pair-row"
+    );
+
+
+  if(!pair) {
+    return;
+  }
+
+
+  const columnWidth =
+    getColumnWidth(pair);
+
+
+  const header =
+    document.querySelector(
+      ".site-header"
+    );
+
+
+  const headerHeight =
+    header
+      ? header.getBoundingClientRect().height
+      : 0;
+
+
+  const viewportHeight =
+    getVisibleViewportHeight();
+
+
+  /*
+   * Leave a little open space under the folio
+   * even when it is positioned directly below
+   * the sticky header.
+   */
+
+  const screenSafety =
+    window.innerWidth < MOBILE_BREAKPOINT
+      ? 28
+      : 48;
+
+
+  const viewportMaxHeight =
+    Math.max(
+      220,
+      viewportHeight
+      - headerHeight
+      - screenSafety
+    );
+
+
+  /*
+   * Desktop shouldn't grow indefinitely.
+   *
+   * 25rem = the large-page height we already liked.
+   */
+
+  const designMaxHeight =
+    window.innerWidth >= MOBILE_BREAKPOINT
+      ? 400
+      : viewportMaxHeight;
+
+
+  const maxHeight =
+    Math.min(
+      viewportMaxHeight,
+      designMaxHeight
+    );
+
+
+  /*
+   * Calculate the largest possible page
+   * that:
+   *
+   * 1. fits inside its grid column
+   * 2. fits within maximum screen height
+   * 3. always retains 17:25 proportion
+   */
+
+  const heightFromColumn =
+    columnWidth / FOLIO_RATIO;
+
+
+  const height =
+    Math.min(
+      maxHeight,
+      heightFromColumn
+    );
+
+
+  const width =
+    height * FOLIO_RATIO;
+
+
+  card.style.width =
+    `${Math.floor(width)}px`;
+
+
+  card.style.height =
+    `${Math.floor(height)}px`;
+
+}
+
+
+/* =========================================================
+   CHECK WHETHER JAPANESE FITS
+   ========================================================= */
+
+function japaneseFits(card) {
+
+  /*
+   * Tiny tolerance avoids false overflow reports
+   * caused by fractional browser rendering.
+   */
+
+  const tolerance =
+    1.5;
+
+
+  return (
+
+    card.scrollWidth <=
+      card.clientWidth + tolerance
+
     &&
-    card.scrollHeight <= card.clientHeight + 1
+
+    card.scrollHeight <=
+      card.clientHeight + tolerance
+
   );
 
 }
 
 
-function fitJapaneseType(card) {
+/* =========================================================
+   FIT JAPANESE FONT TO ONE FOLIO
+   ========================================================= */
+
+function fitJapaneseFont(card) {
+
+  const styles =
+    getComputedStyle(card);
+
 
   /*
-   * Remove previous JS adjustment first
-   * so responsive resizing always begins
-   * from the CSS-defined preferred size.
+   * CSS controls the preferred maximum:
+   *
+   * mobile   17px
+   * desktop  20px
+   */
+
+  const preferredMax =
+    parseFloat(
+      styles.getPropertyValue(
+        "--jp-font-max"
+      )
+    ) || 17;
+
+
+  /*
+   * Safety floor.
+   *
+   * These paragraphs should not need to get
+   * anywhere near this small, but this ensures
+   * nothing is ever clipped.
+   */
+
+  const minimum =
+    10.5;
+
+
+  /*
+   * Test the preferred size first.
    */
 
   card.style.fontSize =
-    "";
-
-
-  const preferred =
-    parseFloat(
-      getComputedStyle(card)
-        .fontSize
-    );
+    `${preferredMax}px`;
 
 
   if(
-    cardFits(card)
+    japaneseFits(card)
   ) {
 
     return;
@@ -1954,87 +2197,120 @@ function fitJapaneseType(card) {
 
 
   /*
-   * Do not let the type become absurdly small.
+   * Binary search for the largest size
+   * that completely fits the fixed folio.
    */
-
-  const minimum =
-    window.innerWidth >= 760
-      ? 15
-      : 13;
-
 
   let low =
     minimum;
 
 
   let high =
-    preferred;
+    preferredMax;
 
 
-  /*
-   * Find the largest type size that still fits.
-   */
+  let best =
+    minimum;
+
 
   for(
     let i = 0;
-    i < 12;
+    i < 16;
     i++
   ) {
 
-    const middle =
+    const test =
       (low + high) / 2;
 
 
     card.style.fontSize =
-      `${middle}px`;
+      `${test}px`;
 
 
     if(
-      cardFits(card)
+      japaneseFits(card)
     ) {
 
+      best =
+        test;
+
       low =
-        middle;
+        test;
 
     }
 
     else {
 
       high =
-        middle;
+        test;
 
     }
 
   }
 
 
+  /*
+   * Small optical safety reduction.
+   *
+   * Prevents the final glyph from touching
+   * or disappearing beneath an edge because
+   * of sub-pixel rendering differences.
+   */
+
+  best =
+    Math.max(
+      minimum,
+      best - 0.15
+    );
+
+
   card.style.fontSize =
-    `${Math.floor(
-      low * 10
-    ) / 10}px`;
+    `${best.toFixed(2)}px`;
 
 }
 
 
 /* =========================================================
-   LAYOUT
+   COMPLETE PAGE LAYOUT
    ========================================================= */
 
 function layoutFolios() {
 
-  document
-    .querySelectorAll(
+  const cards =
+    document.querySelectorAll(
       ".jp-card"
-    )
-    .forEach(
-      card => {
-
-        fitJapaneseType(
-          card
-        );
-
-      }
     );
+
+
+  /*
+   * First establish identical paper dimensions.
+   */
+
+  cards.forEach(
+    card => {
+
+      sizeFolio(
+        card
+      );
+
+    }
+  );
+
+
+  /*
+   * Then fit each Japanese paragraph
+   * inside its already-established folio.
+   */
+
+  cards.forEach(
+    card => {
+
+      fitJapaneseFont(
+        card
+      );
+
+    }
+  );
 
 }
 
@@ -2083,7 +2359,13 @@ if(
     () => {
 
       requestAnimationFrame(
-        layoutFolios
+        () => {
+
+          requestAnimationFrame(
+            layoutFolios
+          );
+
+        }
       );
 
     }
@@ -2105,12 +2387,16 @@ else {
    RESPONSIVE RECALCULATION
    ========================================================= */
 
-window.addEventListener(
-  "resize",
+const relayout =
   debounce(
     layoutFolios,
-    150
-  )
+    120
+  );
+
+
+window.addEventListener(
+  "resize",
+  relayout
 );
 
 
@@ -2125,6 +2411,26 @@ window.addEventListener(
 
   }
 );
+
+
+/*
+ * Safari / iOS changes the visible viewport
+ * when the browser chrome expands or collapses.
+ *
+ * Recalculate against the real visible height.
+ */
+
+if(
+  window.visualViewport
+) {
+
+  window.visualViewport
+    .addEventListener(
+      "resize",
+      relayout
+    );
+
+}
 
 </script>
 
