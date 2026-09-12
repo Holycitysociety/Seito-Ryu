@@ -30,10 +30,6 @@
 
   --reader-max:940px;
 
-  /*
-   * MOBILE TYPOGRAPHY
-   */
-
   --jp-size:16.5px;
   --jp-leading:1.68;
 
@@ -44,11 +40,6 @@
 
   --folio-pad-x:12px;
   --folio-pad-y:18px;
-
-  /*
-   * Shared gap between matching
-   * Japanese / English paragraphs.
-   */
 
   --paragraph-gap:30px;
 
@@ -127,10 +118,44 @@ img {
     0 4px 14px rgba(0,0,0,.045);
 
   overflow:hidden;
+
+  isolation:isolate;
+}
+
+
+/*
+ * Decorative cherry blossom branch
+ * anchored to the lower-left edge
+ * of the sticky header.
+ */
+
+.header-blossom {
+
+  position:absolute;
+
+  z-index:0;
+
+  left:-8px;
+  bottom:-4px;
+
+  width:
+    clamp(105px,22vw,190px);
+
+  height:auto;
+
+  opacity:.78;
+
+  pointer-events:none;
+
+  user-select:none;
 }
 
 
 .brand {
+
+  position:relative;
+
+  z-index:2;
 
   display:flex;
   align-items:center;
@@ -210,6 +235,10 @@ img {
 
 .menu {
 
+  position:relative;
+
+  z-index:2;
+
   width:44px;
   height:44px;
 
@@ -276,13 +305,7 @@ main {
 
 
 /*
- * Main mon increased exactly 20%.
- *
- * Previous:
- * min(60vw,320px)
- *
- * New:
- * min(72vw,384px)
+ * Main hero mon enlarged 20%.
  */
 
 .hero-mon {
@@ -295,13 +318,7 @@ main {
 
 
 /*
- * Hero title typography reduced 20%.
- *
- * Previous:
- * 40 / 63
- *
- * New:
- * 32 / 50.4
+ * Hero title reduced 20%.
  */
 
 .hero h1 {
@@ -324,14 +341,6 @@ main {
 }
 
 
-/*
- * Previous:
- * 20 / 32
- *
- * New:
- * 16 / 25.6
- */
-
 .hero .romaji {
 
   margin-top:12px;
@@ -344,14 +353,6 @@ main {
   line-height:1.07;
 }
 
-
-/*
- * Previous:
- * 28 / 40
- *
- * New:
- * 22.4 / 32
- */
 
 .hero .english {
 
@@ -527,21 +528,6 @@ main {
    CONTINUOUS BILINGUAL READING FIELD
    ========================================================= */
 
-/*
- * Japanese and English now occupy the SAME GRID.
- *
- * Every matching JP/EN paragraph is assigned
- * exactly the same grid row.
- *
- * Therefore:
- *
- * Japanese paragraph 1  = English paragraph 1
- * Japanese paragraph 2  = English paragraph 2
- * etc.
- *
- * Their starting positions always line up.
- */
-
 .section-body {
 
   position:relative;
@@ -562,11 +548,6 @@ main {
 
   align-items:start;
 
-  /*
-   * This creates the upper/lower paper margin
-   * while keeping both languages aligned.
-   */
-
   padding-top:
     var(--folio-pad-y);
 
@@ -576,18 +557,8 @@ main {
 
 
 /* =========================================================
-   ONE CONTINUOUS JAPANESE PAPER
+   CONTINUOUS JAPANESE FOLIO
    ========================================================= */
-
-/*
- * This pseudo-element is the actual folio.
- *
- * It extends continuously from the top of the
- * first paragraph to the bottom of the last.
- *
- * Individual Japanese paragraphs have no
- * separate card backgrounds.
- */
 
 .section-body::before {
 
@@ -600,24 +571,11 @@ main {
   top:0;
   bottom:0;
 
-  /*
-   * Right edge of the Japanese sheet
-   * aligns with the inner edge of
-   * the left half of the grid.
-   */
-
   right:
     calc(
       50% +
       (var(--pair-gap) / 2)
     );
-
-  /*
-   * On small screens use the whole left column.
-   *
-   * On larger displays cap at the traditional
-   * 17rem folio width.
-   */
 
   width:
     min(
@@ -670,10 +628,6 @@ main {
     min(17rem,100%);
 
   justify-self:end;
-
-  /*
-   * Horizontal inset inside the continuous folio.
-   */
 
   padding-left:
     var(--folio-pad-x);
@@ -799,11 +753,6 @@ main {
     --en-size:21px;
     --en-leading:1.46;
 
-    /*
-     * Keep English tall rather than spreading
-     * too far horizontally.
-     */
-
     --en-measure:24ch;
 
     --pair-gap:30px;
@@ -814,6 +763,18 @@ main {
     --paragraph-gap:36px;
 
     --section-pad-x:38px;
+  }
+
+
+  .header-blossom {
+
+    width:
+      clamp(145px,17vw,230px);
+
+    left:-10px;
+    bottom:-6px;
+
+    opacity:.8;
   }
 
 
@@ -959,6 +920,20 @@ main {
 
 
 <header class="site-header">
+
+  <!--
+    Decorative cherry blossom branch.
+    File expected at:
+    assets/cherry-blossom-header.png
+  -->
+
+  <img
+    class="header-blossom"
+    src="assets/cherry-blossom-header.png"
+    alt=""
+    aria-hidden="true"
+  >
+
 
   <a
     class="brand"
@@ -1940,10 +1915,6 @@ sections.forEach(
     section.rows.forEach(
       (row,rowIndex) => {
 
-        /*
-         * JAPANESE
-         */
-
         const jp =
           document.createElement("div");
 
@@ -1959,10 +1930,6 @@ sections.forEach(
         jp.textContent =
           row.jp;
 
-
-        /*
-         * ENGLISH
-         */
 
         const en =
           document.createElement("div");
@@ -1999,11 +1966,6 @@ sections.forEach(
         );
 
 
-        /*
-         * Explicitly place both languages
-         * in exactly the same grid row.
-         */
-
         const gridRow =
           rowIndex + 1;
 
@@ -2037,18 +1999,6 @@ sections.forEach(
    JAPANESE VERTICAL FITTING
    ========================================================= */
 
-/*
- * Font size remains constant.
- *
- * Only the vertical measure of each Japanese
- * paragraph changes enough to prevent clipping.
- *
- * The matching English paragraph shares the
- * same CSS Grid row, so the NEXT pair always
- * starts together.
- */
-
-
 function paragraphFits(paragraph) {
 
   const tolerance =
@@ -2076,10 +2026,6 @@ function paragraphFits(paragraph) {
 
 function fitVerticalParagraph(paragraph) {
 
-  /*
-   * Short paragraphs don't need huge blocks.
-   */
-
   const minimum =
     window.innerWidth >= 760
       ? 220
@@ -2098,10 +2044,6 @@ function fitVerticalParagraph(paragraph) {
     `${high}px`;
 
 
-  /*
-   * Find a vertical measure that definitely fits.
-   */
-
   while(
     !paragraphFits(paragraph)
     &&
@@ -2116,10 +2058,6 @@ function fitVerticalParagraph(paragraph) {
 
   }
 
-
-  /*
-   * Find the smallest fitting height.
-   */
 
   while(
     low < high
@@ -2153,11 +2091,6 @@ function fitVerticalParagraph(paragraph) {
 
   }
 
-
-  /*
-   * Small safety allowance so the final
-   * Japanese glyph never gets clipped.
-   */
 
   const fontSize =
     parseFloat(
