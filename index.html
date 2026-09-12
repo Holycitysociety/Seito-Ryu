@@ -59,18 +59,14 @@
   box-sizing:border-box;
 }
 
-
 html {
   scroll-behavior:smooth;
 }
 
-
 body {
-
   margin:0;
 
   color:var(--ink);
-
   background:var(--paper);
 
   font-family:
@@ -84,12 +80,10 @@ body {
   line-height:1.48;
 }
 
-
 img {
   display:block;
   max-width:100%;
 }
-
 
 
 /* =========================================================
@@ -128,7 +122,6 @@ img {
   overflow:hidden;
 }
 
-
 .brand {
 
   display:flex;
@@ -144,7 +137,6 @@ img {
   text-decoration:none;
 }
 
-
 .brand .mon {
 
   width:58px;
@@ -152,14 +144,12 @@ img {
   flex:0 0 auto;
 }
 
-
 .brand-stack {
 
   min-width:0;
 
   line-height:1;
 }
-
 
 .brand-stack .jp {
 
@@ -182,7 +172,6 @@ img {
   letter-spacing:.03em;
 }
 
-
 .brand-stack .romaji {
 
   display:block;
@@ -195,7 +184,6 @@ img {
   letter-spacing:.12em;
 }
 
-
 .brand-stack .en {
 
   display:block;
@@ -205,7 +193,6 @@ img {
 
   letter-spacing:.022em;
 }
-
 
 .menu {
 
@@ -222,7 +209,6 @@ img {
   background:var(--paper);
 
   display:flex;
-
   flex-direction:column;
 
   align-items:center;
@@ -232,7 +218,6 @@ img {
 
   cursor:pointer;
 }
-
 
 .menu span {
 
@@ -247,7 +232,6 @@ img {
 }
 
 
-
 /* =========================================================
    HERO
    ========================================================= */
@@ -255,7 +239,6 @@ img {
 main {
   overflow:hidden;
 }
-
 
 .hero {
 
@@ -275,7 +258,6 @@ main {
   text-align:center;
 }
 
-
 .hero-mon {
 
   width:
@@ -283,7 +265,6 @@ main {
 
   margin-bottom:18px;
 }
-
 
 .hero h1 {
 
@@ -304,7 +285,6 @@ main {
   letter-spacing:.02em;
 }
 
-
 .hero .romaji {
 
   margin-top:12px;
@@ -316,7 +296,6 @@ main {
 
   line-height:1.07;
 }
-
 
 .hero .english {
 
@@ -331,52 +310,34 @@ main {
 }
 
 
-.hero-ornament {
+/* =========================================================
+   HERO TINY MON
+   ========================================================= */
 
-  display:flex;
-  align-items:center;
-
-  gap:12px;
-
-  width:
-    min(52vw,290px);
+.hero-mark {
 
   margin:
-    18px auto;
+    22px
+    auto
+    30px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-mark img {
+
+  width:28px;
+
+  height:auto;
 }
 
 
-.hero-ornament::before,
-.hero-ornament::after {
-
-  content:"";
-
-  flex:1;
-
-  height:1px;
-
-  background:
-    rgba(176,42,32,.72);
-}
-
-
-.hero-ornament i {
-
-  width:8px;
-  height:8px;
-
-  display:block;
-
-  background:var(--shu);
-
-  border-radius:50%;
-
-  box-shadow:
-    -9px 0 var(--shu),
-     9px 0 var(--shu),
-     0 -9px var(--shu);
-}
-
+/* =========================================================
+   SORYU-KI
+   ========================================================= */
 
 .soryuki {
 
@@ -385,11 +346,9 @@ main {
   margin-bottom:24px;
 }
 
-
 .soryuki span {
   display:block;
 }
-
 
 .soryuki .jp {
 
@@ -404,14 +363,12 @@ main {
     clamp(18px,5.6vw,30px);
 }
 
-
 .soryuki .rom,
 .soryuki .en {
 
   font-size:
     clamp(16px,4.6vw,24px);
 }
-
 
 .soryuki .place {
 
@@ -420,7 +377,6 @@ main {
   font-size:
     clamp(14px,4.2vw,20px);
 }
-
 
 
 /* =========================================================
@@ -441,14 +397,12 @@ main {
     56px;
 }
 
-
 .section-title {
 
   text-align:center;
 
   margin-bottom:30px;
 }
-
 
 .section-title .kicker {
 
@@ -467,7 +421,6 @@ main {
   line-height:1.15;
 }
 
-
 .section-title .sub {
 
   margin-top:6px;
@@ -481,40 +434,22 @@ main {
 }
 
 
-
 /* =========================================================
-   SECTION MON
+   SECTION TINY MON
    ========================================================= */
 
 .section-mark {
 
-  width:
-    min(15rem,72%);
-
   margin:
-    0 auto 14px;
-
-  display:grid;
-
-  grid-template-columns:
-    minmax(0,1fr)
+    0
     auto
-    minmax(0,1fr);
+    24px;
+
+  display:flex;
 
   align-items:center;
-
-  gap:10px;
+  justify-content:center;
 }
-
-
-.section-mark span {
-
-  height:1px;
-
-  background:
-    rgba(176,42,32,.62);
-}
-
 
 .section-mark img {
 
@@ -522,7 +457,6 @@ main {
 
   height:auto;
 }
-
 
 
 /* =========================================================
@@ -549,7 +483,6 @@ main {
     0
     38px;
 }
-
 
 
 /* =========================================================
@@ -614,11 +547,9 @@ main {
     0 8px 20px rgba(74,45,25,.085);
 }
 
-
 .jp-card p {
   margin:0;
 }
-
 
 
 /* =========================================================
@@ -647,7 +578,6 @@ main {
   overflow-wrap:anywhere;
 }
 
-
 .en-block p {
 
   margin:
@@ -666,7 +596,6 @@ main {
   word-spacing:.02em;
 }
 
-
 .en-block .sequence {
 
   font-size:.92em;
@@ -678,7 +607,6 @@ main {
   text-align:left;
 }
 
-
 .en-block .closing {
 
   font-size:1.42em;
@@ -687,7 +615,6 @@ main {
 
   text-align:left;
 }
-
 
 
 /* =========================================================
@@ -702,25 +629,19 @@ main {
 
     --reader-max:68rem;
 
-    /*
-     * JAPANESE PAGE
-     */
-
     --folio-w:17rem;
 
     --jp-size:22px;
     --jp-leading:1.68;
 
-    /*
-     * ENGLISH
-     *
-     * Narrower measure forces the English
-     * down instead of spreading across
-     * the right-hand field.
-     */
-
     --en-size:21px;
     --en-leading:1.46;
+
+    /*
+     * Narrow English reading measure
+     * makes it descend vertically
+     * with the Japanese folio.
+     */
 
     --en-measure:24ch;
 
@@ -765,12 +686,7 @@ main {
 
   .section-mark {
 
-    width:
-      min(22rem,72%);
-
-    gap:12px;
-
-    margin-bottom:16px;
+    margin-bottom:28px;
   }
 
 
@@ -779,8 +695,19 @@ main {
     width:30px;
   }
 
-}
 
+  .hero-mark {
+
+    margin-bottom:34px;
+  }
+
+
+  .hero-mark img {
+
+    width:32px;
+  }
+
+}
 
 
 /* =========================================================
@@ -799,7 +726,6 @@ main {
   color:var(--muted);
 }
 
-
 .colophon .mon {
 
   width:82px;
@@ -809,7 +735,6 @@ main {
     auto
     10px;
 }
-
 
 .colophon .jp {
 
@@ -827,7 +752,6 @@ main {
   font-weight:700;
 }
 
-
 .colophon .romaji {
 
   color:var(--ink);
@@ -839,7 +763,6 @@ main {
   letter-spacing:.11em;
 }
 
-
 .colophon .en {
 
   color:var(--ink);
@@ -849,14 +772,12 @@ main {
   font-size:17px;
 }
 
-
 .colophon .meta {
 
   margin-top:12px;
 
   font-size:13px;
 }
-
 
 
 /* =========================================================
@@ -959,8 +880,15 @@ main {
   </div>
 
 
-  <div class="hero-ornament">
-    <i></i>
+  <!-- Tiny Seitō mon replaces old hero ornament -->
+
+  <div class="hero-mark">
+
+    <img
+      src="assets/seito-mon.png"
+      alt=""
+    >
+
   </div>
 
 
@@ -1115,7 +1043,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1125,7 +1052,6 @@ const sections = [
       "Classical Form and the Missing Beginning",
 
     rows:[
-
 
       {
 
@@ -1182,7 +1108,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1192,7 +1117,6 @@ const sections = [
       "The Whole Encounter",
 
     rows:[
-
 
       {
 
@@ -1273,7 +1197,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1283,7 +1206,6 @@ const sections = [
       "From Waza Toward Encounter",
 
     rows:[
-
 
       {
 
@@ -1340,7 +1262,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1350,7 +1271,6 @@ const sections = [
       "From Encounter Toward Waza",
 
     rows:[
-
 
       {
 
@@ -1407,7 +1327,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1417,7 +1336,6 @@ const sections = [
       "Proficiency and Appropriate Response",
 
     rows:[
-
 
       {
 
@@ -1457,7 +1375,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1467,7 +1384,6 @@ const sections = [
       "Applied Formative Research",
 
     rows:[
-
 
       {
 
@@ -1524,7 +1440,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1534,7 +1449,6 @@ const sections = [
       "Resistance, Control, and Safety",
 
     rows:[
-
 
       {
 
@@ -1591,7 +1505,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1601,7 +1514,6 @@ const sections = [
       "Learning From Other Budō",
 
     rows:[
-
 
       {
 
@@ -1658,7 +1570,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1668,7 +1579,6 @@ const sections = [
       "The Formative Record",
 
     rows:[
-
 
       {
 
@@ -1725,7 +1635,6 @@ const sections = [
   },
 
 
-
   {
 
     jpTitle:
@@ -1735,7 +1644,6 @@ const sections = [
       "Budō",
 
     rows:[
-
 
       {
 
@@ -1811,7 +1719,6 @@ const sections = [
 ];
 
 
-
 /* =========================================================
    RENDER
    ========================================================= */
@@ -1845,14 +1752,10 @@ sections.forEach(
 
         <div class="section-mark">
 
-          <span></span>
-
           <img
             src="assets/seito-mon.png"
             alt=""
           >
-
-          <span></span>
 
         </div>
 
@@ -1954,27 +1857,9 @@ sections.forEach(
 );
 
 
-
 /* =========================================================
    MOBILE FOLIO FITTING
    ========================================================= */
-
-/*
- * MOBILE
- *
- * The folio occupies the left 50% field.
- * Height is calculated from its Japanese paragraph.
- *
- *
- * TABLET / DESKTOP
- *
- * CSS takes over:
- *
- * width  = 17rem
- * height = 25rem
- *
- * No JS height calculation.
- */
 
 function folioFits(card) {
 
@@ -1991,7 +1876,6 @@ function folioFits(card) {
   );
 
 }
-
 
 
 function fitMobileFolio(card) {
@@ -2076,7 +1960,6 @@ function fitMobileFolio(card) {
 }
 
 
-
 /* =========================================================
    RESPONSIVE FOLIO LAYOUT
    ========================================================= */
@@ -2089,21 +1972,12 @@ function layoutFolios() {
     );
 
 
-  /*
-   * TABLET / DESKTOP
-   */
-
   if(
     window.innerWidth >= 760
   ) {
 
     cards.forEach(
       card => {
-
-        /*
-         * Remove any mobile inline height.
-         * CSS supplies 25rem.
-         */
 
         card.style.height =
           "";
@@ -2117,10 +1991,6 @@ function layoutFolios() {
   }
 
 
-  /*
-   * MOBILE
-   */
-
   cards.forEach(
     card => {
 
@@ -2132,7 +2002,6 @@ function layoutFolios() {
   );
 
 }
-
 
 
 /* =========================================================
@@ -2165,7 +2034,6 @@ function debounce(
 }
 
 
-
 /* =========================================================
    INITIAL LAYOUT
    ========================================================= */
@@ -2196,7 +2064,6 @@ else {
   );
 
 }
-
 
 
 /* =========================================================
