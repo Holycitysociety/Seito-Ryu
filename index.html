@@ -1,6 +1,8 @@
 <!doctype html>
 <html lang="en">
+
 <head>
+
 <meta charset="utf-8">
 
 <meta
@@ -26,7 +28,8 @@
   --muted:#6b645d;
   --shu:#b02a20;
 
-  --header-h:82px;
+  /* reduced from 82px */
+  --header-h:66px;
 
   --reader-max:940px;
 
@@ -95,19 +98,21 @@ img {
 
   z-index:100;
 
+  height:var(--header-h);
   min-height:var(--header-h);
 
   display:flex;
+
   align-items:center;
   justify-content:space-between;
 
-  gap:14px;
+  gap:12px;
 
   padding:
-    10px
+    5px
     14px
-    10px
-    max(18px,env(safe-area-inset-left));
+    5px
+    max(14px,env(safe-area-inset-left));
 
   background:var(--paper);
 
@@ -115,7 +120,7 @@ img {
     1px solid rgba(0,0,0,.08);
 
   box-shadow:
-    0 4px 14px rgba(0,0,0,.045);
+    0 3px 10px rgba(0,0,0,.04);
 
   overflow:hidden;
 
@@ -124,8 +129,14 @@ img {
 
 
 /* =========================================================
-   HEADER CHERRY BLOSSOM
+   HEADER BLOSSOM
    ========================================================= */
+
+/*
+ * Size from HEADER HEIGHT rather than viewport width.
+ * This keeps the branch anchored to the same bottom-left
+ * relationship on mobile and larger displays.
+ */
 
 .header-blossom {
 
@@ -133,21 +144,24 @@ img {
 
   z-index:0;
 
-  left:-8px;
-  bottom:-4px;
+  left:0;
+  bottom:0;
 
-  width:
-    clamp(105px,22vw,190px);
+  width:auto;
+  height:90%;
 
-  height:auto;
+  max-width:none;
 
   opacity:1;
 
   pointer-events:none;
-
   user-select:none;
 }
 
+
+/* =========================================================
+   HEADER IDENTITY
+   ========================================================= */
 
 .brand {
 
@@ -158,22 +172,34 @@ img {
   display:flex;
   align-items:center;
 
-  gap:12px;
+  gap:10px;
 
   min-width:0;
 
-  margin-left:10px;
+  margin-left:8px;
 
   color:inherit;
+
   text-decoration:none;
 }
 
 
+/*
+ * Header mon only:
+ * black, 75% opacity.
+ */
+
 .brand .mon {
 
-  width:58px;
+  width:46px;
 
   flex:0 0 auto;
+
+  filter:
+    grayscale(1)
+    brightness(0);
+
+  opacity:.75;
 }
 
 
@@ -201,7 +227,7 @@ img {
   font-weight:700;
 
   font-size:
-    clamp(17px,4.4vw,24px);
+    clamp(16px,4vw,21px);
 
   letter-spacing:.03em;
 }
@@ -212,11 +238,15 @@ img {
   display:block;
 
   font-size:
-    clamp(11px,2.8vw,14px);
+    clamp(10px,2.6vw,13px);
 
   letter-spacing:.12em;
 }
 
+
+/* =========================================================
+   MENU
+   ========================================================= */
 
 .menu {
 
@@ -224,8 +254,8 @@ img {
 
   z-index:2;
 
-  width:44px;
-  height:44px;
+  width:40px;
+  height:40px;
 
   flex:0 0 auto;
 
@@ -237,12 +267,13 @@ img {
   background:var(--paper);
 
   display:flex;
+
   flex-direction:column;
 
   align-items:center;
   justify-content:center;
 
-  gap:5px;
+  gap:4px;
 
   cursor:pointer;
 }
@@ -250,7 +281,7 @@ img {
 
 .menu span {
 
-  width:22px;
+  width:20px;
   height:3px;
 
   display:block;
@@ -262,13 +293,17 @@ img {
 
 
 /* =========================================================
-   HERO
+   MAIN
    ========================================================= */
 
 main {
   overflow:hidden;
 }
 
+
+/* =========================================================
+   HERO
+   ========================================================= */
 
 .hero {
 
@@ -281,24 +316,42 @@ main {
   justify-items:center;
 
   padding:
-    34px
+    22px
     18px
-    38px;
+    30px;
 
   text-align:center;
 }
 
+
+/*
+ * Keep the large mobile mon.
+ *
+ * The negative bottom margin compensates for the
+ * transparent canvas surrounding the actual artwork
+ * inside the PNG.
+ */
 
 .hero-mon {
 
   width:
     min(72vw,384px);
 
-  margin-bottom:18px;
+  margin:
+    0
+    0
+    clamp(-96px,-15vw,-58px);
 }
 
 
+/* =========================================================
+   HERO TITLE
+   ========================================================= */
+
 .hero h1 {
+
+  position:relative;
+  z-index:1;
 
   margin:0;
 
@@ -320,29 +373,33 @@ main {
 
 .hero .romaji {
 
-  margin-top:12px;
+  position:relative;
+  z-index:1;
+
+  margin-top:10px;
 
   font-size:
     clamp(16px,4.72vw,25.6px);
 
-  letter-spacing:.12em;
-
   line-height:1.07;
+
+  letter-spacing:.12em;
 }
 
 
 /* =========================================================
-   HERO TINY MON
+   HERO SMALL MON
    ========================================================= */
 
 .hero-mark {
 
   margin:
-    22px
+    24px
     auto
-    34px;
+    28px;
 
   display:flex;
+
   align-items:center;
   justify-content:center;
 }
@@ -364,7 +421,7 @@ main {
 
   line-height:1.22;
 
-  margin-bottom:24px;
+  margin-bottom:12px;
 }
 
 
@@ -463,7 +520,7 @@ main {
 
 
 /* =========================================================
-   SECTION TINY MON
+   SECTION SMALL MON
    ========================================================= */
 
 .section-mark {
@@ -489,7 +546,7 @@ main {
 
 
 /* =========================================================
-   CONTINUOUS BILINGUAL READING FIELD
+   BILINGUAL READING FIELD
    ========================================================= */
 
 .section-body {
@@ -623,7 +680,7 @@ main {
 
 
 /* =========================================================
-   ENGLISH PARAGRAPH GROUP
+   ENGLISH
    ========================================================= */
 
 .en-group {
@@ -672,7 +729,6 @@ main {
 
 
 .en-group p:last-child {
-
   margin-bottom:0;
 }
 
@@ -707,7 +763,8 @@ main {
 
   :root {
 
-    --header-h:90px;
+    /* reduced from 90px */
+    --header-h:72px;
 
     --reader-max:68rem;
 
@@ -730,20 +787,105 @@ main {
   }
 
 
+  /*
+   * Same bottom-left relationship as mobile.
+   */
+
   .header-blossom {
 
-    width:
-      clamp(145px,17vw,230px);
+    left:0;
+    bottom:0;
 
-    left:-10px;
-    bottom:-6px;
+    width:auto;
+    height:92%;
+
+    max-width:none;
 
     opacity:1;
   }
 
 
-  .jp-paragraph {
+  /*
+   * Move the complete identity farther right,
+   * away from the blossom.
+   */
 
+  .brand {
+
+    margin-left:
+      clamp(90px,10vw,150px);
+  }
+
+
+  .brand .mon {
+
+    width:50px;
+
+    filter:
+      grayscale(1)
+      brightness(0);
+
+    opacity:.75;
+  }
+
+
+  .menu {
+
+    width:42px;
+    height:42px;
+  }
+
+
+  /*
+   * Hero is intentionally smaller on broad screens,
+   * particularly landscape tablets.
+   */
+
+  .hero {
+
+    padding-top:18px;
+    padding-bottom:26px;
+  }
+
+
+  .hero-mon {
+
+    width:
+      min(30vw,320px);
+
+    margin-bottom:-72px;
+  }
+
+
+  .hero h1 {
+
+    font-size:
+      clamp(36px,4.4vw,48px);
+  }
+
+
+  .hero .romaji {
+
+    margin-top:9px;
+
+    font-size:
+      clamp(18px,2.3vw,24px);
+  }
+
+
+  .hero-mark {
+
+    margin-top:24px;
+    margin-bottom:26px;
+  }
+
+
+  .hero-mark img {
+    width:30px;
+  }
+
+
+  .jp-paragraph {
     width:17rem;
   }
 
@@ -764,26 +906,12 @@ main {
 
 
   .section-mark {
-
     margin-bottom:32px;
   }
 
 
   .section-mark img {
-
     width:30px;
-  }
-
-
-  .hero-mark {
-
-    margin-bottom:38px;
-  }
-
-
-  .hero-mark img {
-
-    width:32px;
   }
 
 }
@@ -867,6 +995,7 @@ main {
 }
 
 </style>
+
 </head>
 
 
