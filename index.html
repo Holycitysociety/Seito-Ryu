@@ -31,10 +31,19 @@
   --reader-max:940px;
 
   /*
-   * MOBILE
+   * FOLIO GEOMETRY
+   *
+   * 14 : 25 = .56
+   *
+   * The width cap also guarantees that the
+   * resulting height cannot exceed:
+   *
+   * 31rem
+   * or
+   * 78% of the visible screen height.
    */
 
-  --folio-w:100%;
+  --folio-max-w:min(17.36rem,43.68svh);
 
   --jp-size:16.8px;
   --jp-leading:1.66;
@@ -64,6 +73,7 @@ html {
 }
 
 body {
+
   margin:0;
 
   color:var(--ink);
@@ -122,6 +132,7 @@ img {
   overflow:hidden;
 }
 
+
 .brand {
 
   display:flex;
@@ -137,6 +148,7 @@ img {
   text-decoration:none;
 }
 
+
 .brand .mon {
 
   width:58px;
@@ -144,12 +156,14 @@ img {
   flex:0 0 auto;
 }
 
+
 .brand-stack {
 
   min-width:0;
 
   line-height:1;
 }
+
 
 .brand-stack .jp {
 
@@ -172,6 +186,7 @@ img {
   letter-spacing:.03em;
 }
 
+
 .brand-stack .romaji {
 
   display:block;
@@ -184,6 +199,7 @@ img {
   letter-spacing:.12em;
 }
 
+
 .brand-stack .en {
 
   display:block;
@@ -193,6 +209,7 @@ img {
 
   letter-spacing:.022em;
 }
+
 
 .menu {
 
@@ -219,6 +236,7 @@ img {
   cursor:pointer;
 }
 
+
 .menu span {
 
   width:22px;
@@ -240,6 +258,7 @@ main {
   overflow:hidden;
 }
 
+
 .hero {
 
   min-height:
@@ -258,6 +277,7 @@ main {
   text-align:center;
 }
 
+
 .hero-mon {
 
   width:
@@ -265,6 +285,7 @@ main {
 
   margin-bottom:18px;
 }
+
 
 .hero h1 {
 
@@ -285,6 +306,7 @@ main {
   letter-spacing:.02em;
 }
 
+
 .hero .romaji {
 
   margin-top:12px;
@@ -296,6 +318,7 @@ main {
 
   line-height:1.07;
 }
+
 
 .hero .english {
 
@@ -319,7 +342,7 @@ main {
   margin:
     22px
     auto
-    30px;
+    32px;
 
   display:flex;
 
@@ -327,10 +350,10 @@ main {
   justify-content:center;
 }
 
+
 .hero-mark img {
 
   width:28px;
-
   height:auto;
 }
 
@@ -346,9 +369,11 @@ main {
   margin-bottom:24px;
 }
 
+
 .soryuki span {
   display:block;
 }
+
 
 .soryuki .jp {
 
@@ -363,12 +388,14 @@ main {
     clamp(18px,5.6vw,30px);
 }
 
+
 .soryuki .rom,
 .soryuki .en {
 
   font-size:
     clamp(16px,4.6vw,24px);
 }
+
 
 .soryuki .place {
 
@@ -397,12 +424,14 @@ main {
     56px;
 }
 
+
 .section-title {
 
   text-align:center;
 
   margin-bottom:30px;
 }
+
 
 .section-title .kicker {
 
@@ -420,6 +449,7 @@ main {
 
   line-height:1.15;
 }
+
 
 .section-title .sub {
 
@@ -443,7 +473,7 @@ main {
   margin:
     0
     auto
-    24px;
+    26px;
 
   display:flex;
 
@@ -451,10 +481,10 @@ main {
   justify-content:center;
 }
 
+
 .section-mark img {
 
   width:24px;
-
   height:auto;
 }
 
@@ -489,10 +519,27 @@ main {
    JAPANESE FOLIO
    ========================================================= */
 
+/*
+ * ALL folios now have the same proportion.
+ *
+ * Width changes responsively.
+ * Height follows from aspect-ratio.
+ *
+ * JavaScript is NOT allowed to alter folio dimensions.
+ */
+
 .jp-card {
 
   width:
-    min(var(--folio-w),100%);
+    min(
+      100%,
+      var(--folio-max-w)
+    );
+
+  aspect-ratio:
+    14 / 25;
+
+  height:auto;
 
   min-width:0;
 
@@ -502,9 +549,11 @@ main {
     var(--folio-pad-y)
     var(--folio-pad-x);
 
-  writing-mode:vertical-rl;
+  writing-mode:
+    vertical-rl;
 
-  text-orientation:mixed;
+  text-orientation:
+    mixed;
 
   overflow:hidden;
 
@@ -547,6 +596,7 @@ main {
     0 8px 20px rgba(74,45,25,.085);
 }
 
+
 .jp-card p {
   margin:0;
 }
@@ -578,6 +628,7 @@ main {
   overflow-wrap:anywhere;
 }
 
+
 .en-block p {
 
   margin:
@@ -596,6 +647,7 @@ main {
   word-spacing:.02em;
 }
 
+
 .en-block .sequence {
 
   font-size:.92em;
@@ -606,6 +658,7 @@ main {
 
   text-align:left;
 }
+
 
 .en-block .closing {
 
@@ -629,15 +682,21 @@ main {
 
     --reader-max:68rem;
 
-    --folio-w:17rem;
-
     /*
-     * Slightly smaller Japanese than previous version.
-     * This keeps the long paragraphs safely inside the folio.
+     * Same 14:25 folio ratio.
+     *
+     * This cap produces approximately:
+     *
+     * 17.36rem × 31rem
+     *
+     * unless screen height requires smaller.
      */
 
+    --folio-max-w:
+      min(17.36rem,43.68svh);
+
     --jp-size:20px;
-    --jp-leading:1.68;
+    --jp-leading:1.66;
 
     --en-size:21px;
     --en-leading:1.46;
@@ -653,39 +712,21 @@ main {
   }
 
 
-  .jp-card {
-
-    width:var(--folio-w);
-
-    height:25.5rem !important;
-
-    max-width:100%;
-
-    justify-self:end;
-  }
-
-
   .en-block {
 
     width:
-      min(100%,var(--en-measure));
+      min(
+        100%,
+        var(--en-measure)
+      );
 
     justify-self:start;
-
-    padding-top:
-      var(--folio-pad-y);
-
-    font-size:
-      var(--en-size);
-
-    line-height:
-      var(--en-leading);
   }
 
 
   .section-mark {
 
-    margin-bottom:28px;
+    margin-bottom:30px;
   }
 
 
@@ -697,7 +738,7 @@ main {
 
   .hero-mark {
 
-    margin-bottom:34px;
+    margin-bottom:36px;
   }
 
 
@@ -725,6 +766,7 @@ main {
   color:var(--muted);
 }
 
+
 .colophon .mon {
 
   width:82px;
@@ -734,6 +776,7 @@ main {
     auto
     10px;
 }
+
 
 .colophon .jp {
 
@@ -751,6 +794,7 @@ main {
   font-weight:700;
 }
 
+
 .colophon .romaji {
 
   color:var(--ink);
@@ -762,6 +806,7 @@ main {
   letter-spacing:.11em;
 }
 
+
 .colophon .en {
 
   color:var(--ink);
@@ -770,6 +815,7 @@ main {
 
   font-size:17px;
 }
+
 
 .colophon .meta {
 
@@ -954,12 +1000,15 @@ main {
 
 <script>
 
+/* =========================================================
+   CONTENT
+   ========================================================= */
+
 const sections = [
 
   {
 
     jpTitle:"概要",
-
     enTitle:"About",
 
     rows:[
@@ -1851,148 +1900,141 @@ sections.forEach(
 
 
 /* =========================================================
-   MOBILE FOLIO FITTING
+   JAPANESE TYPE FITTING
    ========================================================= */
 
-function folioFits(card) {
+/*
+ * IMPORTANT:
+ *
+ * The paper NEVER changes shape.
+ *
+ * If a long paragraph does not fit,
+ * only the Japanese type is reduced.
+ *
+ * Short paragraphs keep the standard size.
+ */
+
+function cardFits(card) {
 
   return (
-
-    card.scrollWidth <=
-      card.clientWidth + 1
-
+    card.scrollWidth <= card.clientWidth + 1
     &&
-
-    card.scrollHeight <=
-      card.clientHeight + 1
-
+    card.scrollHeight <= card.clientHeight + 1
   );
 
 }
 
 
-function fitMobileFolio(card) {
+function fitJapaneseType(card) {
 
-  let low =
-    220;
+  /*
+   * Remove previous JS adjustment first
+   * so responsive resizing always begins
+   * from the CSS-defined preferred size.
+   */
 
-  let high =
-    320;
-
-
-  card.style.height =
-    `${high}px`;
-
-
-  while(
-    !folioFits(card)
-    &&
-    high < 1800
-  ) {
-
-    high += 100;
-
-    card.style.height =
-      `${high}px`;
-
-  }
+  card.style.fontSize =
+    "";
 
 
-  while(
-    low < high
-  ) {
-
-    const middle =
-      Math.floor(
-        (low + high) / 2
-      );
-
-
-    card.style.height =
-      `${middle}px`;
-
-
-    if(
-      folioFits(card)
-    ) {
-
-      high =
-        middle;
-
-    }
-
-    else {
-
-      low =
-        middle + 1;
-
-    }
-
-  }
-
-
-  const fontSize =
+  const preferred =
     parseFloat(
       getComputedStyle(card)
         .fontSize
     );
 
 
-  const breathingRoom =
-    Math.max(
-      16,
-      fontSize * 1.15
-    );
-
-
-  card.style.height =
-    `${Math.ceil(
-      high + breathingRoom
-    )}px`;
-
-}
-
-
-/* =========================================================
-   RESPONSIVE FOLIO LAYOUT
-   ========================================================= */
-
-function layoutFolios() {
-
-  const cards =
-    document.querySelectorAll(
-      ".jp-card"
-    );
-
-
   if(
-    window.innerWidth >= 760
+    cardFits(card)
   ) {
-
-    cards.forEach(
-      card => {
-
-        card.style.height =
-          "";
-
-      }
-    );
-
 
     return;
 
   }
 
 
-  cards.forEach(
-    card => {
+  /*
+   * Do not let the type become absurdly small.
+   */
 
-      fitMobileFolio(
-        card
-      );
+  const minimum =
+    window.innerWidth >= 760
+      ? 15
+      : 13;
+
+
+  let low =
+    minimum;
+
+
+  let high =
+    preferred;
+
+
+  /*
+   * Find the largest type size that still fits.
+   */
+
+  for(
+    let i = 0;
+    i < 12;
+    i++
+  ) {
+
+    const middle =
+      (low + high) / 2;
+
+
+    card.style.fontSize =
+      `${middle}px`;
+
+
+    if(
+      cardFits(card)
+    ) {
+
+      low =
+        middle;
 
     }
-  );
+
+    else {
+
+      high =
+        middle;
+
+    }
+
+  }
+
+
+  card.style.fontSize =
+    `${Math.floor(
+      low * 10
+    ) / 10}px`;
+
+}
+
+
+/* =========================================================
+   LAYOUT
+   ========================================================= */
+
+function layoutFolios() {
+
+  document
+    .querySelectorAll(
+      ".jp-card"
+    )
+    .forEach(
+      card => {
+
+        fitJapaneseType(
+          card
+        );
+
+      }
+    );
 
 }
 
