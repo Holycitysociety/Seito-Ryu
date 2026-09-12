@@ -26,11 +26,8 @@
   --muted:#6b645d;
   --shu:#b02a20;
 
-  /*
-   * Header reduced from 82px to 64px.
-   */
-
-  --header-h:64px;
+  /* shortened from 82px */
+  --header-h:66px;
 
   --reader-max:940px;
 
@@ -106,11 +103,13 @@ img {
   align-items:center;
   justify-content:space-between;
 
+  gap:10px;
+
   padding:
-    0
+    5px
     14px
-    0
-    0;
+    5px
+    max(12px,env(safe-area-inset-left));
 
   background:var(--paper);
 
@@ -118,7 +117,7 @@ img {
     1px solid rgba(0,0,0,.08);
 
   box-shadow:
-    0 4px 14px rgba(0,0,0,.045);
+    0 3px 10px rgba(0,0,0,.04);
 
   overflow:hidden;
 
@@ -126,29 +125,16 @@ img {
 }
 
 
-/*
- * Left half of header contains both
- * decorative branch and identity.
- */
-
-.header-left {
-
-  position:relative;
-
-  flex:1 1 auto;
-
-  height:100%;
-
-  min-width:0;
-
-  display:flex;
-  align-items:center;
-}
-
-
 /* =========================================================
    HEADER CHERRY BLOSSOM
    ========================================================= */
+
+/*
+ * Locked to the same physical location at all sizes:
+ * top-left, full header height.
+ *
+ * This eliminates the old mobile/desktop positional drift.
+ */
 
 .header-blossom {
 
@@ -156,19 +142,19 @@ img {
 
   z-index:0;
 
+  top:0;
   left:0;
-  bottom:0;
 
-  width:118px;
-
+  height:100%;
+  width:auto;
   max-width:none;
 
-  height:auto;
+  object-fit:contain;
+  object-position:left top;
 
-  opacity:1;
+  opacity:.75;
 
   pointer-events:none;
-
   user-select:none;
 }
 
@@ -191,20 +177,28 @@ img {
   min-width:0;
 
   /*
-   * Mobile intentionally retains a little
-   * overlap with the cherry branch.
+   * Mobile retains some visual integration
+   * with the branch without collision.
    */
 
-  margin-left:67px;
+  margin-left:44px;
 
   color:inherit;
   text-decoration:none;
 }
 
 
+/*
+ * Mon now approximately matches
+ * the two-line title stack in height.
+ */
+
 .brand .mon {
 
-  width:45px;
+  width:auto;
+  height:36px;
+
+  max-width:none;
 
   flex:0 0 auto;
 }
@@ -222,9 +216,7 @@ img {
 
   display:block;
 
-  margin-bottom:4px;
-
-  white-space:nowrap;
+  margin-bottom:3px;
 
   font-family:
     "Hiragino Mincho ProN",
@@ -236,9 +228,11 @@ img {
   font-weight:700;
 
   font-size:
-    clamp(15px,4.1vw,20px);
+    clamp(16px,4.2vw,21px);
 
   letter-spacing:.025em;
+
+  white-space:nowrap;
 }
 
 
@@ -246,12 +240,12 @@ img {
 
   display:block;
 
-  white-space:nowrap;
-
   font-size:
-    clamp(9.5px,2.6vw,12.5px);
+    clamp(10px,2.65vw,13px);
 
   letter-spacing:.11em;
+
+  white-space:nowrap;
 }
 
 
@@ -285,15 +279,13 @@ img {
 
   gap:4px;
 
-  padding:0;
-
   cursor:pointer;
 }
 
 
 .menu span {
 
-  width:20px;
+  width:21px;
   height:3px;
 
   display:block;
@@ -323,32 +315,36 @@ main {
   align-content:center;
   justify-items:center;
 
+  /*
+   * Tighter overall composition.
+   */
+
   padding:
-    20px
+    clamp(42px,6svh,68px)
     18px
-    30px;
+    clamp(44px,6svh,70px);
 
   text-align:center;
 }
 
 
 /*
- * Hero mon remains large.
+ * Width AND viewport height constrain the hero mon.
  *
- * Negative bottom margin compensates for
- * transparent canvas around the PNG and
- * visually connects it to the title.
+ * This keeps portrait generous but prevents the
+ * landscape/tablet treatment from becoming enormous.
  */
 
 .hero-mon {
 
   width:
-    min(72vw,384px);
+    min(
+      68vw,
+      36svh,
+      350px
+    );
 
-  margin:
-    -18px
-    auto
-    -46px;
+  margin-bottom:8px;
 }
 
 
@@ -374,7 +370,7 @@ main {
 
 .hero .romaji {
 
-  margin-top:8px;
+  margin-top:9px;
 
   font-size:
     clamp(16px,4.72vw,25.6px);
@@ -394,7 +390,7 @@ main {
   margin:
     18px
     auto
-    24px;
+    22px;
 
   display:flex;
   align-items:center;
@@ -418,7 +414,7 @@ main {
 
   line-height:1.18;
 
-  margin-bottom:0;
+  margin-bottom:14px;
 }
 
 
@@ -453,7 +449,7 @@ main {
 
 .soryuki .place {
 
-  margin-top:10px;
+  margin-top:8px;
 
   font-size:
     clamp(14px,4.2vw,20px);
@@ -764,11 +760,10 @@ main {
   :root {
 
     /*
-     * Previously 90px.
-     * Reduced by more than 20%.
+     * shortened from 90px
      */
 
-    --header-h:70px;
+    --header-h:72px;
 
     --reader-max:68rem;
 
@@ -791,54 +786,64 @@ main {
   }
 
 
-  /*
-   * Large display:
-   * branch remains bottom-left.
-   */
+  .site-header {
 
-  .header-blossom {
-
-    left:0;
-    bottom:0;
-
-    width:180px;
-
-    opacity:1;
+    padding:
+      5px
+      26px
+      5px
+      max(18px,env(safe-area-inset-left));
   }
 
 
   /*
-   * Mon + wordmark move completely
-   * to the RIGHT of the blossom.
+   * Blossom remains top-left and fills
+   * exactly the same header-height relationship.
+   */
+
+  .header-blossom {
+
+    top:0;
+    left:0;
+
+    height:100%;
+    width:auto;
+
+    opacity:.75;
+  }
+
+
+  /*
+   * On large formats, identity begins to the
+   * right of the blossom rather than over it.
    */
 
   .brand {
 
-    margin-left:190px;
+    margin-left:
+      clamp(180px,16vw,235px);
 
-    gap:11px;
+    gap:12px;
   }
 
 
   .brand .mon {
 
-    width:50px;
+    height:42px;
   }
 
 
   .brand-stack .jp {
 
-    font-size:22px;
+    font-size:23px;
 
-    margin-bottom:4px;
+    margin-bottom:3px;
   }
 
 
   .brand-stack .romaji {
 
     font-size:13px;
-
-    letter-spacing:.12em;
   }
 
 
@@ -849,40 +854,39 @@ main {
   }
 
 
-  .menu span {
-
-    width:21px;
-  }
-
-
   /*
-   * Large hero gets tighter still.
+   * Landscape hero becomes substantially
+   * more controlled vertically.
    */
 
   .hero {
 
-    padding-top:16px;
-    padding-bottom:26px;
+    padding:
+      clamp(34px,5svh,58px)
+      30px
+      clamp(38px,5svh,62px);
   }
 
 
   .hero-mon {
 
-    margin-top:-28px;
-    margin-bottom:-58px;
-  }
+    width:
+      min(
+        44vw,
+        34svh,
+        330px
+      );
 
-
-  .hero .romaji {
-
-    margin-top:8px;
+    margin-bottom:6px;
   }
 
 
   .hero-mark {
 
-    margin-top:18px;
-    margin-bottom:22px;
+    margin:
+      16px
+      auto
+      20px;
   }
 
 
@@ -1013,42 +1017,38 @@ main {
 
 <header class="site-header">
 
-  <div class="header-left">
+  <img
+    class="header-blossom"
+    src="/assets/cherry_blossom_header.png"
+    alt=""
+    aria-hidden="true"
+  >
+
+
+  <a
+    class="brand"
+    href="#top"
+  >
 
     <img
-      class="header-blossom"
-      src="/assets/cherry_blossom_header.png"
-      alt=""
-      aria-hidden="true"
+      class="mon"
+      src="/assets/seito-mon.png"
+      alt="Seitō-ryū mon"
     >
 
+    <div class="brand-stack">
 
-    <a
-      class="brand"
-      href="#top"
-    >
+      <span class="jp">
+        聖都流合気柔術
+      </span>
 
-      <img
-        class="mon"
-        src="/assets/seito-mon.png"
-        alt="Seitō-ryū mon"
-      >
+      <span class="romaji">
+        SEITŌ-RYŪ AIKI-JŪJUTSU
+      </span>
 
-      <div class="brand-stack">
+    </div>
 
-        <span class="jp">
-          聖都流合気柔術
-        </span>
-
-        <span class="romaji">
-          SEITŌ-RYŪ AIKI-JŪJUTSU
-        </span>
-
-      </div>
-
-    </a>
-
-  </div>
+  </a>
 
 
   <button
