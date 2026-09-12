@@ -19,13 +19,19 @@
 
 :root{
 
-  /* Slightly richer / more saturated paper so it doesn’t white out */
-  --paper:#e8d7c7;
-  --folio:#f2e7db;
+  /* =======================================================
+     MATERIAL PALETTE
+     ======================================================= */
 
-  --ink:#171411;
-  --muted:#6b645d;
-  --shu:#b02a20;
+  --paper:#ead8c6;
+  --folio:#f4e9dd;
+
+  --ink:#16120f;
+  --muted:#675d55;
+
+  --shu:#aa2d23;
+  --shu-soft:rgba(170,45,35,.52);
+  --shu-faint:rgba(170,45,35,.22);
 
   --header-h:58px;
 
@@ -64,7 +70,8 @@
     clamp(36.8px,8.96vw,60.8px);
 
   --hero-title-line:1.02;
-  --hero-title-track:.02em;
+
+  --hero-title-track:.012em;
 
   --hero-rule-w:88px;
   --hero-rule-h:2px;
@@ -76,6 +83,7 @@
     clamp(15.2px,4.08vw,24.8px);
 
   --hero-romaji-line:1.15;
+
   --hero-romaji-track:.12em;
 
   --hero-mark-gap-top:24px;
@@ -112,11 +120,47 @@ body{
 
   color:var(--ink);
 
-  background:var(--paper);
+  background-color:var(--paper);
+
+  /*
+   * Very restrained CSS washi.
+   * It is deliberately irregular and nearly invisible.
+   */
+
+  background-image:
+
+    radial-gradient(
+      circle at 17% 23%,
+      rgba(91,64,43,.028) 0 1px,
+      transparent 1.35px
+    ),
+
+    radial-gradient(
+      circle at 73% 61%,
+      rgba(255,255,255,.11) 0 1.2px,
+      transparent 1.6px
+    ),
+
+    radial-gradient(
+      circle at 47% 82%,
+      rgba(112,74,48,.018) 0 1px,
+      transparent 1.5px
+    ),
+
+    repeating-linear-gradient(
+      3deg,
+      rgba(91,65,44,.011) 0 1px,
+      transparent 1px 5px
+    );
+
+  background-size:
+    29px 31px,
+    37px 41px,
+    43px 39px,
+    100% 7px;
 
   font-family:
     "Bodoni 72",
-    "Bodoni 72 Smallcaps",
     "Baskerville",
     "Iowan Old Style",
     "Times New Roman",
@@ -125,10 +169,12 @@ body{
   line-height:1.48;
 }
 
+
 img{
   display:block;
   max-width:100%;
 }
+
 
 main{
   overflow:hidden;
@@ -136,7 +182,7 @@ main{
 
 
 /* =========================================================
-   HEADER — MOBILE
+   HEADER
    ========================================================= */
 
 .site-header{
@@ -161,13 +207,14 @@ main{
     0
     max(12px,env(safe-area-inset-left));
 
-  background:var(--paper);
+  background:
+    rgba(234,216,198,.97);
 
   border-bottom:
-    1px solid rgba(0,0,0,.08);
+    1px solid rgba(78,52,35,.12);
 
   box-shadow:
-    0 4px 14px rgba(0,0,0,.045);
+    0 4px 15px rgba(57,37,25,.045);
 
   overflow:visible;
 
@@ -233,9 +280,11 @@ main{
 
   flex:0 0 auto;
 
-  opacity:1;
-
   transform:translateX(7px);
+
+  filter:
+    saturate(1.06)
+    contrast(1.03);
 }
 
 
@@ -244,8 +293,6 @@ main{
   min-width:0;
 
   line-height:1;
-
-  opacity:1;
 }
 
 
@@ -306,9 +353,10 @@ main{
   border:
     2px solid var(--shu);
 
-  border-radius:2px;
+  border-radius:1px;
 
-  background:var(--paper);
+  background:
+    rgba(234,216,198,.94);
 
   display:flex;
   flex-direction:column;
@@ -342,21 +390,31 @@ main{
 @media(max-width:390px){
 
   .brand{
+
     margin-left:48px;
+
     gap:8px;
   }
 
+
   .brand .mon{
+
     width:58px;
+
     transform:translateX(6px);
   }
 
+
   .brand-stack .jp{
+
     font-size:18px;
   }
 
+
   .brand-stack .romaji{
+
     font-size:10.2px;
+
     letter-spacing:.045em;
   }
 
@@ -368,6 +426,8 @@ main{
    ========================================================= */
 
 .hero{
+
+  position:relative;
 
   min-height:
     calc(100svh - var(--header-h));
@@ -386,7 +446,52 @@ main{
 }
 
 
+/* =========================================================
+   POSTER FRAME
+   ========================================================= */
+
+.hero::before,
+.hero::after{
+
+  content:"";
+
+  position:absolute;
+
+  pointer-events:none;
+
+  z-index:0;
+}
+
+
+.hero::before{
+
+  inset:
+    12px
+    10px
+    14px;
+
+  border:
+    1px solid var(--shu-soft);
+}
+
+
+.hero::after{
+
+  inset:
+    18px
+    16px
+    20px;
+
+  border:
+    1px solid var(--shu-faint);
+}
+
+
 .hero-poster{
+
+  position:relative;
+
+  z-index:1;
 
   width:
     min(100%,var(--hero-poster-max));
@@ -409,6 +514,10 @@ main{
     var(--hero-mon-w);
 
   margin:0;
+
+  filter:
+    saturate(1.08)
+    contrast(1.035);
 }
 
 
@@ -442,6 +551,10 @@ main{
 }
 
 
+/* =========================================================
+   CALLIGRAPHIC DISPLAY JAPANESE
+   ========================================================= */
+
 .hero h1{
 
   --match-extra:0px;
@@ -452,12 +565,22 @@ main{
 
   max-width:100%;
 
+  /*
+   * YuKyokasho gives the hero substantially more
+   * handwritten Japanese character where available.
+   * It falls cleanly back to Mincho elsewhere.
+   */
+
   font-family:
+    "YuKyokasho",
+    "YuKyokasho Yoko",
     "Hiragino Mincho ProN",
     "Yu Mincho",
     "YuMincho",
     "Noto Serif JP",
     serif;
+
+  font-weight:700;
 
   font-size:
     var(--hero-title-size);
@@ -473,8 +596,15 @@ main{
     );
 
   white-space:nowrap;
+
+  text-shadow:
+    0 .3px 0 rgba(0,0,0,.18);
 }
 
+
+/* =========================================================
+   VERMILION PRINT RULE
+   ========================================================= */
 
 .hero-rule{
 
@@ -491,9 +621,18 @@ main{
     var(--hero-rule-gap-bottom);
 
   background:
-    rgba(176,42,32,.72);
+    var(--shu);
+
+  opacity:.72;
+
+  box-shadow:
+    0 .5px 0 rgba(96,25,18,.15);
 }
 
+
+/* =========================================================
+   ROMAN TITLE
+   ========================================================= */
 
 .hero .romaji{
 
@@ -503,8 +642,16 @@ main{
 
   max-width:100%;
 
+  font-family:
+    "Baskerville",
+    "Iowan Old Style",
+    "Times New Roman",
+    serif;
+
   font-size:
     var(--hero-romaji-size);
+
+  font-weight:500;
 
   line-height:
     var(--hero-romaji-line);
@@ -521,7 +668,7 @@ main{
 
 
 /* =========================================================
-   WORDMARK MON
+   SMALL HERO MON / SEAL
    ========================================================= */
 
 .hero-mark{
@@ -544,6 +691,10 @@ main{
     var(--hero-mark-size);
 
   height:auto;
+
+  filter:
+    saturate(1.12)
+    contrast(1.06);
 }
 
 
@@ -560,6 +711,7 @@ main{
 
 
 .soryuki span{
+
   display:block;
 }
 
@@ -567,6 +719,8 @@ main{
 .soryuki .jp{
 
   font-family:
+    "YuKyokasho",
+    "YuKyokasho Yoko",
     "Hiragino Mincho ProN",
     "Yu Mincho",
     "YuMincho",
@@ -625,6 +779,8 @@ main{
 .section-title .kicker{
 
   font-family:
+    "YuKyokasho",
+    "YuKyokasho Yoko",
     "Hiragino Mincho ProN",
     "Yu Mincho",
     "YuMincho",
@@ -676,6 +832,10 @@ main{
   width:24px;
 
   height:auto;
+
+  filter:
+    saturate(1.08)
+    contrast(1.04);
 }
 
 
@@ -712,7 +872,7 @@ main{
 
 
 /* =========================================================
-   CONTINUOUS JAPANESE FOLIO
+   JAPANESE FOLIO
    ========================================================= */
 
 .section-body::before{
@@ -741,34 +901,49 @@ main{
     );
 
   background:
+
+    radial-gradient(
+      circle at 23% 17%,
+      rgba(96,65,42,.025) 0 1px,
+      transparent 1.3px
+    ),
+
     linear-gradient(
       145deg,
-      rgba(255,255,255,.34),
+      rgba(255,255,255,.31),
       transparent 36%
     ),
+
     repeating-linear-gradient(
       0deg,
-      rgba(85,65,45,.012) 0 1px,
+      rgba(85,65,45,.014) 0 1px,
       transparent 1px 4px
     ),
+
     var(--folio);
 
-  border:
-    1px solid rgba(72,52,37,.13);
+  background-size:
+    31px 29px,
+    auto,
+    auto,
+    auto;
 
-  border-radius:2px;
+  border:
+    1px solid rgba(72,52,37,.15);
+
+  border-radius:1px;
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.50),
+    inset 0 1px 0 rgba(255,255,255,.43),
     0 1px 2px rgba(74,45,25,.055),
-    0 8px 20px rgba(74,45,25,.085);
+    0 8px 20px rgba(74,45,25,.075);
 
   pointer-events:none;
 }
 
 
 /* =========================================================
-   JAPANESE TEXT
+   JAPANESE BODY TEXT
    ========================================================= */
 
 .jp-paragraph{
@@ -814,7 +989,7 @@ main{
 
 
 /* =========================================================
-   ENGLISH TEXT
+   ENGLISH BODY
    ========================================================= */
 
 .en-group{
@@ -826,6 +1001,12 @@ main{
   grid-column:2;
 
   min-width:0;
+
+  font-family:
+    "Baskerville",
+    "Iowan Old Style",
+    "Times New Roman",
+    serif;
 
   font-size:
     var(--en-size);
@@ -861,6 +1042,7 @@ main{
 
 
 .en-group p:last-child{
+
   margin-bottom:0;
 }
 
@@ -895,7 +1077,6 @@ main{
 
   :root{
 
-    /* desktop header gets more body */
     --header-h:82px;
 
     --reader-max:68rem;
@@ -934,7 +1115,8 @@ main{
       clamp(54.4px,4.8vw,89.6px);
 
     --hero-title-line:1;
-    --hero-title-track:.022em;
+
+    --hero-title-track:.012em;
 
     --hero-rule-w:130px;
     --hero-rule-h:2px;
@@ -946,6 +1128,7 @@ main{
       clamp(21.6px,1.8vw,32px);
 
     --hero-romaji-line:1.12;
+
     --hero-romaji-track:.14em;
 
     --hero-mark-gap-top:28px;
@@ -964,12 +1147,36 @@ main{
   }
 
 
+  /*
+   * More generous desktop poster keylines.
+   */
+
+  .hero::before{
+
+    inset:
+      20px
+      24px
+      24px;
+
+    border-color:
+      rgba(170,45,35,.48);
+  }
+
+
+  .hero::after{
+
+    inset:
+      28px
+      32px
+      32px;
+
+    border-color:
+      rgba(170,45,35,.20);
+  }
+
+
   .header-blossom{
 
-    /*
-     * Slightly smaller and tucked higher so the header brand
-     * only lightly overlaps it.
-     */
     left:-16px;
     bottom:-62px;
 
@@ -982,10 +1189,6 @@ main{
 
   .brand{
 
-    /*
-     * Push the brand farther right so the mon only overlaps
-     * the blossom image a little.
-     */
     margin-left:205px;
 
     gap:14px;
@@ -994,21 +1197,11 @@ main{
 
   .brand .mon{
 
-    /*
-     * Slightly smaller on desktop so header feels less cramped.
-     */
     width:88px;
 
     height:auto;
 
-    opacity:1;
-
     transform:translateX(0);
-  }
-
-
-  .brand-stack{
-    opacity:1;
   }
 
 
@@ -1039,27 +1232,32 @@ main{
 
 
   .menu{
+
     width:44px;
     height:44px;
   }
 
 
   .menu span{
+
     width:22px;
   }
 
 
   .section-mark{
+
     margin-bottom:32px;
   }
 
 
   .section-mark img{
+
     width:30px;
   }
 
 
   .jp-paragraph{
+
     width:17rem;
   }
 
@@ -1106,6 +1304,10 @@ main{
     0
     auto
     10px;
+
+  filter:
+    saturate(1.08)
+    contrast(1.04);
 }
 
 
@@ -1114,6 +1316,8 @@ main{
   color:var(--ink);
 
   font-family:
+    "YuKyokasho",
+    "YuKyokasho Yoko",
     "Hiragino Mincho ProN",
     "Yu Mincho",
     "YuMincho",
