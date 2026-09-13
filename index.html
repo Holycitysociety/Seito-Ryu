@@ -17,25 +17,17 @@
 
 <style>
 
-/* =========================================================
-   JAPANESE DISPLAY FONT
-   ========================================================= */
+:root{
 
-@import url('https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap');
-
-
-:root {
-
-  --paper:#e7dacd;
-  --folio:#f2e9df;
+  /* Slightly richer / more saturated paper so it doesn’t white out */
+  --paper:#e8d7c7;
+  --folio:#f2e7db;
 
   --ink:#171411;
   --muted:#6b645d;
+  --shu:#b02a20;
 
-  /* vermilion seal red */
-  --shu:#c6422b;
-
-  --header-h:92px;
+  --header-h:58px;
 
   --reader-max:940px;
 
@@ -54,20 +46,51 @@
 
   --section-pad-x:18px;
 
-  --jp-title-font:
-    "Yuji Syuku",
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    "YuMincho",
-    "Noto Serif JP",
-    serif;
 
-  --jp-body-font:
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    "YuMincho",
-    "Noto Serif JP",
-    serif;
+  /* =======================================================
+     HERO — MOBILE
+     ======================================================= */
+
+  --hero-pad-top:34px;
+  --hero-pad-bottom:38px;
+
+  --hero-poster-max:640px;
+
+  --hero-mon-w:min(84vw,360px);
+
+  --hero-wordmark-lift:-78px;
+
+  --hero-title-size:
+    clamp(36.8px,8.96vw,60.8px);
+
+  --hero-title-line:1.02;
+  --hero-title-track:.02em;
+
+  --hero-rule-w:88px;
+  --hero-rule-h:2px;
+
+  --hero-rule-gap-top:10px;
+  --hero-rule-gap-bottom:12px;
+
+  --hero-romaji-size:
+    clamp(15.2px,4.08vw,24.8px);
+
+  --hero-romaji-line:1.15;
+  --hero-romaji-track:.12em;
+
+  --hero-mark-gap-top:24px;
+  --hero-mark-gap-bottom:32px;
+
+  --hero-mark-size:32px;
+
+  --hero-soryuki-jp:
+    clamp(14.4px,4.64vw,27.2px);
+
+  --hero-soryuki-sub:
+    clamp(12.8px,3.92vw,22.4px);
+
+  --hero-place-size:
+    clamp(11.2px,3.52vw,17.6px);
 }
 
 
@@ -75,15 +98,15 @@
    RESET
    ========================================================= */
 
-* {
+*{
   box-sizing:border-box;
 }
 
-html {
+html{
   scroll-behavior:smooth;
 }
 
-body {
+body{
 
   margin:0;
 
@@ -102,38 +125,43 @@ body {
   line-height:1.48;
 }
 
-img {
+img{
   display:block;
   max-width:100%;
 }
 
+main{
+  overflow:hidden;
+}
+
 
 /* =========================================================
-   HEADER
+   HEADER — MOBILE
    ========================================================= */
 
-.site-header {
+.site-header{
 
   position:sticky;
   top:0;
 
   z-index:100;
 
+  height:var(--header-h);
   min-height:var(--header-h);
 
   display:flex;
   align-items:center;
   justify-content:space-between;
 
-  gap:14px;
+  gap:10px;
 
   padding:
-    10px
+    0
     14px
-    10px
-    max(16px,env(safe-area-inset-left));
+    0
+    max(12px,env(safe-area-inset-left));
 
-  background:rgba(231,218,205,.96);
+  background:var(--paper);
 
   border-bottom:
     1px solid rgba(0,0,0,.08);
@@ -148,22 +176,22 @@ img {
 
 
 /* =========================================================
-   HEADER CHERRY BLOSSOM
+   FLOATING CHERRY BLOSSOM
    ========================================================= */
 
-.header-blossom {
+.header-blossom{
 
   position:absolute;
 
   z-index:0;
 
-  left:-6px;
-  bottom:-8px;
+  left:-18px;
+  bottom:-25px;
 
-  width:
-    clamp(135px,30vw,300px);
-
+  width:165px;
   height:auto;
+
+  max-width:none;
 
   opacity:1;
 
@@ -173,7 +201,11 @@ img {
 }
 
 
-.brand {
+/* =========================================================
+   HEADER IDENTITY
+   ========================================================= */
+
+.brand{
 
   position:relative;
 
@@ -182,61 +214,77 @@ img {
   display:flex;
   align-items:center;
 
-  gap:12px;
+  gap:10px;
 
   min-width:0;
 
-  margin-left:132px;
+  margin-left:56px;
 
   color:inherit;
+
   text-decoration:none;
 }
 
 
-.brand .mon {
+.brand .mon{
 
-  width:84px;
+  width:64px;
+  height:auto;
 
   flex:0 0 auto;
+
+  opacity:1;
+
+  transform:translateX(7px);
 }
 
 
-.brand-stack {
+.brand-stack{
 
   min-width:0;
 
   line-height:1;
+
+  opacity:1;
 }
 
 
-.brand-stack .jp {
+.brand-stack .jp{
 
   display:block;
 
   margin-bottom:5px;
 
   font-family:
-    var(--jp-title-font);
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
 
-  font-weight:400;
+  font-weight:700;
 
-  font-size:
-    clamp(20px,4.8vw,34px);
+  font-size:20px;
 
   line-height:1;
 
-  letter-spacing:.02em;
+  letter-spacing:.025em;
+
+  white-space:nowrap;
 }
 
 
-.brand-stack .romaji {
+.brand-stack .romaji{
 
   display:block;
 
-  font-size:
-    clamp(11px,2.9vw,17px);
+  font-size:11.5px;
 
-  letter-spacing:.06em;
+  line-height:1;
+
+  letter-spacing:.065em;
+
+  white-space:nowrap;
 }
 
 
@@ -244,14 +292,14 @@ img {
    MENU
    ========================================================= */
 
-.menu {
+.menu{
 
   position:relative;
 
-  z-index:2;
+  z-index:3;
 
-  width:48px;
-  height:48px;
+  width:40px;
+  height:40px;
 
   flex:0 0 auto;
 
@@ -260,7 +308,7 @@ img {
 
   border-radius:2px;
 
-  background:rgba(231,218,205,.98);
+  background:var(--paper);
 
   display:flex;
   flex-direction:column;
@@ -268,16 +316,16 @@ img {
   align-items:center;
   justify-content:center;
 
-  gap:6px;
+  gap:4px;
 
   cursor:pointer;
 }
 
 
-.menu span {
+.menu span{
 
-  width:24px;
-  height:4px;
+  width:20px;
+  height:3px;
 
   display:block;
 
@@ -288,138 +336,79 @@ img {
 
 
 /* =========================================================
-   HERO
+   NARROW PHONE
    ========================================================= */
 
-main {
-  overflow:hidden;
+@media(max-width:390px){
+
+  .brand{
+    margin-left:48px;
+    gap:8px;
+  }
+
+  .brand .mon{
+    width:58px;
+    transform:translateX(6px);
+  }
+
+  .brand-stack .jp{
+    font-size:18px;
+  }
+
+  .brand-stack .romaji{
+    font-size:10.2px;
+    letter-spacing:.045em;
+  }
+
 }
 
 
-.hero {
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
 
   min-height:
     calc(100svh - var(--header-h));
 
   display:grid;
 
-  align-content:start;
+  align-content:center;
   justify-items:center;
 
   padding:
-    28px
+    var(--hero-pad-top)
     18px
-    38px;
+    var(--hero-pad-bottom);
 
   text-align:center;
 }
 
 
-/* =========================================================
-   HERO EMBLEM STAGE
-   ========================================================= */
-
-.hero-stage {
-
-  position:relative;
+.hero-poster{
 
   width:
-    min(94vw,980px);
+    min(100%,var(--hero-poster-max));
 
-  margin:
-    0 auto 30px;
+  display:grid;
 
-  min-height:
-    clamp(320px,48vw,470px);
+  justify-items:center;
 
-  display:flex;
-  align-items:center;
-  justify-content:center;
-}
-
-
-.hero-mon {
-
-  width:
-    min(82vw,516px);
-
-  margin:
-    0 auto;
+  align-content:start;
 }
 
 
 /* =========================================================
-   FOUR DISCIPLINE KANJI
+   LARGE HERO MON
    ========================================================= */
 
-.hero-rail {
+.hero-mon{
 
-  position:absolute;
+  width:
+    var(--hero-mon-w);
 
-  top:50%;
-
-  transform:
-    translateY(-50%);
-
-  width:76px;
-
-  height:
-    clamp(250px,40vw,340px);
-
-  pointer-events:none;
-}
-
-
-.hero-rail.left {
-
-  left:
-    clamp(8px,4vw,70px);
-}
-
-
-.hero-rail.right {
-
-  right:
-    clamp(8px,4vw,70px);
-}
-
-
-.hero-kanji {
-
-  position:absolute;
-
-  left:50%;
-
-  transform:
-    translateX(-50%);
-
-  writing-mode:vertical-rl;
-
-  text-orientation:upright;
-
-  font-family:
-    var(--jp-body-font);
-
-  font-size:
-    clamp(23px,5vw,42px);
-
-  line-height:1;
-
-  letter-spacing:.08em;
-
-  color:var(--ink);
-
-  white-space:nowrap;
-}
-
-
-.hero-kanji.top {
-  top:0;
-}
-
-
-.hero-kanji.bottom {
-  bottom:0;
+  margin:0;
 }
 
 
@@ -427,73 +416,120 @@ main {
    HERO WORDMARK
    ========================================================= */
 
-.hero-wordmark {
+.hero-wordmark{
 
-  width:
-    min(94vw,980px);
+  display:grid;
 
-  margin-top:-8px;
+  justify-items:center;
+
+  width:max-content;
+  max-width:100%;
+
+  margin-top:
+    var(--hero-wordmark-lift);
 }
 
 
-.hero h1 {
+.hero-title-block{
+
+  width:max-content;
+
+  max-width:100%;
+
+  display:grid;
+
+  justify-items:center;
+}
+
+
+.hero h1{
+
+  --match-extra:0px;
 
   margin:0;
 
-  font-family:
-    var(--jp-title-font);
+  width:max-content;
 
-  font-weight:400;
+  max-width:100%;
+
+  font-family:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
 
   font-size:
-    clamp(58px,11vw,100px);
+    var(--hero-title-size);
 
-  line-height:1.03;
+  line-height:
+    var(--hero-title-line);
 
-  letter-spacing:.015em;
+  letter-spacing:
+    calc(
+      var(--hero-title-track)
+      +
+      var(--match-extra)
+    );
+
+  white-space:nowrap;
 }
 
 
-.hero-rule {
+.hero-rule{
 
   width:
-    clamp(118px,22vw,170px);
+    var(--hero-rule-w);
 
-  height:4px;
+  height:
+    var(--hero-rule-h);
 
-  margin:
-    16px
-    auto
-    18px;
+  margin-top:
+    var(--hero-rule-gap-top);
+
+  margin-bottom:
+    var(--hero-rule-gap-bottom);
 
   background:
-    var(--shu);
+    rgba(176,42,32,.72);
 }
 
 
-.hero .romaji {
+.hero .romaji{
 
-  margin-top:0;
+  --match-extra:0px;
+
+  width:max-content;
+
+  max-width:100%;
 
   font-size:
-    clamp(25px,5vw,44px);
+    var(--hero-romaji-size);
 
-  letter-spacing:.16em;
+  line-height:
+    var(--hero-romaji-line);
 
-  line-height:1.08;
+  letter-spacing:
+    calc(
+      var(--hero-romaji-track)
+      +
+      var(--match-extra)
+    );
+
+  white-space:nowrap;
 }
 
 
 /* =========================================================
-   HERO TINY MON
+   WORDMARK MON
    ========================================================= */
 
-.hero-mark {
+.hero-mark{
 
   margin:
-    34px
+    var(--hero-mark-gap-top)
     auto
-    34px;
+    var(--hero-mark-gap-bottom);
 
   display:flex;
 
@@ -502,9 +538,10 @@ main {
 }
 
 
-.hero-mark img {
+.hero-mark img{
 
-  width:28px;
+  width:
+    var(--hero-mark-size);
 
   height:auto;
 }
@@ -514,45 +551,47 @@ main {
    SORYU-KI
    ========================================================= */
 
-.soryuki {
+.soryuki{
 
-  line-height:1.22;
+  line-height:1.24;
 
-  margin-bottom:24px;
+  margin-bottom:20px;
 }
 
 
-.soryuki span {
+.soryuki span{
   display:block;
 }
 
 
-.soryuki .jp {
+.soryuki .jp{
 
   font-family:
-    var(--jp-title-font);
-
-  font-weight:400;
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
 
   font-size:
-    clamp(18px,5.6vw,30px);
+    var(--hero-soryuki-jp);
 }
 
 
 .soryuki .rom,
-.soryuki .en {
+.soryuki .en{
 
   font-size:
-    clamp(16px,4.6vw,24px);
+    var(--hero-soryuki-sub);
 }
 
 
-.soryuki .place {
+.soryuki .place{
 
-  margin-top:7px;
+  margin-top:10px;
 
   font-size:
-    clamp(14px,4.2vw,20px);
+    var(--hero-place-size);
 }
 
 
@@ -560,7 +599,7 @@ main {
    SECTIONS
    ========================================================= */
 
-.section {
+.section{
 
   width:
     min(100%,var(--reader-max));
@@ -575,7 +614,7 @@ main {
 }
 
 
-.section-title {
+.section-title{
 
   text-align:center;
 
@@ -583,40 +622,42 @@ main {
 }
 
 
-.section-title .kicker {
+.section-title .kicker{
 
   font-family:
-    var(--jp-title-font);
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
 
   font-size:
-    clamp(21px,5.4vw,32px);
+    clamp(19px,5vw,29px);
 
-  font-weight:400;
+  font-weight:700;
 
-  line-height:1.2;
-
-  letter-spacing:.015em;
+  line-height:1.15;
 }
 
 
-.section-title .sub {
+.section-title .sub{
 
-  margin-top:6px;
+  margin-top:8px;
 
   font-size:
-    clamp(13px,3.6vw,17px);
+    clamp(13px,3.8vw,17px);
 
   font-weight:600;
 
-  letter-spacing:.10em;
+  letter-spacing:.08em;
 }
 
 
 /* =========================================================
-   SECTION TINY MON
+   SECTION MON
    ========================================================= */
 
-.section-mark {
+.section-mark{
 
   margin:
     0
@@ -630,7 +671,7 @@ main {
 }
 
 
-.section-mark img {
+.section-mark img{
 
   width:24px;
 
@@ -639,10 +680,10 @@ main {
 
 
 /* =========================================================
-   CONTINUOUS BILINGUAL READING FIELD
+   CONTINUOUS BILINGUAL FIELD
    ========================================================= */
 
-.section-body {
+.section-body{
 
   position:relative;
 
@@ -674,7 +715,7 @@ main {
    CONTINUOUS JAPANESE FOLIO
    ========================================================= */
 
-.section-body::before {
+.section-body::before{
 
   content:"";
 
@@ -727,10 +768,10 @@ main {
 
 
 /* =========================================================
-   JAPANESE PARAGRAPH
+   JAPANESE TEXT
    ========================================================= */
 
-.jp-paragraph {
+.jp-paragraph{
 
   position:relative;
 
@@ -756,7 +797,11 @@ main {
   overflow:hidden;
 
   font-family:
-    var(--jp-body-font);
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
 
   font-size:
     var(--jp-size);
@@ -764,15 +809,15 @@ main {
   line-height:
     var(--jp-leading);
 
-  letter-spacing:.025em;
+  letter-spacing:.14em;
 }
 
 
 /* =========================================================
-   ENGLISH PARAGRAPH GROUP
+   ENGLISH TEXT
    ========================================================= */
 
-.en-group {
+.en-group{
 
   position:relative;
 
@@ -790,7 +835,7 @@ main {
   line-height:
     var(--en-leading);
 
-  letter-spacing:.002em;
+  letter-spacing:.015em;
 
   font-kerning:normal;
 
@@ -798,48 +843,45 @@ main {
 }
 
 
-.en-group p {
+.en-group p{
 
   margin:
     0
     0
-    1.08em;
+    1.38em;
 
-  text-align:justify;
-
-  text-align-last:left;
+  text-align:left;
 
   hyphens:auto;
 
   -webkit-hyphens:auto;
 
-  word-spacing:.02em;
+  word-spacing:.08em;
 }
 
 
-.en-group p:last-child {
-
+.en-group p:last-child{
   margin-bottom:0;
 }
 
 
-.en-group .sequence {
+.en-group .sequence{
 
   font-size:.92em;
 
-  line-height:1.55;
+  line-height:1.75;
 
-  letter-spacing:.025em;
+  letter-spacing:.05em;
 
   text-align:left;
 }
 
 
-.en-group .closing {
+.en-group .closing{
 
-  font-size:1.42em;
+  font-size:1.34em;
 
-  line-height:1.13;
+  line-height:1.25;
 
   text-align:left;
 }
@@ -849,21 +891,22 @@ main {
    TABLET / DESKTOP
    ========================================================= */
 
-@media(min-width:760px) {
+@media(min-width:760px){
 
-  :root {
+  :root{
 
-    --header-h:86px;
+    /* desktop header gets more body */
+    --header-h:82px;
 
     --reader-max:68rem;
 
     --jp-size:18px;
     --jp-leading:1.72;
 
-    --en-size:21px;
-    --en-leading:1.46;
+    --en-size:20px;
+    --en-leading:1.62;
 
-    --en-measure:24ch;
+    --en-measure:25ch;
 
     --pair-gap:30px;
 
@@ -873,164 +916,155 @@ main {
     --paragraph-gap:36px;
 
     --section-pad-x:38px;
+
+
+    /* HERO */
+
+    --hero-pad-top:48px;
+    --hero-pad-bottom:44px;
+
+    --hero-poster-max:1000px;
+
+    --hero-mon-w:
+      min(45vw,525.6px);
+
+    --hero-wordmark-lift:-108px;
+
+    --hero-title-size:
+      clamp(54.4px,4.8vw,89.6px);
+
+    --hero-title-line:1;
+    --hero-title-track:.022em;
+
+    --hero-rule-w:130px;
+    --hero-rule-h:2px;
+
+    --hero-rule-gap-top:12px;
+    --hero-rule-gap-bottom:14px;
+
+    --hero-romaji-size:
+      clamp(21.6px,1.8vw,32px);
+
+    --hero-romaji-line:1.12;
+    --hero-romaji-track:.14em;
+
+    --hero-mark-gap-top:28px;
+    --hero-mark-gap-bottom:36px;
+
+    --hero-mark-size:36px;
+
+    --hero-soryuki-jp:
+      clamp(19.2px,2.24vw,33.6px);
+
+    --hero-soryuki-sub:
+      clamp(14.4px,1.68vw,24.8px);
+
+    --hero-place-size:
+      clamp(12.8px,1.28vw,19.2px);
   }
 
 
-  .site-header {
+  .header-blossom{
 
-    padding:
-      8px
-      22px
-      8px
-      max(22px,env(safe-area-inset-left));
+    /*
+     * Slightly smaller and tucked higher so the header brand
+     * only lightly overlaps it.
+     */
+    left:-16px;
+    bottom:-62px;
+
+    width:360px;
+    height:auto;
+
+    opacity:1;
   }
 
 
-  .header-blossom {
+  .brand{
 
-    width:
-      clamp(200px,18vw,300px);
-
-    left:-4px;
-    bottom:-10px;
-  }
-
-
-  .brand {
-
-    margin-left:150px;
+    /*
+     * Push the brand farther right so the mon only overlaps
+     * the blossom image a little.
+     */
+    margin-left:205px;
 
     gap:14px;
   }
 
 
-  .brand .mon {
+  .brand .mon{
 
-    width:72px;
+    /*
+     * Slightly smaller on desktop so header feels less cramped.
+     */
+    width:88px;
+
+    height:auto;
+
+    opacity:1;
+
+    transform:translateX(0);
   }
 
 
-  .brand-stack .jp {
+  .brand-stack{
+    opacity:1;
+  }
+
+
+  .brand-stack .jp{
 
     font-size:
-      clamp(24px,2.15vw,34px);
+      clamp(24px,2.25vw,36px);
 
     line-height:1;
 
     margin-bottom:6px;
+
+    white-space:nowrap;
   }
 
 
-  .brand-stack .romaji {
+  .brand-stack .romaji{
 
     font-size:
-      clamp(13px,1vw,15px);
+      clamp(14px,1.05vw,18px);
 
-    letter-spacing:.07em;
+    line-height:1;
+
+    letter-spacing:.085em;
+
+    white-space:nowrap;
   }
 
 
-  .menu {
-
-    width:46px;
-    height:46px;
+  .menu{
+    width:44px;
+    height:44px;
   }
 
 
-  .hero {
-
-    padding:
-      24px
-      26px
-      44px;
+  .menu span{
+    width:22px;
   }
 
 
-  .hero-stage {
-
-    min-height:
-      clamp(360px,34vw,470px);
-
-    margin-bottom:24px;
+  .section-mark{
+    margin-bottom:32px;
   }
 
 
-  .hero-mon {
-
-    width:
-      min(46vw,420px);
+  .section-mark img{
+    width:30px;
   }
 
 
-  .hero-rail {
-
-    width:86px;
-
-    height:300px;
-  }
-
-
-  .hero-rail.left {
-
-    left:
-      clamp(80px,17vw,240px);
-  }
-
-
-  .hero-rail.right {
-
-    right:
-      clamp(80px,17vw,240px);
-  }
-
-
-  .hero-kanji {
-
-    font-size:
-      clamp(26px,2.2vw,38px);
-  }
-
-
-  .hero-wordmark {
-
-    margin-top:-12px;
-  }
-
-
-  .hero h1 {
-
-    font-size:
-      clamp(68px,6.2vw,94px);
-  }
-
-
-  .hero-rule {
-
-    width:136px;
-
-    margin:
-      18px
-      auto
-      18px;
-  }
-
-
-  .hero .romaji {
-
-    font-size:
-      clamp(30px,2.9vw,40px);
-
-    letter-spacing:.14em;
-  }
-
-
-  .jp-paragraph {
-
+  .jp-paragraph{
     width:17rem;
   }
 
 
-  .en-group {
+  .en-group{
 
     width:
       min(100%,var(--en-measure));
@@ -1044,151 +1078,6 @@ main {
       var(--en-leading);
   }
 
-
-  .section-mark {
-
-    margin-bottom:32px;
-  }
-
-
-  .section-mark img {
-
-    width:30px;
-  }
-
-
-  .hero-mark {
-
-    margin-bottom:38px;
-  }
-
-
-  .hero-mark img {
-
-    width:32px;
-  }
-
-}
-
-
-/* =========================================================
-   MOBILE HERO / HEADER TUNING
-   ========================================================= */
-
-@media(max-width:759px) {
-
-  .site-header {
-
-    min-height:92px;
-  }
-
-
-  .brand {
-
-    margin-left:98px;
-
-    gap:10px;
-  }
-
-
-  .brand .mon {
-
-    width:76px;
-  }
-
-
-  .brand-stack .jp {
-
-    font-size:
-      clamp(18px,5.5vw,28px);
-  }
-
-
-  .brand-stack .romaji {
-
-    font-size:
-      clamp(10px,3vw,14px);
-
-    letter-spacing:.04em;
-  }
-
-
-  .header-blossom {
-
-    width:
-      clamp(132px,38vw,220px);
-  }
-
-
-  .hero-stage {
-
-    min-height:370px;
-
-    margin-bottom:18px;
-  }
-
-
-  .hero-mon {
-
-    width:
-      min(66vw,490px);
-  }
-
-
-  .hero-rail {
-
-    width:60px;
-
-    height:240px;
-  }
-
-
-  .hero-rail.left {
-
-    left:8px;
-  }
-
-
-  .hero-rail.right {
-
-    right:8px;
-  }
-
-
-  .hero-kanji {
-
-    font-size:
-      clamp(18px,5.6vw,30px);
-  }
-
-
-  .hero h1 {
-
-    font-size:
-      clamp(48px,11vw,82px);
-  }
-
-
-  .hero-rule {
-
-    width:
-      clamp(92px,24vw,132px);
-
-    margin:
-      14px
-      auto
-      14px;
-  }
-
-
-  .hero .romaji {
-
-    font-size:
-      clamp(18px,5vw,30px);
-
-    letter-spacing:.11em;
-  }
-
 }
 
 
@@ -1196,12 +1085,12 @@ main {
    FOOTER
    ========================================================= */
 
-.colophon {
+.colophon{
 
   text-align:center;
 
   padding:
-    26px
+    28px
     16px
     78px;
 
@@ -1209,7 +1098,7 @@ main {
 }
 
 
-.colophon .mon {
+.colophon .mon{
 
   width:82px;
 
@@ -1220,24 +1109,28 @@ main {
 }
 
 
-.colophon .jp {
+.colophon .jp{
 
   color:var(--ink);
 
   font-family:
-    var(--jp-title-font);
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
 
-  font-size:25px;
+  font-size:23px;
 
-  font-weight:400;
+  font-weight:700;
 }
 
 
-.colophon .romaji {
+.colophon .romaji{
 
   color:var(--ink);
 
-  margin-top:4px;
+  margin-top:6px;
 
   font-size:12px;
 
@@ -1245,7 +1138,7 @@ main {
 }
 
 
-.colophon .meta {
+.colophon .meta{
 
   margin-top:12px;
 
@@ -1257,9 +1150,9 @@ main {
    REDUCED MOTION
    ========================================================= */
 
-@media(prefers-reduced-motion:reduce) {
+@media(prefers-reduced-motion:reduce){
 
-  html {
+  html{
     scroll-behavior:auto;
   }
 
@@ -1276,7 +1169,7 @@ main {
 
   <img
     class="header-blossom"
-    src="assets/cherry_blossom_header.png"
+    src="/assets/cherry_blossom_header.png"
     alt=""
     aria-hidden="true"
   >
@@ -1289,7 +1182,7 @@ main {
 
     <img
       class="mon"
-      src="assets/seito-mon.png"
+      src="/assets/seito-mon.png"
       alt="Seitō-ryū mon"
     >
 
@@ -1336,107 +1229,76 @@ main {
 
 <section class="hero">
 
-
-  <div class="hero-stage">
-
-
-    <div
-      class="hero-rail left"
-      aria-hidden="true"
-    >
-
-      <div class="hero-kanji top">
-        合気道
-      </div>
-
-      <div class="hero-kanji bottom">
-        柔道
-      </div>
-
-    </div>
-
+  <div class="hero-poster">
 
     <img
       class="hero-mon"
-      src="assets/seito-mon.png"
+      src="/assets/seito-mon.png"
       alt="Seitō-ryū mon"
     >
 
 
-    <div
-      class="hero-rail right"
-      aria-hidden="true"
-    >
+    <div class="hero-wordmark">
 
-      <div class="hero-kanji top">
-        柔術
+      <div
+        class="hero-title-block"
+        data-title-equalizer
+      >
+
+        <h1 data-title-jp>
+          聖都流合気柔術
+        </h1>
+
+
+        <div
+          class="hero-rule"
+          aria-hidden="true"
+        ></div>
+
+
+        <div
+          class="romaji"
+          data-title-romaji
+        >
+          SEITŌ-RYŪ AIKI-JŪJUTSU
+        </div>
+
       </div>
 
-      <div class="hero-kanji bottom">
-        礼法
+
+      <div class="hero-mark">
+
+        <img
+          src="/assets/seito-mon.png"
+          alt=""
+        >
+
       </div>
 
     </div>
 
 
-  </div>
+    <div class="soryuki">
 
+      <span class="jp">
+        創流期
+      </span>
 
+      <span class="rom">
+        Sōryū-ki
+      </span>
 
-  <div class="hero-wordmark">
+      <span class="en">
+        Formative Period
+      </span>
 
+      <span class="place">
+        Charleston, South Carolina · 2026
+      </span>
 
-    <h1>
-      聖都流合気柔術
-    </h1>
-
-
-    <div
-      class="hero-rule"
-      aria-hidden="true"
-    ></div>
-
-
-    <div class="romaji">
-      SEITŌ-RYŪ AIKI-JŪJUTSU
     </div>
 
-
   </div>
-
-
-
-  <div class="hero-mark">
-
-    <img
-      src="assets/seito-mon.png"
-      alt=""
-    >
-
-  </div>
-
-
-
-  <div class="soryuki">
-
-    <span class="jp">
-      創流期
-    </span>
-
-    <span class="rom">
-      Sōryū-ki
-    </span>
-
-    <span class="en">
-      Formative Period
-    </span>
-
-    <span class="place">
-      Charleston, South Carolina · 2026
-    </span>
-
-  </div>
-
 
 </section>
 
@@ -1450,7 +1312,7 @@ main {
 
   <img
     class="mon"
-    src="assets/seito-mon.png"
+    src="/assets/seito-mon.png"
     alt=""
   >
 
@@ -2260,7 +2122,7 @@ sections.forEach(
       "section";
 
 
-    if(index === 0) {
+    if(index === 0){
 
       sectionElement.id =
         "about";
@@ -2275,7 +2137,7 @@ sections.forEach(
         <div class="section-mark">
 
           <img
-            src="assets/seito-mon.png"
+            src="/assets/seito-mon.png"
             alt=""
           >
 
@@ -2336,7 +2198,7 @@ sections.forEach(
               document.createElement("p");
 
 
-            if(paragraph.class) {
+            if(paragraph.class){
 
               node.className =
                 paragraph.class;
@@ -2386,16 +2248,151 @@ sections.forEach(
 
 
 /* =========================================================
+   HERO TITLE WIDTH EQUALIZER
+   ========================================================= */
+
+function equalizeHeroTitle(){
+
+  document
+    .querySelectorAll(
+      "[data-title-equalizer]"
+    )
+    .forEach(
+      group => {
+
+        const japanese =
+          group.querySelector(
+            "[data-title-jp]"
+          );
+
+
+        const romaji =
+          group.querySelector(
+            "[data-title-romaji]"
+          );
+
+
+        if(
+          !japanese
+          ||
+          !romaji
+        ){
+          return;
+        }
+
+
+        japanese.style
+          .setProperty(
+            "--match-extra",
+            "0px"
+          );
+
+
+        romaji.style
+          .setProperty(
+            "--match-extra",
+            "0px"
+          );
+
+
+        const jpWidth =
+          japanese
+            .getBoundingClientRect()
+            .width;
+
+
+        const romajiWidth =
+          romaji
+            .getBoundingClientRect()
+            .width;
+
+
+        const targetWidth =
+          Math.max(
+            jpWidth,
+            romajiWidth
+          );
+
+
+        function expandLine(
+          element,
+          currentWidth
+        ){
+
+          if(
+            currentWidth >=
+            targetWidth - .5
+          ){
+            return;
+          }
+
+
+          const characters =
+            Array.from(
+              element
+                .textContent
+                .trim()
+            ).length;
+
+
+          if(
+            characters < 2
+          ){
+            return;
+          }
+
+
+          const extra =
+            (
+              targetWidth -
+              currentWidth
+            )
+            /
+            (
+              characters -
+              1
+            );
+
+
+          element.style
+            .setProperty(
+              "--match-extra",
+              `${extra}px`
+            );
+
+        }
+
+
+        expandLine(
+          japanese,
+          jpWidth
+        );
+
+
+        expandLine(
+          romaji,
+          romajiWidth
+        );
+
+      }
+    );
+
+}
+
+
+/* =========================================================
    JAPANESE VERTICAL FITTING
    ========================================================= */
 
-function paragraphFits(paragraph) {
+function paragraphFits(
+  paragraph
+){
 
   const tolerance =
     1.5;
 
 
-  return (
+  return(
 
     paragraph.scrollWidth <=
       paragraph.clientWidth + tolerance
@@ -2410,11 +2407,9 @@ function paragraphFits(paragraph) {
 }
 
 
-/* =========================================================
-   FIT ONE JAPANESE PARAGRAPH
-   ========================================================= */
-
-function fitVerticalParagraph(paragraph) {
+function fitVerticalParagraph(
+  paragraph
+){
 
   const minimum =
     window.innerWidth >= 760
@@ -2438,7 +2433,7 @@ function fitVerticalParagraph(paragraph) {
     !paragraphFits(paragraph)
     &&
     high < 1800
-  ) {
+  ){
 
     high += 60;
 
@@ -2451,7 +2446,7 @@ function fitVerticalParagraph(paragraph) {
 
   while(
     low < high
-  ) {
+  ){
 
     const middle =
       Math.floor(
@@ -2465,14 +2460,14 @@ function fitVerticalParagraph(paragraph) {
 
     if(
       paragraphFits(paragraph)
-    ) {
+    ){
 
       high =
         middle;
 
     }
 
-    else {
+    else{
 
       low =
         middle + 1;
@@ -2484,8 +2479,9 @@ function fitVerticalParagraph(paragraph) {
 
   const fontSize =
     parseFloat(
-      getComputedStyle(paragraph)
-        .fontSize
+      getComputedStyle(
+        paragraph
+      ).fontSize
     );
 
 
@@ -2505,10 +2501,13 @@ function fitVerticalParagraph(paragraph) {
 
 
 /* =========================================================
-   LAYOUT ALL JAPANESE
+   COMPLETE PAGE LAYOUT
    ========================================================= */
 
-function layoutJapanese() {
+function layoutPage(){
+
+  equalizeHeroTitle();
+
 
   document
     .querySelectorAll(
@@ -2534,12 +2533,12 @@ function layoutJapanese() {
 function debounce(
   callback,
   delay
-) {
+){
 
   let timer;
 
 
-  return function() {
+  return function(){
 
     clearTimeout(
       timer
@@ -2565,7 +2564,7 @@ if(
   document.fonts
   &&
   document.fonts.ready
-) {
+){
 
   document.fonts.ready.then(
     () => {
@@ -2574,7 +2573,7 @@ if(
         () => {
 
           requestAnimationFrame(
-            layoutJapanese
+            layoutPage
           );
 
         }
@@ -2585,11 +2584,11 @@ if(
 
 }
 
-else {
+else{
 
   window.addEventListener(
     "load",
-    layoutJapanese
+    layoutPage
   );
 
 }
@@ -2601,7 +2600,7 @@ else {
 
 const relayout =
   debounce(
-    layoutJapanese,
+    layoutPage,
     120
   );
 
@@ -2617,7 +2616,7 @@ window.addEventListener(
   () => {
 
     setTimeout(
-      layoutJapanese,
+      layoutPage,
       250
     );
 
@@ -2627,7 +2626,7 @@ window.addEventListener(
 
 if(
   window.visualViewport
-) {
+){
 
   window.visualViewport
     .addEventListener(
