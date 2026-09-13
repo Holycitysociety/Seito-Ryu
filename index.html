@@ -15,11 +15,35 @@
   content="Seitō-ryū Aiki-Jūjutsu"
 >
 
+<!-- =======================================================
+     DISPLAY BRUSH FONT
+     ======================================================= -->
+
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+>
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
+  rel="stylesheet"
+>
+
+
 <style>
 
 :root{
 
-  /* Slightly richer / more saturated paper so it doesn’t white out */
+  /* =======================================================
+     COLOR
+     ======================================================= */
+
   --paper:#e8d7c7;
   --folio:#f2e7db;
 
@@ -27,7 +51,37 @@
   --muted:#6b645d;
   --shu:#b02a20;
 
+
+  /* =======================================================
+     FONT FAMILIES
+     ======================================================= */
+
+  --brush:
+    "Yuji Syuku",
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  --jp-body:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+
+  /* =======================================================
+     MOBILE HEADER
+     ======================================================= */
+
   --header-h:58px;
+
+
+  /* =======================================================
+     READER
+     ======================================================= */
 
   --reader-max:940px;
 
@@ -56,15 +110,17 @@
 
   --hero-poster-max:640px;
 
-  --hero-mon-w:min(84vw,360px);
+  --hero-mon-w:
+    min(84vw,360px);
 
   --hero-wordmark-lift:-78px;
 
   --hero-title-size:
     clamp(36.8px,8.96vw,60.8px);
 
-  --hero-title-line:1.02;
-  --hero-title-track:.02em;
+  --hero-title-line:1.05;
+
+  --hero-title-track:.03em;
 
   --hero-rule-w:88px;
   --hero-rule-h:2px;
@@ -76,6 +132,7 @@
     clamp(15.2px,4.08vw,24.8px);
 
   --hero-romaji-line:1.15;
+
   --hero-romaji-track:.12em;
 
   --hero-mark-gap-top:24px;
@@ -255,20 +312,15 @@ main{
 
   margin-bottom:5px;
 
-  font-family:
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    "YuMincho",
-    "Noto Serif JP",
-    serif;
+  font-family:var(--brush);
 
-  font-weight:700;
+  font-weight:400;
 
   font-size:20px;
 
-  line-height:1;
+  line-height:1.05;
 
-  letter-spacing:.025em;
+  letter-spacing:.045em;
 
   white-space:nowrap;
 }
@@ -342,21 +394,31 @@ main{
 @media(max-width:390px){
 
   .brand{
+
     margin-left:48px;
+
     gap:8px;
   }
 
+
   .brand .mon{
+
     width:58px;
+
     transform:translateX(6px);
   }
 
+
   .brand-stack .jp{
+
     font-size:18px;
   }
 
+
   .brand-stack .romaji{
+
     font-size:10.2px;
+
     letter-spacing:.045em;
   }
 
@@ -442,6 +504,10 @@ main{
 }
 
 
+/* =========================================================
+   HERO BRUSH TITLE
+   ========================================================= */
+
 .hero h1{
 
   --match-extra:0px;
@@ -452,12 +518,9 @@ main{
 
   max-width:100%;
 
-  font-family:
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    "YuMincho",
-    "Noto Serif JP",
-    serif;
+  font-family:var(--brush);
+
+  font-weight:400;
 
   font-size:
     var(--hero-title-size);
@@ -566,15 +629,14 @@ main{
 
 .soryuki .jp{
 
-  font-family:
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    "YuMincho",
-    "Noto Serif JP",
-    serif;
+  font-family:var(--brush);
+
+  font-weight:400;
 
   font-size:
     var(--hero-soryuki-jp);
+
+  letter-spacing:.04em;
 }
 
 
@@ -622,21 +684,22 @@ main{
 }
 
 
+/* =========================================================
+   SECTION BRUSH TITLES
+   ========================================================= */
+
 .section-title .kicker{
 
-  font-family:
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    "YuMincho",
-    "Noto Serif JP",
-    serif;
+  font-family:var(--brush);
 
   font-size:
-    clamp(19px,5vw,29px);
+    clamp(21px,5.4vw,32px);
 
-  font-weight:700;
+  font-weight:400;
 
   line-height:1.15;
+
+  letter-spacing:.055em;
 }
 
 
@@ -768,7 +831,7 @@ main{
 
 
 /* =========================================================
-   JAPANESE TEXT
+   JAPANESE BODY TEXT
    ========================================================= */
 
 .jp-paragraph{
@@ -796,12 +859,11 @@ main{
 
   overflow:hidden;
 
-  font-family:
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    "YuMincho",
-    "Noto Serif JP",
-    serif;
+  /*
+   * Intentionally NOT brush.
+   * Long vertical text remains readable.
+   */
+  font-family:var(--jp-body);
 
   font-size:
     var(--jp-size);
@@ -895,7 +957,6 @@ main{
 
   :root{
 
-    /* desktop header gets more body */
     --header-h:82px;
 
     --reader-max:68rem;
@@ -933,8 +994,9 @@ main{
     --hero-title-size:
       clamp(54.4px,4.8vw,89.6px);
 
-    --hero-title-line:1;
-    --hero-title-track:.022em;
+    --hero-title-line:1.03;
+
+    --hero-title-track:.025em;
 
     --hero-rule-w:130px;
     --hero-rule-h:2px;
@@ -946,6 +1008,7 @@ main{
       clamp(21.6px,1.8vw,32px);
 
     --hero-romaji-line:1.12;
+
     --hero-romaji-track:.14em;
 
     --hero-mark-gap-top:28px;
@@ -964,28 +1027,30 @@ main{
   }
 
 
+  /* =======================================================
+     DESKTOP BLOSSOM
+     ======================================================= */
+
   .header-blossom{
 
-    /*
-     * Slightly smaller and tucked higher so the header brand
-     * only lightly overlaps it.
-     */
     left:-16px;
+
     bottom:-62px;
 
     width:360px;
+
     height:auto;
 
     opacity:1;
   }
 
 
+  /* =======================================================
+     DESKTOP HEADER BRAND
+     ======================================================= */
+
   .brand{
 
-    /*
-     * Push the brand farther right so the mon only overlaps
-     * the blossom image a little.
-     */
     margin-left:205px;
 
     gap:14px;
@@ -994,9 +1059,6 @@ main{
 
   .brand .mon{
 
-    /*
-     * Slightly smaller on desktop so header feels less cramped.
-     */
     width:88px;
 
     height:auto;
@@ -1014,12 +1076,18 @@ main{
 
   .brand-stack .jp{
 
-    font-size:
-      clamp(24px,2.25vw,36px);
+    font-family:var(--brush);
 
-    line-height:1;
+    font-weight:400;
+
+    font-size:
+      clamp(25px,2.35vw,38px);
+
+    line-height:1.02;
 
     margin-bottom:6px;
+
+    letter-spacing:.045em;
 
     white-space:nowrap;
   }
@@ -1039,6 +1107,7 @@ main{
 
 
   .menu{
+
     width:44px;
     height:44px;
   }
@@ -1056,6 +1125,15 @@ main{
 
   .section-mark img{
     width:30px;
+  }
+
+
+  .section-title .kicker{
+
+    font-size:
+      clamp(25px,2.7vw,38px);
+
+    letter-spacing:.06em;
   }
 
 
@@ -1113,16 +1191,13 @@ main{
 
   color:var(--ink);
 
-  font-family:
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    "YuMincho",
-    "Noto Serif JP",
-    serif;
+  font-family:var(--brush);
 
-  font-size:23px;
+  font-size:25px;
 
-  font-weight:700;
+  font-weight:400;
+
+  letter-spacing:.045em;
 }
 
 
