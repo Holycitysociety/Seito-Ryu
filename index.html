@@ -859,10 +859,6 @@ main{
 
   overflow:hidden;
 
-  /*
-   * Intentionally NOT brush.
-   * Long vertical text remains readable.
-   */
   font-family:var(--jp-body);
 
   font-size:
@@ -1400,7 +1396,7 @@ main{
   </div>
 
   <div class="meta">
-    創流期 — Sōryū-ki — Formative Period
+    創流期 · Sōryū-ki · Formative Period
   </div>
 
   <div class="meta">
@@ -1422,6 +1418,10 @@ main{
 
 const sections = [
 
+  /* =======================================================
+     ABOUT
+     ======================================================= */
+
   {
 
     jpTitle:"概要",
@@ -1433,12 +1433,12 @@ const sections = [
       {
 
         jp:
-          "聖都流は、二〇二六年、サウスカロライナ州チャールストンにおいて、合気柔術の研究と稽古のために設立された、形成途上にある武道校である。本校はホーリー・シティ・ソサエティの後援のもとに置かれる。「聖都」の名は、チャールストンの歴史的な別称 “The Holy City” に由来する。",
+          "聖都流は、二〇二六年、サウスカロライナ州チャールストンにおいて設立された、形成途上にある武道校である。その創流時の技術的領域は合気柔術である。本校はホーリー・シティ・ソサエティの後援のもとに置かれ、その名である「聖都」は、チャールストンの歴史的な呼称「ホーリー・シティ」に由来する。",
 
         en:[
           {
             text:
-              "Seito-ryū is a budō school in formation, established in Charleston, South Carolina, in 2026 for the study and practice of Aiki Jujutsu. The school is established under the patronage of Holy City Society. The name Seito — 聖都, “Holy City / Sacred City” — is taken from Charleston’s historic epithet, “The Holy City.”",
+              "Seito-ryū is a martial school in formation, established in Charleston, South Carolina, in 2026. Its founding technical field is Aiki Jujutsu. It is established under the patronage of Holy City Society, from which the name Seito, 聖都, “Holy City,” is taken.",
 
             class:""
           }
@@ -1450,46 +1450,12 @@ const sections = [
       {
 
         jp:
-          "その歩みは、先行する伝統と諸師への敬意から始まる。古典柔術諸流、嘉納治五郎と講道館、武田惣角と大東流、植芝盛平と合気武道を主要な学びの源とする。",
+          "今は本校の創流期である。聖都流は、実際には存在しない継承流派を称するものではない。われわれは、この資料を今日まで伝えてきた諸伝統と諸師への感謝とともに、率直に歩みを始める。",
 
         en:[
           {
             text:
-              "Its work begins with respect for the traditions and teachers that came before us: the classical schools of jūjutsu; Kanō Jigorō and the Kōdōkan; Takeda Sōkaku and Daitō-ryū; and Ueshiba Morihei and Aiki-budō.",
-
-            class:""
-          }
-        ]
-
-      },
-
-
-      {
-
-        jp:
-          "創流期の研究では、後代の教師・研究者である富木謙治、望月稔、斉藤守弘、西尾昭二、ロイ・スエナカ、カツミ・ニイクラ、白川竜次らの仕事からも学ぶ。彼らの仕事は、その時々の問いに照らして研究資料として扱うものであり、実際に存在しない系譜を称するものではない。",
-
-        en:[
-          {
-            text:
-              "Our formative study also draws upon the work of later teachers and investigators including Tomiki Kenji, Mochizuki Minoru, Saitō Morihiro, Nishio Shōji, Roy Suenaka, Katsumi Niikura, and Ryuji Shirakawa. Their work is approached as a source of study according to the questions before us, and not as a claim of lineage where no such lineage exists.",
-
-            class:""
-          }
-        ]
-
-      },
-
-
-      {
-
-        jp:
-          "聖都流は、継承された流派ではなく、形成途上にある武道校として率直に提示される。その目的は、受け取ったものを忠実に学び、伝承と再構成を明確に区別し、稽古を通じて探究を続けることにある。",
-
-        en:[
-          {
-            text:
-              "Seito-ryū is presented openly as a school in formation rather than an inherited ryūha. Its purpose is to study what has been received faithfully, to distinguish inheritance from reconstruction, and to continue the investigation through practice.",
+              "These are the school’s founding days. Seito-ryū does not claim an inherited ryūha where none exists. We begin openly, with gratitude to the traditions and teachers that preserved the material before us.",
 
             class:""
           }
@@ -1502,25 +1468,29 @@ const sections = [
   },
 
 
+  /* =======================================================
+     WHAT WE RECEIVE
+     ======================================================= */
+
   {
 
     jpTitle:
-      "古典形と失われた前段",
+      "受け継ぐもの",
 
     enTitle:
-      "Classical Form and the Missing Beginning",
+      "What We Receive",
 
     rows:[
 
       {
 
         jp:
-          "古典の形は、われわれの出発点である。攻撃を定め、稽古相手の間に特定の関係を設定することによって、形は姿勢、動き、つながり、崩し、技、制御、受け身を精密に学ぶことを可能にする。このように状況を整えることは、形稽古の大きな長所の一つである。",
+          "聖都流における予備的な稽古は、合気会合気道である。合気会合気道は、聖都流の中でも合気会合気道として稽古される。聖都流の技として吸収されたり、名称を変えられたりするものではない。その技術的基準、段級位、権威は、それを受け継ぐ現存の伝統とのつながりを保つ。",
 
         en:[
           {
             text:
-              "Classical kata remains our starting point. By prescribing an attack and establishing a particular relationship between training partners, kata allows posture, movement, connection, kuzushi, waza, control, and ukemi to be studied with precision. This ordering of circumstances is one of its great strengths.",
+              "Our preliminary practice is Aikikai Aikido. Aikikai Aikido is practiced within Seito as Aikikai Aikido. It is not absorbed, renamed, or presented as Seito material. Its technical standards, rank, and authority remain connected to the living tradition from which it is received.",
 
             class:""
           }
@@ -1532,31 +1502,21 @@ const sections = [
       {
 
         jp:
-          "しかし、その同じ条件は研究方法そのものに属している。攻撃は既知であり、距離は整えられ、役割は定められ、技術的な関係はあらかじめ与えられている場合がある。抵抗する相手は、それらを提供する義務を負わない。手を引き、再び打ち、方向を変え、身体をつかみ、接触に抵抗し、あるいは打撃と組みを組み合わせるかもしれない。",
+          "聖都流独自の仕事は、その基礎から何を探究するかというところから始まる。道は受け継ぐ。術の探究は聖都流のものである。",
 
         en:[
           {
             text:
-              "Those same conditions, however, belong to the method of study. The attack may be known, the distance arranged, the roles established, and the technical relationship supplied in advance. An unwilling opponent is under no obligation to provide them. He may withdraw the hand, strike again, change direction, seize the body, resist contact, or combine striking and grappling.",
+              "Seito’s distinct work begins with what we investigate from that foundation.",
 
             class:""
-          }
-        ]
+          },
 
-      },
-
-
-      {
-
-        jp:
-          "ゆえに聖都流は、遭遇の開始局面に特別な注意を払う。古典合気柔術に必要な条件があらかじめ与えられていないとき、それらはいかにして生じるのか。この始まりを、技のための単なる準備とはみなさない。それ自体が武の問題の一部である。",
-
-        en:[
           {
             text:
-              "Seito-ryū therefore gives particular attention to the opening of the encounter. The question is how the conditions required by classical Aiki Jujutsu arise when they have not been supplied beforehand. The beginning is not treated merely as preparation for the technique. It is part of the martial problem itself.",
+              "The dō is inherited. The jutsu inquiry is Seito’s.",
 
-            class:""
+            class:"closing"
           }
         ]
 
@@ -1566,6 +1526,110 @@ const sections = [
 
   },
 
+
+  /* =======================================================
+     THE QUESTION
+     ======================================================= */
+
+  {
+
+    jpTitle:
+      "問い",
+
+    enTitle:
+      "The Question",
+
+    rows:[
+
+      {
+
+        jp:
+          "聖都流は、一つの単純な武の問題から始まる。古典の形は、しばしば必要な条件がすでに成立したところから始まる。聖都流は、その条件がどのように生じ、変化し、その後に何をもたらすのかを、明確な研究対象とする。",
+
+        en:[
+          {
+            text:
+              "Seito-ryū begins from a simple martial problem:",
+
+            class:""
+          },
+
+          {
+            text:
+              "Classical kata often begin with conditions already established. Seito makes the creation, change, and consequence of those conditions an explicit object of study.",
+
+            class:"closing"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          "形は、非常に優れた技術教育を与える。姿勢、動き、機、均衡、呼吸、つながり、構造、崩し、技、制御、受け身を、他では得がたい精密さで学ぶことができる。",
+
+        en:[
+          {
+            text:
+              "Kata provides an extraordinary technical education. It teaches posture, movement, timing, balance, breath, connection, structure, kuzushi, waza, control, and ukemi with a precision difficult to obtain any other way.",
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          "しかし、研究のために与えられた条件を、抵抗する相手が必ず与えるとは限らない。手首はその場に残らないかもしれない。腕は引かれるかもしれない。攻撃は続くかもしれない。間合は崩れるかもしれない。形が必要とする関係そのものが現れないこともある。",
+
+        en:[
+          {
+            text:
+              "But the conditions provided for study are not always the conditions an unwilling opponent will provide. A wrist may not remain available. An arm may retract. The attack may continue. Distance may collapse. The relationship required by the form may never appear.",
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          "そこでわれわれは問う。あらかじめ整えられていない遭遇から、古典合気の技はいかにして生じるのか。",
+
+        en:[
+          {
+            text:
+              "So we ask:",
+
+            class:""
+          },
+
+          {
+            text:
+              "How do classical Aiki waza emerge from an encounter that has not been arranged for them?",
+
+            class:"closing"
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+
+  /* =======================================================
+     THE WHOLE ENCOUNTER
+     ======================================================= */
 
   {
 
@@ -1580,12 +1644,12 @@ const sections = [
       {
 
         jp:
-          "聖都流は、遭遇を一つの連続した武の出来事として検討する。",
+          "聖都流は、技を一つの連続した武の出来事の一部として研究する。",
 
         en:[
           {
             text:
-              "Seito-ryū examines the encounter as one continuous martial event:",
+              "Seito studies technique as one part of a continuous martial event:",
 
             class:""
           },
@@ -1604,12 +1668,12 @@ const sections = [
       {
 
         jp:
-          "これは研究のための枠組みであり、武田惣角や植芝盛平が、これらの見出しのもとに固定された歴史的順序を教えたと主張するものではない。実際には、各要素は重なり合い、ほとんど同時に起こることもある。",
+          "名のある技だけが遭遇のすべてではない。われわれは、技が可能になる前に何が起こるのか、何が有効な関係を成立させるのか、何が崩しを生み出すのか、どの技が適切となるのか、そして技が成功し、失敗し、変化し、あるいは完遂すべきでないときに何が続くのかを研究する。",
 
         en:[
           {
             text:
-              "This is a framework for study, not a claim that Takeda Sōkaku or Ueshiba Morihei taught a fixed historical sequence under these headings. In practice, its elements overlap and may occur almost simultaneously.",
+              "The named technique is not the entire encounter. We study what happens before the waza becomes possible, what makes the relationship usable, what produces kuzushi, what technique becomes appropriate, and what follows when the technique succeeds, fails, changes, or should not be completed.",
 
             class:""
           }
@@ -1621,31 +1685,21 @@ const sections = [
       {
 
         jp:
-          "構えは即応の準備を整える。間合は距離、機、機会、危険を扱う。攻撃は直面すべき問題を生み出す。体捌きはその攻撃との関係において身体を再編成する。作りは、用いることのできる構造的関係を成立させる。崩しは、相手が構造上の自由を保つ能力を損なう。技はそれらの条件から生じる。必要であれば抑えが制御を維持し、残心は見かけ上の完了後にも残る。",
+          "遭遇は、名のある技を成立させるために存在するのではない。技が遭遇に仕えるのである。",
 
         en:[
           {
             text:
-              "Kamae establishes readiness. Ma-ai concerns distance, timing, opportunity, and danger. The attack creates the immediate problem. Tai-sabaki reorganizes the body in relation to it. Tsukuri establishes a usable structural relationship. Kuzushi compromises the opponent’s ability to remain structurally free. Waza arises from those conditions. Osae, where necessary, maintains control, and zanshin remains after apparent completion.",
+              "The encounter does not exist to produce the named technique.",
 
             class:""
-          }
-        ]
+          },
 
-      },
-
-
-      {
-
-        jp:
-          "合気は、この連続の中の一地点に限定されない。入り身、転換、合わせ、結び、当身もまた状況に応じて働く。当身は入りを守り、注意を制し、姿勢を変え、継続する攻撃を中断し、作りや崩しに寄与し、あるいはそれ自体で遭遇を終わらせることがある。",
-
-        en:[
           {
             text:
-              "Aiki is not confined to a single point in the sequence. Irimi, tenkan, awase, musubi, and atemi likewise operate according to circumstance. Atemi may protect entry, command attention, alter posture, interrupt continuing attack, contribute to tsukuri or kuzushi, or resolve the encounter in its own right.",
+              "The technique serves the encounter.",
 
-            class:""
+            class:"closing"
           }
         ]
 
@@ -1656,25 +1710,29 @@ const sections = [
   },
 
 
+  /* =======================================================
+     HOW WE INVESTIGATE
+     ======================================================= */
+
   {
 
     jpTitle:
-      "技から遭遇へ",
+      "探究の方法",
 
     enTitle:
-      "From Waza Toward Encounter",
+      "How We Investigate",
 
     rows:[
 
       {
 
         jp:
-          "古典の形は、この術の技術的語彙を与える。まず一つの技を忠実に学ぶ。姿勢、身体構造、つながり、動き、作り、崩し、実行、制御、受け身を、形の中で理解してからこそ、その形を取り巻く条件を知的に検討することができる。",
+          "発達途上の実践者には、まず信頼できる答えが必要である。そのため稽古は、身体を守り、動き、有用な接触を成立させ、位置を改善し、実際に使える関係をつくり、確かな技へ至るための、反復可能な方法から始まる。",
 
         en:[
           {
             text:
-              "The classical forms provide the technical vocabulary of the art. A waza is first studied faithfully: posture, body organization, connection, movement, tsukuri, kuzushi, execution, control, and ukemi must be understood in the form before the conditions around the form can be examined intelligently.",
+              "Developing practitioners need reliable answers. Training therefore begins with repeatable ways to protect the body, move, establish useful contact, improve position, create a workable relationship, and reach sound technique.",
 
             class:""
           }
@@ -1686,12 +1744,12 @@ const sections = [
       {
 
         jp:
-          "次に探究は後ろ向きに進む。その技が正しく機能するためには、どのような条件がすでに存在していなければならないのか。距離、構造、接続、姿勢、均衡にはどのような関係が必要か。形が前提とする把持、腕の位置、タイミング、攻撃への入り込み、位置関係を相手が自発的に与えないとき、それらの条件はいかにして生じるのか。",
+          "技能が高まるにつれて、その答えは、力、大きな動き、意識的な技の選択への依存を減らしていくべきである。",
 
         en:[
           {
             text:
-              "The investigation then moves backward. What conditions must already exist for the technique to function correctly? What relation of distance, structure, attachment, posture, and balance is required? How might those conditions arise when the opponent has not voluntarily supplied the grip, arm, timing, commitment, or position assumed by the kata?",
+              "As skill develops, those answers should become less dependent on force, larger movement, or conscious selection.",
 
             class:""
           }
@@ -1703,14 +1761,38 @@ const sections = [
       {
 
         jp:
-          "そのため聖都流は、技へ至る道筋を意図的に研究する。目的は、古典技に現代的な護身術の答えを寄せ集めて飾ることではない。変化する状況を受け取り、整え、変換して、古典形に保存された関係が実際に成立するまでの過程を理解することにある。",
+          "上級段階では、問いそのものが変わる。最終的な技を先に選ばない。遭遇そのものから始め、関係が展開するままに応じ、その場に実際に存在する条件から適切な行為が生じることを求める。",
 
         en:[
           {
             text:
-              "Seito-ryū therefore gives deliberate study to the road leading into the waza. The purpose is not to decorate classical technique with a collection of modern self-defense answers, but to understand how changing circumstances may be received, organized, and transformed until the relationships preserved in the classical form genuinely exist.",
+              "At the advanced level, the question changes. The final technique is no longer chosen first. The practitioner begins with the encounter, responds to the relationship as it develops, and allows the appropriate action to emerge from the conditions actually present.",
 
             class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          "有効な道筋が現れたなら、それを再構成し、反復し、検証し、洗練し、保存することができる。目的は、あらかじめ決めた技が成功するように状況を作り上げることではない。",
+
+        en:[
+          {
+            text:
+              "When a successful pathway appears, it can be reconstructed, repeated, challenged, refined, and preserved. The purpose is not to manufacture circumstances that make a predetermined technique succeed.",
+
+            class:""
+          },
+
+          {
+            text:
+              "Do not force the waza.",
+
+            class:"closing"
           }
         ]
 
@@ -1721,25 +1803,53 @@ const sections = [
   },
 
 
+  /* =======================================================
+     FROM SURVIVAL TO GENERATIVE AIKI
+     ======================================================= */
+
   {
 
     jpTitle:
-      "遭遇から技へ",
+      "生存から生成する合気へ",
 
     enTitle:
-      "From Encounter Toward Waza",
+      "From Survival to Generative Aiki",
 
     rows:[
 
       {
 
         jp:
-          "探究は反対方向にも進む。起こりうる攻撃を、あらかじめ一教、小手返し、四方投げ、その他の名のある技に終わらせると決めずに研究する。まず距離、機、保護、体捌き、当身、つながり、作り、崩しを扱う。",
+          "聖都流の発達の方向は、簡潔に示すことができる。",
 
         en:[
           {
             text:
-              "The investigation also proceeds in the opposite direction. A plausible attack may be studied without deciding beforehand that it must conclude in ikkyo, kote-gaeshi, shihōnage, or any other named technique. Distance, timing, protection, tai-sabaki, atemi, connection, tsukuri, and kuzushi are dealt with first.",
+              "Our developmental direction can be stated simply:",
+
+            class:""
+          },
+
+          {
+            text:
+              "SURVIVE → CONTROL → ACQUIRE → APPLY AIKI → GENERATIVE AIKI",
+
+            class:"sequence"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          "初心者には、まず行動できるだけの構造が必要である。発達する実践者は、機、つながり、構造、崩し、合気を養いながら、より確かな関係を成立させることを学ぶ。",
+
+        en:[
+          {
+            text:
+              "A beginner first needs enough structure to act. The developing practitioner learns to establish increasingly reliable relationships while cultivating timing, connection, structure, kuzushi, and aiki.",
 
             class:""
           }
@@ -1751,12 +1861,12 @@ const sections = [
       {
 
         jp:
-          "その後で初めて、生じた技を特定する。状況が応答を導き、応答が技を明らかにする。これにより、変化する状況に記憶した答えを押しつけるだけの訓練を避ける。",
+          "その成熟した先にあるのが、植芝盛平のいう武産合気によって表された問いである。実践者があらかじめ答えを選ばなくても、遭遇の条件そのものから適切な武の形が自然に生じうるのか。",
 
         en:[
           {
             text:
-              "Only then is the resulting waza identified. The situation informs the response, and the response reveals the technique. In this way the practitioner is not trained merely to impose a memorized answer upon a changing circumstance.",
+              "At the mature end of the path lies the question expressed in Ueshiba Morihei’s language of Takemusu Aiki: can appropriate martial form arise spontaneously from the conditions of the encounter without the practitioner selecting the answer in advance?",
 
             class:""
           }
@@ -1768,14 +1878,14 @@ const sections = [
       {
 
         jp:
-          "したがって形は、単なる再現のためではなく、身体を教育するものとして学ぶ。継続する稽古を通じて、姿勢、動き、機、つながり、均衡が身体化され、適切な技が意識的な選択なしに生じうるようになる。",
+          "聖都流は、その問いを真剣に探究するためにも存在する。",
 
         en:[
           {
             text:
-              "Kata is therefore studied not simply for its reproduction, but for the education it gives the body. Through continued practice, posture, movement, timing, connection, and balance become embodied, and appropriate waza may arise without conscious selection.",
+              "Seito-ryū exists in part to investigate that question seriously.",
 
-            class:""
+            class:"closing"
           }
         ]
 
@@ -1786,25 +1896,29 @@ const sections = [
   },
 
 
+  /* =======================================================
+     AN HONEST RECORD
+     ======================================================= */
+
   {
 
     jpTitle:
-      "習熟度と相応しい応答",
+      "誠実な記録",
 
     enTitle:
-      "Proficiency and Appropriate Response",
+      "An Honest Record",
 
     rows:[
 
       {
 
         jp:
-          "聖都流は、初心者に上級者の外見だけを模倣させない。同じ遭遇でも、習熟度によって異なる表現を必要とする。初心者には、より強い保護、大きな動き、確かな接続、明確な位置制御が必要になる場合がある。",
+          "聖都流はいま形成途上にある。それゆえ、われわれには特別な責任がある。受け継いだものは、その出所に帰属させなければならない。他の伝統から学んだものは明らかにしなければならない。再構成したものは再構成として示し、実験的なものは、より強い主張に値するまで実験的なものとして扱わなければならない。",
 
         en:[
           {
             text:
-              "Seito-ryū does not require a beginner to imitate the outward appearance of an advanced practitioner. The same encounter may require different expressions according to proficiency. A beginner may require stronger protection, larger movement, firmer connection, and more obvious positional control.",
+              "Seito is a school in formation. That gives us an unusual responsibility. What has been received should remain attributed to its source. What we learn from other traditions should be acknowledged. Reconstruction should be identified as reconstruction. Experimental work should remain experimental until it has earned a stronger claim.",
 
             class:""
           }
@@ -1816,43 +1930,12 @@ const sections = [
       {
 
         jp:
-          "技能が高まるにつれ、動きは小さくなり、接触は一時的になり、機はより正確となり、筋力による努力は次第に構造、位置、関係へ置き換えられる。目標は初心者の粗さを保存することでも、早すぎる繊細さを要求することでもない。稽古は、より洗練された合気へ向かう。",
+          "抵抗が問いに答えるときには抵抗を用いる。協力がより精密な研究を可能にするときには協力を用いる。失敗した実験も重要である。失敗は、誤った前提を明らかにするからである。",
 
         en:[
           {
             text:
-              "With increasing skill, movement may become smaller, contact more temporary, timing more exact, and muscular effort increasingly replaced by structure, positioning, and relationship. The aim is neither to preserve beginner crudeness nor to demand premature subtlety. Training proceeds toward increasingly refined aiki.",
-
-            class:""
-          }
-        ]
-
-      }
-
-    ]
-
-  },
-
-
-  {
-
-    jpTitle:
-      "創流期の応用研究",
-
-    enTitle:
-      "Applied Formative Research",
-
-    rows:[
-
-      {
-
-        jp:
-          "創流期には、選ばれた上級実践者、指導者、適格な協力者が、通常の形稽古を超える問題を検討することがある。研究は、あらかじめ技術的な答えを決めるのではなく、起こりうる攻防状況から始める。複数の道筋を試し、弱い解決を捨て、有用な関係を調べ、遭遇の開始と古典技とのつながりを稽古によって再構成する。",
-
-        en:[
-          {
-            text:
-              "During Sōryū-ki, selected senior practitioners, instructors, and qualified contributors may examine problems beyond the ordinary practice of kata. The work begins from plausible attack-and-defense situations rather than from a predetermined technical answer. Different pathways may be explored, weak solutions discarded, useful relationships studied, and the connection between the opening encounter and classical waza reconstructed through practice.",
+              "Resistance is used when resistance answers the question. Cooperation is used when cooperation permits more precise study. Failed experiments matter because failure reveals false assumptions.",
 
             class:""
           }
@@ -1864,12 +1947,12 @@ const sections = [
       {
 
         jp:
-          "その検証を経た内容は、さらに規定を減らした条件のもとで稽古されることがある。目的は、台本のない武の問題から、古典技が生じる条件へ移行する過程を、再現可能な形で研究する方法を確立することにある。",
+          "一度の成功した演武は証明ではない。何が、どのような条件のもとで学ばれ、試され、変更され、あるいは発見されたのか。その条件自体が記録の一部である。",
 
         en:[
           {
             text:
-              "Material that survives such examination may then be practiced under progressively less prescribed conditions. The aim is to establish repeatable ways of studying the transition from an unscripted martial problem toward the conditions from which classical waza arise.",
+              "A successful demonstration is not proof. The conditions under which something was learned, tested, changed, or discovered belong to the record.",
 
             class:""
           }
@@ -1881,43 +1964,12 @@ const sections = [
       {
 
         jp:
-          "こうした内容を開発し、検証し、習熟度に応じて調整し、課程へ採用するための詳細な手続きは、本校内部の教授法に属する。",
+          "聖都流は、古典合気柔術を現代的に見せることを目的としない。受け継いだものを守りながら、その周囲にある遭遇の全体を探究することを目指す。",
 
         en:[
           {
             text:
-              "The detailed procedures by which such material is developed, tested, adapted to proficiency, and admitted into the curriculum belong to the internal pedagogy of the school.",
-
-            class:""
-          }
-        ]
-
-      }
-
-    ]
-
-  },
-
-
-  {
-
-    jpTitle:
-      "抵抗・制御・安全",
-
-    enTitle:
-      "Resistance, Control, and Safety",
-
-    rows:[
-
-      {
-
-        jp:
-          "協力的な形稽古と抵抗稽古は、異なる問いに答える。形は、型そのものを精密に学ぶことを可能にする。抵抗は、受けがその関係を自発的に与えなくなったときにも、その関係が有効であるかを明らかにする。どちらの稽古も、もう一方と取り違えるべきではない。",
-
-        en:[
-          {
-            text:
-              "Cooperative kata and resistant practice answer different questions. Kata allows the form to be studied precisely. Resistance reveals whether a relationship remains valid when uke no longer supplies it voluntarily. Neither mode should be mistaken for the other.",
+              "Seito does not seek to make classical Aiki Jujutsu look modern. It seeks to preserve what has been received while investigating the complete encounter around it.",
 
             class:""
           }
@@ -1929,224 +1981,26 @@ const sections = [
       {
 
         jp:
-          "抵抗は、稽古の目的と実践者の経験に応じて導入する。ある稽古は、位置やつながりを得た時点で終えてよい。あるものは、制御された崩しまで進めてよい。また、得られた関係を適切な制御のもとで完全な古典技へつなぎ直すこともある。",
+          "まず、学生に信頼できる答えを与える。次に、関係そのものを知覚することを学ばせる。そして最後には、答えをあらかじめ選ぶ必要のないところを目指す。",
 
         en:[
           {
             text:
-              "Resistance is introduced according to the purpose of the exercise and the experience of the practitioners. Some practice may end when position or connection has been obtained. Some may continue through controlled kuzushi. Some may reconnect the acquired relationship to the complete classical waza under appropriate control.",
+              "We begin by giving the student reliable answers.",
 
             class:""
-          }
-        ]
+          },
 
-      },
-
-
-      {
-
-        jp:
-          "上級者は、遭遇のより多くの部分を再構成し、より高い速度で行うことができる。しかし、速さだけが妥当性の証拠ではなく、負傷も武の有効性の証明ではない。抵抗稽古の目的は、稽古相手を守りながら誤りを露わにすることである。",
-
-        en:[
           {
             text:
-              "Advanced practitioners may reconstruct more of the encounter and may do so at greater tempo, but speed alone is not evidence of validity, nor is injury proof of martial effectiveness. The purpose of resistance is to expose error while preserving the training partner.",
+              "We proceed by teaching the student to perceive the relationship.",
 
             class:""
-          }
-        ]
+          },
 
-      }
-
-    ]
-
-  },
-
-
-  {
-
-    jpTitle:
-      "他の武道から学ぶ",
-
-    enTitle:
-      "Learning From Other Budō",
-
-    rows:[
-
-      {
-
-        jp:
-          "聖都流は、雑多な技の寄せ集めを作ろうとはしない。他の武道が、合気柔術にも関わる問題について特に明晰な研究方法を発達させているなら、その成果を比較研究の資料とすることがある。",
-
-        en:[
           {
             text:
-              "Seito-ryū does not seek to assemble an eclectic collection of techniques. Where another martial discipline has developed unusually clear methods for studying a problem relevant to Aiki Jujutsu, that work may become a source of comparative study.",
-
-            class:""
-          }
-        ]
-
-      },
-
-
-      {
-
-        jp:
-          "柔道は、組み手、作り、崩し、投げ、乱取りを高度に研究してきた。レスリングは、抵抗する身体に対する捕捉、接続、位置制御、移動を直接研究する。打撃系武道は、間合、機、保護、入りの弱点を露わにする。ブラジリアン柔術は、持続的な抵抗下で位置制御を検討する強力な方法を提供する。",
-
-        en:[
-          {
-            text:
-              "Jūdō offers highly developed methods for studying gripping, tsukuri, kuzushi, throwing, and randori. Wrestling provides direct study of acquisition, attachment, positional control, and movement against an unwilling body. Striking arts expose weaknesses in ma-ai, timing, protection, and entry. Brazilian Jiu-Jitsu offers powerful methods for examining positional control under sustained resistance.",
-
-            class:""
-          }
-        ]
-
-      },
-
-
-      {
-
-        jp:
-          "問題は、どの武道を合気道に加えるべきかではない。他の武道が、合気柔術にも存在する問題について何を学んできたのか、そしてその知見をこの術の研究へ戻したときに何が理解できるのか、ということである。",
-
-        en:[
-          {
-            text:
-              "The question is not which arts should be added to Aikido. The question is what another discipline has learned about a problem also present in Aiki Jujutsu, and what may be understood when that knowledge is returned to the study of the art.",
-
-            class:""
-          }
-        ]
-
-      }
-
-    ]
-
-  },
-
-
-  {
-
-    jpTitle:
-      "創流期の記録",
-
-    enTitle:
-      "The Formative Record",
-
-    rows:[
-
-      {
-
-        jp:
-          "聖都流は、形成の過程を公開して進める。その創流期の記録は、直接受け継いだもの、歴史的に文書化されたもの、他の武道から比較的に学んだもの、自ら再構成したもの、なお実験段階にあるもの、そして最終的に十分安定して伝えるに値すると判断されたものを区別すべきである。",
-
-        en:[
-          {
-            text:
-              "Seito-ryū is being formed openly. Its formative record should distinguish what has been directly received, what is historically documented, what has been learned comparatively from other martial traditions, what has been reconstructed, what remains experimental, and what eventually proves sufficiently stable to transmit.",
-
-            class:""
-          }
-        ]
-
-      },
-
-
-      {
-
-        jp:
-          "失敗した実験も、その記録に属する。目的は、後から神話を作り上げることではなく、後世の実践者に、この学校がいかに形成されたかについて正確な記録を残すことにある。不確かなものは不確かなものとして、暫定的なものは、稽古が保存するだけの十分な理由を与えるまで暫定的なものとして扱う。",
-
-        en:[
-          {
-            text:
-              "Failed experiments belong to that record as well. The purpose is not to manufacture a mythology afterward, but to leave later practitioners an accurate account of how the school developed. What is uncertain should remain identified as uncertain. What is provisional should remain provisional until practice gives sufficient reason to preserve it.",
-
-            class:""
-          }
-        ]
-
-      },
-
-
-      {
-
-        jp:
-          "一つの学校は、自らが何を受け継ぎ、何を創り出したのかを知っていなければならない。",
-
-        en:[
-          {
-            text:
-              "A school should know what it inherited and what it created.",
-
-            class:""
-          }
-        ]
-
-      }
-
-    ]
-
-  },
-
-
-  {
-
-    jpTitle:
-      "武道",
-
-    enTitle:
-      "Budō",
-
-    rows:[
-
-      {
-
-        jp:
-          "技術的な有効性だけが武道の目的ではない。稽古は、規律、節度、勇気、礼、自制、他者への責任も養うべきである。技術が高まるほど、いつ、なぜ、どの程度の力を用いるのかを律する責任も大きくなる。",
-
-        en:[
-          {
-            text:
-              "Technical effectiveness is not the whole purpose of budō. Practice should also cultivate discipline, restraint, courage, courtesy, self-command, and responsibility toward others. Greater technical ability brings a greater obligation to govern when, why, and to what degree force is used.",
-
-            class:""
-          }
-        ]
-
-      },
-
-
-      {
-
-        jp:
-          "聖都流はいま創流期にある。われわれの務めは、完成した体系を宣言することではない。慎重に稽古し、誠実に学び、古典合気柔術に保存された原理が、遭遇の始まりから技へといかに続いていくのかを、経験によって確かめることである。",
-
-        en:[
-          {
-            text:
-              "Seito-ryū is presently in Sōryū-ki, its formative period. Our task is not to proclaim a completed system, but to practice carefully, study honestly, and establish through experience how the principles preserved in classical Aiki Jujutsu continue from the beginning of an encounter into waza.",
-
-            class:""
-          }
-        ]
-
-      },
-
-
-      {
-
-        jp:
-          "われわれは、受け取ったものを守り、他者から学んだことを明らかにし、自ら再構成したものを明確に区別し、稽古によって十分に理解されたものだけを伝えることを目指す。",
-
-        en:[
-          {
-            text:
-              "We seek to preserve what has been received, acknowledge what we learn from others, distinguish clearly what we reconstruct ourselves, and transmit only what has been sufficiently understood through practice.",
+              "We culminate where the answer no longer has to be selected in advance.",
 
             class:""
           }
