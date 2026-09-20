@@ -1181,12 +1181,13 @@ main{
 
   <button
     class="menu"
-    aria-label="Go to First Section"
+    aria-label="Go to About"
     onclick="
-      const firstSec = document.querySelector('.section');
-      if (firstSec) {
-        firstSec.scrollIntoView({ behavior: 'smooth' });
-      }
+      document
+        .getElementById('about')
+        .scrollIntoView({
+          behavior:'smooth'
+        })
     "
   >
 
@@ -1258,20 +1259,16 @@ main{
 <script>
 
 /* =========================================================
-   CONTENT: SEITO-RYŪ ENGI
+   CONTENT
    ========================================================= */
 
 const sections = [
 
-  /* =======================================================
-     1. FOUNDING
-     ======================================================= */
-
   {
 
-    jpTitle:"創設",
+    jpTitle:"聖都流縁起",
 
-    enTitle:"Founding",
+    enTitle:"SEITO-RYŪ ENGI · The Founding Lore of Seito-ryū",
 
     rows:[
 
@@ -1331,7 +1328,19 @@ const sections = [
         en:[
           {
             text:
-              "Every martial tradition inherits more than techniques. It inherits a shared tradition of where those techniques came from. We receive the traditional history of Daitō-ryū as part of our own inheritance.",
+              "Every martial tradition inherits more than techniques.",
+
+            class:""
+          },
+          {
+            text:
+              "It inherits a shared tradition of where those techniques came from.",
+
+            class:""
+          },
+          {
+            text:
+              "We receive the traditional history of Daitō-ryū as part of our own inheritance.",
 
             class:""
           }
@@ -1347,7 +1356,19 @@ const sections = [
         en:[
           {
             text:
-              "That tradition looks back nearly nine centuries to Shinra Saburō Minamoto no Yoshimitsu, remembered as the distant founder of Daitō-ryū Jūjutsu and the ancestor through whom its martial tradition passed into the Kai-Genji and the house of Takeda. We accept Yoshimitsu as the founder of that inherited martial body. The jūjutsu came first.",
+              "That tradition looks back nearly nine centuries to Shinra Saburō Minamoto no Yoshimitsu, remembered as the distant founder of Daitō-ryū Jūjutsu and the ancestor through whom its martial tradition passed into the Kai-Genji and the house of Takeda.",
+
+            class:""
+          },
+          {
+            text:
+              "We accept Yoshimitsu as the founder of that inherited martial body.",
+
+            class:""
+          },
+          {
+            text:
+              "The jūjutsu came first.",
 
             class:""
           }
@@ -1363,7 +1384,13 @@ const sections = [
         en:[
           {
             text:
-              "Where we have a historically nuanced view is the point at which aiki entered that inheritance. Seen from a bird’s-eye view, the trail of aiki clearly arrives on the field three generations later, during the Genpei War, and is transmitted to Yoshimitsu’s great-grandson Takeda Nobuyoshi, the first of the Takeda.",
+              "Where we have a historically nuanced view is the point at which aiki entered that inheritance.",
+
+            class:""
+          },
+          {
+            text:
+              "Seen from a bird’s-eye view, the trail of aiki clearly arrives on the field three generations later, during the Genpei War, and is transmitted to Yoshimitsu’s great-grandson Takeda Nobuyoshi, the first of the Takeda.",
 
             class:""
           }
@@ -1375,15 +1402,11 @@ const sections = [
 
   },
 
-  /* =======================================================
-     2. THE MOUNTAIN AND THE LAW
-     ======================================================= */
-
   {
 
     jpTitle:"山と法",
 
-    enTitle:"The Mountain and the Law",
+    enTitle:"Yama to Hō · The Mountain and the Law",
 
     rows:[
 
@@ -1395,7 +1418,25 @@ const sections = [
         en:[
           {
             text:
-              "In the twelfth century, a youth named Ushiwakamaru traveled to Mount Kurama north of Kyoto. Japanese tradition says that Kurama was the place where he received an extraordinary martial inheritance. History calls him Minamoto Yoshitsune. His teacher is remembered as the supernatural master of the mountain, the Great Tengu of Kurama, the mysterious Kiichi Hōgen.",
+              "In the twelfth century, a youth named Ushiwakamaru traveled to Mount Kurama north of Kyoto.",
+
+            class:""
+          },
+          {
+            text:
+              "Japanese tradition says that Kurama was the place where he received an extraordinary martial inheritance.",
+
+            class:""
+          },
+          {
+            text:
+              "History calls him Minamoto Yoshitsune.",
+
+            class:""
+          },
+          {
+            text:
+              "His teacher is remembered as the supernatural master of the mountain, the Great Tengu of Kurama, the mysterious Kiichi Hōgen.",
 
             class:""
           }
@@ -1406,12 +1447,48 @@ const sections = [
       {
 
         jp:
-          "鬼一法眼 · Kiichi Hōgen\n鬼 · oni = 霊、超自然的存在\n一 · ichi = 一、第一、根源\n法 · hō = 法、聖なる秩序\n眼 · gen = 眼、見る力、洞察\nその名は、象徴的な読みを誘う。根源の霊、普遍の法を観る眼。",
+          "鬼一法眼 · Kiichi Hōgen\n鬼 · oni = 霊、超自然的存在\n一 · ichi = 一、第一、根源\n法 · hō = 法、聖なる秩序\n眼 · gen = 眼、見る力、洞察\nその名は、象徴的な読みを誘う。\n根源の霊、普遍の法を観る眼。",
 
         en:[
           {
             text:
-              "鬼一法眼 — Kiichi Hōgen\n鬼 — spirit, supernatural being\n一 — one, first, primordial\n法 — law, sacred order\n眼 — eye, vision\nThe name invites a symbolic reading: Primordial Spirit, Vision of the Universal Law.",
+              "鬼一法眼 — Kiichi Hōgen",
+
+            class:""
+          },
+          {
+            text:
+              "鬼 — spirit, supernatural being",
+
+            class:""
+          },
+          {
+            text:
+              "一 — one, first, primordial",
+
+            class:""
+          },
+          {
+            text:
+              "法 — law, sacred order",
+
+            class:""
+          },
+          {
+            text:
+              "眼 — eye, vision",
+
+            class:""
+          },
+          {
+            text:
+              "The name invites a symbolic reading:",
+
+            class:""
+          },
+          {
+            text:
+              "Primordial Spirit, Vision of the Universal Law.",
 
             class:""
           }
@@ -1427,7 +1504,19 @@ const sections = [
         en:[
           {
             text:
-              "It is believed that the Law of Kurama was an early expression of what we now call aiki. Not the word. Not a finite technical system. The living operation of the Law.",
+              "It is believed that the Law of Kurama was an early expression of what we now call aiki.",
+
+            class:""
+          },
+          {
+            text:
+              "Not the word. Not a finite technical system.",
+
+            class:""
+          },
+          {
+            text:
+              "The living operation of the Law.",
 
             class:""
           }
@@ -1439,27 +1528,35 @@ const sections = [
 
   },
 
-  /* =======================================================
-     3. TORA NO MAKI
-     ======================================================= */
-
   {
 
     jpTitle:"虎の巻",
 
-    enTitle:"Tora no Maki",
+    enTitle:"Tora no Maki · The Scroll of Tora",
 
     rows:[
 
       {
 
         jp:
-          "義経が授かった教えは、虎の巻（虎の巻 · Tora no Maki）に収められていたと伝えられる。秘伝の虎の巻は、単なる技の目録ではなかった。それは、争いの諸条件を明晰に観ることによって、その状況から適切な行為が生じ得るようにする、ものの見方であった。",
+          "義経が授かった教えは、次のものに収められていたと伝えられる。\n虎の巻 · Tora no Maki\n秘伝の虎の巻は、単なる技の目録ではなかった。それは、争いの諸条件を明晰に観ることによって、その状況から適切な行為が生じ得るようにする、ものの見方であった。",
 
         en:[
           {
             text:
-              "It is said that the teaching Yoshitsune received was contained in the Tora no Maki — 虎の巻. The secret Scroll of Tora was more than a catalog of techniques. It was a way of perceiving the conditions of conflict so clearly that appropriate action could arise from them.",
+              "It is said that the teaching Yoshitsune received was contained in the:",
+
+            class:""
+          },
+          {
+            text:
+              "Tora no Maki — 虎の巻",
+
+            class:""
+          },
+          {
+            text:
+              "The secret Scroll of Tora was more than a catalog of techniques. It was a way of perceiving the conditions of conflict so clearly that appropriate action could arise from them.",
 
             class:""
           }
@@ -1470,12 +1567,36 @@ const sections = [
       {
 
         jp:
-          "私たち自身の継承の言葉で言えば、合気（合気 · Aiki）。法とは、現実そのものに内在する秩序である。合気とは、その全体的な状況と調和して働き、力に力で抗することなく、関係そのものから適切な行為が生じることを可能にする、生きた作用である。そこから自発的な技と兵法が生まれる、法の働きである。",
+          "私たち自身の継承の言葉で言えば、\n合気 · Aiki\n法とは、現実そのものに内在する秩序である。合気とは、その全体的な状況と調和して働き、力に力で抗することなく、関係そのものから適切な行為が生じることを可能にする、生きた作用である。そこから自発的な技と兵法が生まれる、法の働きである。",
 
         en:[
           {
             text:
-              "In the language of our own inheritance: AiKi. The Law is the order inherent in reality. Aiki is the living operation by which one enters into harmony with the whole circumstance, does not oppose force with force, and allows the appropriate action to arise from the relationship itself. It is the working of the Law from which spontaneous technique and strategy arise.",
+              "In the language of our own inheritance:",
+
+            class:""
+          },
+          {
+            text:
+              "AiKi",
+
+            class:""
+          },
+          {
+            text:
+              "The Law is the order inherent in reality.",
+
+            class:""
+          },
+          {
+            text:
+              "Aiki is the living operation by which one enters into harmony with the whole circumstance, does not oppose force with force, and allows the appropriate action to arise from the relationship itself.",
+
+            class:""
+          },
+          {
+            text:
+              "It is the working of the Law from which spontaneous technique and strategy arise.",
 
             class:""
           }
@@ -1487,15 +1608,11 @@ const sections = [
 
   },
 
-  /* =======================================================
-     4. YOSHITSUNE LEARNS TO SEE
-     ======================================================= */
-
   {
 
     jpTitle:"義経、見ることを学ぶ",
 
-    enTitle:"Yoshitsune Learns to See",
+    enTitle:"Yoshitsune, Miru Koto o Manabu · Yoshitsune Learns to See",
 
     rows:[
 
@@ -1507,7 +1624,31 @@ const sections = [
         en:[
           {
             text:
-              "Yoshitsune becomes legendary because he sees possibilities others do not. Terrain becomes opportunity. Expectation becomes vulnerability. The route believed impossible becomes precisely the route worth taking. Force need not always be opposed if the relationship itself can be changed.",
+              "Yoshitsune becomes legendary because he sees possibilities others do not.",
+
+            class:""
+          },
+          {
+            text:
+              "Terrain becomes opportunity.",
+
+            class:""
+          },
+          {
+            text:
+              "Expectation becomes vulnerability.",
+
+            class:""
+          },
+          {
+            text:
+              "The route believed impossible becomes precisely the route worth taking.",
+
+            class:""
+          },
+          {
+            text:
+              "Force need not always be opposed if the relationship itself can be changed.",
 
             class:""
           }
@@ -1523,7 +1664,25 @@ const sections = [
         en:[
           {
             text:
-              "In the Seito reading, this was not merely strategy. It was the generative expression of the Law he encountered at Kurama. Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity. From that whole circumstance, the appropriate action could arise.",
+              "In the Seito reading, this was not merely strategy.",
+
+            class:""
+          },
+          {
+            text:
+              "It was the generative expression of the Law he encountered at Kurama.",
+
+            class:""
+          },
+          {
+            text:
+              "Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity.",
+
+            class:""
+          },
+          {
+            text:
+              "From that whole circumstance, the appropriate action could arise.",
 
             class:""
           }
@@ -1539,7 +1698,19 @@ const sections = [
         en:[
           {
             text:
-              "The teaching can therefore be stated simply: See according to the Law, and the appropriate action will reveal itself. In this sense, Yoshitsune was operating at the generative level of Aiki that Morihei Ueshiba would centuries later articulate as Takemusu Aiki.",
+              "The teaching can therefore be stated simply:",
+
+            class:""
+          },
+          {
+            text:
+              "See according to the Law, and the appropriate action will reveal itself.",
+
+            class:""
+          },
+          {
+            text:
+              "In this sense, Yoshitsune was operating at the generative level of Aiki that Morihei Ueshiba would centuries later articulate as Takemusu Aiki.",
 
             class:""
           }
@@ -1551,27 +1722,47 @@ const sections = [
 
   },
 
-  /* =======================================================
-     5. THE GATHERING, THE CAMPAIGN, AND THE SCATTERING
-     ======================================================= */
-
   {
 
     jpTitle:"集結、戦役、そして離散",
 
-    enTitle:"The Gathering, the Campaign, and the Scattering",
+    enTitle:"Shūketsu, Sen’eki, soshite Risan · The Gathering, the Campaign, and the Scattering",
 
     rows:[
 
       {
 
         jp:
-          "義経は十六歳頃に鞍馬を離れ、北へ向かい、平泉の藤原秀衡の庇護を受けた。でおよそ六年を過ごした。教えを修めた。その中で成熟した。教えは本能となった。",
+          "義経は十六歳頃に鞍馬を離れ、北へ向かい、平泉の藤原秀衡の庇護を受けた。そこでおよそ六年を過ごした。教えを修めた。その中で成熟した。教えは本能となった。",
 
         en:[
           {
             text:
-              "Yoshitsune left Kurama around the age of sixteen and traveled north to the protection of Fujiwara no Hidehira at Hiraizumi. There he remained for roughly six years. He practiced the teaching. He matured within it. Instruction became instinct.",
+              "Yoshitsune left Kurama around the age of sixteen and traveled north to the protection of Fujiwara no Hidehira at Hiraizumi.",
+
+            class:""
+          },
+          {
+            text:
+              "There he remained for roughly six years.",
+
+            class:""
+          },
+          {
+            text:
+              "He practiced the teaching.",
+
+            class:""
+          },
+          {
+            text:
+              "He matured within it.",
+
+            class:""
+          },
+          {
+            text:
+              "Instruction became instinct.",
 
             class:""
           }
@@ -1587,7 +1778,19 @@ const sections = [
         en:[
           {
             text:
-              "Then, in 1180, the divided Minamoto family was drawn together by war. Yoshitsune and Takeda Nobuyoshi belonged to closely related branches of the same Minamoto house. In the genealogy received here, they were third cousins. Their great-grandfathers, Minamoto no Yoshiie and Minamoto no Yoshimitsu, were brothers. Yoshitsune descended through Yoshiie. Nobuyoshi descended through Yoshimitsu and the Kai-Genji. The two lines had separated only a few generations earlier. Now war brought them together again.",
+              "Then, in 1180, the divided Minamoto family was drawn together by war.",
+
+            class:""
+          },
+          {
+            text:
+              "Yoshitsune and Takeda Nobuyoshi belonged to closely related branches of the same Minamoto house. In the genealogy received here, they were third cousins. Their great-grandfathers, Minamoto no Yoshiie and Minamoto no Yoshimitsu, were brothers.",
+
+            class:""
+          },
+          {
+            text:
+              "Yoshitsune descended through Yoshiie. Nobuyoshi descended through Yoshimitsu and the Kai-Genji. The two lines had separated only a few generations earlier. Now war brought them together again.",
 
             class:""
           }
@@ -1603,7 +1806,19 @@ const sections = [
         en:[
           {
             text:
-              "Yoshitsune rode south from Hiraizumi and joined his elder brother, Minamoto no Yoritomo, the future shogun. The currents of the divided house converged. Yoshitsune carried the teaching of Kurama. The Kai-Genji carried the older Minamoto martial inheritance.",
+              "Yoshitsune rode south from Hiraizumi and joined his elder brother, Minamoto no Yoritomo, the future shogun.",
+
+            class:""
+          },
+          {
+            text:
+              "The currents of the divided house converged.",
+
+            class:""
+          },
+          {
+            text:
+              "Yoshitsune carried the teaching of Kurama. The Kai-Genji carried the older Minamoto martial inheritance.",
 
             class:""
           }
@@ -1635,7 +1850,43 @@ const sections = [
         en:[
           {
             text:
-              "And there could scarcely have been a harsher laboratory in which to observe the application of the Law, survive, and live another day to apply it again. For years these men lived inside the crucible of war. Together they planned. They trained. They fought. They adapted. And they fought again.",
+              "And there could scarcely have been a harsher laboratory in which to observe the application of the Law, survive, and live another day to apply it again.",
+
+            class:""
+          },
+          {
+            text:
+              "For years these men lived inside the crucible of war.",
+
+            class:""
+          },
+          {
+            text:
+              "Together they planned.",
+
+            class:""
+          },
+          {
+            text:
+              "They trained.",
+
+            class:""
+          },
+          {
+            text:
+              "They fought.",
+
+            class:""
+          },
+          {
+            text:
+              "They adapted.",
+
+            class:""
+          },
+          {
+            text:
+              "And they fought again.",
 
             class:""
           }
@@ -1651,7 +1902,13 @@ const sections = [
         en:[
           {
             text:
-              "Commanders learned from commanders. Martial instructors encountered methods belonging to other houses. Knowledge that failed could carry immediate consequences. Knowledge that worked was remembered. They did not merely observe one another's methods. They learned them. It is said that Yoshitsune's Kurama inheritance spread through this shared martial life, through instruction, observation, campaign, survival, and repeated application against reality.",
+              "Commanders learned from commanders. Martial instructors encountered methods belonging to other houses. Knowledge that failed could carry immediate consequences. Knowledge that worked was remembered. They did not merely observe one another's methods. They learned them.",
+
+            class:""
+          },
+          {
+            text:
+              "It is said that Yoshitsune's Kurama inheritance spread through this shared martial life, through instruction, observation, campaign, survival, and repeated application against reality.",
 
             class:""
           }
@@ -1667,7 +1924,19 @@ const sections = [
         en:[
           {
             text:
-              "The Minamoto host itself became the environment of transmission. If the Kurama teaching was an early expression of aiki, then these warriors encountered its working under the conditions in which generative martial action had to arise: uncertainty, resistance, consequence, adaptation, and survival.",
+              "The Minamoto host itself became the environment of transmission.",
+
+            class:""
+          },
+          {
+            text:
+              "If the Kurama teaching was an early expression of aiki, then these warriors encountered its working under the conditions in which generative martial action had to arise:",
+
+            class:""
+          },
+          {
+            text:
+              "uncertainty, resistance, consequence, adaptation, and survival.",
 
             class:""
           }
@@ -1683,7 +1952,19 @@ const sections = [
         en:[
           {
             text:
-              "In the Seito-ryū reading, those conditions matter because they created an environment in which aiki could reveal itself not merely as technique, but as the spontaneous generation of appropriate action. Tradition remembers many ryū and secret transmissions gathering around Yoshitsune, from sword and strategy to hiden and other concealed arts. One Law. Many expressions.",
+              "In the Seito-ryū reading, those conditions matter because they created an environment in which aiki could reveal itself not merely as technique, but as the spontaneous generation of appropriate action.",
+
+            class:""
+          },
+          {
+            text:
+              "Tradition remembers many ryū and secret transmissions gathering around Yoshitsune, from sword and strategy to hiden and other concealed arts.",
+
+            class:""
+          },
+          {
+            text:
+              "One Law. Many expressions.",
 
             class:""
           }
@@ -1699,7 +1980,13 @@ const sections = [
         en:[
           {
             text:
-              "The Minamoto gathering is the gate through which the Kurama teaching entered the older Yoshimitsu inheritance. The jūjutsu had come through Yoshimitsu. Aiki entered through Yoshitsune.",
+              "The Minamoto gathering is the gate through which the Kurama teaching entered the older Yoshimitsu inheritance.",
+
+            class:""
+          },
+          {
+            text:
+              "The jūjutsu had come through Yoshimitsu. Aiki entered through Yoshitsune.",
 
             class:""
           }
@@ -1710,12 +1997,30 @@ const sections = [
       {
 
         jp:
-          "しかし、親和と集結は長く続かなかった。頼朝はやがて独立した源氏勢力に対して動き、ついには名高い弟、義経自身を追うことになる。しかし、その教えはすでに伝わっていた。歴史は義経の死を平泉に置く。日本の伝説は、彼をそこに留めなかった。義経は追討を逃れ、北へ脱出し、大陸へ渡り、最も壮大な伝説では、ついにはかの軍事的天才チンギス・ハーンその人となったともいう。伝説である！",
+          "しかし、親和と集結は長く続かなかった。頼朝はやがて独立した源氏勢力に対して動き、ついには名高い弟、義経自身を追うことになる。しかし、その教えはすでに伝わっていた。歴史は義経の死を平泉に置く。日本の伝説は、彼をそこに留めなかった。義経は追討を逃れ、北へ脱出し、大陸へ渡り、最も壮大な伝説では、ついにはかの軍事的天才チンギス・ハーンその人となったともいう。伝説である。",
 
         en:[
           {
             text:
-              "The goodwill and gathering did not last. Yoritomo eventually moved against independent Minamoto powers and finally against his famous brother Yoshitsune himself. But the teaching had already been passed. History places Yoshitsune's death at Hiraizumi. Japanese legend refused to leave him there. It is said that he survived the hunt, escaped north, crossed to the Asian mainland, and, in the most extravagant version of the legend, became none other than the military genius Genghis Khan himself. Legend!",
+              "The goodwill and gathering did not last.",
+
+            class:""
+          },
+          {
+            text:
+              "Yoritomo eventually moved against independent Minamoto powers and finally against his famous brother Yoshitsune himself. But the teaching had already been passed. History places Yoshitsune's death at Hiraizumi. Japanese legend refused to leave him there.",
+
+            class:""
+          },
+          {
+            text:
+              "It is said that he survived the hunt, escaped north, crossed to the Asian mainland, and, in the most extravagant version of the legend, became none other than the military genius Genghis Khan himself.",
+
+            class:""
+          },
+          {
+            text:
+              "Legend!",
 
             class:""
           }
@@ -1727,15 +2032,11 @@ const sections = [
 
   },
 
-  /* =======================================================
-     6. THE TAKEDA INHERITANCE
-     ======================================================= */
-
   {
 
     jpTitle:"武田の継承",
 
-    enTitle:"The Takeda Inheritance",
+    enTitle:"Takeda no Keishō · The Takeda Inheritance",
 
     rows:[
 
@@ -1747,7 +2048,25 @@ const sections = [
         en:[
           {
             text:
-              "The Takeda endured. Their inherited Minamoto arts provided a body through which aiki could continue to operate. The forms were the vehicle. Aiki was the living operation within them. It is believed that within the Takeda house, that operation remained embedded in the hiden and other inner or concealed transmissions of the ryū.",
+              "The Takeda endured.",
+
+            class:""
+          },
+          {
+            text:
+              "Their inherited Minamoto arts provided a body through which aiki could continue to operate.",
+
+            class:""
+          },
+          {
+            text:
+              "The forms were the vehicle. Aiki was the living operation within them.",
+
+            class:""
+          },
+          {
+            text:
+              "It is believed that within the Takeda house, that operation remained embedded in the hiden and other inner or concealed transmissions of the ryū.",
 
             class:""
           }
@@ -1759,15 +2078,11 @@ const sections = [
 
   },
 
-  /* =======================================================
-     7. ON TAKEDA SHINGEN
-     ======================================================= */
-
   {
 
     jpTitle:"武田信玄",
 
-    enTitle:"On Takeda Shingen",
+    enTitle:"Takeda Shingen · On Takeda Shingen",
 
     rows:[
 
@@ -1779,7 +2094,19 @@ const sections = [
         en:[
           {
             text:
-              "Centuries later, the main Kai-Takeda house produced Takeda Shingen. His strategies offer striking later expressions of the Law. His famous strategic maxim, Fūrinkazan, meaning Wind, Forest, Fire, Mountain, gives us the same Law expressed at the scale of armies:",
+              "Centuries later, the main Kai-Takeda house produced Takeda Shingen.",
+
+            class:""
+          },
+          {
+            text:
+              "His strategies offer striking later expressions of the Law.",
+
+            class:""
+          },
+          {
+            text:
+              "His famous strategic maxim, Fūrinkazan, meaning Wind, Forest, Fire, Mountain, gives us the same Law expressed at the scale of armies:",
 
             class:""
           }
@@ -1790,12 +2117,66 @@ const sections = [
       {
 
         jp:
-          "風。林。火。山。\n速さが必要ならば、疾風のごとく。\n静けさが必要ならば、林のごとく。\n力が必要ならば、火のごとく圧倒する。\n動けば立場を失うならば、山のごとく動かない。\n常に正しい一つの外形的反応があるのではない。\n残されるのは、状況に正しく応ずる能力である。",
+          "風。林。火。山。速さが必要ならば、疾風のごとく。静けさが必要ならば、林のごとく。力が必要ならば、火のごとく圧倒する。動けば立場を失うならば、山のごとく動かない。常に正しい一つの外形的反応があるのではない。残されるのは、状況に正しく応ずる能力である。",
 
         en:[
           {
             text:
-              "Wind. Forest. Fire. Mountain.\nSwift when swiftness is required.\nStill when stillness is required.\nOverwhelming when force is required.\nImmovable when movement would destroy the position.\nNo single outward response is always correct.\nWhat remains available is the ability to answer circumstance correctly.",
+              "Wind.",
+
+            class:""
+          },
+          {
+            text:
+              "Forest.",
+
+            class:""
+          },
+          {
+            text:
+              "Fire.",
+
+            class:""
+          },
+          {
+            text:
+              "Mountain.",
+
+            class:""
+          },
+          {
+            text:
+              "Swift when swiftness is required.",
+
+            class:""
+          },
+          {
+            text:
+              "Still when stillness is required.",
+
+            class:""
+          },
+          {
+            text:
+              "Overwhelming when force is required.",
+
+            class:""
+          },
+          {
+            text:
+              "Immovable when movement would destroy the position.",
+
+            class:""
+          },
+          {
+            text:
+              "No single outward response is always correct.",
+
+            class:""
+          },
+          {
+            text:
+              "What remains available is the ability to answer circumstance correctly.",
 
             class:""
           }
@@ -1807,15 +2188,11 @@ const sections = [
 
   },
 
-  /* =======================================================
-     8. FROM KAI TO AIZU
-     ======================================================= */
-
   {
 
     jpTitle:"甲斐から会津へ",
 
-    enTitle:"From Kai to Aizu",
+    enTitle:"Kai kara Aizu e · From Kai to Aizu",
 
     rows:[
 
@@ -1827,7 +2204,25 @@ const sections = [
         en:[
           {
             text:
-              "A collateral Takeda branch later carried the family inheritance into Aizu. There the martial problem changed. The battlefield became the castle. Formal clothing, confined rooms, etiquette, restricted weapons, and political consequence imposed new constraints.",
+              "A collateral Takeda branch later carried the family inheritance into Aizu.",
+
+            class:""
+          },
+          {
+            text:
+              "There the martial problem changed.",
+
+            class:""
+          },
+          {
+            text:
+              "The battlefield became the castle.",
+
+            class:""
+          },
+          {
+            text:
+              "Formal clothing, confined rooms, etiquette, restricted weapons, and political consequence imposed new constraints.",
 
             class:""
           }
@@ -1843,7 +2238,13 @@ const sections = [
         en:[
           {
             text:
-              "It is said that in Aizu, part of this inheritance was adapted to the formal and restricted environment of the castle and became associated with what later tradition calls oshikiuchi, an inner-household discipline of etiquette, control, and self-protection. A strategic problem once measured across battlefields was compressed into the space between two bodies.",
+              "It is said that in Aizu, part of this inheritance was adapted to the formal and restricted environment of the castle and became associated with what later tradition calls oshikiuchi, an inner-household discipline of etiquette, control, and self-protection.",
+
+            class:""
+          },
+          {
+            text:
+              "A strategic problem once measured across battlefields was compressed into the space between two bodies.",
 
             class:""
           }
@@ -1854,7 +2255,7 @@ const sections = [
       {
 
         jp:
-          "このように凝縮された武的環境の中で、古い合気の働きの一側面が極めて精密に磨かれた。すなわち、二人の間にある関係、構造、均衡、増して意図を制することである。",
+          "このように凝縮された武的環境の中で、古い合気の働きの一側面が極めて精密に磨かれた。すなわち、二人の間にある関係、構造、均衡、そして意図を制することである。",
 
         en:[
           {
@@ -1871,15 +2272,11 @@ const sections = [
 
   },
 
-  /* =======================================================
-     9. BEFORE THE NAME
-     ======================================================= */
-
   {
 
     jpTitle:"名が生まれる以前",
 
-    enTitle:"Before the Name",
+    enTitle:"Na ga Umareru Izen · Before the Name",
 
     rows:[
 
@@ -1891,7 +2288,19 @@ const sections = [
         en:[
           {
             text:
-              "For centuries, what we have labeled aiki required no single permanent name. The martial body came first. Higher teachings could remain embedded within it without yet existing as a separately named discipline.",
+              "For centuries, what we have labeled aiki required no single permanent name.",
+
+            class:""
+          },
+          {
+            text:
+              "The martial body came first.",
+
+            class:""
+          },
+          {
+            text:
+              "Higher teachings could remain embedded within it without yet existing as a separately named discipline.",
 
             class:""
           }
@@ -1902,12 +2311,42 @@ const sections = [
       {
 
         jp:
-          "やがて、一つの語が特別な重要性を持つようになる。合気 · Aiki。この語は、近代大東流以前から日本の武術言説の中に存在していた。1892年には、『武道秘訣 合気之術』という題名を持つ日本の書物が現れる。",
+          "やがて、一つの語が特別な重要性を持つようになる。\n合気 · Aiki\nこの語は、近代大東流以前から日本の武術言説の中に存在していた。1892年には、次の題名を持つ日本の書物が現れる。\n『武道秘訣 合気之術』 · Budō Hiketsu: Aiki no Jutsu",
 
         en:[
           {
             text:
-              "Eventually one term acquired special importance: Aiki — 合気. The word already existed in Japanese martial discourse before modern Daitō-ryū. By 1892, a Japanese book appeared under the title: Budō Hiketsu: Aiki no Jutsu (Secrets of Budō: The Art of Aiki).",
+              "Eventually one term acquired special importance:",
+
+            class:""
+          },
+          {
+            text:
+              "Aiki — 合気",
+
+            class:""
+          },
+          {
+            text:
+              "The word already existed in Japanese martial discourse before modern Daitō-ryū.",
+
+            class:""
+          },
+          {
+            text:
+              "By 1892, a Japanese book appeared under the title:",
+
+            class:""
+          },
+          {
+            text:
+              "Budō Hiketsu: Aiki no Jutsu",
+
+            class:""
+          },
+          {
+            text:
+              "Secrets of Budō: The Art of Aiki",
 
             class:""
           }
@@ -1923,7 +2362,19 @@ const sections = [
         en:[
           {
             text:
-              "By the early twentieth century, the Takeda inheritance itself would use aiki as an operative martial term. For the first time in our story: the operation now has its name.",
+              "By the early twentieth century, the Takeda inheritance itself would use aiki as an operative martial term.",
+
+            class:""
+          },
+          {
+            text:
+              "For the first time in our story:",
+
+            class:""
+          },
+          {
+            text:
+              "the operation now has its name.",
 
             class:""
           }
@@ -1935,15 +2386,11 @@ const sections = [
 
   },
 
-  /* =======================================================
-     10. SŌKAKU, UESHIBA, AND THE NAMING OF AIKI
-     ======================================================= */
-
   {
 
     jpTitle:"惣角、植芝、そして「合気」という名",
 
-    enTitle:"Sōkaku, Ueshiba, and the Naming of Aiki",
+    enTitle:"Sōkaku, Ueshiba, soshite “Aiki” to iu Na · Sōkaku, Ueshiba, and the Naming of Aiki",
 
     rows:[
 
@@ -1955,7 +2402,31 @@ const sections = [
         en:[
           {
             text:
-              "From the Aizu Takeda came Takeda Sōkaku. With him, the Takeda martial inheritance entered modern Japan as Daitō-ryū Jūjutsu. Its technical body was already organized into progressively deeper levels of transmission. Some of its highest material remained ura, inner, hiden, or unwritten. In Sōkaku's early transmission, the Hiden Mokuroku, the Catalogue of Secret Teachings, named 118 items, while 30 remained outside the written listing.",
+              "From the Aizu Takeda came Takeda Sōkaku.",
+
+            class:""
+          },
+          {
+            text:
+              "With him, the Takeda martial inheritance entered modern Japan as Daitō-ryū Jūjutsu.",
+
+            class:""
+          },
+          {
+            text:
+              "Its technical body was already organized into progressively deeper levels of transmission.",
+
+            class:""
+          },
+          {
+            text:
+              "Some of its highest material remained ura, inner, hiden, or unwritten.",
+
+            class:""
+          },
+          {
+            text:
+              "In Sōkaku's early transmission, the Hiden Mokuroku, the Catalogue of Secret Teachings, named 118 items, while 30 remained outside the written listing.",
 
             class:""
           }
@@ -1971,7 +2442,13 @@ const sections = [
         en:[
           {
             text:
-              "By the early twentieth century, Sōkaku was already using the term aiki for the higher operation within his art. Daitō-ryū preserved and technically concentrated one essential dimension of aiki into an exceptionally refined martial operation: joining and controlling the relationship so that balance, structure, or intention could be taken without relying upon a simple contest of force.",
+              "By the early twentieth century, Sōkaku was already using the term aiki for the higher operation within his art.",
+
+            class:""
+          },
+          {
+            text:
+              "Daitō-ryū preserved and technically concentrated one essential dimension of aiki into an exceptionally refined martial operation: joining and controlling the relationship so that balance, structure, or intention could be taken without relying upon a simple contest of force.",
 
             class:""
           }
@@ -1987,7 +2464,25 @@ const sections = [
         en:[
           {
             text:
-              "The distinction can now be stated plainly: Jūjutsu provides the technical body. Aiki is the operation acting through it. Aiki no Jutsu makes that operation explicit.",
+              "The distinction can now be stated plainly:",
+
+            class:""
+          },
+          {
+            text:
+              "Jūjutsu provides the technical body.",
+
+            class:""
+          },
+          {
+            text:
+              "Aiki is the operation acting through it.",
+
+            class:""
+          },
+          {
+            text:
+              "Aiki no Jutsu makes that operation explicit.",
 
             class:""
           }
@@ -1998,12 +2493,42 @@ const sections = [
       {
 
         jp:
-          "惣角の門人の中でも、後世に最も大きな影響を与えた一人が植芝盛平であった。植芝は綾部において出口王仁三郎と大本の宗教世界へ入った。1922年、惣角もそこで教授した。従来の柔術体系と並んで、「合気之術」として別に識別された内容が現れる。同じ年、現存する記録の中で流派名は「大東流合気柔術」となる。",
+          "惣角の門人の中でも、後世に最も大きな影響を与えた一人が植芝盛平であった。植芝は綾部において出口王仁三郎と大本の宗教世界へ入った。1922年、惣角もそこで教授した。従来の柔術体系と並んで、「合気之術」として別に識別された内容が現れる。同じ年、現存する記録の中で流派名は、\n大東流合気柔術 · Daitō-ryū Aiki-jūjutsu",
 
         en:[
           {
             text:
-              "Among Sōkaku's most consequential students was Morihei Ueshiba. Ueshiba entered the religious world of Onisaburō Deguchi and Ōmoto at Ayabe. In 1922, Sōkaku taught there. Alongside the established jūjutsu curriculum appears a separately identified body of Aiki no Jutsu. In the same year, the ryū begins appearing in surviving records under the name: Daitō-ryū Aiki-jūjutsu.",
+              "Among Sōkaku's most consequential students was Morihei Ueshiba.",
+
+            class:""
+          },
+          {
+            text:
+              "Ueshiba entered the religious world of Onisaburō Deguchi and Ōmoto at Ayabe.",
+
+            class:""
+          },
+          {
+            text:
+              "In 1922, Sōkaku taught there.",
+
+            class:""
+          },
+          {
+            text:
+              "Alongside the established jūjutsu curriculum appears a separately identified body of Aiki no Jutsu.",
+
+            class:""
+          },
+          {
+            text:
+              "In the same year, the ryū begins appearing in surviving records under the name:",
+
+            class:""
+          },
+          {
+            text:
+              "Daitō-ryū Aiki-jūjutsu",
 
             class:""
           }
@@ -2019,7 +2544,13 @@ const sections = [
         en:[
           {
             text:
-              "Ueshiba-family and related testimony later credited Deguchi with encouraging the addition of aiki to the name after observing it in action. The inner operation had become explicit enough to stand in the name of the art itself.",
+              "Ueshiba-family and related testimony later credited Deguchi with encouraging the addition of aiki to the name after observing it in action.",
+
+            class:""
+          },
+          {
+            text:
+              "The inner operation had become explicit enough to stand in the name of the art itself.",
 
             class:""
           }
@@ -2030,12 +2561,42 @@ const sections = [
       {
 
         jp:
-          "そして植芝は、その理解をさらに先へ進めた。彼は次第に、合気を単なる柔術内部の高度に洗練された作用としてだけではなく、行為そのものがそこから生じ得る、より大きな秩序の生きた働きとして理解するようになった。そうすることによって植芝は、合気が持つ、より完全な生成的可能性を再発見したと考えられる。そこから現れたのが、合気道（Aikidō）である。",
+          "そして植芝は、その理解をさらに先へ進めた。彼は次第に、合気を単なる柔術内部の高度に洗練された作用としてだけではなく、行為そのものがそこから生じ得る、より大きな秩序の生きた働きとして理解するようになった。そうすることによって植芝は、合気が持つ、より完全な生成的可能性を再発見したと考えられる。そこから現れたのが、\n合気道 · Aikidō\n合気の道。",
 
         en:[
           {
             text:
-              "Ueshiba then carried the understanding even further. He increasingly understood aiki not merely as a highly refined operation within jūjutsu, but as the living operation of a larger order through which action itself could arise. It is believed that in doing so, Ueshiba rediscovered the fuller generative potential of aiki. From that development emerged: Aikidō — The Way of Aiki.",
+              "Ueshiba then carried the understanding even further.",
+
+            class:""
+          },
+          {
+            text:
+              "He increasingly understood aiki not merely as a highly refined operation within jūjutsu, but as the living operation of a larger order through which action itself could arise.",
+
+            class:""
+          },
+          {
+            text:
+              "It is believed that in doing so, Ueshiba rediscovered the fuller generative potential of aiki.",
+
+            class:""
+          },
+          {
+            text:
+              "From that development emerged:",
+
+            class:""
+          },
+          {
+            text:
+              "Aikidō",
+
+            class:""
+          },
+          {
+            text:
+              "The Way of Aiki",
 
             class:""
           }
@@ -2047,15 +2608,11 @@ const sections = [
 
   },
 
-  /* =======================================================
-     11. TAKEMUSU AIKI
-     ======================================================= */
-
   {
 
     jpTitle:"武産合気",
 
-    enTitle:"Takemusu Aiki",
+    enTitle:"Takemusu Aiki · Takemusu Aiki",
 
     rows:[
 
@@ -2067,7 +2624,13 @@ const sections = [
         en:[
           {
             text:
-              "With Ueshiba O’sensei, the pattern becomes explicit. Takemusu Aiki is aiki in its generative state: the spontaneous birth of appropriate martial action from the conditions of the encounter, without first selecting or forcing a predetermined technique.",
+              "With Ueshiba O’sensei, the pattern becomes explicit.",
+
+            class:""
+          },
+          {
+            text:
+              "Takemusu Aiki is aiki in its generative state: the spontaneous birth of appropriate martial action from the conditions of the encounter, without first selecting or forcing a predetermined technique.",
 
             class:""
           }
@@ -2083,7 +2646,19 @@ const sections = [
         en:[
           {
             text:
-              "From true aiki, martial form arises according to circumstance. One does not first select the answer and then force reality to conform to it. One enters the relationship correctly. The action emerges.",
+              "From true aiki, martial form arises according to circumstance.",
+
+            class:""
+          },
+          {
+            text:
+              "One does not first select the answer and then force reality to conform to it.",
+
+            class:""
+          },
+          {
+            text:
+              "One enters the relationship correctly. The action emerges.",
 
             class:""
           }
@@ -2099,7 +2674,13 @@ const sections = [
         en:[
           {
             text:
-              "In Daitō-ryū, aiki had been preserved and refined with extraordinary technical precision. With Ueshiba, its generative scope became explicit again.",
+              "In Daitō-ryū, aiki had been preserved and refined with extraordinary technical precision.",
+
+            class:""
+          },
+          {
+            text:
+              "With Ueshiba, its generative scope became explicit again.",
 
             class:""
           }
@@ -2115,7 +2696,25 @@ const sections = [
         en:[
           {
             text:
-              "The entire arc can now be stated simply: The Law is the order inherent in reality. Aiki is entering into and operating in harmony with that order. Takemusu Aiki is that harmony spontaneously giving birth to appropriate martial form.",
+              "The entire arc can now be stated simply:",
+
+            class:""
+          },
+          {
+            text:
+              "The Law is the order inherent in reality.",
+
+            class:""
+          },
+          {
+            text:
+              "Aiki is entering into and operating in harmony with that order.",
+
+            class:""
+          },
+          {
+            text:
+              "Takemusu Aiki is that harmony spontaneously giving birth to appropriate martial form.",
 
             class:""
           }
@@ -2126,12 +2725,42 @@ const sections = [
       {
 
         jp:
-          "そして武産合気において、この長い弧は頂点に達する。合気は単に技を完成させるのではない。合気は技を生む。その悟りから、私たちに伝えられた武道が生まれた。合気道（Aikidō）。",
+          "そして武産合気において、この長い弧は頂点に達する。合気は単に技を完成させるのではない。合気は技を生む。その悟りから、私たちに伝えられた武道が生まれた。\n合気道 · Aikidō\n合気の道。",
 
         en:[
           {
             text:
-              "And in Takemusu Aiki, the long arc reaches its culmination: aiki does not merely perfect technique. Aiki gives birth to technique. From that realization came the art handed down to us: Aikidō — The Way of Aiki.",
+              "And in Takemusu Aiki, the long arc reaches its culmination:",
+
+            class:""
+          },
+          {
+            text:
+              "aiki does not merely perfect technique.",
+
+            class:""
+          },
+          {
+            text:
+              "Aiki gives birth to technique.",
+
+            class:""
+          },
+          {
+            text:
+              "From that realization came the art handed down to us:",
+
+            class:""
+          },
+          {
+            text:
+              "Aikidō",
+
+            class:""
+          },
+          {
+            text:
+              "The Way of Aiki",
 
             class:""
           }
@@ -2143,27 +2772,41 @@ const sections = [
 
   },
 
-  /* =======================================================
-     12. AIKI JIKKENJŌ
-     ======================================================= */
-
   {
 
     jpTitle:"合気実験場",
 
-    enTitle:"Aiki Jikkenjō",
+    enTitle:"AIKI JIKKENJŌ · The Aiki Experimental Ground",
 
     rows:[
 
       {
 
         jp:
-          "実 · jitsu = 現実、実在\n験 · ken = 試すこと、経験による証明\n場 · jō = 場、場所、領域\n“Reality Testing Field”",
+          "実 · jitsu = 現実、実在 · reality, actuality\n験 · ken = 試すこと、経験による証明 · test, proof through experience\n場 · jō = 場、場所、領域 · field, place, ground\n“Reality Testing Field”",
 
         en:[
           {
             text:
-              "実 · jitsu = reality, actuality\n験 · ken = test, proof through experience\n場 · jō = field, place, ground\n“Reality Testing Field”",
+              "実 · jitsu = reality, actuality",
+
+            class:""
+          },
+          {
+            text:
+              "験 · ken = test, proof through experience",
+
+            class:""
+          },
+          {
+            text:
+              "場 · jō = field, place, ground",
+
+            class:""
+          },
+          {
+            text:
+              "“Reality Testing Field”",
 
             class:""
           }
@@ -2179,7 +2822,19 @@ const sections = [
         en:[
           {
             text:
-              "The inherited story brings us to Aikidō. The Seito-ryū inquiry begins with the question that follows from it. If aiki is generative, then it cannot be investigated fully only where the answer is known in advance. Some training conditions must allow uncertainty, resistance, changing circumstance, adaptation, and genuine consequence without recreating the violence of war.",
+              "The inherited story brings us to Aikidō.",
+
+            class:""
+          },
+          {
+            text:
+              "The Seito-ryū inquiry begins with the question that follows from it.",
+
+            class:""
+          },
+          {
+            text:
+              "If aiki is generative, then it cannot be investigated fully only where the answer is known in advance. Some training conditions must allow uncertainty, resistance, changing circumstance, adaptation, and genuine consequence without recreating the violence of war.",
 
             class:""
           }
@@ -2195,7 +2850,13 @@ const sections = [
         en:[
           {
             text:
-              "The Minamoto possessed such conditions in the crucible of campaign and survival. Seito-ryū does not recreate war. It creates an Aiki Experimental Ground in which the relevant conditions can be reconstructed progressively and with relative safety.",
+              "The Minamoto possessed such conditions in the crucible of campaign and survival.",
+
+            class:""
+          },
+          {
+            text:
+              "Seito-ryū does not recreate war. It creates an Aiki Experimental Ground in which the relevant conditions can be reconstructed progressively and with relative safety.",
 
             class:""
           }
@@ -2206,12 +2867,30 @@ const sections = [
       {
 
         jp:
-          "受け継がれた技術体系が、素材を与える。生きた条件が、実験場を与える。合気が、その中で働く作用を与える。そして武産合気こそ、私たちが試み、見出そうとする現象である。",
+          "受け継がれた技術体系が、素材を与える。生きた条件が、実験場を与える。合気が、その中で働く作用を与える。そして武産合気こそ、私たちが見出そうとする現象である。",
 
         en:[
           {
             text:
-              "The inherited technical body provides the material. Alive conditions provide the Experimental Ground. Aiki provides the operation. Takemusu Aiki is the phenomenon we seek to recognize.",
+              "The inherited technical body provides the material.",
+
+            class:""
+          },
+          {
+            text:
+              "Alive conditions provide the Experimental Ground.",
+
+            class:""
+          },
+          {
+            text:
+              "Aiki provides the operation.",
+
+            class:""
+          },
+          {
+            text:
+              "Takemusu Aiki is the phenomenon we seek to recognize.",
 
             class:""
           }
@@ -2227,7 +2906,13 @@ const sections = [
         en:[
           {
             text:
-              "The founding question of Seito-ryū is therefore not simply whether inherited techniques can still be performed. It is whether the conditions can be created in which aiki once again gives birth to technique.",
+              "The founding question of Seito-ryū is therefore not simply whether inherited techniques can still be performed.",
+
+            class:""
+          },
+          {
+            text:
+              "It is whether the conditions can be created in which aiki once again gives birth to technique.",
 
             class:"closing"
           }
