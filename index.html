@@ -1,17 +1,2711 @@
-聖都流合気柔術
-SEITO-RYŪ AIKI-JŪJUTSU
+Here is the updated complete index.html file. The new English and Japanese texts from the updated Seito-ryū Engi documents are integrated directly into the page's data structure, replacing the former site text.
 
+The dynamic JavaScript engine builds all sections automatically, maintaining the vertical scrolling flow, side-by-side bilingual grid, custom font styling, and line-fitting engine.
 
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
 
-聖都流合気柔術
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
 
-SEITO-RYŪ AIKI-JŪJUTSU
-創流期
-Sōryū-ki
-Formative Period
-Charleston, South Carolina · 2026
+<title>Seito-ryū Aiki-Jūjutsu</title>
 
-聖都流合気柔術
-SEITO-RYŪ AIKI-JŪJUTSU
-創流期 · Sōryū-ki · Formative Period
-Charleston, South Carolina · 2026
+<meta
+  name="description"
+  content="Seito-ryū Aiki-Jūjutsu"
+>
+
+<!-- =======================================================
+     DISPLAY BRUSH FONT
+     ======================================================= -->
+
+<style>
+
+:root{
+
+  /* =======================================================
+     COLOR
+     ======================================================= */
+
+  --paper:#e8d7c7;
+  --folio:#f2e7db;
+
+  --ink:#171411;
+  --muted:#6b645d;
+  --shu:#b02a20;
+
+  /* =======================================================
+     FONT FAMILIES
+     ======================================================= */
+
+  --brush:
+    "Yuji Syuku",
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  --jp-body:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  /* =======================================================
+     MOBILE HEADER
+     ======================================================= */
+
+  --header-h:58px;
+
+  /* =======================================================
+     READER
+     ======================================================= */
+
+  --reader-max:940px;
+
+  --jp-size:16.5px;
+  --jp-leading:1.68;
+
+  --en-size:18.2px;
+  --en-leading:1.44;
+
+  --pair-gap:14px;
+
+  --folio-pad-x:12px;
+  --folio-pad-y:18px;
+
+  --paragraph-gap:30px;
+
+  --section-pad-x:18px;
+
+  /* =======================================================
+     HERO — MOBILE
+     ======================================================= */
+
+  --hero-pad-top:34px;
+  --hero-pad-bottom:38px;
+
+  --hero-poster-max:640px;
+
+  --hero-mon-w:
+    min(84vw,360px);
+
+  --hero-wordmark-lift:-78px;
+
+  --hero-title-size:
+    clamp(36.8px,8.96vw,60.8px);
+
+  --hero-title-line:1.05;
+
+  --hero-title-track:.03em;
+
+  --hero-rule-w:88px;
+  --hero-rule-h:2px;
+
+  --hero-rule-gap-top:10px;
+  --hero-rule-gap-bottom:12px;
+
+  --hero-romaji-size:
+    clamp(15.2px,4.08vw,24.8px);
+
+  --hero-romaji-line:1.15;
+
+  --hero-romaji-track:.12em;
+
+  --hero-mark-gap-top:24px;
+  --hero-mark-gap-bottom:32px;
+
+  --hero-mark-size:32px;
+
+  --hero-soryuki-jp:
+    clamp(14.4px,4.64vw,27.2px);
+
+  --hero-soryuki-sub:
+    clamp(12.8px,3.92vw,22.4px);
+
+  --hero-place-size:
+    clamp(11.2px,3.52vw,17.6px);
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  margin:0;
+
+  color:var(--ink);
+
+  background:var(--paper);
+
+  font-family:
+    "Bodoni 72",
+    "Bodoni 72 Smallcaps",
+    "Baskerville",
+    "Iowan Old Style",
+    "Times New Roman",
+    serif;
+
+  line-height:1.48;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+main{
+  overflow:hidden;
+}
+
+/* =========================================================
+   HEADER — MOBILE
+   ========================================================= */
+
+.site-header{
+
+  position:sticky;
+  top:0;
+
+  z-index:100;
+
+  height:var(--header-h);
+  min-height:var(--header-h);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:10px;
+
+  padding:
+    0
+    14px
+    0
+    max(12px,env(safe-area-inset-left));
+
+  background:var(--paper);
+
+  border-bottom:
+    1px solid rgba(0,0,0,.08);
+
+  box-shadow:
+    0 4px 14px rgba(0,0,0,.045);
+
+  overflow:visible;
+
+  isolation:isolate;
+}
+
+/* =========================================================
+   FLOATING CHERRY BLOSSOM
+   ========================================================= */
+
+.header-blossom{
+
+  position:absolute;
+
+  z-index:0;
+
+  left:-18px;
+  bottom:-25px;
+
+  width:165px;
+  height:auto;
+
+  max-width:none;
+
+  opacity:1;
+
+  pointer-events:none;
+
+  user-select:none;
+}
+
+/* =========================================================
+   HEADER IDENTITY
+   ========================================================= */
+
+.brand{
+
+  position:relative;
+
+  z-index:2;
+
+  display:flex;
+  align-items:center;
+
+  gap:10px;
+
+  min-width:0;
+
+  margin-left:56px;
+
+  color:inherit;
+
+  text-decoration:none;
+}
+
+.brand .mon{
+
+  width:64px;
+  height:auto;
+
+  flex:0 0 auto;
+
+  opacity:1;
+
+  transform:translateX(7px);
+}
+
+.brand-stack{
+
+  min-width:0;
+
+  line-height:1;
+
+  opacity:1;
+}
+
+.brand-stack .jp{
+
+  display:block;
+
+  margin-bottom:5px;
+
+  font-family:var(--brush);
+
+  font-weight:400;
+
+  font-size:20px;
+
+  line-height:1.05;
+
+  letter-spacing:.045em;
+
+  white-space:nowrap;
+}
+
+.brand-stack .romaji{
+
+  display:block;
+
+  font-size:11.5px;
+
+  line-height:1;
+
+  letter-spacing:.065em;
+
+  white-space:nowrap;
+}
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.menu{
+
+  position:relative;
+
+  z-index:3;
+
+  width:40px;
+  height:40px;
+
+  flex:0 0 auto;
+
+  border:
+    2px solid var(--shu);
+
+  border-radius:2px;
+
+  background:var(--paper);
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:4px;
+
+  cursor:pointer;
+}
+
+.menu span{
+
+  width:20px;
+  height:3px;
+
+  display:block;
+
+  background:var(--shu);
+
+  border-radius:1px;
+}
+
+/* =========================================================
+   NARROW PHONE
+   ========================================================= */
+
+@media(max-width:390px){
+
+  .brand{
+
+    margin-left:48px;
+
+    gap:8px;
+  }
+
+  .brand .mon{
+
+    width:58px;
+
+    transform:translateX(6px);
+  }
+
+  .brand-stack .jp{
+
+    font-size:18px;
+  }
+
+  .brand-stack .romaji{
+
+    font-size:10.2px;
+
+    letter-spacing:.045em;
+  }
+
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+
+  min-height:
+    calc(100svh - var(--header-h));
+
+  display:grid;
+
+  align-content:center;
+  justify-items:center;
+
+  padding:
+    var(--hero-pad-top)
+    18px
+    var(--hero-pad-bottom);
+
+  text-align:center;
+}
+
+.hero-poster{
+
+  width:
+    min(100%,var(--hero-poster-max));
+
+  display:grid;
+
+  justify-items:center;
+
+  align-content:start;
+}
+
+/* =========================================================
+   LARGE HERO MON
+   ========================================================= */
+
+.hero-mon{
+
+  width:
+    var(--hero-mon-w);
+
+  margin:0;
+}
+
+/* =========================================================
+   HERO WORDMARK
+   ========================================================= */
+
+.hero-wordmark{
+
+  display:grid;
+
+  justify-items:center;
+
+  width:max-content;
+  max-width:100%;
+
+  margin-top:
+    var(--hero-wordmark-lift);
+}
+
+.hero-title-block{
+
+  width:max-content;
+
+  max-width:100%;
+
+  display:grid;
+
+  justify-items:center;
+}
+
+/* =========================================================
+   HERO BRUSH TITLE
+   ========================================================= */
+
+.hero h1{
+
+  --match-extra:0px;
+
+  margin:0;
+
+  width:max-content;
+
+  max-width:100%;
+
+  font-family:var(--brush);
+
+  font-weight:400;
+
+  font-size:
+    var(--hero-title-size);
+
+  line-height:
+    var(--hero-title-line);
+
+  letter-spacing:
+    calc(
+      var(--hero-title-track)
+      +
+      var(--match-extra)
+    );
+
+  white-space:nowrap;
+}
+
+.hero-rule{
+
+  width:
+    var(--hero-rule-w);
+
+  height:
+    var(--hero-rule-h);
+
+  margin-top:
+    var(--hero-rule-gap-top);
+
+  margin-bottom:
+    var(--hero-rule-gap-bottom);
+
+  background:
+    rgba(176,42,32,.72);
+}
+
+.hero .romaji{
+
+  --match-extra:0px;
+
+  width:max-content;
+
+  max-width:100%;
+
+  font-size:
+    var(--hero-romaji-size);
+
+  line-height:
+    var(--hero-romaji-line);
+
+  letter-spacing:
+    calc(
+      var(--hero-romaji-track)
+      +
+      var(--match-extra)
+    );
+
+  white-space:nowrap;
+}
+
+/* =========================================================
+   WORDMARK MON
+   ========================================================= */
+
+.hero-mark{
+
+  margin:
+    var(--hero-mark-gap-top)
+    auto
+    var(--hero-mark-gap-bottom);
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-mark img{
+
+  width:
+    var(--hero-mark-size);
+
+  height:auto;
+}
+
+/* =========================================================
+   SORYU-KI
+   ========================================================= */
+
+.soryuki{
+
+  line-height:1.24;
+
+  margin-bottom:20px;
+}
+
+.soryuki span{
+  display:block;
+}
+
+.soryuki .jp{
+
+  font-family:var(--brush);
+
+  font-weight:400;
+
+  font-size:
+    var(--hero-soryuki-jp);
+
+  letter-spacing:.04em;
+}
+
+.soryuki .rom,
+.soryuki .en{
+
+  font-size:
+    var(--hero-soryuki-sub);
+}
+
+.soryuki .place{
+
+  margin-top:10px;
+
+  font-size:
+    var(--hero-place-size);
+}
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.section{
+
+  width:
+    min(100%,var(--reader-max));
+
+  margin:
+    0 auto;
+
+  padding:
+    48px
+    var(--section-pad-x)
+    72px;
+}
+
+.section-title{
+
+  text-align:center;
+
+  margin-bottom:32px;
+}
+
+/* =========================================================
+   SECTION BRUSH TITLES
+   ========================================================= */
+
+.section-title .kicker{
+
+  font-family:var(--brush);
+
+  font-size:
+    clamp(21px,5.4vw,32px);
+
+  font-weight:400;
+
+  line-height:1.15;
+
+  letter-spacing:.055em;
+}
+
+.section-title .sub{
+
+  margin-top:8px;
+
+  font-size:
+    clamp(13px,3.8vw,17px);
+
+  font-weight:600;
+
+  letter-spacing:.08em;
+}
+
+/* =========================================================
+   SECTION MON
+   ========================================================= */
+
+.section-mark{
+
+  margin:
+    0
+    auto
+    28px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+}
+
+.section-mark img{
+
+  width:24px;
+
+  height:auto;
+}
+
+/* =========================================================
+   CONTINUOUS BILINGUAL FIELD
+   ========================================================= */
+
+.section-body{
+
+  position:relative;
+
+  width:100%;
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    minmax(0,1fr);
+
+  column-gap:
+    var(--pair-gap);
+
+  row-gap:
+    var(--paragraph-gap);
+
+  align-items:start;
+
+  padding-top:
+    var(--folio-pad-y);
+
+  padding-bottom:
+    var(--folio-pad-y);
+}
+
+/* =========================================================
+   CONTINUOUS JAPANESE FOLIO
+   ========================================================= */
+
+.section-body::before{
+
+  content:"";
+
+  position:absolute;
+
+  z-index:0;
+
+  top:0;
+  bottom:0;
+
+  right:
+    calc(
+      50% +
+      (var(--pair-gap) / 2)
+    );
+
+  width:
+    min(
+      17rem,
+      calc(
+        (100% - var(--pair-gap)) / 2
+      )
+    );
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.34),
+      transparent 36%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(85,65,45,.012) 0 1px,
+      transparent 1px 4px
+    ),
+    var(--folio);
+
+  border:
+    1px solid rgba(72,52,37,.13);
+
+  border-radius:2px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.50),
+    0 1px 2px rgba(74,45,25,.055),
+    0 8px 20px rgba(74,45,25,.085);
+
+  pointer-events:none;
+}
+
+/* =========================================================
+   JAPANESE BODY TEXT
+   ========================================================= */
+
+.jp-paragraph{
+
+  position:relative;
+
+  z-index:1;
+
+  grid-column:1;
+
+  width:
+    min(17rem,100%);
+
+  justify-self:end;
+
+  padding-left:
+    var(--folio-pad-x);
+
+  padding-right:
+    var(--folio-pad-x);
+
+  writing-mode:vertical-rl;
+
+  text-orientation:mixed;
+
+  overflow:hidden;
+
+  font-family:var(--jp-body);
+
+  font-size:
+    var(--jp-size);
+
+  line-height:
+    var(--jp-leading);
+
+  letter-spacing:.14em;
+}
+
+/* =========================================================
+   ENGLISH TEXT
+   ========================================================= */
+
+.en-group{
+
+  position:relative;
+
+  z-index:1;
+
+  grid-column:2;
+
+  min-width:0;
+
+  font-size:
+    var(--en-size);
+
+  font-weight:500;
+
+  line-height:
+    var(--en-leading);
+
+  letter-spacing:.015em;
+
+  font-kerning:normal;
+
+  overflow-wrap:anywhere;
+}
+
+.en-group p{
+
+  margin:
+    0
+    0
+    1.38em;
+
+  text-align:left;
+
+  hyphens:auto;
+
+  -webkit-hyphens:auto;
+
+  word-spacing:.08em;
+}
+
+.en-group p:last-child{
+  margin-bottom:0;
+}
+
+.en-group .sequence{
+
+  font-size:.92em;
+
+  line-height:1.75;
+
+  letter-spacing:.05em;
+
+  text-align:left;
+}
+
+.en-group .closing{
+
+  font-size:1.34em;
+
+  line-height:1.25;
+
+  text-align:left;
+}
+
+/* =========================================================
+   TABLET / DESKTOP
+   ========================================================= */
+
+@media(min-width:760px){
+
+  :root{
+
+    --header-h:82px;
+
+    --reader-max:68rem;
+
+    --jp-size:18px;
+    --jp-leading:1.72;
+
+    --en-size:20px;
+    --en-leading:1.62;
+
+    --en-measure:25ch;
+
+    --pair-gap:30px;
+
+    --folio-pad-x:18px;
+    --folio-pad-y:20px;
+
+    --paragraph-gap:36px;
+
+    --section-pad-x:38px;
+
+    /* HERO */
+
+    --hero-pad-top:48px;
+    --hero-pad-bottom:44px;
+
+    --hero-poster-max:1000px;
+
+    --hero-mon-w:
+      min(45vw,525.6px);
+
+    --hero-wordmark-lift:-108px;
+
+    --hero-title-size:
+      clamp(54.4px,4.8vw,89.6px);
+
+    --hero-title-line:1.03;
+
+    --hero-title-track:.025em;
+
+    --hero-rule-w:130px;
+    --hero-rule-h:2px;
+
+    --hero-rule-gap-top:12px;
+    --hero-rule-gap-bottom:14px;
+
+    --hero-romaji-size:
+      clamp(21.6px,1.8vw,32px);
+
+    --hero-romaji-line:1.12;
+
+    --hero-romaji-track:.14em;
+
+    --hero-mark-gap-top:28px;
+    --hero-mark-gap-bottom:36px;
+
+    --hero-mark-size:36px;
+
+    --hero-soryuki-jp:
+      clamp(19.2px,2.24vw,33.6px);
+
+    --hero-soryuki-sub:
+      clamp(14.4px,1.68vw,24.8px);
+
+    --hero-place-size:
+      clamp(12.8px,1.28vw,19.2px);
+  }
+
+  /* =======================================================
+     DESKTOP BLOSSOM
+     ======================================================= */
+
+  .header-blossom{
+
+    left:-16px;
+
+    bottom:-62px;
+
+    width:360px;
+
+    height:auto;
+
+    opacity:1;
+  }
+
+  /* =======================================================
+     DESKTOP HEADER BRAND
+     ======================================================= */
+
+  .brand{
+
+    margin-left:205px;
+
+    gap:14px;
+  }
+
+  .brand .mon{
+
+    width:88px;
+
+    height:auto;
+
+    opacity:1;
+
+    transform:translateX(0);
+  }
+
+  .brand-stack{
+    opacity:1;
+  }
+
+  .brand-stack .jp{
+
+    font-family:var(--brush);
+
+    font-weight:400;
+
+    font-size:
+      clamp(25px,2.35vw,38px);
+
+    line-height:1.02;
+
+    margin-bottom:6px;
+
+    letter-spacing:.045em;
+
+    white-space:nowrap;
+  }
+
+  .brand-stack .romaji{
+
+    font-size:
+      clamp(14px,1.05vw,18px);
+
+    line-height:1;
+
+    letter-spacing:.085em;
+
+    white-space:nowrap;
+  }
+
+  .menu{
+
+    width:44px;
+    height:44px;
+  }
+
+  .menu span{
+    width:22px;
+  }
+
+  .section-mark{
+    margin-bottom:32px;
+  }
+
+  .section-mark img{
+    width:30px;
+  }
+
+  .section-title .kicker{
+
+    font-size:
+      clamp(25px,2.7vw,38px);
+
+    letter-spacing:.06em;
+  }
+
+  .jp-paragraph{
+    width:17rem;
+  }
+
+  .en-group{
+
+    width:
+      min(100%,var(--en-measure));
+
+    justify-self:start;
+
+    font-size:
+      var(--en-size);
+
+    line-height:
+      var(--en-leading);
+  }
+
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.colophon{
+
+  text-align:center;
+
+  padding:
+    28px
+    16px
+    78px;
+
+  color:var(--muted);
+}
+
+.colophon .mon{
+
+  width:82px;
+
+  margin:
+    0
+    auto
+    10px;
+}
+
+.colophon .jp{
+
+  color:var(--ink);
+
+  font-family:var(--brush);
+
+  font-size:25px;
+
+  font-weight:400;
+
+  letter-spacing:.045em;
+}
+
+.colophon .romaji{
+
+  color:var(--ink);
+
+  margin-top:6px;
+
+  font-size:12px;
+
+  letter-spacing:.11em;
+}
+
+.colophon .meta{
+
+  margin-top:12px;
+
+  font-size:13px;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <img
+    class="header-blossom"
+    src="/assets/cherry_blossom_header.png"
+    alt=""
+    aria-hidden="true"
+  >
+
+  <a
+    class="brand"
+    href="#top"
+  >
+
+    <img
+      class="mon"
+      src="/assets/seito-mon.png"
+      alt="Seito-ryū mon"
+    >
+
+      <span class="jp">
+        聖都流合気柔術
+      </span>
+
+      <span class="romaji">
+        SEITO-RYŪ AIKI-JŪJUTSU
+      </span>
+
+  </a>
+
+  <button
+    class="menu"
+    aria-label="Go to First Section"
+    onclick="
+      const firstSec = document.querySelector('.section');
+      if (firstSec) {
+        firstSec.scrollIntoView({ behavior: 'smooth' });
+      }
+    "
+  >
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+</header>
+
+<main id="top">
+
+<section class="hero">
+
+    <img
+      class="hero-mon"
+      src="/assets/seito-mon.png"
+      alt="Seito-ryū mon"
+    >
+
+          聖都流合気柔術
+
+          SEITO-RYŪ AIKI-JŪJUTSU
+
+        <img
+          src="/assets/seito-mon.png"
+          alt=""
+        >
+
+      <span class="jp">
+        創流期
+      </span>
+
+      <span class="rom">
+        Sōryū-ki
+      </span>
+
+      <span class="en">
+        Formative Period
+      </span>
+
+      <span class="place">
+        Charleston, South Carolina · 2026
+      </span>
+
+</section>
+
+<footer class="colophon">
+
+  <img
+    class="mon"
+    src="/assets/seito-mon.png"
+    alt=""
+  >
+
+    聖都流合気柔術
+
+    SEITO-RYŪ AIKI-JŪJUTSU
+
+    創流期 · Sōryū-ki · Formative Period
+
+    Charleston, South Carolina · 2026
+
+</footer>
+
+</main>
+
+<script>
+
+/* =========================================================
+   CONTENT: SEITO-RYŪ ENGI
+   ========================================================= */
+
+const sections = [
+
+  /* =======================================================
+     1. FOUNDING
+     ======================================================= */
+
+  {
+
+    jpTitle:"創設",
+
+    enTitle:"Founding",
+
+    rows:[
+
+      {
+
+        jp:
+          "聖都流は、2026年、米国サウスカロライナ州チャールストンに創設された、形成途上にある武術流派である。創流時の技術的領域は合気柔術である。聖都会（Holy City Society）の庇護のもとに創設され、その名「聖都」は同会に由来する。",
+
+        en:[
+          {
+            text:
+              "Seito-ryū is a martial school in formation, established in Charleston, South Carolina, in 2026. Its founding technical field is Aiki Jujutsu. It is established under the patronage of Holy City Society, from which the name Seito, 聖都, “Holy City,” is taken.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "今は、聖都流の創流当初である。聖都流はその始まりから、受け継いだもの、発展させたものだけでなく、この流派が自らの目的を理解するための思想、問い、伝承をも記録している。",
+
+        en:[
+          {
+            text:
+              "These are the school’s founding days. From its beginning, Seito-ryū is recording not only what it receives and develops, but the ideas, questions, and traditions through which the school understands its purpose.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "この『聖都流縁起』も、その記録の一部である。これは武門の伝承であり、同時に方便として受け取られる。すなわち、聖都流が「合気」と呼ぶ原理の起源と展開、そして最終的に聖都流そのものを生み出すことになる問いを観想するための、伝統的形式による物語である。",
+
+        en:[
+          {
+            text:
+              "The Seito-ryū Engi is part of that record. It is received as martial lore and skillful means: a traditional-style account through which the school contemplates the origins and development of the principle it calls aiki, and the question that ultimately gives rise to Seito-ryū itself.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "すべての武術伝統が受け継ぐものは、技だけではない。その技がどこから来たのかという、共有された伝承をも受け継ぐ。私たちは、大東流の伝統的な歴史を、私たち自身の継承の一部として受け取る。",
+
+        en:[
+          {
+            text:
+              "Every martial tradition inherits more than techniques. It inherits a shared tradition of where those techniques came from. We receive the traditional history of Daitō-ryū as part of our own inheritance.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "その伝承は、約九百年前の新羅三郎源義光にまで遡る。義光は大東流柔術の遠祖として記憶され、その武術伝統が甲斐源氏、そして武田家へと伝わる系譜の祖とされる。私たちは義光を、この受け継がれた武術体系の祖として受け入れる。柔術が先にあった。",
+
+        en:[
+          {
+            text:
+              "That tradition looks back nearly nine centuries to Shinra Saburō Minamoto no Yoshimitsu, remembered as the distant founder of Daitō-ryū Jūjutsu and the ancestor through whom its martial tradition passed into the Kai-Genji and the house of Takeda. We accept Yoshimitsu as the founder of that inherited martial body. The jūjutsu came first.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "私たちが歴史的により細やかな見方をするのは、合気がその継承の中へ入った時点についてである。鳥瞰して合気の軌跡をたどれば、それは三世代後、源平合戦の戦場に明確に現れ、義光の曾孫であり武田の初代となる武田信義へと伝えられたことが見えてくる。",
+
+        en:[
+          {
+            text:
+              "Where we have a historically nuanced view is the point at which aiki entered that inheritance. Seen from a bird’s-eye view, the trail of aiki clearly arrives on the field three generations later, during the Genpei War, and is transmitted to Yoshimitsu’s great-grandson Takeda Nobuyoshi, the first of the Takeda.",
+
+            class:""
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+  /* =======================================================
+     2. THE MOUNTAIN AND THE LAW
+     ======================================================= */
+
+  {
+
+    jpTitle:"山と法",
+
+    enTitle:"The Mountain and the Law",
+
+    rows:[
+
+      {
+
+        jp:
+          "十二世紀、一人の少年、牛若丸が京都の北、鞍馬山へ赴いた。日本の伝承によれば、鞍馬は彼が非凡な武術の伝承を授かった場所である。歴史は彼を源義経と呼ぶ。その師は、山の超自然的な主、鞍馬山の大天狗、謎の鬼一法眼として記憶されている。",
+
+        en:[
+          {
+            text:
+              "In the twelfth century, a youth named Ushiwakamaru traveled to Mount Kurama north of Kyoto. Japanese tradition says that Kurama was the place where he received an extraordinary martial inheritance. History calls him Minamoto Yoshitsune. His teacher is remembered as the supernatural master of the mountain, the Great Tengu of Kurama, the mysterious Kiichi Hōgen.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "鬼一法眼 · Kiichi Hōgen\n鬼 · oni = 霊、超自然的存在\n一 · ichi = 一、第一、根源\n法 · hō = 法、聖なる秩序\n眼 · gen = 眼、見る力、洞察\nその名は、象徴的な読みを誘う。根源の霊、普遍の法を観る眼。",
+
+        en:[
+          {
+            text:
+              "鬼一法眼 — Kiichi Hōgen\n鬼 — spirit, supernatural being\n一 — one, first, primordial\n法 — law, sacred order\n眼 — eye, vision\nThe name invites a symbolic reading: Primordial Spirit, Vision of the Universal Law.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "鞍馬の「法」は、今日私たちが合気と呼ぶものの初期的な表現であったと考えられる。言葉としての合気ではない。有限の技術体系としての合気でもない。法が生きて働くこと。",
+
+        en:[
+          {
+            text:
+              "It is believed that the Law of Kurama was an early expression of what we now call aiki. Not the word. Not a finite technical system. The living operation of the Law.",
+
+            class:""
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+  /* =======================================================
+     3. TORA NO MAKI
+     ======================================================= */
+
+  {
+
+    jpTitle:"虎の巻",
+
+    enTitle:"Tora no Maki",
+
+    rows:[
+
+      {
+
+        jp:
+          "義経が授かった教えは、虎の巻（虎の巻 · Tora no Maki）に収められていたと伝えられる。秘伝の虎の巻は、単なる技の目録ではなかった。それは、争いの諸条件を明晰に観ることによって、その状況から適切な行為が生じ得るようにする、ものの見方であった。",
+
+        en:[
+          {
+            text:
+              "It is said that the teaching Yoshitsune received was contained in the Tora no Maki — 虎の巻. The secret Scroll of Tora was more than a catalog of techniques. It was a way of perceiving the conditions of conflict so clearly that appropriate action could arise from them.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "私たち自身の継承の言葉で言えば、合気（合気 · Aiki）。法とは、現実そのものに内在する秩序である。合気とは、その全体的な状況と調和して働き、力に力で抗することなく、関係そのものから適切な行為が生じることを可能にする、生きた作用である。そこから自発的な技と兵法が生まれる、法の働きである。",
+
+        en:[
+          {
+            text:
+              "In the language of our own inheritance: AiKi. The Law is the order inherent in reality. Aiki is the living operation by which one enters into harmony with the whole circumstance, does not oppose force with force, and allows the appropriate action to arise from the relationship itself. It is the working of the Law from which spontaneous technique and strategy arise.",
+
+            class:""
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+  /* =======================================================
+     4. YOSHITSUNE LEARNS TO SEE
+     ======================================================= */
+
+  {
+
+    jpTitle:"義経、見ることを学ぶ",
+
+    enTitle:"Yoshitsune Learns to See",
+
+    rows:[
+
+      {
+
+        jp:
+          "義経が伝説的人物となるのは、他者には見えない可能性を見るからである。地形は機会となる。相手の予想は弱点となる。不可能と思われた道こそ、選ぶべき道となる。関係そのものを変えることができるなら、力に常に正面から抗する必要はない。",
+
+        en:[
+          {
+            text:
+              "Yoshitsune becomes legendary because he sees possibilities others do not. Terrain becomes opportunity. Expectation becomes vulnerability. The route believed impossible becomes precisely the route worth taking. Force need not always be opposed if the relationship itself can be changed.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "聖都流の読みでは、これは単なる戦略ではない。鞍馬で出会った法の、生成的な表現であった。義経は、あらかじめ用意された答えの中から一つを選んだのではない。地形、時機、予測、力、動き、心理、関係、機会、その場の全体を見た。その全体的状況から、適切な行為が生じ得た。",
+
+        en:[
+          {
+            text:
+              "In the Seito reading, this was not merely strategy. It was the generative expression of the Law he encountered at Kurama. Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity. From that whole circumstance, the appropriate action could arise.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "したがって、その教えは簡潔に言うことができる。法に従って見よ。そうすれば、適切な行為は自ら現れる。この意味において義経は、数世紀後に植芝盛平が「武産合気」として明確に語ることになる、合気の生成的な次元で働いていたのである。",
+
+        en:[
+          {
+            text:
+              "The teaching can therefore be stated simply: See according to the Law, and the appropriate action will reveal itself. In this sense, Yoshitsune was operating at the generative level of Aiki that Morihei Ueshiba would centuries later articulate as Takemusu Aiki.",
+
+            class:""
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+  /* =======================================================
+     5. THE GATHERING, THE CAMPAIGN, AND THE SCATTERING
+     ======================================================= */
+
+  {
+
+    jpTitle:"集結、戦役、そして離散",
+
+    enTitle:"The Gathering, the Campaign, and the Scattering",
+
+    rows:[
+
+      {
+
+        jp:
+          "義経は十六歳頃に鞍馬を離れ、北へ向かい、平泉の藤原秀衡の庇護を受けた。でおよそ六年を過ごした。教えを修めた。その中で成熟した。教えは本能となった。",
+
+        en:[
+          {
+            text:
+              "Yoshitsune left Kurama around the age of sixteen and traveled north to the protection of Fujiwara no Hidehira at Hiraizumi. There he remained for roughly six years. He practiced the teaching. He matured within it. Instruction became instinct.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "そして1180年、分かれていた源氏は戦によって再び引き寄せられた。義経と武田信義は、同じ源氏の中でも近縁の支流に属していた。本縁起が採る系譜では、二人は三従兄弟である。二人の曾祖父、源義家と源義光は兄弟であった。義経は義家の系統に連なり、信義は義光から甲斐源氏へ続く系統に連なった。二つの系統が分かれてから、まだ数世代しか経っていなかった。そして戦が、再び彼らを集めた。",
+
+        en:[
+          {
+            text:
+              "Then, in 1180, the divided Minamoto family was drawn together by war. Yoshitsune and Takeda Nobuyoshi belonged to closely related branches of the same Minamoto house. In the genealogy received here, they were third cousins. Their great-grandfathers, Minamoto no Yoshiie and Minamoto no Yoshimitsu, were brothers. Yoshitsune descended through Yoshiie. Nobuyoshi descended through Yoshimitsu and the Kai-Genji. The two lines had separated only a few generations earlier. Now war brought them together again.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "義経は平泉から南下し、兄であり後の将軍となる源頼朝のもとへ加わった。分かれていた一族の流れが合流した。義経は鞍馬の教えを携えていた。甲斐源氏は、より古い源氏の武術伝承を携えていた。",
+
+        en:[
+          {
+            text:
+              "Yoshitsune rode south from Hiraizumi and joined his elder brother, Minamoto no Yoritomo, the future shogun. The currents of the divided house converged. Yoshitsune carried the teaching of Kurama. The Kai-Genji carried the older Minamoto martial inheritance.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "1184年の一ノ谷の戦いでは、義経と武田信義もともに戦役に加わっていた。義経の鵯越の逆落としは、後に合気として認識されることになる同じ道理に、武の形を与えた。あり得ないと見なされた道が攻撃の道となった。地形が機会となった。敵の強みをそのままの条件で受け止めるのではなく、関係そのものを変えたのである。",
+
+        en:[
+          {
+            text:
+              "During the Ichi-no-Tani campaign of 1184, in which Yoshitsune and Takeda Nobuyoshi were both engaged, Yoshitsune’s descent at Hiyodorigoe gave martial form to the same logic later recognized as aiki. The impossible route became the route of attack. Terrain became opportunity. The enemy’s strength was not met on its own terms; the relationship itself was changed.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "そして法の働きを観察し、生き延び、次の日も再びそれを適用する場として、これほど苛烈な実験場はほとんど考えられない。彼らは何年もの間、戦という坩堝の中で生きた。共に策を練った。鍛錬した。戦った。適応した。そして再び戦った。",
+
+        en:[
+          {
+            text:
+              "And there could scarcely have been a harsher laboratory in which to observe the application of the Law, survive, and live another day to apply it again. For years these men lived inside the crucible of war. Together they planned. They trained. They fought. They adapted. And they fought again.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "武将は武将から学んだ。武術を教える者は、他家の方法と出会った。役に立たない知識には即座に結果が伴い得た。役に立った知識は記憶された。彼らは互いの方法をただ見ただけではない。学んだのである。義経の鞍馬伝承は、教授、観察、戦役、生存、そして現実に対する反復的な適用を通じ、この共有された武的生活の中に広がったと伝えられる。",
+
+        en:[
+          {
+            text:
+              "Commanders learned from commanders. Martial instructors encountered methods belonging to other houses. Knowledge that failed could carry immediate consequences. Knowledge that worked was remembered. They did not merely observe one another's methods. They learned them. It is said that Yoshitsune's Kurama inheritance spread through this shared martial life, through instruction, observation, campaign, survival, and repeated application against reality.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "源氏の軍勢そのものが、伝承の場となった。もし鞍馬の教えが合気の初期的な表現であったならば、彼らは、生成的な武の行為が生まれなければならない条件の中で、その働きに出会ったことになる。不確実性。抵抗。結果。適応。そして生存。",
+
+        en:[
+          {
+            text:
+              "The Minamoto host itself became the environment of transmission. If the Kurama teaching was an early expression of aiki, then these warriors encountered its working under the conditions in which generative martial action had to arise: uncertainty, resistance, consequence, adaptation, and survival.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "聖都流の読みでは、これらの条件が重要である。そこでは合気が単なる技としてではなく、適切な行為を自発的に生み出すものとして現れ得たからである。伝承は、義経をめぐって剣術、兵法、秘伝その他の隠された術を含む、多くの流派と秘密伝承が集ったことを記憶している。一つの法。多くの現れ。",
+
+        en:[
+          {
+            text:
+              "In the Seito-ryū reading, those conditions matter because they created an environment in which aiki could reveal itself not merely as technique, but as the spontaneous generation of appropriate action. Tradition remembers many ryū and secret transmissions gathering around Yoshitsune, from sword and strategy to hiden and other concealed arts. One Law. Many expressions.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "この源氏の集結こそ、鞍馬の教えが、より古い義光の継承へ入った門である。柔術は義光から来た。合気は義経から入った。",
+
+        en:[
+          {
+            text:
+              "The Minamoto gathering is the gate through which the Kurama teaching entered the older Yoshimitsu inheritance. The jūjutsu had come through Yoshimitsu. Aiki entered through Yoshitsune.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "しかし、親和と集結は長く続かなかった。頼朝はやがて独立した源氏勢力に対して動き、ついには名高い弟、義経自身を追うことになる。しかし、その教えはすでに伝わっていた。歴史は義経の死を平泉に置く。日本の伝説は、彼をそこに留めなかった。義経は追討を逃れ、北へ脱出し、大陸へ渡り、最も壮大な伝説では、ついにはかの軍事的天才チンギス・ハーンその人となったともいう。伝説である！",
+
+        en:[
+          {
+            text:
+              "The goodwill and gathering did not last. Yoritomo eventually moved against independent Minamoto powers and finally against his famous brother Yoshitsune himself. But the teaching had already been passed. History places Yoshitsune's death at Hiraizumi. Japanese legend refused to leave him there. It is said that he survived the hunt, escaped north, crossed to the Asian mainland, and, in the most extravagant version of the legend, became none other than the military genius Genghis Khan himself. Legend!",
+
+            class:""
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+  /* =======================================================
+     6. THE TAKEDA INHERITANCE
+     ======================================================= */
+
+  {
+
+    jpTitle:"武田の継承",
+
+    enTitle:"The Takeda Inheritance",
+
+    rows:[
+
+      {
+
+        jp:
+          "武田は残った。彼らが受け継いだ源氏の武術は、合気が働き続けるための身体を与えた。形はその器であった。合気は、その中に生きて働く作用であった。武田家において、その働きは秘伝その他の内伝、秘された伝承の中に埋め込まれて残ったと考えられる。",
+
+        en:[
+          {
+            text:
+              "The Takeda endured. Their inherited Minamoto arts provided a body through which aiki could continue to operate. The forms were the vehicle. Aiki was the living operation within them. It is believed that within the Takeda house, that operation remained embedded in the hiden and other inner or concealed transmissions of the ryū.",
+
+            class:""
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+  /* =======================================================
+     7. ON TAKEDA SHINGEN
+     ======================================================= */
+
+  {
+
+    jpTitle:"武田信玄",
+
+    enTitle:"On Takeda Shingen",
+
+    rows:[
+
+      {
+
+        jp:
+          "数世紀後、甲斐武田の宗家から武田信玄が現れた。その複数の兵法には、法の顕著な後世的表現を見ることができる。有名な戦略原則「風林火山」は、同じ法を軍勢の規模で表現したものとして読むことができる。",
+
+        en:[
+          {
+            text:
+              "Centuries later, the main Kai-Takeda house produced Takeda Shingen. His strategies offer striking later expressions of the Law. His famous strategic maxim, Fūrinkazan, meaning Wind, Forest, Fire, Mountain, gives us the same Law expressed at the scale of armies:",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "風。林。火。山。\n速さが必要ならば、疾風のごとく。\n静けさが必要ならば、林のごとく。\n力が必要ならば、火のごとく圧倒する。\n動けば立場を失うならば、山のごとく動かない。\n常に正しい一つの外形的反応があるのではない。\n残されるのは、状況に正しく応ずる能力である。",
+
+        en:[
+          {
+            text:
+              "Wind. Forest. Fire. Mountain.\nSwift when swiftness is required.\nStill when stillness is required.\nOverwhelming when force is required.\nImmovable when movement would destroy the position.\nNo single outward response is always correct.\nWhat remains available is the ability to answer circumstance correctly.",
+
+            class:""
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+  /* =======================================================
+     8. FROM KAI TO AIZU
+     ======================================================= */
+
+  {
+
+    jpTitle:"甲斐から会津へ",
+
+    enTitle:"From Kai to Aizu",
+
+    rows:[
+
+      {
+
+        jp:
+          "武田の傍系は、やがて家の伝承を会津へ運んだ。そこで武の問題は変わった。戦場は城内となった。礼装、狭い室内、礼法、武器の制限、そして政治的結果が、新たな制約を課した。",
+
+        en:[
+          {
+            text:
+              "A collateral Takeda branch later carried the family inheritance into Aizu. There the martial problem changed. The battlefield became the castle. Formal clothing, confined rooms, etiquette, restricted weapons, and political consequence imposed new constraints.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "会津では、この継承の一部が城内の格式と制約に適応し、後世の伝承が「御式内」と呼ぶ、礼法、制御、自衛に関わる内向きの家中武術と結びついたとされる。かつて戦場全体に広がっていた戦略的問題は、二人の身体の間の空間へと圧縮された。",
+
+        en:[
+          {
+            text:
+              "It is said that in Aizu, part of this inheritance was adapted to the formal and restricted environment of the castle and became associated with what later tradition calls oshikiuchi, an inner-household discipline of etiquette, control, and self-protection. A strategic problem once measured across battlefields was compressed into the space between two bodies.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "このように凝縮された武的環境の中で、古い合気の働きの一側面が極めて精密に磨かれた。すなわち、二人の間にある関係、構造、均衡、増して意図を制することである。",
+
+        en:[
+          {
+            text:
+              "Within this increasingly concentrated martial environment, one dimension of the older aiki operation was refined with extraordinary precision: control of relationship, structure, balance, and intention between two people.",
+
+            class:""
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+  /* =======================================================
+     9. BEFORE THE NAME
+     ======================================================= */
+
+  {
+
+    jpTitle:"名が生まれる以前",
+
+    enTitle:"Before the Name",
+
+    rows:[
+
+      {
+
+        jp:
+          "何世紀もの間、私たちが合気と呼んできたものには、一つの恒久的な名称を必要としなかった。武術の身体が先にあった。より深い教えは、それ自体が独立して名付けられた体系となる以前から、その中に埋め込まれて存在し得た。",
+
+        en:[
+          {
+            text:
+              "For centuries, what we have labeled aiki required no single permanent name. The martial body came first. Higher teachings could remain embedded within it without yet existing as a separately named discipline.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "やがて、一つの語が特別な重要性を持つようになる。合気 · Aiki。この語は、近代大東流以前から日本の武術言説の中に存在していた。1892年には、『武道秘訣 合気之術』という題名を持つ日本の書物が現れる。",
+
+        en:[
+          {
+            text:
+              "Eventually one term acquired special importance: Aiki — 合気. The word already existed in Japanese martial discourse before modern Daitō-ryū. By 1892, a Japanese book appeared under the title: Budō Hiketsu: Aiki no Jutsu (Secrets of Budō: The Art of Aiki).",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "二十世紀初頭までには、武田の継承そのものが「合気」を実際の武術用語として用いるようになる。私たちの物語において初めて、その作用が名を得る。",
+
+        en:[
+          {
+            text:
+              "By the early twentieth century, the Takeda inheritance itself would use aiki as an operative martial term. For the first time in our story: the operation now has its name.",
+
+            class:""
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+  /* =======================================================
+     10. SŌKAKU, UESHIBA, AND THE NAMING OF AIKI
+     ======================================================= */
+
+  {
+
+    jpTitle:"惣角、植芝、そして「合気」という名",
+
+    enTitle:"Sōkaku, Ueshiba, and the Naming of Aiki",
+
+    rows:[
+
+      {
+
+        jp:
+          "会津武田から、武田惣角が現れた。惣角によって、武田の武術伝承は大東流柔術として近代日本へ入った。その技術体系は、すでに段階的に深まる伝承構造として整理されていた。最も深い内容の一部は、裏、内伝、秘伝、あるいは書かれないものとして残されていた。惣角の初期伝承における「秘伝目録」には118ヶ条が記され、さらに30ヶ条が書面の目録外に残された。",
+
+        en:[
+          {
+            text:
+              "From the Aizu Takeda came Takeda Sōkaku. With him, the Takeda martial inheritance entered modern Japan as Daitō-ryū Jūjutsu. Its technical body was already organized into progressively deeper levels of transmission. Some of its highest material remained ura, inner, hiden, or unwritten. In Sōkaku's early transmission, the Hiden Mokuroku, the Catalogue of Secret Teachings, named 118 items, while 30 remained outside the written listing.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "二十世紀初頭までには、惣角自身が、その武術のより高度な働きを指して「合気」という語を用いていた。大東流は、合気の本質的な一側面を、極めて洗練された武術的作用へと保存し、技術的に凝縮した。すなわち、単純な力比べに頼ることなく、関係に入り、それを制することによって、相手の均衡、構造、あるいは意図を取る働きである。",
+
+        en:[
+          {
+            text:
+              "By the early twentieth century, Sōkaku was already using the term aiki for the higher operation within his art. Daitō-ryū preserved and technically concentrated one essential dimension of aiki into an exceptionally refined martial operation: joining and controlling the relationship so that balance, structure, or intention could be taken without relying upon a simple contest of force.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "ここで、その区別を明確に述べることができる。柔術が技術的な身体を与える。合気は、その身体を通して働く作用である。合気之術は、その作用を明示する。",
+
+        en:[
+          {
+            text:
+              "The distinction can now be stated plainly: Jūjutsu provides the technical body. Aiki is the operation acting through it. Aiki no Jutsu makes that operation explicit.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "惣角の門人の中でも、後世に最も大きな影響を与えた一人が植芝盛平であった。植芝は綾部において出口王仁三郎と大本の宗教世界へ入った。1922年、惣角もそこで教授した。従来の柔術体系と並んで、「合気之術」として別に識別された内容が現れる。同じ年、現存する記録の中で流派名は「大東流合気柔術」となる。",
+
+        en:[
+          {
+            text:
+              "Among Sōkaku's most consequential students was Morihei Ueshiba. Ueshiba entered the religious world of Onisaburō Deguchi and Ōmoto at Ayabe. In 1922, Sōkaku taught there. Alongside the established jūjutsu curriculum appears a separately identified body of Aiki no Jutsu. In the same year, the ryū begins appearing in surviving records under the name: Daitō-ryū Aiki-jūjutsu.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "植芝家および関連する後世の証言では、出口が実際の働きを見たうえで「合気」を名称に加えることを勧めたとも伝えられている。内なる作用は、ついに武術そのものの名称に立つほど明示的なものとなった。",
+
+        en:[
+          {
+            text:
+              "Ueshiba-family and related testimony later credited Deguchi with encouraging the addition of aiki to the name after observing it in action. The inner operation had become explicit enough to stand in the name of the art itself.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "そして植芝は、その理解をさらに先へ進めた。彼は次第に、合気を単なる柔術内部の高度に洗練された作用としてだけではなく、行為そのものがそこから生じ得る、より大きな秩序の生きた働きとして理解するようになった。そうすることによって植芝は、合気が持つ、より完全な生成的可能性を再発見したと考えられる。そこから現れたのが、合気道（Aikidō）である。",
+
+        en:[
+          {
+            text:
+              "Ueshiba then carried the understanding even further. He increasingly understood aiki not merely as a highly refined operation within jūjutsu, but as the living operation of a larger order through which action itself could arise. It is believed that in doing so, Ueshiba rediscovered the fuller generative potential of aiki. From that development emerged: Aikidō — The Way of Aiki.",
+
+            class:""
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+  /* =======================================================
+     11. TAKEMUSU AIKI
+     ======================================================= */
+
+  {
+
+    jpTitle:"武産合気",
+
+    enTitle:"Takemusu Aiki",
+
+    rows:[
+
+      {
+
+        jp:
+          "植芝大先生において、その型は明確となる。武産合気とは、生成する状態にある合気である。すなわち、あらかじめ定められた技を先に選び、それを無理に成立させるのではなく、遭遇の条件そのものから適切な武的行為が自発的に生まれることである。",
+
+        en:[
+          {
+            text:
+              "With Ueshiba O’sensei, the pattern becomes explicit. Takemusu Aiki is aiki in its generative state: the spontaneous birth of appropriate martial action from the conditions of the encounter, without first selecting or forcing a predetermined technique.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "真の合気から、状況に応じて武の形が生まれる。先に答えを選び、現実をそれに従わせようとするのではない。正しく関係に入る。行為が現れる。",
+
+        en:[
+          {
+            text:
+              "From true aiki, martial form arises according to circumstance. One does not first select the answer and then force reality to conform to it. One enters the relationship correctly. The action emerges.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "大東流において、合気は並外れた技術的精密さをもって保存され、磨かれてきた。植芝において、その生成的な広がりが再び明示された。",
+
+        en:[
+          {
+            text:
+              "In Daitō-ryū, aiki had been preserved and refined with extraordinary technical precision. With Ueshiba, its generative scope became explicit again.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "ここまでの全体を簡潔に述べることができる。法とは、現実そのものに内在する秩序である。合気とは、その秩序と調和して入り、その中で働くことである。武産合気とは、その調和から適切な武の形が自発的に生まれることである。",
+
+        en:[
+          {
+            text:
+              "The entire arc can now be stated simply: The Law is the order inherent in reality. Aiki is entering into and operating in harmony with that order. Takemusu Aiki is that harmony spontaneously giving birth to appropriate martial form.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "そして武産合気において、この長い弧は頂点に達する。合気は単に技を完成させるのではない。合気は技を生む。その悟りから、私たちに伝えられた武道が生まれた。合気道（Aikidō）。",
+
+        en:[
+          {
+            text:
+              "And in Takemusu Aiki, the long arc reaches its culmination: aiki does not merely perfect technique. Aiki gives birth to technique. From that realization came the art handed down to us: Aikidō — The Way of Aiki.",
+
+            class:""
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+  /* =======================================================
+     12. AIKI JIKKENJŌ
+     ======================================================= */
+
+  {
+
+    jpTitle:"合気実験場",
+
+    enTitle:"Aiki Jikkenjō",
+
+    rows:[
+
+      {
+
+        jp:
+          "実 · jitsu = 現実、実在\n験 · ken = 試すこと、経験による証明\n場 · jō = 場、場所、領域\n“Reality Testing Field”",
+
+        en:[
+          {
+            text:
+              "実 · jitsu = reality, actuality\n験 · ken = test, proof through experience\n場 · jō = field, place, ground\n“Reality Testing Field”",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "受け継がれた物語は、私たちを合気道へと導く。聖都流の探究は、その先に生じる問いから始まる。もし合気が生成的なものであるならば、答えがあらかじめ分かっている状況だけでは、それを完全に探究することはできない。稽古の中にも、不確実性、抵抗、変化する状況、適応、そして真の帰結が存在し得なければならない。ただし、それは戦争の暴力を再現することではない。",
+
+        en:[
+          {
+            text:
+              "The inherited story brings us to Aikidō. The Seito-ryū inquiry begins with the question that follows from it. If aiki is generative, then it cannot be investigated fully only where the answer is known in advance. Some training conditions must allow uncertainty, resistance, changing circumstance, adaptation, and genuine consequence without recreating the violence of war.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "源氏は、戦役と生存の坩堝の中で、そうした条件を持っていた。聖都流は戦争を再現しない。その代わり、必要な条件を段階的かつ比較的安全に再構成することのできる、合気実験場をつくる。",
+
+        en:[
+          {
+            text:
+              "The Minamoto possessed such conditions in the crucible of campaign and survival. Seito-ryū does not recreate war. It creates an Aiki Experimental Ground in which the relevant conditions can be reconstructed progressively and with relative safety.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "受け継がれた技術体系が、素材を与える。生きた条件が、実験場を与える。合気が、その中で働く作用を与える。そして武産合気こそ、私たちが試み、見出そうとする現象である。",
+
+        en:[
+          {
+            text:
+              "The inherited technical body provides the material. Alive conditions provide the Experimental Ground. Aiki provides the operation. Takemusu Aiki is the phenomenon we seek to recognize.",
+
+            class:""
+          }
+        ]
+
+      },
+
+      {
+
+        jp:
+          "したがって聖都流の創流の問いは、単に受け継がれた技を今なお行えるかどうかではない。合気が再び技を生むための条件を、つくることができるか。",
+
+        en:[
+          {
+            text:
+              "The founding question of Seito-ryū is therefore not simply whether inherited techniques can still be performed. It is whether the conditions can be created in which aiki once again gives birth to technique.",
+
+            class:"closing"
+          }
+        ]
+
+      }
+
+    ]
+
+  }
+
+];
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+
+const root =
+  document.getElementById("sections");
+
+sections.forEach(
+  (section,index) => {
+
+    const sectionElement =
+      document.createElement("section");
+
+    sectionElement.className =
+      "section";
+
+    if(index === 0){
+
+      sectionElement.id =
+        "about";
+
+    }
+
+    sectionElement.innerHTML = `
+
+          <img
+            src="/assets/seito-mon.png"
+            alt=""
+          >
+
+          ${section.jpTitle}
+
+          ${section.enTitle}
+
+    `;
+
+    const body =
+      sectionElement.querySelector(
+        ".section-body"
+      );
+
+    section.rows.forEach(
+      (row,rowIndex) => {
+
+        const jp =
+          document.createElement("div");
+
+        jp.className =
+          "jp-paragraph";
+
+        jp.lang =
+          "ja";
+
+        jp.textContent =
+          row.jp;
+
+        const en =
+          document.createElement("div");
+
+        en.className =
+          "en-group";
+
+        row.en.forEach(
+          paragraph => {
+
+            const node =
+              document.createElement("p");
+
+            if(paragraph.class){
+
+              node.className =
+                paragraph.class;
+
+            }
+
+            node.textContent =
+              paragraph.text;
+
+            en.appendChild(
+              node
+            );
+
+          }
+        );
+
+        const gridRow =
+          rowIndex + 1;
+
+        jp.style.gridRow =
+          gridRow;
+
+        en.style.gridRow =
+          gridRow;
+
+        body.append(
+          jp,
+          en
+        );
+
+      }
+    );
+
+    root.appendChild(
+      sectionElement
+    );
+
+  }
+);
+
+/* =========================================================
+   HERO TITLE WIDTH EQUALIZER
+   ========================================================= */
+
+function equalizeHeroTitle(){
+
+  document
+    .querySelectorAll(
+      "[data-title-equalizer]"
+    )
+    .forEach(
+      group => {
+
+        const japanese =
+          group.querySelector(
+            "[data-title-jp]"
+          );
+
+        const romaji =
+          group.querySelector(
+            "[data-title-romaji]"
+          );
+
+        if(
+          !japanese
+          ||
+          !romaji
+        ){
+          return;
+        }
+
+        japanese.style
+          .setProperty(
+            "--match-extra",
+            "0px"
+          );
+
+        romaji.style
+          .setProperty(
+            "--match-extra",
+            "0px"
+          );
+
+        const jpWidth =
+          japanese
+            .getBoundingClientRect()
+            .width;
+
+        const romajiWidth =
+          romaji
+            .getBoundingClientRect()
+            .width;
+
+        const targetWidth =
+          Math.max(
+            jpWidth,
+            romajiWidth
+          );
+
+        function expandLine(
+          element,
+          currentWidth
+        ){
+
+          if(
+            currentWidth >=
+            targetWidth - .5
+          ){
+            return;
+          }
+
+          const characters =
+            Array.from(
+              element
+                .textContent
+                .trim()
+            ).length;
+
+          if(
+            characters < 2
+          ){
+            return;
+          }
+
+          const extra =
+            (
+              targetWidth -
+              currentWidth
+            )
+            /
+            (
+              characters -
+              1
+            );
+
+          element.style
+            .setProperty(
+              "--match-extra",
+              `${extra}px`
+            );
+
+        }
+
+        expandLine(
+          japanese,
+          jpWidth
+        );
+
+        expandLine(
+          romaji,
+          romajiWidth
+        );
+
+      }
+    );
+
+}
+
+/* =========================================================
+   JAPANESE VERTICAL FITTING
+   ========================================================= */
+
+function paragraphFits(
+  paragraph
+){
+
+  const tolerance =
+    1.5;
+
+  return(
+
+    paragraph.scrollWidth <=
+      paragraph.clientWidth + tolerance
+
+    &&
+
+    paragraph.scrollHeight <=
+      paragraph.clientHeight + tolerance
+
+  );
+
+}
+
+function fitVerticalParagraph(
+  paragraph
+){
+
+  const minimum =
+    window.innerWidth >= 760
+      ? 220
+      : 200;
+
+  let low =
+    minimum;
+
+  let high =
+    minimum;
+
+  paragraph.style.height =
+    `${high}px`;
+
+  while(
+    !paragraphFits(paragraph)
+    &&
+    high < 1800
+  ){
+
+    high += 60;
+
+    paragraph.style.height =
+      `${high}px`;
+
+  }
+
+  while(
+    low < high
+  ){
+
+    const middle =
+      Math.floor(
+        (low + high) / 2
+      );
+
+    paragraph.style.height =
+      `${middle}px`;
+
+    if(
+      paragraphFits(paragraph)
+    ){
+
+      high =
+        middle;
+
+    }
+
+    else{
+
+      low =
+        middle + 1;
+
+    }
+
+  }
+
+  const fontSize =
+    parseFloat(
+      getComputedStyle(
+        paragraph
+      ).fontSize
+    );
+
+  const breathingRoom =
+    Math.max(
+      10,
+      fontSize * .55
+    );
+
+  paragraph.style.height =
+    `${Math.ceil(
+      high + breathingRoom
+    )}px`;
+
+}
+
+/* =========================================================
+   COMPLETE PAGE LAYOUT
+   ========================================================= */
+
+function layoutPage(){
+
+  equalizeHeroTitle();
+
+  document
+    .querySelectorAll(
+      ".jp-paragraph"
+    )
+    .forEach(
+      paragraph => {
+
+        fitVerticalParagraph(
+          paragraph
+        );
+
+      }
+    );
+
+}
+
+/* =========================================================
+   DEBOUNCE
+   ========================================================= */
+
+function debounce(
+  callback,
+  delay
+){
+
+  let timer;
+
+  return function(){
+
+    clearTimeout(
+      timer
+    );
+
+    timer =
+      setTimeout(
+        callback,
+        delay
+      );
+
+  };
+
+}
+
+/* =========================================================
+   INITIAL LAYOUT
+   ========================================================= */
+
+if(
+  document.fonts
+  &&
+  document.fonts.ready
+){
+
+  document.fonts.ready.then(
+    () => {
+
+      requestAnimationFrame(
+        () => {
+
+          requestAnimationFrame(
+            layoutPage
+          );
+
+        }
+      );
+
+    }
+  );
+
+}
+
+else{
+
+  window.addEventListener(
+    "load",
+    layoutPage
+  );
+
+}
+
+/* =========================================================
+   RESPONSIVE RECALCULATION
+   ========================================================= */
+
+const relayout =
+  debounce(
+    layoutPage,
+    120
+  );
+
+window.addEventListener(
+  "resize",
+  relayout
+);
+
+window.addEventListener(
+  "orientationchange",
+  () => {
+
+    setTimeout(
+      layoutPage,
+      250
+    );
+
+  }
+);
+
+if(
+  window.visualViewport
+){
+
+  window.visualViewport
+    .addEventListener(
+      "resize",
+      relayout
+    );
+
+}
+
+</script>
+
+</body>
+</html>
