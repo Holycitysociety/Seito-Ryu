@@ -13,7 +13,7 @@ const sections = [
 
     jpTitle:"概要",
 
-    enTitle:"About",
+    enTitle:"About what",
 
     rows:[
 
