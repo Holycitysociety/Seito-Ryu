@@ -147,37 +147,11 @@ class:""
 
 {
 
-jp:`その師は、山の超自然的な主、鞍馬の大天狗、謎めいた鬼一法眼として記憶されている。`,
+jp:`その師は、山の超自然的な主、鞍馬の大天狗、謎めいた鬼一法眼として記憶されている。その名は象徴的な読みを誘う。原初の霊、普遍の法を見る眼。`,
 
 en:[
 {
-text:`His teacher is remembered as the supernatural master of the mountain, the Great Tengu of Kurama, the mysterious Kiichi Hōgen.`,
-class:""
-}
-]
-
-},
-
-{
-
-jp:`その名は象徴的な読みを誘う。`,
-
-en:[
-{
-text:`The name invites a symbolic reading:`,
-class:""
-}
-]
-
-},
-
-{
-
-jp:`原初の霊、普遍の法を見る眼。`,
-
-en:[
-{
-text:`Primordial Spirit, Vision of the Universal Law.`,
+text:`His teacher is remembered as the supernatural master of the mountain, the Great Tengu of Kurama, the mysterious Kiichi Hōgen. The name invites a symbolic reading: Primordial Spirit, Vision of the Universal Law.`,
 class:"closing"
 }
 ]
