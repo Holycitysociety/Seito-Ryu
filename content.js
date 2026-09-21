@@ -1,7 +1,7 @@
 /* =========================================================
 SEITO-RYŪ NON-HERO CONTENT
 CURRENT BODY: SEITO-RYŪ ENGI
-ENGLISH CANONICAL ACCEPTED REDLINE — 2026-09-21
+CANONICAL ACCEPTED TEXT — 2026-09-21
 
 EDIT NORMAL ENGLISH / JAPANESE PAGE TEXT HERE.
 
@@ -70,7 +70,7 @@ jp:`出来事は継承されたものである。その解釈こそ聖都流の�
 
 en:[
 {
-text:`The events are inherited. The interpretation is the mitate of Seito-ryū, and the justification of its founding in Charleston in 2026.`,
+text:`The events are inherited. The interpretation is the “mitate” of Seito-ryū, and the justification of its founding in Charleston in 2026.`,
 class:""
 }
 ]
@@ -96,7 +96,7 @@ jp:`聖都流は、大東流の伝統的な歴史を、自らの継承の一部�
 
 en:[
 {
-text:`Seito-ryū receives the traditional history of Daitō-ryū as part of its own inheritance. That tradition looks back nearly nine centuries to Shinra Saburō Minamoto no Yoshimitsu, remembered as the distant founder of the martial body later known as Daitō-ryū, and as the ancestor through whom that inheritance passed into the Kai-Genji and the house of Takeda.`,
+text:`Seito-ryū receives the traditional history of Daitō-ryū as part of its own inheritance. That tradition looks back nearly nine centuries to Shinra Saburō Minamoto no Yoshimitsu, remembered as the distant founder of the martial body later known as Daitō-ryū and as the ancestor through whom that inheritance passed into the Kai-Genji and the house of Takeda.`,
 class:""
 }
 ]
@@ -109,7 +109,7 @@ jp:`聖都流の読みが関わるのは、合気がいつその継承に入っ�
 
 en:[
 {
-text:`The Seito-ryū reading concerns the point at which aiki entered that inheritance. In our Engi, it appears generations later upon the field of the Genpei War.`,
+text:`The Seito-ryū reading concerns the point at which aiki entered that inheritance. In our “Engi”, it appears generations later upon the field of the Genpei War.`,
 class:""
 }
 ]
@@ -374,7 +374,12 @@ jp:`ゆえに、その教えは簡潔に言うことができる。法に従っ�
 
 en:[
 {
-text:`The teaching can therefore be stated simply: See according to the Law, and the appropriate action will reveal itself.`,
+text:`The teaching can therefore be stated simply:`,
+class:""
+},
+
+{
+text:`See according to the Law, and the appropriate action will reveal itself.`,
 class:"closing"
 }
 ]
@@ -413,7 +418,7 @@ jp:`義経は、何世紀も後に植芝盛平が武産合気として明確に�
 
 en:[
 {
-text:`Yoshitsune was an operator within the principle that Morihei Ueshiba would centuries later articulate as Takemusu Aiki. His close circle as well as the famous seventy distinguished warriors operated with him.`,
+text:`Yoshitsune was an operator within the principle that Morihei Ueshiba would centuries later articulate as Takemusu Aiki. His close circle as well as the famous 70 distinguished warriors operated with him.`,
 class:""
 }
 ]
@@ -442,7 +447,7 @@ jp:`一一八四年の一ノ谷において、一つの有名な出来事が、�
 
 en:[
 {
-text:`At Ichi-no-Tani in 1184, in one famous event the effect of aiki at the strike force level is clearly visible on the battlefield. Yoshitsune and his seventy-odd Distinguished Warriors’ extraordinary movement through Hiyodorigoe is well known.`,
+text:`At Ichi-no-Tani in 1184, in one famous event the effect of aiki at the strike force level is clearly visible on the battlefield. Yoshitsune’s and his Seventy some-odd Distguised Warriors’ extraordinary movement through Hiyodorigoe is well known.`,
 class:""
 }
 ]
@@ -491,7 +496,12 @@ class:""
 },
 
 {
-text:`Beneath the Minamoto war effort stood two 大将軍, Daishōgun, “army commanders.” The record sets apart immediately beneath them twelve 相従ふ輩, Aishitagau Yakara, “following or accompanying men”: seven with Noriyori and five with Yoshitsune.`,
+text:`Beneath the Minamoto war effort stood two 大将軍, Daishōgun, “army commanders.” The record sets apart immediately beneath them twelve 相従ふ輩, Aishitagau Yakara, “following or accompanying men.”`,
+class:""
+},
+
+{
+text:`Seven with Noriyori and five with Yoshitsune.`,
 class:""
 },
 
@@ -507,22 +517,32 @@ class:""
 
 {
 text:
-`MINAMOTO NO YORITOMO
+`Minamoto no Yoritomo
 future shogun, head of the Minamoto war effort
 ↓
-TWO DAISHŌGUN — army commanders
-↓
-TWELVE AISHITAGAU YAKARA
+Two 大将軍, Daishōgun, “army commanders”
 
-MINAMOTO NO NORIYORI — 大手, Ōte, main front
-Seven Aishitagau Yakara:
-Takeda Nobuyoshi · Kagami Tōmitsu · Ogasawara Nagakiyo
-Ichijō Tadayori · Itagaki Kanenobu · Takeda Ariyoshi · Isawa Nobumitsu
+Minamoto no Noriyori
+大手, Ōte, main front
 
-MINAMOTO NO YOSHITSUNE — 搦手, Karamete, rear and flanking approach
-Five Aishitagau Yakara:
-Yasuda Yoshisada · Tashiro Nobutsuna · Ōuchi Koreyoshi
-Nakahara Chikayoshi · Sahara Jūrō Yoshitsura, also known as Miura Yoshitsura`,
+Seven Front Aishitagau Yakara
+Takeda Nobuyoshi
+Kagami Tōmitsu
+Ogasawara Nagakiyo
+Ichijō Tadayori
+Itagaki Kanenobu
+Takeda Ariyoshi
+Isawa Nobumitsu
+
+Minamoto no Yoshitsune
+搦手, Karamete, rear/flanking approach
+
+Five Rear Aishitagau Yakara
+Yasuda Yoshisada
+Tashiro Nobutsuna
+Ōuchi Koreyoshi
+Nakahara Chikayoshi
+Sahara Jūrō Yoshitsura, also known as Miura Yoshitsura`,
 class:"sequence"
 }
 ]
@@ -589,7 +609,7 @@ class:"sequence"
 },
 
 {
-text:`Two of the twelve Aishitagau Yakara had already been committed elsewhere. Yasuda Yoshisada, Takeda’s brother, remained in the rear command, while Tashiro Nobutsuna was committed toward the gate attack.`,
+text:`Two of the twelve Aishitagau Yakara had already implemented elsewhere. Yasuda Yoshisada, Takedas Brother, remained in the rear command, while Tashiro Nobutsuna was committed toward the gate attack.`,
 class:""
 },
 
@@ -612,7 +632,7 @@ class:"sequence"
 },
 
 {
-text:`Nobutsuna strikes the gate! The pressure upon the expected approaches now acquired another meaning. Gate and front demanded defense. Strength and attention remained fixed upon the lines the Taira had prepared to defend.`,
+text:`Noboutsans strikes the gate! The pressure upon the expected approaches now acquired another meaning. Gate and front demanded defense. Strength and attention remained fixed upon the lines the Taira had prepared to defend.`,
 class:""
 }
 ]
@@ -630,7 +650,7 @@ class:"sequence"
 },
 
 {
-text:`At the Hour of the Tiger (tora), Yoshitsune drew off from the host some seventy-odd distinguished warriors, together with the 余, yo, “remainder,” of the Aishitagau Yakara.`,
+text:`At the Hour of the tiger (tora), Yoshitsune drew off from the host some seventy-odd distinguished warriors, together with the 余, yo, “remainder,” of the Aishitagau Yakara.`,
 class:""
 },
 
@@ -640,12 +660,17 @@ class:"sequence"
 },
 
 {
-text:`Among the seventy distinguished warriors named in the tradition were: Washio Saburō Yoshihisa, Kumagai Naozane, Kumagai Naoie, and Hirayama Sueshige.`,
+text:`Among the 70 distinguished warriors named in the tradition were:`,
 class:""
 },
 
 {
-text:`Then Hōgen turned toward the mountain.`,
+text:`Washio Saburō Yoshihisa, Kumagai Naozane, Kumagai Naoie, and Hirayama Sueshige.`,
+class:""
+},
+
+{
+text:`Then Hogen turned toward the mountain.`,
 class:""
 }
 ]
@@ -667,11 +692,11 @@ class:"sequence"
 
 {
 
-jp:`鵯越では、攻撃に不可能と判断された道が、そのまま攻撃の道となった。ありそうにない地形は機会となり、敵の予想は弱点となった。義経は、敵が準備した強さにその条件のままぶつかるのではなく、関係そのものを変えた。`,
+jp:`鵯越では、攻撃に不可能とされた道が、そのまま攻撃の道となった。ありそうにない地形は機会となり、敵の予想は弱点となった。義経は、敵が準備した強さにその条件のままぶつかるのではなく、関係そのものを変えた。`,
 
 en:[
 {
-text:`At Hiyodorigoe, the route judged impossible for attack became the very route of attack. The improbable terrain became opportunity, and enemy expectation became vulnerability. Rather than meet the enemy’s prepared strength upon its own terms, Yoshitsune changed the relationship itself.`,
+text:`At Hiyodorigoe, the route judged impossible for attack became the very route of attack. The improbable terrain became opportunity and enemy expectation became vulnerability. Rather than meet the enemy’s prepared strength upon its own terms, Yoshitsune changed the relationship itself.`,
 class:""
 }
 ]
@@ -815,7 +840,7 @@ jp:`四年間、戦役そのものが彼らの実験場であった。教えは�
 
 en:[
 {
-text:`For four years, campaign itself had been their reality-testing ground. Instruction had become perception. At Ichi-no-Tani, perception gave birth to aiki in action.`,
+text:`For four years, campaign itself had been their reality-testing ground. Instruction had become perception. At Ichi-no-Tani, perception gave birth to Aiki in action.`,
 class:""
 }
 ]
@@ -841,7 +866,7 @@ jp:`ここで大東流の継承は合流する。より古い柔術の継承は�
 
 en:[
 {
-text:`Here the Daitō inheritance converges. The older jūjutsu inheritance had come through Shinra Saburō Minamoto no Yoshimitsu. The Kurama teaching entered the Minamoto gathering through Yoshitsune. At Ichi-no-Tani, the Kai-Genji and Yoshitsune’s own Aishitagau Yakara stood within the same field. Takeda received it, preserved it, and carried it forward.`,
+text:`Here the Daito inheritance converges. The older jūjutsu inheritance had come through Shinra Saburō Minamoto no Yoshitsune. The Kurama teaching entered the Minamoto gathering through Yoshitsune. At Ichi-no-Tani, the Kai-Genji and Yoshitsune’s own Aishitagau Yakara stood within the same field. Takeda received it, preserved it, and carried it forward.`,
 class:""
 }
 ]
@@ -867,7 +892,7 @@ jp:`歴史は義経の死を、その避難所である平泉に置く。しか�
 
 en:[
 {
-text:`History places Yoshitsune’s death at his refuge, Hiraizumi. Japanese legend refused to leave him there. It is said that he evaded the hunt, escaped north, crossed to the Asian mainland, and, in the most extravagant version of the story, became none other than the military genius Genghis Khan himself.`,
+text:`History places Yoshitsune's death at his refuge, Hiraizumi. Japanese legend refused to leave him there. It is said that evaded the hunt, survived to escaped north, crossed to the Asian mainland, and in the most extravagant version of the story, became none other than the military genius Genghis Khan himself.`,
 class:""
 },
 
@@ -891,7 +916,7 @@ THE TAKEDA INHERITANCE — FROM KAI TO AIZU
 
 jpTitle:`武田の継承 — 甲斐から会津へ`,
 
-enTitle:`The Takeda Inheritance — From Kai to Aizu`,
+enTitle:`The Takeda Inheritance From Kai to Aizu`,
 
 rows:[
 
@@ -927,7 +952,7 @@ jp:`武田家の中で、その働きは秘伝、裏、その他の隠された�
 
 en:[
 {
-text:`It is believed that within the Takeda house, that operation remained embedded in the hiden, ura, or other concealed transmissions of the ryū.`,
+text:`It is believed that within the Takeda house, that operation remained embedded in the hiden ura or concealed transmissions of the ryū.`,
 class:""
 }
 ]
@@ -1089,7 +1114,7 @@ jp:`何世代もの間、法の働きには一つの定まった名称がなか�
 
 en:[
 {
-text:`For generations, the operation of the Law had no one settled name. The martial body could be named while its higher teachings remained embedded within it without yet existing as a separately named discipline.`,
+text:`For generations, the operation of the law had no one settled name. The martial body could be named while its higher teachings remained embedded within it without yet existing as a separately named discipline.`,
 class:""
 }
 ]
@@ -1107,7 +1132,7 @@ class:""
 },
 
 {
-text:`Aiki — 合気`,
+text:`合気 — Aiki`,
 class:"sequence"
 }
 ]
@@ -1139,8 +1164,7 @@ class:""
 
 {
 text:
-`武道秘訣 合気之術
-BUDŌ HIKETSU: AIKI NO JUTSU
+`Budō Hiketsu: Aiki no Jutsu
 Secrets of Budō: The Art of Aiki`,
 class:"sequence"
 }
@@ -1196,20 +1220,7 @@ jp:`会津武田の流れから武田惣角が現れた。惣角によって、�
 
 en:[
 {
-text:`From the Aizu Takeda came Takeda Sōkaku. With him, the Takeda martial inheritance entered modern Japan as Daitō-ryū Jūjutsu.`,
-class:""
-}
-]
-
-},
-
-{
-
-jp:`その技術体系は、段階的に深まる伝承として組織されていたが、その最も高度な働きの一部は、内伝あるいは文書化されないものとして残っていた。`,
-
-en:[
-{
-text:`Its technical body was organized into progressively deeper levels of transmission, while some of its highest operation remained inner or unwritten.`,
+text:`From the Aizu Takeda came Takeda Sōkaku. With him, the Takeda martial inheritance entered modern Japan as Daitō-ryū Jūjutsu. Its technical body was organized into progressively deeper levels of transmission, while some of its highest operation remained inner or unwritten.`,
 class:""
 }
 ]
@@ -1279,9 +1290,7 @@ class:""
 },
 
 {
-text:
-`大東流合気柔術
-DAITŌ-RYŪ AIKI-JŪJUTSU`,
+text:`Daitō-ryū Aiki-jūjutsu`,
 class:"sequence"
 }
 ]
@@ -1375,7 +1384,7 @@ jp:`大東流において、合気は卓越した技術的精密さをもって�
 
 en:[
 {
-text:`In Daitō-ryū, aiki had been preserved and refined with extraordinary technical precision. With Ueshiba, its generative scope became explicit once more.`,
+text:`In Daitō-ryū, aiki had been preserved and refined with extraordinary technical precision. With Ueshiba, its generative scope became explicit again.`,
 class:""
 }
 ]
@@ -1394,9 +1403,9 @@ class:""
 
 {
 text:
-`THE LAW is the order inherent in reality.
-AIKI is its living martial operation.
-TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martial form.`,
+`The Law is the order inherent in reality.
+Aiki is its living martial operation.
+Takemusu Aiki is that operation spontaneously giving birth to appropriate martial form.`,
 class:"sequence"
 }
 ]
@@ -1409,7 +1418,12 @@ jp:`武産合気において、この長い弧は頂点に達する。合気は�
 
 en:[
 {
-text:`And in Takemusu Aiki, the long arc reaches its culmination: aiki does not merely perfect technique. Aiki gives birth to technique.`,
+text:`And in Takemusu Aiki, the long arc reaches its culmination:`,
+class:""
+},
+
+{
+text:`aiki does not merely perfect technique. Aiki gives birth to technique.`,
 class:"closing"
 }
 ]
@@ -1427,7 +1441,8 @@ class:""
 },
 
 {
-text:`Aikidō — The Way of Aiki.`,
+text:`Aikidō
+The Way of Aiki`,
 class:"closing"
 }
 ]
@@ -1456,7 +1471,7 @@ jp:`この縁起を準備する中で、最後の予期せぬ反響が見出さ�
 
 en:[
 {
-text:`In preparing this Engi, a final unexpected echo was found. Ōsensei likely knew the truth.`,
+text:`There is a final unexpected echo found in preparing our engi. O’Sensei knew the truth.`,
 class:""
 }
 ]
@@ -1474,7 +1489,26 @@ class:""
 },
 
 {
-text:`“If it comes, meet it. If it leaves, send it on its way. If it opposes, harmonize with it.”`,
+text:
+`If it comes, then meet it.
+If it leaves, then send it away.
+If it resists, harmonize it.
+
+Five and five are ten.
+Two and eight are ten.
+One and nine are ten.
+You should harmonize like this.
+
+Intuit true and false.
+Know what is hidden.
+
+The large suppresses all.
+The small enters the microscopic.
+
+There are chances for life and death.
+Changes accord with the time.
+
+Approach things without moving your heart.`,
 class:"sequence"
 }
 ]
@@ -1487,7 +1521,7 @@ jp:`菅森慎太郎（菅沼守人）の伝えるところでは、その言葉�
 
 en:[
 {
-text:`In Morito Suganuma’s account, the saying is attributed to none other than Yoshitsune’s master, Kiichi Hōgen.`,
+text:`The saying is attributed to none other than Yoshitsune’s master Kiichi Hōgen:`,
 class:""
 }
 ]
@@ -1513,7 +1547,7 @@ jp:`出来事は歴史である。新しい完全な聖都流の読みは、わ�
 
 en:[
 {
-text:`The events are history. The new, complete Seito-ryū reading is our contribution. But the truth it recognizes is not.`,
+text:`The events are history. The Seito-ryū mitate reading is our contribution. But the truth it recognizes is not.`,
 class:"closing"
 }
 ]
@@ -1565,7 +1599,12 @@ jp:`継承された物語は、われわれを合気道へ連れてくる。聖�
 
 en:[
 {
-text:`The inherited story brings us to Aikidō. The Seito-ryū inquiry begins with the question that follows from it.`,
+text:`The inherited story brings us to Aikidō.`,
+class:""
+},
+
+{
+text:`The Seito-ryū inquiry begins with the question that follows from it.`,
 class:""
 }
 ]
@@ -1604,7 +1643,27 @@ jp:`戦場が彼らの実験場であった。聖都流は戦場を再現しな�
 
 en:[
 {
-text:`The battlefield was their Experimental Ground. Seito-ryū does not recreate the battlefield. It recreates the question. Our ground is different. The question is the same.`,
+text:`The battlefield was their Experimental Ground.`,
+class:""
+},
+
+{
+text:`Seito-ryū does not recreate the battlefield.`,
+class:""
+},
+
+{
+text:`It recreates the question.`,
+class:""
+},
+
+{
+text:`Our ground is different.`,
+class:""
+},
+
+{
+text:`The question is the same.`,
 class:"closing"
 }
 ]
@@ -1630,7 +1689,7 @@ jp:`合気実験場は、発明から始まるのでも、一つの系譜だけ�
 
 en:[
 {
-text:`The Aiki Jikkenjō begins neither from invention nor from a single lineage. It moves first to preserve the inheritance of the Aiki Budō Elders, then to the living technical witness of the Distinguished Warriors of Aiki, and finally returns what it has learned to the Reality-Testing Field.`,
+text:`The Aiki Jikkenjō begins neither from invention nor from a single lineage. It moves first, to preserve the inheritance of the Aiki budo Elders, then to the living technical witness of Distinguished Warriors of Aiki, and finally returns what it has learned to the Reality Testing Field.`,
 class:""
 }
 ]
@@ -1649,12 +1708,7 @@ class:""
 
 {
 text:
-`INSTRUCTION IS LIVED.
-TECHNIQUE BECOMES FAMILIARITY.
-FAMILIARITY BECOMES PERCEPTION.
-PERCEPTION IS PLACED UNDER UNCERTAINTY.
-UNDER UNCERTAINTY, PERCEPTION BECOMES JUDGMENT.
-JUDGMENT GIVES BIRTH TO APPROPRIATE ACTION.`,
+`Instruction is lived. Technique becomes familiarity, perception. Perception is placed under uncertainty. Under uncertainty, perception becomes judgment. Judgment gives birth to appropriate action.`,
 class:"sequence"
 }
 ]
