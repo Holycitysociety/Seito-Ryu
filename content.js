@@ -1,3 +1,1328 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
+
+<title>Seito-ryū Aiki-Jūjutsu</title>
+
+<meta
+  name="description"
+  content="Seito-ryū Aiki-Jūjutsu"
+>
+
+<!-- =======================================================
+     DISPLAY BRUSH FONT
+     ======================================================= -->
+
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+>
+
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
+
+<link
+  href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
+  rel="stylesheet"
+>
+
+<style>
+
+:root{
+
+  /* =======================================================
+     COLOR
+     ======================================================= */
+
+  --paper:#e8d7c7;
+  --folio:#f2e7db;
+
+  --ink:#171411;
+  --muted:#6b645d;
+  --shu:#b02a20;
+
+  /* =======================================================
+     FONT FAMILIES
+     ======================================================= */
+
+  --brush:
+    "Yuji Syuku",
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  --jp-body:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  /* =======================================================
+     MOBILE HEADER
+     ======================================================= */
+
+  --header-h:58px;
+
+  /* =======================================================
+     READER
+     ======================================================= */
+
+  --reader-max:940px;
+
+  --jp-size:16.5px;
+  --jp-leading:1.68;
+
+  --en-size:18.2px;
+  --en-leading:1.44;
+
+  --pair-gap:14px;
+
+  --folio-pad-x:12px;
+  --folio-pad-y:18px;
+
+  --paragraph-gap:30px;
+
+  --section-pad-x:18px;
+
+  /* =======================================================
+     HERO — MOBILE
+     ======================================================= */
+
+  --hero-pad-top:34px;
+  --hero-pad-bottom:38px;
+
+  --hero-poster-max:640px;
+
+  --hero-mon-w:
+    min(84vw,360px);
+
+  --hero-wordmark-lift:-78px;
+
+  --hero-title-size:
+    clamp(36.8px,8.96vw,60.8px);
+
+  --hero-title-line:1.05;
+
+  --hero-title-track:.03em;
+
+  --hero-rule-w:88px;
+  --hero-rule-h:2px;
+
+  --hero-rule-gap-top:10px;
+  --hero-rule-gap-bottom:12px;
+
+  --hero-romaji-size:
+    clamp(15.2px,4.08vw,24.8px);
+
+  --hero-romaji-line:1.15;
+
+  --hero-romaji-track:.12em;
+
+  --hero-mark-gap-top:24px;
+  --hero-mark-gap-bottom:32px;
+
+  --hero-mark-size:32px;
+
+  --hero-soryuki-jp:
+    clamp(14.4px,4.64vw,27.2px);
+
+  --hero-soryuki-sub:
+    clamp(12.8px,3.92vw,22.4px);
+
+  --hero-place-size:
+    clamp(11.2px,3.52vw,17.6px);
+}
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*{
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+
+  margin:0;
+
+  color:var(--ink);
+
+  background:var(--paper);
+
+  font-family:
+    "Bodoni 72",
+    "Bodoni 72 Smallcaps",
+    "Baskerville",
+    "Iowan Old Style",
+    "Times New Roman",
+    serif;
+
+  line-height:1.48;
+}
+
+img{
+  display:block;
+  max-width:100%;
+}
+
+main{
+  overflow:hidden;
+}
+
+/* =========================================================
+   HEADER — MOBILE
+   ========================================================= */
+
+.site-header{
+
+  position:sticky;
+  top:0;
+
+  z-index:100;
+
+  height:var(--header-h);
+  min-height:var(--header-h);
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  gap:10px;
+
+  padding:
+    0
+    14px
+    0
+    max(12px,env(safe-area-inset-left));
+
+  background:var(--paper);
+
+  border-bottom:
+    1px solid rgba(0,0,0,.08);
+
+  box-shadow:
+    0 4px 14px rgba(0,0,0,.045);
+
+  overflow:visible;
+
+  isolation:isolate;
+}
+
+/* =========================================================
+   FLOATING CHERRY BLOSSOM
+   ========================================================= */
+
+.header-blossom{
+
+  position:absolute;
+
+  z-index:0;
+
+  left:-18px;
+  bottom:-25px;
+
+  width:165px;
+  height:auto;
+
+  max-width:none;
+
+  opacity:1;
+
+  pointer-events:none;
+
+  user-select:none;
+}
+
+/* =========================================================
+   HEADER IDENTITY
+   ========================================================= */
+
+.brand{
+
+  position:relative;
+
+  z-index:2;
+
+  display:flex;
+  align-items:center;
+
+  gap:10px;
+
+  min-width:0;
+
+  margin-left:56px;
+
+  color:inherit;
+
+  text-decoration:none;
+}
+
+.brand .mon{
+
+  width:64px;
+  height:auto;
+
+  flex:0 0 auto;
+
+  opacity:1;
+
+  transform:translateX(7px);
+}
+
+.brand-stack{
+
+  min-width:0;
+
+  line-height:1;
+
+  opacity:1;
+}
+
+.brand-stack .jp{
+
+  display:block;
+
+  margin-bottom:5px;
+
+  font-family:var(--brush);
+
+  font-weight:400;
+
+  font-size:20px;
+
+  line-height:1.05;
+
+  letter-spacing:.045em;
+
+  white-space:nowrap;
+}
+
+.brand-stack .romaji{
+
+  display:block;
+
+  font-size:11.5px;
+
+  line-height:1;
+
+  letter-spacing:.065em;
+
+  white-space:nowrap;
+}
+
+/* =========================================================
+   MENU
+   ========================================================= */
+
+.menu{
+
+  position:relative;
+
+  z-index:3;
+
+  width:40px;
+  height:40px;
+
+  flex:0 0 auto;
+
+  border:
+    2px solid var(--shu);
+
+  border-radius:2px;
+
+  background:var(--paper);
+
+  display:flex;
+  flex-direction:column;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:4px;
+
+  cursor:pointer;
+}
+
+.menu span{
+
+  width:20px;
+  height:3px;
+
+  display:block;
+
+  background:var(--shu);
+
+  border-radius:1px;
+}
+
+/* =========================================================
+   NARROW PHONE
+   ========================================================= */
+
+@media(max-width:390px){
+
+  .brand{
+
+    margin-left:48px;
+
+    gap:8px;
+  }
+
+  .brand .mon{
+
+    width:58px;
+
+    transform:translateX(6px);
+  }
+
+  .brand-stack .jp{
+
+    font-size:18px;
+  }
+
+  .brand-stack .romaji{
+
+    font-size:10.2px;
+
+    letter-spacing:.045em;
+  }
+
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+
+  min-height:
+    calc(100svh - var(--header-h));
+
+  display:grid;
+
+  align-content:center;
+  justify-items:center;
+
+  padding:
+    var(--hero-pad-top)
+    18px
+    var(--hero-pad-bottom);
+
+  text-align:center;
+}
+
+.hero-poster{
+
+  width:
+    min(100%,var(--hero-poster-max));
+
+  display:grid;
+
+  justify-items:center;
+
+  align-content:start;
+}
+
+/* =========================================================
+   LARGE HERO MON
+   ========================================================= */
+
+.hero-mon{
+
+  width:
+    var(--hero-mon-w);
+
+  margin:0;
+}
+
+/* =========================================================
+   HERO WORDMARK
+   ========================================================= */
+
+.hero-wordmark{
+
+  display:grid;
+
+  justify-items:center;
+
+  width:max-content;
+  max-width:100%;
+
+  margin-top:
+    var(--hero-wordmark-lift);
+}
+
+.hero-title-block{
+
+  width:max-content;
+
+  max-width:100%;
+
+  display:grid;
+
+  justify-items:center;
+}
+
+/* =========================================================
+   HERO BRUSH TITLE
+   ========================================================= */
+
+.hero h1{
+
+  --match-extra:0px;
+
+  margin:0;
+
+  width:max-content;
+
+  max-width:100%;
+
+  font-family:var(--brush);
+
+  font-weight:400;
+
+  font-size:
+    var(--hero-title-size);
+
+  line-height:
+    var(--hero-title-line);
+
+  letter-spacing:
+    calc(
+      var(--hero-title-track)
+      +
+      var(--match-extra)
+    );
+
+  white-space:nowrap;
+}
+
+.hero-rule{
+
+  width:
+    var(--hero-rule-w);
+
+  height:
+    var(--hero-rule-h);
+
+  margin-top:
+    var(--hero-rule-gap-top);
+
+  margin-bottom:
+    var(--hero-rule-gap-bottom);
+
+  background:
+    rgba(176,42,32,.72);
+}
+
+.hero .romaji{
+
+  --match-extra:0px;
+
+  width:max-content;
+
+  max-width:100%;
+
+  font-size:
+    var(--hero-romaji-size);
+
+  line-height:
+    var(--hero-romaji-line);
+
+  letter-spacing:
+    calc(
+      var(--hero-romaji-track)
+      +
+      var(--match-extra)
+    );
+
+  white-space:nowrap;
+}
+
+/* =========================================================
+   WORDMARK MON
+   ========================================================= */
+
+.hero-mark{
+
+  margin:
+    var(--hero-mark-gap-top)
+    auto
+    var(--hero-mark-gap-bottom);
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+}
+
+.hero-mark img{
+
+  width:
+    var(--hero-mark-size);
+
+  height:auto;
+}
+
+/* =========================================================
+   SORYU-KI
+   ========================================================= */
+
+.soryuki{
+
+  line-height:1.24;
+
+  margin-bottom:20px;
+}
+
+.soryuki span{
+  display:block;
+}
+
+.soryuki .jp{
+
+  font-family:var(--brush);
+
+  font-weight:400;
+
+  font-size:
+    var(--hero-soryuki-jp);
+
+  letter-spacing:.04em;
+}
+
+.soryuki .rom,
+.soryuki .en{
+
+  font-size:
+    var(--hero-soryuki-sub);
+}
+
+.soryuki .place{
+
+  margin-top:10px;
+
+  font-size:
+    var(--hero-place-size);
+}
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.section{
+
+  width:
+    min(100%,var(--reader-max));
+
+  margin:
+    0 auto;
+
+  padding:
+    48px
+    var(--section-pad-x)
+    72px;
+}
+
+.section-title{
+
+  text-align:center;
+
+  margin-bottom:32px;
+}
+
+/* =========================================================
+   SECTION BRUSH TITLES
+   ========================================================= */
+
+.section-title .kicker{
+
+  font-family:var(--brush);
+
+  font-size:
+    clamp(21px,5.4vw,32px);
+
+  font-weight:400;
+
+  line-height:1.15;
+
+  letter-spacing:.055em;
+}
+
+.section-title .sub{
+
+  margin-top:8px;
+
+  font-size:
+    clamp(13px,3.8vw,17px);
+
+  font-weight:600;
+
+  letter-spacing:.08em;
+}
+
+/* =========================================================
+   SECTION MON
+   ========================================================= */
+
+.section-mark{
+
+  margin:
+    0
+    auto
+    28px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+}
+
+.section-mark img{
+
+  width:24px;
+
+  height:auto;
+}
+
+/* =========================================================
+   CONTINUOUS BILINGUAL FIELD
+   ========================================================= */
+
+.section-body{
+
+  position:relative;
+
+  width:100%;
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    minmax(0,1fr);
+
+  column-gap:
+    var(--pair-gap);
+
+  row-gap:
+    var(--paragraph-gap);
+
+  align-items:start;
+
+  padding-top:
+    var(--folio-pad-y);
+
+  padding-bottom:
+    var(--folio-pad-y);
+}
+
+/* =========================================================
+   CONTINUOUS JAPANESE FOLIO
+   ========================================================= */
+
+.section-body::before{
+
+  content:"";
+
+  position:absolute;
+
+  z-index:0;
+
+  top:0;
+  bottom:0;
+
+  right:
+    calc(
+      50% +
+      (var(--pair-gap) / 2)
+    );
+
+  width:
+    min(
+      17rem,
+      calc(
+        (100% - var(--pair-gap)) / 2
+      )
+    );
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.34),
+      transparent 36%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(85,65,45,.012) 0 1px,
+      transparent 1px 4px
+    ),
+    var(--folio);
+
+  border:
+    1px solid rgba(72,52,37,.13);
+
+  border-radius:2px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.50),
+    0 1px 2px rgba(74,45,25,.055),
+    0 8px 20px rgba(74,45,25,.085);
+
+  pointer-events:none;
+}
+
+/* =========================================================
+   JAPANESE BODY TEXT
+   ========================================================= */
+
+.jp-paragraph{
+
+  position:relative;
+
+  z-index:1;
+
+  grid-column:1;
+
+  width:
+    min(17rem,100%);
+
+  justify-self:end;
+
+  padding-left:
+    var(--folio-pad-x);
+
+  padding-right:
+    var(--folio-pad-x);
+
+  writing-mode:vertical-rl;
+
+  text-orientation:mixed;
+
+  overflow:hidden;
+
+  font-family:var(--jp-body);
+
+  font-size:
+    var(--jp-size);
+
+  line-height:
+    var(--jp-leading);
+
+  letter-spacing:.14em;
+}
+
+/* =========================================================
+   ENGLISH TEXT
+   ========================================================= */
+
+.en-group{
+
+  position:relative;
+
+  z-index:1;
+
+  grid-column:2;
+
+  min-width:0;
+
+  font-size:
+    var(--en-size);
+
+  font-weight:500;
+
+  line-height:
+    var(--en-leading);
+
+  letter-spacing:.015em;
+
+  font-kerning:normal;
+
+  overflow-wrap:anywhere;
+}
+
+.en-group p{
+
+  margin:
+    0
+    0
+    1.38em;
+
+  text-align:left;
+
+  hyphens:auto;
+
+  -webkit-hyphens:auto;
+
+  word-spacing:.08em;
+}
+
+.en-group p:last-child{
+  margin-bottom:0;
+}
+
+.en-group .sequence{
+
+  font-size:.92em;
+
+  line-height:1.75;
+
+  letter-spacing:.05em;
+
+  text-align:left;
+}
+
+.en-group .closing{
+
+  font-size:1.34em;
+
+  line-height:1.25;
+
+  text-align:left;
+}
+
+/* =========================================================
+   TABLET / DESKTOP
+   ========================================================= */
+
+@media(min-width:760px){
+
+  :root{
+
+    --header-h:82px;
+
+    --reader-max:68rem;
+
+    --jp-size:18px;
+    --jp-leading:1.72;
+
+    --en-size:20px;
+    --en-leading:1.62;
+
+    --en-measure:25ch;
+
+    --pair-gap:30px;
+
+    --folio-pad-x:18px;
+    --folio-pad-y:20px;
+
+    --paragraph-gap:36px;
+
+    --section-pad-x:38px;
+
+    /* HERO */
+
+    --hero-pad-top:48px;
+    --hero-pad-bottom:44px;
+
+    --hero-poster-max:1000px;
+
+    --hero-mon-w:
+      min(45vw,525.6px);
+
+    --hero-wordmark-lift:-108px;
+
+    --hero-title-size:
+      clamp(54.4px,4.8vw,89.6px);
+
+    --hero-title-line:1.03;
+
+    --hero-title-track:.025em;
+
+    --hero-rule-w:130px;
+    --hero-rule-h:2px;
+
+    --hero-rule-gap-top:12px;
+    --hero-rule-gap-bottom:14px;
+
+    --hero-romaji-size:
+      clamp(21.6px,1.8vw,32px);
+
+    --hero-romaji-line:1.12;
+
+    --hero-romaji-track:.14em;
+
+    --hero-mark-gap-top:28px;
+    --hero-mark-gap-bottom:36px;
+
+    --hero-mark-size:36px;
+
+    --hero-soryuki-jp:
+      clamp(19.2px,2.24vw,33.6px);
+
+    --hero-soryuki-sub:
+      clamp(14.4px,1.68vw,24.8px);
+
+    --hero-place-size:
+      clamp(12.8px,1.28vw,19.2px);
+  }
+
+  /* =======================================================
+     DESKTOP BLOSSOM
+     ======================================================= */
+
+  .header-blossom{
+
+    left:-16px;
+
+    bottom:-62px;
+
+    width:360px;
+
+    height:auto;
+
+    opacity:1;
+  }
+
+  /* =======================================================
+     DESKTOP HEADER BRAND
+     ======================================================= */
+
+  .brand{
+
+    margin-left:205px;
+
+    gap:14px;
+  }
+
+  .brand .mon{
+
+    width:88px;
+
+    height:auto;
+
+    opacity:1;
+
+    transform:translateX(0);
+  }
+
+  .brand-stack{
+    opacity:1;
+  }
+
+  .brand-stack .jp{
+
+    font-family:var(--brush);
+
+    font-weight:400;
+
+    font-size:
+      clamp(25px,2.35vw,38px);
+
+    line-height:1.02;
+
+    margin-bottom:6px;
+
+    letter-spacing:.045em;
+
+    white-space:nowrap;
+  }
+
+  .brand-stack .romaji{
+
+    font-size:
+      clamp(14px,1.05vw,18px);
+
+    line-height:1;
+
+    letter-spacing:.085em;
+
+    white-space:nowrap;
+  }
+
+  .menu{
+
+    width:44px;
+    height:44px;
+  }
+
+  .menu span{
+    width:22px;
+  }
+
+  .section-mark{
+    margin-bottom:32px;
+  }
+
+  .section-mark img{
+    width:30px;
+  }
+
+  .section-title .kicker{
+
+    font-size:
+      clamp(25px,2.7vw,38px);
+
+    letter-spacing:.06em;
+  }
+
+  .jp-paragraph{
+    width:17rem;
+  }
+
+  .en-group{
+
+    width:
+      min(100%,var(--en-measure));
+
+    justify-self:start;
+
+    font-size:
+      var(--en-size);
+
+    line-height:
+      var(--en-leading);
+  }
+
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.colophon{
+
+  text-align:center;
+
+  padding:
+    28px
+    16px
+    78px;
+
+  color:var(--muted);
+}
+
+.colophon .mon{
+
+  width:82px;
+
+  margin:
+    0
+    auto
+    10px;
+}
+
+.colophon .jp{
+
+  color:var(--ink);
+
+  font-family:var(--brush);
+
+  font-size:25px;
+
+  font-weight:400;
+
+  letter-spacing:.045em;
+}
+
+.colophon .romaji{
+
+  color:var(--ink);
+
+  margin-top:6px;
+
+  font-size:12px;
+
+  letter-spacing:.11em;
+}
+
+.colophon .meta{
+
+  margin-top:12px;
+
+  font-size:13px;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="site-header">
+
+  <img
+    class="header-blossom"
+    src="/assets/cherry_blossom_header.png"
+    alt=""
+    aria-hidden="true"
+  >
+
+  <a
+    class="brand"
+    href="#top"
+  >
+
+    <img
+      class="mon"
+      src="/assets/seito-mon.png"
+      alt="Seito-ryū mon"
+    >
+
+    <div class="brand-stack">
+
+      <span class="jp">
+        聖都流合気柔術
+      </span>
+
+      <span class="romaji">
+        SEITO-RYŪ AIKI-JŪJUTSU
+      </span>
+
+    </div>
+
+  </a>
+
+  <button
+    class="menu"
+    aria-label="Go to About"
+    onclick="
+      document
+        .getElementById('about')
+        .scrollIntoView({
+          behavior:'smooth'
+        })
+    "
+  >
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+  </button>
+
+</header>
+
+<main id="top">
+
+<section class="hero">
+
+  <div class="hero-poster">
+
+    <img
+      class="hero-mon"
+      src="/assets/seito-mon.png"
+      alt="Seito-ryū mon"
+    >
+
+    <div class="hero-wordmark">
+
+      <div
+        class="hero-title-block"
+        data-title-equalizer
+      >
+
+        <h1 data-title-jp>
+          聖都流合気柔術
+        </h1>
+
+        <div
+          class="hero-rule"
+          aria-hidden="true"
+        ></div>
+
+        <div
+          class="romaji"
+          data-title-romaji
+        >
+          SEITO-RYŪ AIKI-JŪJUTSU
+        </div>
+
+      </div>
+
+      <div class="hero-mark">
+
+        <img
+          src="/assets/seito-mon.png"
+          alt=""
+        >
+
+      </div>
+
+    </div>
+
+    <div class="soryuki">
+
+      <span class="jp">
+        創流期
+      </span>
+
+      <span class="rom">
+        Sōryū-ki
+      </span>
+
+      <span class="en">
+        Formative Period
+      </span>
+
+      <span class="place">
+        Charleston, South Carolina · 2026
+      </span>
+
+    </div>
+
+  </div>
+
+</section>
+
+<div id="sections"></div>
+
+<footer class="colophon">
+
+  <img
+    class="mon"
+    src="/assets/seito-mon.png"
+    alt=""
+  >
+
+  <div class="jp">
+    聖都流合気柔術
+  </div>
+
+  <div class="romaji">
+    SEITO-RYŪ AIKI-JŪJUTSU
+  </div>
+
+  <div class="meta">
+    創流期 · Sōryū-ki · Formative Period
+  </div>
+
+  <div class="meta">
+    Charleston, South Carolina · 2026
+  </div>
+
+</footer>
+
+</main>
+
+<script>
+
 /* =========================================================
    SEITO-RYŪ NON-HERO CONTENT
    CURRENT BODY: SEITO-RYŪ ENGI
@@ -6,7 +1331,6 @@
 
    DO NOT PUT HERO CONTENT HERE.
    ========================================================= */
-
 
 const sections = [
 
@@ -38,7 +1362,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -54,7 +1377,6 @@ const sections = [
         ]
 
       },
-
 
       {
 
@@ -72,7 +1394,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -89,7 +1410,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -105,7 +1425,6 @@ const sections = [
         ]
 
       },
-
 
       {
 
@@ -126,7 +1445,6 @@ const sections = [
     ]
 
   },
-
 
   /* =======================================================
      THE MOUNTAIN AND THE LAW
@@ -156,7 +1474,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -173,7 +1490,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -189,7 +1505,6 @@ const sections = [
         ]
 
       },
-
 
       {
 
@@ -215,7 +1530,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -231,7 +1545,6 @@ const sections = [
         ]
 
       },
-
 
       {
 
@@ -252,7 +1565,6 @@ const sections = [
     ]
 
   },
-
 
   /* =======================================================
      TORA NO MAKI
@@ -282,7 +1594,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -298,7 +1609,6 @@ const sections = [
         ]
 
       },
-
 
       {
 
@@ -316,7 +1626,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -332,7 +1641,6 @@ const sections = [
         ]
 
       },
-
 
       {
 
@@ -353,7 +1661,6 @@ const sections = [
     ]
 
   },
-
 
   /* =======================================================
      YOSHITSUNE LEARNS TO SEE
@@ -383,7 +1690,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -399,7 +1705,6 @@ const sections = [
         ]
 
       },
-
 
       {
 
@@ -417,7 +1722,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -433,7 +1737,6 @@ const sections = [
         ]
 
       },
-
 
       {
 
@@ -454,7 +1757,6 @@ const sections = [
     ]
 
   },
-
 
   /* =======================================================
      THE GATHERING
@@ -484,7 +1786,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -501,7 +1802,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -517,7 +1817,6 @@ const sections = [
         ]
 
       },
-
 
       {
 
@@ -538,7 +1837,6 @@ const sections = [
     ]
 
   },
-
 
   /* =======================================================
      ICHI-NO-TANI
@@ -568,7 +1866,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -585,7 +1882,6 @@ const sections = [
 
       },
 
-
       {
 
         jp:
@@ -601,7 +1897,6 @@ const sections = [
         ]
 
       },
-
 
       {
 
@@ -631,7 +1926,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -647,7 +1941,6 @@ TWELVE AISHITAGAU YAKARA`,
         ]
 
       },
-
 
       {
 
@@ -665,7 +1958,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -681,7 +1973,6 @@ TWELVE AISHITAGAU YAKARA`,
         ]
 
       },
-
 
       {
 
@@ -699,7 +1990,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -715,7 +2005,6 @@ TWELVE AISHITAGAU YAKARA`,
         ]
 
       },
-
 
       {
 
@@ -733,7 +2022,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -749,7 +2037,6 @@ TWELVE AISHITAGAU YAKARA`,
         ]
 
       },
-
 
       {
 
@@ -767,7 +2054,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -784,7 +2070,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -800,7 +2085,6 @@ TWELVE AISHITAGAU YAKARA`,
         ]
 
       },
-
 
       {
 
@@ -828,7 +2112,6 @@ TWELVE AISHITAGAU YAKARA`,
     ]
 
   },
-
 
   /* =======================================================
      THE TAKEDA INHERITANCE
@@ -858,7 +2141,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -874,7 +2156,6 @@ TWELVE AISHITAGAU YAKARA`,
         ]
 
       },
-
 
       {
 
@@ -895,7 +2176,6 @@ TWELVE AISHITAGAU YAKARA`,
     ]
 
   },
-
 
   /* =======================================================
      TAKEDA SHINGEN
@@ -925,7 +2205,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -949,7 +2228,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -965,7 +2243,6 @@ TWELVE AISHITAGAU YAKARA`,
         ]
 
       },
-
 
       {
 
@@ -986,7 +2263,6 @@ TWELVE AISHITAGAU YAKARA`,
     ]
 
   },
-
 
   /* =======================================================
      KAI TO AIZU
@@ -1016,7 +2292,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -1033,7 +2308,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -1049,7 +2323,6 @@ TWELVE AISHITAGAU YAKARA`,
         ]
 
       },
-
 
       {
 
@@ -1070,7 +2343,6 @@ TWELVE AISHITAGAU YAKARA`,
     ]
 
   },
-
 
   /* =======================================================
      BEFORE THE NAME
@@ -1100,7 +2372,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -1117,7 +2388,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -1133,7 +2403,6 @@ TWELVE AISHITAGAU YAKARA`,
         ]
 
       },
-
 
       {
 
@@ -1154,7 +2423,6 @@ TWELVE AISHITAGAU YAKARA`,
     ]
 
   },
-
 
   /* =======================================================
      SOKAKU, UESHIBA, NAMING OF AIKI
@@ -1184,7 +2452,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -1201,7 +2468,6 @@ TWELVE AISHITAGAU YAKARA`,
 
       },
 
-
       {
 
         jp:
@@ -1217,7 +2483,6 @@ TWELVE AISHITAGAU YAKARA`,
         ]
 
       },
-
 
       {
 
@@ -1244,7 +2509,6 @@ AIKI NO JUTSU names that operation.`,
 
       },
 
-
       {
 
         jp:
@@ -1260,7 +2524,6 @@ AIKI NO JUTSU names that operation.`,
         ]
 
       },
-
 
       {
 
@@ -1278,7 +2541,6 @@ AIKI NO JUTSU names that operation.`,
 
       },
 
-
       {
 
         jp:
@@ -1295,7 +2557,6 @@ AIKI NO JUTSU names that operation.`,
 
       },
 
-
       {
 
         jp:
@@ -1311,7 +2572,6 @@ AIKI NO JUTSU names that operation.`,
         ]
 
       },
-
 
       {
 
@@ -1332,7 +2592,6 @@ AIKI NO JUTSU names that operation.`,
     ]
 
   },
-
 
   /* =======================================================
      TAKEMUSU AIKI
@@ -1362,7 +2621,6 @@ AIKI NO JUTSU names that operation.`,
 
       },
 
-
       {
 
         jp:
@@ -1378,7 +2636,6 @@ AIKI NO JUTSU names that operation.`,
         ]
 
       },
-
 
       {
 
@@ -1396,7 +2653,6 @@ AIKI NO JUTSU names that operation.`,
 
       },
 
-
       {
 
         jp:
@@ -1412,7 +2668,6 @@ AIKI NO JUTSU names that operation.`,
         ]
 
       },
-
 
       {
 
@@ -1439,7 +2694,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
 
       },
 
-
       {
 
         jp:
@@ -1455,7 +2709,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
         ]
 
       },
-
 
       {
 
@@ -1476,7 +2729,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
     ]
 
   },
-
 
   /* =======================================================
      AIKI JIKKENJŌ
@@ -1517,7 +2769,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
 
       },
 
-
       {
 
         jp:
@@ -1533,7 +2784,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
         ]
 
       },
-
 
       {
 
@@ -1551,7 +2801,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
 
       },
 
-
       {
 
         jp:
@@ -1567,7 +2816,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
         ]
 
       },
-
 
       {
 
@@ -1585,7 +2833,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
 
       },
 
-
       {
 
         jp:
@@ -1601,7 +2848,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
         ]
 
       },
-
 
       {
 
@@ -1619,7 +2865,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
 
       },
 
-
       {
 
         jp:
@@ -1636,7 +2881,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
 
       },
 
-
       {
 
         jp:
@@ -1652,7 +2896,6 @@ TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martia
         ]
 
       },
-
 
       {
 
@@ -1680,7 +2923,6 @@ PERCEPTION IS PLACED UNDER UNCERTAINTY.`,
 
       },
 
-
       {
 
         jp:
@@ -1696,7 +2938,6 @@ PERCEPTION IS PLACED UNDER UNCERTAINTY.`,
         ]
 
       },
-
 
       {
 
@@ -1714,7 +2955,6 @@ PERCEPTION IS PLACED UNDER UNCERTAINTY.`,
 
       },
 
-
       {
 
         jp:
@@ -1730,7 +2970,6 @@ PERCEPTION IS PLACED UNDER UNCERTAINTY.`,
         ]
 
       },
-
 
       {
 
@@ -1753,3 +2992,482 @@ PERCEPTION IS PLACED UNDER UNCERTAINTY.`,
   }
 
 ];
+
+/* =========================================================
+   RENDER
+   ========================================================= */
+
+const root =
+  document.getElementById("sections");
+
+sections.forEach(
+  (section,index) => {
+
+    const sectionElement =
+      document.createElement("section");
+
+    sectionElement.className =
+      "section";
+
+    if(index === 0){
+
+      sectionElement.id =
+        "about";
+
+    }
+
+    sectionElement.innerHTML = `
+
+      <div class="section-title">
+
+        <div class="section-mark">
+
+          <img
+            src="/assets/seito-mon.png"
+            alt=""
+          >
+
+        </div>
+
+        <div class="kicker">
+          ${section.jpTitle}
+        </div>
+
+        <div class="sub">
+          ${section.enTitle}
+        </div>
+
+      </div>
+
+      <div class="section-body"></div>
+
+    `;
+
+    const body =
+      sectionElement.querySelector(
+        ".section-body"
+      );
+
+    section.rows.forEach(
+      (row,rowIndex) => {
+
+        const jp =
+          document.createElement("div");
+
+        jp.className =
+          "jp-paragraph";
+
+        jp.lang =
+          "ja";
+
+        jp.textContent =
+          row.jp;
+
+        const en =
+          document.createElement("div");
+
+        en.className =
+          "en-group";
+
+        row.en.forEach(
+          paragraph => {
+
+            const node =
+              document.createElement("p");
+
+            if(paragraph.class){
+
+              node.className =
+                paragraph.class;
+
+            }
+
+            node.textContent =
+              paragraph.text;
+
+            en.appendChild(
+              node
+            );
+
+          }
+        );
+
+        const gridRow =
+          rowIndex + 1;
+
+        jp.style.gridRow =
+          gridRow;
+
+        en.style.gridRow =
+          gridRow;
+
+        body.append(
+          jp,
+          en
+        );
+
+      }
+    );
+
+    root.appendChild(
+      sectionElement
+    );
+
+  }
+);
+
+/* =========================================================
+   HERO TITLE WIDTH EQUALIZER
+   ========================================================= */
+
+function equalizeHeroTitle(){
+
+  document
+    .querySelectorAll(
+      "[data-title-equalizer]"
+    )
+    .forEach(
+      group => {
+
+        const japanese =
+          group.querySelector(
+            "[data-title-jp]"
+          );
+
+        const romaji =
+          group.querySelector(
+            "[data-title-romaji]"
+          );
+
+        if(
+          !japanese
+          ||
+          !romaji
+        ){
+          return;
+        }
+
+        japanese.style
+          .setProperty(
+            "--match-extra",
+            "0px"
+          );
+
+        romaji.style
+          .setProperty(
+            "--match-extra",
+            "0px"
+          );
+
+        const jpWidth =
+          japanese
+            .getBoundingClientRect()
+            .width;
+
+        const romajiWidth =
+          romaji
+            .getBoundingClientRect()
+            .width;
+
+        const targetWidth =
+          Math.max(
+            jpWidth,
+            romajiWidth
+          );
+
+        function expandLine(
+          element,
+          currentWidth
+        ){
+
+          if(
+            currentWidth >=
+            targetWidth - .5
+          ){
+            return;
+          }
+
+          const characters =
+            Array.from(
+              element
+                .textContent
+                .trim()
+            ).length;
+
+          if(
+            characters < 2
+          ){
+            return;
+          }
+
+          const extra =
+            (
+              targetWidth -
+              currentWidth
+            )
+            /
+            (
+              characters -
+              1
+            );
+
+          element.style
+            .setProperty(
+              "--match-extra",
+              `${extra}px`
+            );
+
+        }
+
+        expandLine(
+          japanese,
+          jpWidth
+        );
+
+        expandLine(
+          romaji,
+          romajiWidth
+        );
+
+      }
+    );
+
+}
+
+/* =========================================================
+   JAPANESE VERTICAL FITTING
+   ========================================================= */
+
+function paragraphFits(
+  paragraph
+){
+
+  const tolerance =
+    1.5;
+
+  return(
+
+    paragraph.scrollWidth <=
+      paragraph.clientWidth + tolerance
+
+    &&
+
+    paragraph.scrollHeight <=
+      paragraph.clientHeight + tolerance
+
+  );
+
+}
+
+function fitVerticalParagraph(
+  paragraph
+){
+
+  const minimum =
+    window.innerWidth >= 760
+      ? 220
+      : 200;
+
+  let low =
+    minimum;
+
+  let high =
+    minimum;
+
+  paragraph.style.height =
+    `${high}px`;
+
+  while(
+    !paragraphFits(paragraph)
+    &&
+    high < 1800
+  ){
+
+    high += 60;
+
+    paragraph.style.height =
+      `${high}px`;
+
+  }
+
+  while(
+    low < high
+  ){
+
+    const middle =
+      Math.floor(
+        (low + high) / 2
+      );
+
+    paragraph.style.height =
+      `${middle}px`;
+
+    if(
+      paragraphFits(paragraph)
+    ){
+
+      high =
+        middle;
+
+    }
+
+    else{
+
+      low =
+        middle + 1;
+
+    }
+
+  }
+
+  const fontSize =
+    parseFloat(
+      getComputedStyle(
+        paragraph
+      ).fontSize
+    );
+
+  const breathingRoom =
+    Math.max(
+      10,
+      fontSize * .55
+    );
+
+  paragraph.style.height =
+    `${Math.ceil(
+      high + breathingRoom
+    )}px`;
+
+}
+
+/* =========================================================
+   COMPLETE PAGE LAYOUT
+   ========================================================= */
+
+function layoutPage(){
+
+  equalizeHeroTitle();
+
+  document
+    .querySelectorAll(
+      ".jp-paragraph"
+    )
+    .forEach(
+      paragraph => {
+
+        fitVerticalParagraph(
+          paragraph
+        );
+
+      }
+    );
+
+}
+
+/* =========================================================
+   DEBOUNCE
+   ========================================================= */
+
+function debounce(
+  callback,
+  delay
+){
+
+  let timer;
+
+  return function(){
+
+    clearTimeout(
+      timer
+    );
+
+    timer =
+      setTimeout(
+        callback,
+        delay
+      );
+
+  };
+
+}
+
+/* =========================================================
+   INITIAL LAYOUT
+   ========================================================= */
+
+if(
+  document.fonts
+  &&
+  document.fonts.ready
+){
+
+  document.fonts.ready.then(
+    () => {
+
+      requestAnimationFrame(
+        () => {
+
+          requestAnimationFrame(
+            layoutPage
+          );
+
+        }
+      );
+
+    }
+  );
+
+}
+
+else{
+
+  window.addEventListener(
+    "load",
+    layoutPage
+  );
+
+}
+
+/* =========================================================
+   RESPONSIVE RECALCULATION
+   ========================================================= */
+
+const relayout =
+  debounce(
+    layoutPage,
+    120
+  );
+
+window.addEventListener(
+  "resize",
+  relayout
+);
+
+window.addEventListener(
+  "orientationchange",
+  () => {
+
+    setTimeout(
+      layoutPage,
+      250
+    );
+
+  }
+);
+
+if(
+  window.visualViewport
+){
+
+  window.visualViewport
+    .addEventListener(
+      "resize",
+      relayout
+    );
+
+}
+
+</script>
+
+</body>
+</html>
