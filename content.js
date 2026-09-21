@@ -96,7 +96,7 @@ jp:`聖都流は、大東流の伝統的な歴史を、自らの継承の一部�
 
 en:[
 {
-text:`Seito-ryū receives the traditional history of Daitō-ryū as part of its own inheritance. That tradition looks back nearly nine centuries to Shinra Saburō Minamoto no Yoshimitsu, remembered as the distant founder of the martial body later known as Daitō-ryū and as the ancestor through whom that inheritance passed into the Kai-Genji and the house of Takeda.`,
+text:`Seito-ryū receives the traditional history of Daitō-ryū as part of its own inheritance. That tradition looks back nearly nine centuries to Shinra Saburō Minamoto no Yoshitsune, remembered as the distant founder of the martial body later known as Daitō-ryū and as the ancestor through whom that inheritance passed into the Kai-Genji and the house of Takeda.`,
 class:""
 }
 ]
@@ -153,28 +153,6 @@ en:[
 {
 text:`His teacher is remembered as the supernatural master of the mountain, the Great Tengu of Kurama, the mysterious Kiichi Hōgen.`,
 class:""
-}
-]
-
-},
-
-{
-
-jp:`鬼一法眼
-鬼 — 霊、超自然的存在
-一 — 一、最初、原初
-法 — 法、聖なる秩序
-眼 — 眼、見ること`,
-
-en:[
-{
-text:
-`鬼一法眼 — Kiichi Hōgen
-鬼 · ki — spirit, supernatural being
-一 · ichi — one, first, primordial
-法 · hō — law, sacred order
-眼 · gen — eye, vision`,
-class:"sequence"
 }
 ]
 
@@ -1132,7 +1110,7 @@ class:""
 },
 
 {
-text:`合気 — Aiki`,
+text:`Aiki — 合気`,
 class:"sequence"
 }
 ]
