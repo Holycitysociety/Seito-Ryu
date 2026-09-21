@@ -1,5 +1,6 @@
 /* =========================================================
    SEITO-RYŪ NON-HERO CONTENT
+   CURRENT BODY: SEITO-RYŪ ENGI
 
    EDIT NORMAL ENGLISH / JAPANESE PAGE TEXT HERE.
 
@@ -9,23 +10,27 @@
 
 const sections = [
 
+  /* =======================================================
+     SEITO-RYŪ ENGI
+     ======================================================= */
+
   {
 
-    jpTitle:"概要",
+    jpTitle:"聖都流縁起",
 
-    enTitle:"About what",
+    enTitle:"Seito-ryū Engi — The Founding Lore of Seito-ryū",
 
     rows:[
 
       {
 
         jp:
-          "聖都流は、二〇二六年、サウスカロライナ州チャールストンにおいて、合気柔術の研究と稽古のために設立された、形成途上にある武道校である。本校はホーリー・シティ・ソサエティの後援のもとに置かれる。「聖都」の名は、チャールストンの歴史的な別称 “The Holy City” に由来する。",
+          `聖都流は、二〇二六年、サウスカロライナ州チャールストンにおいて設立された、形成途上にある武道校である。その創流の探究領域は武産合気であり、柔術と合気道という継承された技術体系を通してこれを探究する。本校はホーリー・シティ・ソサエティの後援のもとに置かれ、「聖都」という名はそこに由来する。`,
 
         en:[
           {
             text:
-              "Seito-ryū is a budō school in formation, established in Charleston, South Carolina, in 2026 for the study and practice of Aiki Jujutsu. The school is established under the patronage of Holy City Society. The name Seito — 聖都, “Holy City / Sacred City” — is taken from Charleston’s historic epithet, “The Holy City.”",
+              `Seito-ryū is a martial school in formation, established in Charleston, South Carolina, in 2026. Its founding field of inquiry is Takemusu Aiki, investigated through the inherited technical bodies of Jujutsu and Aikidō. It is established under the patronage of Holy City Society, from which the name Seito, 聖都, “Holy City,” is taken.`,
 
             class:""
           }
@@ -37,12 +42,12 @@ const sections = [
       {
 
         jp:
-          "その歩みは、先行する伝統と諸師への敬意から始まる。古典柔術諸流、嘉納治五郎と講道館、武田惣角と大東流、植芝盛平と合気武道を主要な学びの源とする。",
+          `今は、この流派の創流の日々である。聖都流はその始まりから、受け継ぐものと新たに形成するものだけでなく、自らの目的を理解するための思想、問い、伝承をも記録している。`,
 
         en:[
           {
             text:
-              "Its work begins with respect for the traditions and teachers that came before us: the classical schools of jūjutsu; Kanō Jigorō and the Kōdōkan; Takeda Sōkaku and Daitō-ryū; and Ueshiba Morihei and Aiki-budō.",
+              `These are the school’s founding days. From its beginning, Seito-ryū is recording not only what it receives and develops, but the ideas, questions, and traditions through which the school understands its purpose.`,
 
             class:""
           }
@@ -54,12 +59,12 @@ const sections = [
       {
 
         jp:
-          "創流期の研究では、後代の教師・研究者である富木謙治、望月稔、斉藤守弘、西尾昭二、ロイ・スエナカ、カツミ・ニイクラ、白川竜次らの仕事からも学ぶ。彼らの仕事は、その時々の問いに照らして研究資料として扱うものであり、実際に存在しない系譜を称するものではない。",
+          `聖都流縁起は、その記録の一部である。これは武の伝承であり、方便として受け取られる。すなわち、本校が合気と呼ぶ原理の起源と展開、そして最終的に聖都流そのものを生み出す問いを観照するための、伝統的な形式による物語である。`,
 
         en:[
           {
             text:
-              "Our formative study also draws upon the work of later teachers and investigators including Tomiki Kenji, Mochizuki Minoru, Saitō Morihiro, Nishio Shōji, Roy Suenaka, Katsumi Niikura, and Ryuji Shirakawa. Their work is approached as a source of study according to the questions before us, and not as a claim of lineage where no such lineage exists.",
+              `The Seito-ryū Engi is part of that record. It is received as martial lore and skillful means: a traditional-style account through which the school contemplates the origins and development of the principle it calls aiki, and the question that ultimately gives rise to Seito-ryū itself.`,
 
             class:""
           }
@@ -71,12 +76,46 @@ const sections = [
       {
 
         jp:
-          "聖都流は、継承された流派ではなく、形成途上にある武道校として率直に提示される。その目的は、受け取ったものを忠実に学び、伝承と再構成を明確に区別し、稽古を通じて探究を続けることにある。",
+          `あらゆる武の伝統は、技だけを継承するのではない。その技がどこから来たのかという共有された伝承をも継承する。`,
 
         en:[
           {
             text:
-              "Seito-ryū is presented openly as a school in formation rather than an inherited ryūha. Its purpose is to study what has been received faithfully, to distinguish inheritance from reconstruction, and to continue the investigation through practice.",
+              `Every martial tradition inherits more than techniques. It inherits a shared tradition of where those techniques came from.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `われわれは、大東流の伝統的な歴史を、自らの継承の一部として受け取る。その伝承はおよそ九百年前の新羅三郎源義光にまで遡り、義光を大東流柔術の遠祖として、またその武の伝統が甲斐源氏と武田家へ伝わる祖として記憶する。`,
+
+        en:[
+          {
+            text:
+              `We receive the traditional history of Daitō-ryū as part of our own inheritance. It looks back nearly nine centuries to Shinra Saburō Minamoto no Yoshimitsu, remembered as the distant founder of Daitō-ryū Jūjutsu and the ancestor through whom its martial tradition passed into the Kai-Genji and the house of Takeda.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `われわれは義光を、その継承された武の体系の祖として受け取る。柔術が先にあった。歴史的により繊細な見方を必要とするのは、合気がいつその継承に入ったのかという点である。聖都流の読みでは、その軌跡は三世代後、源平合戦の戦場に現れ、義光の曾孫であり武田の始祖となる武田信義へと伝えられる。`,
+
+        en:[
+          {
+            text:
+              `We accept Yoshimitsu as the founder of that inherited martial body. The jūjutsu came first. Where we have a historically nuanced view is the point at which aiki entered that inheritance: in the Seito-ryū reading, its trail arrives on the field three generations later, during the Genpei War, and is transmitted to Yoshimitsu’s great-grandson Takeda Nobuyoshi, the first of the Takeda.`,
 
             class:""
           }
@@ -89,25 +128,27 @@ const sections = [
   },
 
 
+  /* =======================================================
+     THE MOUNTAIN AND THE LAW
+     ======================================================= */
+
   {
 
-    jpTitle:
-      "古典形と失われた前段",
+    jpTitle:"山と法",
 
-    enTitle:
-      "Classical Form and the Missing Beginning",
+    enTitle:"The Mountain and the Law",
 
     rows:[
 
       {
 
         jp:
-          "古典の形は、われわれの出発点である。攻撃を定め、稽古相手の間に特定の関係を設定することによって、形は姿勢、動き、つながり、崩し、技、制御、受け身を精密に学ぶことを可能にする。このように状況を整えることは、形稽古の大きな長所の一つである。",
+          `十二世紀、牛若丸と呼ばれた一人の少年が、京都の北にある鞍馬山へ赴いた。`,
 
         en:[
           {
             text:
-              "Classical kata remains our starting point. By prescribing an attack and establishing a particular relationship between training partners, kata allows posture, movement, connection, kuzushi, waza, control, and ukemi to be studied with precision. This ordering of circumstances is one of its great strengths.",
+              `In the twelfth century, a youth named Ushiwakamaru traveled to Mount Kurama north of Kyoto.`,
 
             class:""
           }
@@ -119,12 +160,12 @@ const sections = [
       {
 
         jp:
-          "しかし、その同じ条件は研究方法そのものに属している。攻撃は既知であり、距離は整えられ、役割は定められ、技術的な関係はあらかじめ与えられている場合がある。抵抗する相手は、それらを提供する義務を負わない。手を引き、再び打ち、方向を変え、身体をつかみ、接触に抵抗し、あるいは打撃と組みを組み合わせるかもしれない。",
+          `日本の伝承では、鞍馬は彼が並外れた武の継承を受けた場所とされる。歴史は彼を源義経と呼ぶ。`,
 
         en:[
           {
             text:
-              "Those same conditions, however, belong to the method of study. The attack may be known, the distance arranged, the roles established, and the technical relationship supplied in advance. An unwilling opponent is under no obligation to provide them. He may withdraw the hand, strike again, change direction, seize the body, resist contact, or combine striking and grappling.",
+              `Japanese tradition says that Kurama was the place where he received an extraordinary martial inheritance. History calls him Minamoto Yoshitsune.`,
 
             class:""
           }
@@ -136,50 +177,37 @@ const sections = [
       {
 
         jp:
-          "ゆえに聖都流は、遭遇の開始局面に特別な注意を払う。古典合気柔術に必要な条件があらかじめ与えられていないとき、それらはいかにして生じるのか。この始まりを、技のための単なる準備とはみなさない。それ自体が武の問題の一部である。",
+          `その師は、山の超自然的な主、鞍馬の大天狗、謎めいた鬼一法眼として記憶されている。`,
 
         en:[
           {
             text:
-              "Seito-ryū therefore gives particular attention to the opening of the encounter. The question is how the conditions required by classical Aiki Jujutsu arise when they have not been supplied beforehand. The beginning is not treated merely as preparation for the technique. It is part of the martial problem itself.",
+              `His teacher is remembered as the supernatural master of the mountain, the Great Tengu of Kurama, the mysterious Kiichi Hōgen.`,
 
             class:""
           }
         ]
 
-      }
+      },
 
-    ]
-
-  },
-
-
-  {
-
-    jpTitle:
-      "遭遇の全体",
-
-    enTitle:
-      "The Whole Encounter",
-
-    rows:[
 
       {
 
         jp:
-          "聖都流は、遭遇を一つの連続した武の出来事として検討する。",
+          `鬼一法眼 — Kiichi Hōgen
+鬼 — 霊、超自然的存在
+一 — 一、最初、原初
+法 — 法、聖なる秩序
+眼 — 眼、見ること`,
 
         en:[
           {
             text:
-              "Seito-ryū examines the encounter as one continuous martial event:",
-
-            class:""
-          },
-
-          {
-            text:
-              "KAMAE → MA-AI → ATTACK → TAI-SABAKI → TSUKURI → KUZUSHI → WAZA → [OSAE] → ZANSHIN",
+              `鬼一法眼 — Kiichi Hōgen
+鬼 — spirit, supernatural being
+一 — one, first, primordial
+法 — law, sacred order
+眼 — eye, vision`,
 
             class:"sequence"
           }
@@ -191,12 +219,12 @@ const sections = [
       {
 
         jp:
-          "これは研究のための枠組みであり、武田惣角や植芝盛平が、これらの見出しのもとに固定された歴史的順序を教えたと主張するものではない。実際には、各要素は重なり合い、ほとんど同時に起こることもある。",
+          `その名は象徴的な読みを誘う。原初の霊、普遍の法を見る眼。`,
 
         en:[
           {
             text:
-              "This is a framework for study, not a claim that Takeda Sōkaku or Ueshiba Morihei taught a fixed historical sequence under these headings. In practice, its elements overlap and may occur almost simultaneously.",
+              `The name invites a symbolic reading: Primordial Spirit, Vision of the Universal Law.`,
 
             class:""
           }
@@ -208,12 +236,45 @@ const sections = [
       {
 
         jp:
-          "構えは即応の準備を整える。間合は距離、機、機会、危険を扱う。攻撃は直面すべき問題を生み出す。体捌きはその攻撃との関係において身体を再編成する。作りは、用いることのできる構造的関係を成立させる。崩しは、相手が構造上の自由を保つ能力を損なう。技はそれらの条件から生じる。必要であれば抑えが制御を維持し、残心は見かけ上の完了後にも残る。",
+          `鞍馬の法は、今日われわれが合気と呼ぶものの初期的な表現であったと考える。言葉そのものではない。有限の技術体系でもない。法の、生きた働きである。`,
 
         en:[
           {
             text:
-              "Kamae establishes readiness. Ma-ai concerns distance, timing, opportunity, and danger. The attack creates the immediate problem. Tai-sabaki reorganizes the body in relation to it. Tsukuri establishes a usable structural relationship. Kuzushi compromises the opponent’s ability to remain structurally free. Waza arises from those conditions. Osae, where necessary, maintains control, and zanshin remains after apparent completion.",
+              `It is believed that the Law of Kurama was an early expression of what we now call aiki. Not the word. Not a finite technical system. The living operation of the Law.`,
+
+            class:"closing"
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+
+  /* =======================================================
+     TORA NO MAKI
+     ======================================================= */
+
+  {
+
+    jpTitle:"虎の巻",
+
+    enTitle:"Tora no Maki",
+
+    rows:[
+
+      {
+
+        jp:
+          `義経が受け取った教えは、虎の巻に収められていたと伝えられる。`,
+
+        en:[
+          {
+            text:
+              `It is said that the teaching Yoshitsune received was contained in the Tora no Maki — 虎の巻.`,
 
             class:""
           }
@@ -225,12 +286,63 @@ const sections = [
       {
 
         jp:
-          "合気は、この連続の中の一地点に限定されない。入り身、転換、合わせ、結び、当身もまた状況に応じて働く。当身は入りを守り、注意を制し、姿勢を変え、継続する攻撃を中断し、作りや崩しに寄与し、あるいはそれ自体で遭遇を終わらせることがある。",
+          `秘伝の虎の巻は、単なる技の目録ではなかった。それは、争いの条件を明晰に見抜き、その条件そのものから適切な行為が生じるほどに状況を知覚する方法であった。`,
 
         en:[
           {
             text:
-              "Aiki is not confined to a single point in the sequence. Irimi, tenkan, awase, musubi, and atemi likewise operate according to circumstance. Atemi may protect entry, command attention, alter posture, interrupt continuing attack, contribute to tsukuri or kuzushi, or resolve the encounter in its own right.",
+              `The secret Scroll of Tora was more than a catalog of techniques. It was a way of perceiving the conditions of conflict so clearly that appropriate action could arise from them.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `われわれ自身の継承の言葉で言えば、それは合気である。`,
+
+        en:[
+          {
+            text:
+              `In the language of our own inheritance: AiKi.`,
+
+            class:"sequence"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `法とは、現実そのものに内在する秩序である。合気とは、状況全体と調和して働き、力に力で対抗するのではなく、その関係そのものから適切な行為を生じさせる、生きた働きである。`,
+
+        en:[
+          {
+            text:
+              `The Law is the order inherent in reality. Aiki is the living operation by which one enters into harmony with the whole circumstance, does not oppose force with force, and allows the appropriate action to arise from the relationship itself.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `それは、自発的な技と戦略を生み出す法の働きである。`,
+
+        en:[
+          {
+            text:
+              `It is the working of the Law from which spontaneous technique and strategy arise.`,
 
             class:""
           }
@@ -243,25 +355,27 @@ const sections = [
   },
 
 
+  /* =======================================================
+     YOSHITSUNE LEARNS TO SEE
+     ======================================================= */
+
   {
 
-    jpTitle:
-      "技から遭遇へ",
+    jpTitle:"義経、見ることを学ぶ",
 
-    enTitle:
-      "From Waza Toward Encounter",
+    enTitle:"Yoshitsune Learns to See",
 
     rows:[
 
       {
 
         jp:
-          "古典の形は、この術の技術的語彙を与える。まず一つの技を忠実に学ぶ。姿勢、身体構造、つながり、動き、作り、崩し、実行、制御、受け身を、形の中で理解してからこそ、その形を取り巻く条件を知的に検討することができる。",
+          `義経が伝説となるのは、他の者には見えない可能性を見るからである。地形は機会となる。予想は弱点となる。不可能と思われた道こそが、進むべき道となる。`,
 
         en:[
           {
             text:
-              "The classical forms provide the technical vocabulary of the art. A waza is first studied faithfully: posture, body organization, connection, movement, tsukuri, kuzushi, execution, control, and ukemi must be understood in the form before the conditions around the form can be examined intelligently.",
+              `Yoshitsune becomes legendary because he sees possibilities others do not. Terrain becomes opportunity. Expectation becomes vulnerability. The route believed impossible becomes precisely the route worth taking.`,
 
             class:""
           }
@@ -273,12 +387,12 @@ const sections = [
       {
 
         jp:
-          "次に探究は後ろ向きに進む。その技が正しく機能するためには、どのような条件がすでに存在していなければならないのか。距離、構造、接続、姿勢、均衡にはどのような関係が必要か。形が前提とする把持、腕の位置、タイミング、攻撃への入り込み、位置関係を相手が自発的に与えないとき、それらの条件はいかにして生じるのか。",
+          `関係そのものを変えることができるなら、力に常に正面から対抗する必要はない。聖都流の読みでは、これは単なる戦略ではなかった。鞍馬で出会った法の、生成的な表現であった。`,
 
         en:[
           {
             text:
-              "The investigation then moves backward. What conditions must already exist for the technique to function correctly? What relation of distance, structure, attachment, posture, and balance is required? How might those conditions arise when the opponent has not voluntarily supplied the grip, arm, timing, commitment, or position assumed by the kata?",
+              `Force need not always be opposed if the relationship itself can be changed. In the Seito reading, this was not merely strategy. It was the generative expression of the Law he encountered at Kurama.`,
 
             class:""
           }
@@ -290,12 +404,46 @@ const sections = [
       {
 
         jp:
-          "そのため聖都流は、技へ至る道筋を意図的に研究する。目的は、古典技に現代的な護身術の答えを寄せ集めて飾ることではない。変化する状況を受け取り、整え、変換して、古典形に保存された関係が実際に成立するまでの過程を理解することにある。",
+          `義経は、あらかじめ定められた答えの中から一つを選んだのではない。地形、機、予想、力、動き、心理、関係、機会という、場全体を見た。`,
 
         en:[
           {
             text:
-              "Seito-ryū therefore gives deliberate study to the road leading into the waza. The purpose is not to decorate classical technique with a collection of modern self-defense answers, but to understand how changing circumstances may be received, organized, and transformed until the relationships preserved in the classical form genuinely exist.",
+              `Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `ゆえに、その教えは簡潔に言うことができる。法に従って見よ。そうすれば、適切な行為は自ら姿を現す。`,
+
+        en:[
+          {
+            text:
+              `The teaching can therefore be stated simply: See according to the Law, and the appropriate action will reveal itself.`,
+
+            class:"closing"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `聖都流の読みでは、義経は、何世紀も後に植芝盛平が武産合気として明確に表現することになる原理のうちに働いていた。`,
+
+        en:[
+          {
+            text:
+              `In the Seito-ryū reading, Yoshitsune was operating within the principle that Morihei Ueshiba would centuries later articulate as Takemusu Aiki.`,
 
             class:""
           }
@@ -308,25 +456,27 @@ const sections = [
   },
 
 
+  /* =======================================================
+     THE GATHERING
+     ======================================================= */
+
   {
 
-    jpTitle:
-      "遭遇から技へ",
+    jpTitle:"集結、戦役、そして離散",
 
-    enTitle:
-      "From Encounter Toward Waza",
+    enTitle:"The Gathering, the Campaign, and the Scattering",
 
     rows:[
 
       {
 
         jp:
-          "探究は反対方向にも進む。起こりうる攻撃を、あらかじめ一教、小手返し、四方投げ、その他の名のある技に終わらせると決めずに研究する。まず距離、機、保護、体捌き、当身、つながり、作り、崩しを扱う。",
+          `義経はおよそ十六歳で鞍馬を離れ、北へ向かい、平泉の藤原秀衡の庇護を受けた。そこでおよそ六年を過ごし、教えを実践し、その中で成熟した。`,
 
         en:[
           {
             text:
-              "The investigation also proceeds in the opposite direction. A plausible attack may be studied without deciding beforehand that it must conclude in ikkyo, kote-gaeshi, shihōnage, or any other named technique. Distance, timing, protection, tai-sabaki, atemi, connection, tsukuri, and kuzushi are dealt with first.",
+              `Yoshitsune left Kurama around the age of sixteen and traveled north to the protection of Fujiwara no Hidehira at Hiraizumi. There he remained for roughly six years. He practiced the teaching and matured with it.`,
 
             class:""
           }
@@ -338,12 +488,12 @@ const sections = [
       {
 
         jp:
-          "その後で初めて、生じた技を特定する。状況が応答を導き、応答が技を明らかにする。これにより、変化する状況に記憶した答えを押しつけるだけの訓練を避ける。",
+          `そして一一八〇年、分かれていた源氏の家々は戦によって再び集められた。義経は平泉から南下し、兄であり後の将軍となる源頼朝のもとへ参じた。源氏の諸家が合流した。`,
 
         en:[
           {
             text:
-              "Only then is the resulting waza identified. The situation informs the response, and the response reveals the technique. In this way the practitioner is not trained merely to impose a memorized answer upon a changing circumstance.",
+              `Then, in 1180, the divided Minamoto family was drawn together by war. Yoshitsune rode south from Hiraizumi and joined his elder brother, Minamoto no Yoritomo, the future shogun. The houses of the Genji converged.`,
 
             class:""
           }
@@ -355,12 +505,386 @@ const sections = [
       {
 
         jp:
-          "したがって形は、単なる再現のためではなく、身体を教育するものとして学ぶ。継続する稽古を通じて、姿勢、動き、機、つながり、均衡が身体化され、適切な技が意識的な選択なしに生じうるようになる。",
+          `一一八〇年以降、義経はこれらの男たちと戦の坩堝の中で生活し、共に戦役を重ねた。彼らは計画し、稽古し、戦い、適応し、生き延び、再び戦った。指揮官は指揮官から学び、異なる家の方法が実践の場で出会った。失敗には代償があり、働いたものは記憶され、洗練され、伝えられた。`,
 
         en:[
           {
             text:
-              "Kata is therefore studied not simply for its reproduction, but for the education it gives the body. Through continued practice, posture, movement, timing, connection, and balance become embodied, and appropriate waza may arise without conscious selection.",
+              `From 1180 onward, Yoshitsune lived and campaigned with these men inside the crucible of war. They planned, trained, fought, adapted, survived, and fought again. Commanders learned from commanders; methods belonging to different houses met in practice. What failed carried consequences. What worked was remembered, refined, and passed on.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `源氏の軍勢そのものが、伝承の環境となった。四年間、教えは戦役という条件の中で生きられた。そして一一八四年、その形成は試される場へ到達した。`,
+
+        en:[
+          {
+            text:
+              `The Minamoto host itself became the environment of transmission. For four years, instruction was lived under campaign conditions. By 1184, that formation had reached its proving ground.`,
+
+            class:"closing"
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+
+  /* =======================================================
+     ICHI-NO-TANI
+     ======================================================= */
+
+  {
+
+    jpTitle:"一ノ谷",
+
+    enTitle:"Ichi-no-Tani",
+
+    rows:[
+
+      {
+
+        jp:
+          `一一八四年の一ノ谷において、一つの有名な出来事が、この原理を戦場の上に目に見える形で現した。鵯越を通る義経の異例の行動はよく知られている。縁起にとってより示唆的な問いは、義経が本隊から分けた集団が、どのように構成されていたかである。`,
+
+        en:[
+          {
+            text:
+              `At Ichi-no-Tani in 1184, one famous event gave that principle visible form on the battlefield. Yoshitsune’s extraordinary movement through Hiyodorigoe is well known. The more revealing question for the Engi is how the body he separated from the host was constituted.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `戦闘序列は一つの視点を与える。二人の大将軍の直下に、記録は十二人の相従ふ輩を区別して置く。七人は範頼のもとに、五人は義経のもとに記される。二人の大将軍と十二人の相従ふ輩を合わせると、彼らは源氏軍の長老層を形成していた。すなわち、戦場指揮官と武家諸家の重鎮である。`,
+
+        en:[
+          {
+            text:
+              `The historical order of battle gives us perspective. Beneath the two 大将軍, Daishōgun, “army commanders,” the record sets apart twelve 相従ふ輩, Aishitagau Yakara, “following or accompanying men.” Seven are listed with Noriyori and five with Yoshitsune. Taken together, the two Daishōgun and twelve Aishitagau Yakara formed the elders of the Minamoto host: the field commanders and the senior men of its warrior houses.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `相従ふ輩は、単に名簿に記された名前ではなかった。彼らは二人の戦場指揮官を取り巻く直接の武の集団に属し、旅、奉仕、稽古、戦を通じて戦役の生活を共有した。義経が何を見、何を行うことを学んでいたにせよ、このような近接した生活と戦いの中にいた者たちは、それを直接吸収する位置にあった。`,
+
+        en:[
+          {
+            text:
+              `The Aishitagau Yakara were not merely names on a roster. They belonged to the immediate martial circles of the two field commanders, sharing the life of campaign through travel, service, training, and battle. Whatever Yoshitsune had learned to see and do, men living and fighting in such proximity were naturally positioned to absorb it directly.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `記録された指揮構造は、その直接の集団を目に見えるものにする。`,
+
+        en:[
+          {
+            text:
+              `The recorded command structure makes that immediate circle visible:`,
+
+            class:""
+          },
+
+          {
+            text:
+              `MINAMOTO NO YORITOMO
+future shogun, head of the Minamoto war effort
+↓
+TWO DAISHŌGUN
+↓
+TWELVE AISHITAGAU YAKARA`,
+
+            class:"sequence"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `源範頼 — 大手。七人の相従ふ輩は、武田信義、加賀美遠光、小笠原長清、一条忠頼、板垣兼信、武田有義、石和信光。`,
+
+        en:[
+          {
+            text:
+              `Minamoto no Noriyori — Ōte, the main front. Seven Aishitagau Yakara: Takeda Nobuyoshi, Kagami Tōmitsu, Ogasawara Nagakiyo, Ichijō Tadayori, Itagaki Kanenobu, Takeda Ariyoshi, and Isawa Nobumitsu.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `源義経 — 搦手。五人の相従ふ輩は、安田義定、田代信綱、大内惟義、中原親能、佐原十郎義連、すなわち三浦義連。`,
+
+        en:[
+          {
+            text:
+              `Minamoto no Yoshitsune — Karamete, the rear and flanking approach. Five Aishitagau Yakara: Yasuda Yoshisada, Tashiro Nobutsuna, Ōuchi Koreyoshi, Nakahara Chikayoshi, and Sahara Jūrō Yoshitsura, also called Miura Yoshitsura.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `伝承に名を残す勇士の中には、鷲尾三郎義久、熊谷直実、熊谷直家、平山季重がいる。`,
+
+        en:[
+          {
+            text:
+              `Among the distinguished warriors named in the tradition are Washio Saburō Yoshihisa, Kumagai Naozane, Kumagai Naoie, and Hirayama Sueshige.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `十二人の相従ふ輩のうち二人は、すでに別の任務に置かれていた。安田義定は後方の指揮に残り、田代信綱は門への攻撃に送られた。`,
+
+        en:[
+          {
+            text:
+              `Two of the twelve 相従ふ輩, Aishitagau Yakara, had already been committed elsewhere. Yasuda Yoshisada remained in command of the rear, while Tashiro Nobutsuna was sent against the gate.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `寅の刻、義経は軍勢から七十勇士、Nanajū Yūshi、「七十人の卓越した勇士」を分け、さらに相従ふ輩の余、yo、「残り」と共に進んだ。`,
+
+        en:[
+          {
+            text:
+              `At the Hour of the Tiger, Yoshitsune separated from the host the 七十勇士, Nanajū Yūshi, “The Seventy Distinguished Warriors,” together with the 余, yo, “remainder,” of the Aishitagau Yakara.`,
+
+            class:"closing"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `そして、同じ眼が山へ向けられた。鵯越では、攻撃に不向きと判断された道が、そのまま攻撃の道となった。地形は機会となり、予想は弱点となった。敵が準備した強さにその条件のままぶつかるのではなく、義経は関係そのものを変えた。まず人の場、次に地形の場。行為に先立って、秩序が見抜かれた。`,
+
+        en:[
+          {
+            text:
+              `Then the same eye turned toward the mountain. At Hiyodorigoe, the route judged unsuitable for attack became the route of attack. Terrain became opportunity and expectation became vulnerability. Rather than meet the enemy's prepared strength on its own terms, Yoshitsune changed the relationship itself. First the human field, then the physical field: the order was perceived before the action was taken.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `四年間の戦役は、教えを慣熟へ、慣熟を知覚へと変えていた。一ノ谷では、知覚が判断となり、判断が自発的な行為を生んだ。現実の結果が伴う条件のもとで、戦場そのものが彼らの伝承であり、認可であり、墨ではなく行為によって記された免許となった。義経と共に生き、戦った者たちは、鞍馬の教えが生きた働きとして現れるのを見、その働きに参加した。`,
+
+        en:[
+          {
+            text:
+              `For four years, campaign had turned instruction into familiarity and familiarity into perception. At Ichi-no-Tani, perception became judgment, and judgment gave birth to spontaneous action. Under real consequence, the battlefield became their transmission and their authorization, their 免許, menkyo, “license” or “authorization,” written not in ink but in action. Those who had lived and fought beside Yoshitsune had seen and participated in the Kurama teaching as a living operation.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `ここで継承は合流する。より古い武の体系は新羅三郎源義光から来ていた。鞍馬の教えは義経を通して源氏の集結へ入った。一ノ谷では、甲斐源氏と義経の相従ふ輩が同じ戦場に立ち、その集結が、鞍馬の教えを義光以来の古い継承へ入れる門となった。`,
+
+        en:[
+          {
+            text:
+              `The inheritance now converges. The older martial body had come through Shinra Saburō Minamoto no Yoshimitsu. The Kurama teaching entered the Minamoto gathering through Yoshitsune. At Ichi-no-Tani, the Kai-Genji and Yoshitsune's own Aishitagau Yakara stand together within the same field, and the gathering becomes the gate through which that teaching enters the older Yoshimitsu inheritance.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `後に大東流として記憶される柔術の継承は義光から来た。義経は合気を源氏の継承へもたらした。武田はそれを受け取り、守り、未来へ運んだ。`,
+
+        en:[
+          {
+            text:
+              `The jūjutsu inheritance later remembered as Daitō-ryū had come through Yoshimitsu. Yoshitsune brought aiki into the Minamoto inheritance. Takeda received it, preserved it, and carried it forward.`,
+
+            class:"closing"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `その好意と集結は長く続かなかった。頼朝はやがて独立した源氏の勢力を退け、ついには名高い弟、義経自身を追うことになる。しかし教えは、すでに伝えられていた。`,
+
+        en:[
+          {
+            text:
+              `The goodwill and gathering did not last. Yoritomo eventually moved against independent Minamoto powers and finally against his famous brother Yoshitsune himself. But the teaching had already been passed.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `歴史は義経の死を平泉に置く。しかし日本の伝説は、彼をそこに留めなかった。追討を逃れ、北へ脱出し、大陸へ渡り、最も大胆な伝説では、かの軍事的天才チンギス・ハーンその人になったとも語られる。`,
+
+        en:[
+          {
+            text:
+              `History places Yoshitsune's death at Hiraizumi. Japanese legend refused to leave him there. It is said that he survived the hunt, escaped north, crossed to the Asian mainland, and, in the most extravagant version of the legend, became none other than the military genius Genghis Khan himself.`,
+
+            class:""
+          },
+
+          {
+            text:
+              `Legend!`,
+
+            class:"closing"
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+
+  /* =======================================================
+     THE TAKEDA INHERITANCE
+     ======================================================= */
+
+  {
+
+    jpTitle:"武田の継承",
+
+    enTitle:"The Takeda Inheritance",
+
+    rows:[
+
+      {
+
+        jp:
+          `武田は残った。`,
+
+        en:[
+          {
+            text:
+              `The Takeda endured.`,
+
+            class:"closing"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `彼らが継承した源氏の武術は、合気が働き続けるための身体となった。`,
+
+        en:[
+          {
+            text:
+              `Their inherited Minamoto arts provided the body through which aiki could continue to operate.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `武田家の中で、その働きは秘伝その他の内伝、隠された伝承の中に埋め込まれて残ったと考える。`,
+
+        en:[
+          {
+            text:
+              `It is believed that within the Takeda house, that operation remained embedded in the hiden and other inner or concealed transmissions of the ryū.`,
 
             class:""
           }
@@ -373,25 +897,27 @@ const sections = [
   },
 
 
+  /* =======================================================
+     TAKEDA SHINGEN
+     ======================================================= */
+
   {
 
-    jpTitle:
-      "習熟度と相応しい応答",
+    jpTitle:"武田信玄",
 
-    enTitle:
-      "Proficiency and Appropriate Response",
+    enTitle:"On Takeda Shingen",
 
     rows:[
 
       {
 
         jp:
-          "聖都流は、初心者に上級者の外見だけを模倣させない。同じ遭遇でも、習熟度によって異なる表現を必要とする。初心者には、より強い保護、大きな動き、確かな接続、明確な位置制御が必要になる場合がある。",
+          `数世紀後、甲斐武田の本家から武田信玄が現れた。その戦略は、この法が後代に現れた印象的な表現を示している。`,
 
         en:[
           {
             text:
-              "Seito-ryū does not require a beginner to imitate the outward appearance of an advanced practitioner. The same encounter may require different expressions according to proficiency. A beginner may require stronger protection, larger movement, firmer connection, and more obvious positional control.",
+              `Centuries later, the main Kai-Takeda house produced Takeda Shingen. His strategies offer striking later expressions of the Law.`,
 
             class:""
           }
@@ -403,12 +929,137 @@ const sections = [
       {
 
         jp:
-          "技能が高まるにつれ、動きは小さくなり、接触は一時的になり、機はより正確となり、筋力による努力は次第に構造、位置、関係へ置き換えられる。目標は初心者の粗さを保存することでも、早すぎる繊細さを要求することでもない。稽古は、より洗練された合気へ向かう。",
+          `その有名な戦略的標語「風林火山」は、同じ法を軍勢の規模で表している。`,
 
         en:[
           {
             text:
-              "With increasing skill, movement may become smaller, contact more temporary, timing more exact, and muscular effort increasingly replaced by structure, positioning, and relationship. The aim is neither to preserve beginner crudeness nor to demand premature subtlety. Training proceeds toward increasingly refined aiki.",
+              `His famous strategic maxim, Fūrinkazan, meaning Wind, Forest, Fire, Mountain, gives us the same Law expressed at the scale of armies:`,
+
+            class:""
+          },
+
+          {
+            text:
+              `WIND · FOREST · FIRE · MOUNTAIN`,
+
+            class:"sequence"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `速さが必要なら疾く。静けさが必要なら静かに。力が必要なら圧倒的に。動けば陣を失うなら動かない。`,
+
+        en:[
+          {
+            text:
+              `Swift when swiftness is required. Still when stillness is required. Overwhelming when force is required. Immovable when movement would destroy the position.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `常に正しい一つの外形的な答えがあるのではない。残るのは、状況に正しく応じる能力である。`,
+
+        en:[
+          {
+            text:
+              `No single outward response is always correct. What remains available is the ability to answer circumstance correctly.`,
+
+            class:"closing"
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+
+  /* =======================================================
+     KAI TO AIZU
+     ======================================================= */
+
+  {
+
+    jpTitle:"甲斐から会津へ",
+
+    enTitle:"From Kai to Aizu",
+
+    rows:[
+
+      {
+
+        jp:
+          `後に武田の傍系は、一族の継承を会津へ運んだ。そこで武の問題は変化した。戦場は城となった。`,
+
+        en:[
+          {
+            text:
+              `A collateral Takeda branch later carried the family inheritance into Aizu. There the martial problem changed. The battlefield became the castle.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `礼装、限られた空間、礼法、武器の制限、政治的な結果が、新たな制約を課した。`,
+
+        en:[
+          {
+            text:
+              `Formal clothing, confined rooms, etiquette, restricted weapons, and political consequence imposed new constraints.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `会津では、この継承の一部が城内の格式と制約に適応し、後代の伝承で御式内と呼ばれるもの、すなわち礼法、制御、護身に関わる内向きの武法と結び付いたとされる。`,
+
+        en:[
+          {
+            text:
+              `It is said that in Aizu, part of this inheritance was adapted to the formal and restricted environment of the castle and became associated with what later tradition calls oshikiuchi, an inner-household discipline of etiquette, control, and self-protection.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `かつて戦場全体で扱われていた戦略的な問題は、二人の身体の間の空間へ圧縮された。この環境の中で、古い合気の働きの一側面、すなわち関係、構造、均衡、意図を二者の間で制御することが、極めて精密に洗練された。`,
+
+        en:[
+          {
+            text:
+              `A strategic problem once measured across battlefields was compressed into the space between two bodies. Within this increasingly concentrated martial environment, one dimension of the older aiki operation was refined with extraordinary precision: control of relationship, structure, balance, and intention between two people.`,
 
             class:""
           }
@@ -421,25 +1072,27 @@ const sections = [
   },
 
 
+  /* =======================================================
+     BEFORE THE NAME
+     ======================================================= */
+
   {
 
-    jpTitle:
-      "創流期の応用研究",
+    jpTitle:"名が生まれる前",
 
-    enTitle:
-      "Applied Formative Research",
+    enTitle:"Before the Name",
 
     rows:[
 
       {
 
         jp:
-          "創流期には、選ばれた上級実践者、指導者、適格な協力者が、通常の形稽古を超える問題を検討することがある。研究は、あらかじめ技術的な答えを決めるのではなく、起こりうる攻防状況から始める。複数の道筋を試し、弱い解決を捨て、有用な関係を調べ、遭遇の開始と古典技とのつながりを稽古によって再構成する。",
+          `何世紀もの間、われわれが合気と呼んできたものには、一つの恒久的な名称を必要としなかった。武の体系が先にあり、高度な教えは独立した名称を持たないまま、その内部に埋め込まれて存在し得た。`,
 
         en:[
           {
             text:
-              "During Sōryū-ki, selected senior practitioners, instructors, and qualified contributors may examine problems beyond the ordinary practice of kata. The work begins from plausible attack-and-defense situations rather than from a predetermined technical answer. Different pathways may be explored, weak solutions discarded, useful relationships studied, and the connection between the opening encounter and classical waza reconstructed through practice.",
+              `For centuries, what we have labeled aiki required no single permanent name. The martial body came first. Higher teachings could remain embedded within it without yet existing as a separately named discipline.`,
 
             class:""
           }
@@ -451,12 +1104,29 @@ const sections = [
       {
 
         jp:
-          "その検証を経た内容は、さらに規定を減らした条件のもとで稽古されることがある。目的は、台本のない武の問題から、古典技が生じる条件へ移行する過程を、再現可能な形で研究する方法を確立することにある。",
+          `やがて一つの言葉が特別な意味を持つようになる。合気。`,
 
         en:[
           {
             text:
-              "Material that survives such examination may then be practiced under progressively less prescribed conditions. The aim is to establish repeatable ways of studying the transition from an unscripted martial problem toward the conditions from which classical waza arise.",
+              `Eventually one term acquired special importance: Aiki — 合気.`,
+
+            class:"sequence"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `合気という語は、近代大東流以前から日本の武術言説の中に存在していた。一八九二年には『武道秘訣 合気之術』という書物が現れる。`,
+
+        en:[
+          {
+            text:
+              `The word already existed in Japanese martial discourse before modern Daitō-ryū. By 1892, a Japanese book appeared under the title: Budō Hiketsu: Aiki no Jutsu — Secrets of Budō: The Art of Aiki.`,
 
             class:""
           }
@@ -468,12 +1138,334 @@ const sections = [
       {
 
         jp:
-          "こうした内容を開発し、検証し、習熟度に応じて調整し、課程へ採用するための詳細な手続きは、本校内部の教授法に属する。",
+          `二十世紀初頭には、武田の継承そのものが合気を武の実際的な用語として用いるようになる。この物語の中で初めて、その働きが名を持つ。`,
 
         en:[
           {
             text:
-              "The detailed procedures by which such material is developed, tested, adapted to proficiency, and admitted into the curriculum belong to the internal pedagogy of the school.",
+              `By the early twentieth century, the Takeda inheritance itself would use aiki as an operative martial term. For the first time in our story: the operation now has its name.`,
+
+            class:"closing"
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+
+  /* =======================================================
+     SOKAKU, UESHIBA, NAMING OF AIKI
+     ======================================================= */
+
+  {
+
+    jpTitle:"惣角、植芝、そして合気の命名",
+
+    enTitle:"Sōkaku, Ueshiba, and the Naming of Aiki",
+
+    rows:[
+
+      {
+
+        jp:
+          `会津武田の流れから武田惣角が現れた。惣角によって、武田の武の継承は大東流柔術として近代日本へ入った。`,
+
+        en:[
+          {
+            text:
+              `From the Aizu Takeda came Takeda Sōkaku. With him, the Takeda martial inheritance entered modern Japan as Daitō-ryū Jūjutsu.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `その技術体系は、すでに段階的に深まる伝承として組織されていた。最も高度な内容の一部は、裏、秘伝、あるいは文書化されないものとして残っていた。`,
+
+        en:[
+          {
+            text:
+              `Its technical body was already organized into progressively deeper levels of transmission. Some of its highest material remained ura, inner, hiden, or unwritten.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `惣角の初期伝承において、秘伝目録は百十八か条を記し、さらに三十か条は書面の外に置かれていた。`,
+
+        en:[
+          {
+            text:
+              `In Sōkaku's early transmission, the Hiden Mokuroku, the Catalogue of Secret Teachings, named 118 items, while 30 remained outside the written listing.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `二十世紀初頭までに、惣角はすでに自らの術の高度な働きを示す言葉として合気を用いていた。大東流はその働きを柔術の内部で保存し、洗練し、その区別をますます明確にした。`,
+
+        en:[
+          {
+            text:
+              `By the early twentieth century, Sōkaku was already using the term aiki for the higher operation within his art. Daitō-ryū preserved and refined that operation within its jūjutsu, making the distinction increasingly explicit:`,
+
+            class:""
+          },
+
+          {
+            text:
+              `JŪJUTSU provides the technical body.
+AIKI is the operation acting through it.
+AIKI NO JUTSU names that operation.`,
+
+            class:"sequence"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `惣角の最も重要な弟子の一人が植芝盛平であった。植芝は綾部で出口王仁三郎と大本の宗教世界に入った。`,
+
+        en:[
+          {
+            text:
+              `Among Sōkaku's most consequential students was Morihei Ueshiba. Ueshiba entered the religious world of Onisaburō Deguchi and Ōmoto at Ayabe.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `一九二二年、惣角はそこで教えた。既存の柔術課程と並んで、合気之術という別個に識別された体系が現れる。同じ年、現存する記録の中で流派は「大東流合気柔術」の名で現れ始める。`,
+
+        en:[
+          {
+            text:
+              `In 1922, Sōkaku taught there. Alongside the established jūjutsu curriculum appears a separately identified body of Aiki no Jutsu. In the same year, the ryū begins appearing in surviving records under the name: Daitō-ryū Aiki-jūjutsu.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `植芝家その他の証言は、出口王仁三郎がその働きを見て、「合気」を名称に加えるよう勧めたと伝える。内なる働きは、ついに術の名そのものに立つほど明示的になった。`,
+
+        en:[
+          {
+            text:
+              `Ueshiba-family and related testimony later credited Deguchi with encouraging the addition of aiki to the name after observing it in action. The inner operation had become explicit enough to stand in the name of the art itself.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `植芝はさらに問いを進めた。彼は合気を、柔術内部の洗練された一作用としてだけではなく、状況に応じて行為そのものを生み出し得る、生成的な働きとして理解するようになった。`,
+
+        en:[
+          {
+            text:
+              `Ueshiba then carried the inquiry further. He increasingly understood aiki not merely as a refined operation within jūjutsu, but as generative, capable of giving rise to action according to circumstance.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `そこから生まれたものが、合気道である。合気の道。`,
+
+        en:[
+          {
+            text:
+              `From that development emerged: Aikidō — The Way of Aiki.`,
+
+            class:"closing"
+          }
+        ]
+
+      }
+
+    ]
+
+  },
+
+
+  /* =======================================================
+     TAKEMUSU AIKI
+     ======================================================= */
+
+  {
+
+    jpTitle:"武産合気",
+
+    enTitle:"Takemusu Aiki",
+
+    rows:[
+
+      {
+
+        jp:
+          `植芝大先生に至って、この縁起の冒頭で名づけられた創流の探究領域が、完全な姿を現す。`,
+
+        en:[
+          {
+            text:
+              `With Ueshiba O’sensei, the founding field named at the beginning of this Engi comes fully into view.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `武産合気とは生成する合気である。あらかじめ定めた技を選んだり、無理に押しつけたりすることなく、遭遇の条件そのものから適切な武の行為が自発的に生まれることである。`,
+
+        en:[
+          {
+            text:
+              `Takemusu Aiki is generative aiki: the spontaneous birth of appropriate martial action from the conditions of the encounter, without first selecting or forcing a predetermined technique.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `真の合気からは、状況に応じて武の形が生じる。関係へ正しく入り、その結果として行為が現れる。`,
+
+        en:[
+          {
+            text:
+              `From true aiki, martial form arises according to circumstance: one enters the relationship correctly, and the action emerges.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `大東流において、合気は卓越した技術的精密さをもって保存され、洗練された。植芝において、その生成的な広がりが明示された。`,
+
+        en:[
+          {
+            text:
+              `In Daitō-ryū, aiki had been preserved and refined with extraordinary technical precision. With Ueshiba, its generative scope became explicit.`,
+
+            class:""
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `この長い弧は、簡潔に言うことができる。`,
+
+        en:[
+          {
+            text:
+              `The entire arc can now be stated simply:`,
+
+            class:""
+          },
+
+          {
+            text:
+              `THE LAW is the order inherent in reality.
+AIKI is its living martial operation.
+TAKEMUSU AIKI is that operation spontaneously giving birth to appropriate martial form.`,
+
+            class:"sequence"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `武産合気において、この長い弧は頂点に達する。合気は単に技を完成させるのではない。合気が技を生む。`,
+
+        en:[
+          {
+            text:
+              `And in Takemusu Aiki, the long arc reaches its culmination: aiki does not merely perfect technique. Aiki gives birth to technique.`,
+
+            class:"closing"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `その理解から、われわれに手渡された術が生まれた。合気道。合気の道。`,
+
+        en:[
+          {
+            text:
+              `From that realization came the art handed down to us: Aikidō — The Way of Aiki.`,
 
             class:""
           }
@@ -486,25 +1478,55 @@ const sections = [
   },
 
 
+  /* =======================================================
+     AIKI JIKKENJŌ
+     ======================================================= */
+
   {
 
-    jpTitle:
-      "抵抗・制御・安全",
+    jpTitle:"合気実験場",
 
-    enTitle:
-      "Resistance, Control, and Safety",
+    enTitle:"Aiki Jikkenjō — The Aiki Experimental Ground",
 
     rows:[
 
       {
 
         jp:
-          "協力的な形稽古と抵抗稽古は、異なる問いに答える。形は、型そのものを精密に学ぶことを可能にする。抵抗は、受けがその関係を自発的に与えなくなったときにも、その関係が有効であるかを明らかにする。どちらの稽古も、もう一方と取り違えるべきではない。",
+          `実 — jitsu — 現実、実際
+験 — ken — 経験による試験、証明
+場 — jō — 場所、場、地`,
 
         en:[
           {
             text:
-              "Cooperative kata and resistant practice answer different questions. Kata allows the form to be studied precisely. Resistance reveals whether a relationship remains valid when uke no longer supplies it voluntarily. Neither mode should be mistaken for the other.",
+              `実 · jitsu = reality, actuality
+験 · ken = test, proof through experience
+場 · jō = field, place, ground`,
+
+            class:"sequence"
+          },
+
+          {
+            text:
+              `“Reality Testing Field”`,
+
+            class:"closing"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `継承された物語は、われわれを合気道へ連れてくる。聖都流の探究は、その先にある問いから始まる。`,
+
+        en:[
+          {
+            text:
+              `The inherited story brings us to Aikidō. The Seito-ryū inquiry begins with the question that follows from it.`,
 
             class:""
           }
@@ -516,12 +1538,12 @@ const sections = [
       {
 
         jp:
-          "抵抗は、稽古の目的と実践者の経験に応じて導入する。ある稽古は、位置やつながりを得た時点で終えてよい。あるものは、制御された崩しまで進めてよい。また、得られた関係を適切な制御のもとで完全な古典技へつなぎ直すこともある。",
+          `もし合気が生成的なものであるなら、答えがあらかじめ知られている場所だけでは、その全体を探究することはできない。戦争の暴力を再現することなく、不確実性、抵抗、変化する状況、適応、そして現実的な結果を許す稽古条件が必要になる。`,
 
         en:[
           {
             text:
-              "Resistance is introduced according to the purpose of the exercise and the experience of the practitioners. Some practice may end when position or connection has been obtained. Some may continue through controlled kuzushi. Some may reconnect the acquired relationship to the complete classical waza under appropriate control.",
+              `If aiki is generative, then it cannot be investigated fully only where the answer is known in advance. Some training conditions must allow uncertainty, resistance, changing circumstance, adaptation, and genuine consequence without recreating the violence of war.`,
 
             class:""
           }
@@ -533,43 +1555,12 @@ const sections = [
       {
 
         jp:
-          "上級者は、遭遇のより多くの部分を再構成し、より高い速度で行うことができる。しかし、速さだけが妥当性の証拠ではなく、負傷も武の有効性の証明ではない。抵抗稽古の目的は、稽古相手を守りながら誤りを露わにすることである。",
+          `源氏の者たちは、戦役と生存の坩堝の中に、そのような条件を持っていた。一ノ谷は、この縁起において彼らの戦場の免許として立つ。`,
 
         en:[
           {
             text:
-              "Advanced practitioners may reconstruct more of the encounter and may do so at greater tempo, but speed alone is not evidence of validity, nor is injury proof of martial effectiveness. The purpose of resistance is to expose error while preserving the training partner.",
-
-            class:""
-          }
-        ]
-
-      }
-
-    ]
-
-  },
-
-
-  {
-
-    jpTitle:
-      "他の武道から学ぶ",
-
-    enTitle:
-      "Learning From Other Budō",
-
-    rows:[
-
-      {
-
-        jp:
-          "聖都流は、雑多な技の寄せ集めを作ろうとはしない。他の武道が、合気柔術にも関わる問題について特に明晰な研究方法を発達させているなら、その成果を比較研究の資料とすることがある。",
-
-        en:[
-          {
-            text:
-              "Seito-ryū does not seek to assemble an eclectic collection of techniques. Where another martial discipline has developed unusually clear methods for studying a problem relevant to Aiki Jujutsu, that work may become a source of comparative study.",
+              `The Minamoto possessed such conditions in the crucible of campaign and survival. Ichi-no-Tani stands in the Engi as their battlefield menkyo.`,
 
             class:""
           }
@@ -581,12 +1572,29 @@ const sections = [
       {
 
         jp:
-          "柔道は、組み手、作り、崩し、投げ、乱取りを高度に研究してきた。レスリングは、抵抗する身体に対する捕捉、接続、位置制御、移動を直接研究する。打撃系武道は、間合、機、保護、入りの弱点を露わにする。ブラジリアン柔術は、持続的な抵抗下で位置制御を検討する強力な方法を提供する。",
+          `戦場が彼らの実験場であった。聖都流は戦場を再現しない。問いを再現する。われわれの場は違う。問いは同じである。`,
 
         en:[
           {
             text:
-              "Jūdō offers highly developed methods for studying gripping, tsukuri, kuzushi, throwing, and randori. Wrestling provides direct study of acquisition, attachment, positional control, and movement against an unwilling body. Striking arts expose weaknesses in ma-ai, timing, protection, and entry. Brazilian Jiu-Jitsu offers powerful methods for examining positional control under sustained resistance.",
+              `The battlefield was their Experimental Ground. Seito-ryū does not recreate the battlefield. It recreates the question. Our ground is different. The question is the same.`,
+
+            class:"closing"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `合気実験場、Aiki Jikkenjō、「Aiki Experimental Ground」とは、継承された形を段階的に不確実性へ戻し、その生きた働きを試す場所である。`,
+
+        en:[
+          {
+            text:
+              `The 合気実験場, Aiki Jikkenjō, “Aiki Experimental Ground,” is the place where inherited form is returned progressively to uncertainty so that its living operation can be tested.`,
 
             class:""
           }
@@ -598,43 +1606,12 @@ const sections = [
       {
 
         jp:
-          "問題は、どの武道を合気道に加えるべきかではない。他の武道が、合気柔術にも存在する問題について何を学んできたのか、そしてその知見をこの術の研究へ戻したときに何が理解できるのか、ということである。",
+          `合気実験場は、発明から始まるのでも、一つの系譜だけから始まるのでもない。まず「十二人の長老」が担う生きた継承を見、次に「七十人の卓越した合気道人」が示す技術的な証言を見、その上で学んだものを実験場へ戻す。そこで継承された形と生きた実例は、不確実性の中に置かれ、原理が姿を現すか、あるいは失敗するまで試される。`,
 
         en:[
           {
             text:
-              "The question is not which arts should be added to Aikido. The question is what another discipline has learned about a problem also present in Aiki Jujutsu, and what may be understood when that knowledge is returned to the study of the art.",
-
-            class:""
-          }
-        ]
-
-      }
-
-    ]
-
-  },
-
-
-  {
-
-    jpTitle:
-      "創流期の記録",
-
-    enTitle:
-      "The Formative Record",
-
-    rows:[
-
-      {
-
-        jp:
-          "聖都流は、形成の過程を公開して進める。その創流期の記録は、直接受け継いだもの、歴史的に文書化されたもの、他の武道から比較的に学んだもの、自ら再構成したもの、なお実験段階にあるもの、そして最終的に十分安定して伝えるに値すると判断されたものを区別すべきである。",
-
-        en:[
-          {
-            text:
-              "Seito-ryū is being formed openly. Its formative record should distinguish what has been directly received, what is historically documented, what has been learned comparatively from other martial traditions, what has been reconstructed, what remains experimental, and what eventually proves sufficiently stable to transmit.",
+              `The Aiki Jikkenjō begins neither from invention nor from a single lineage. It looks first to the living inheritance of the Twelve Elders, then to the technical witness of the Seventy Distinguished Aikidoka, and finally returns what it has learned to the Experimental Ground. There, inherited form and living example are subjected to uncertainty until principle either reveals itself or fails.`,
 
             class:""
           }
@@ -646,12 +1623,29 @@ const sections = [
       {
 
         jp:
-          "失敗した実験も、その記録に属する。目的は、後から神話を作り上げることではなく、後世の実践者に、この学校がいかに形成されたかについて正確な記録を残すことにある。不確かなものは不確かなものとして、暫定的なものは、稽古が保存するだけの十分な理由を与えるまで暫定的なものとして扱う。",
+          `十二人は継承を守る。七十人は、その生きた可能性を示す。実験場は、形が現実に出会ったとき何が残るのかを試す。`,
 
         en:[
           {
             text:
-              "Failed experiments belong to that record as well. The purpose is not to manufacture a mythology afterward, but to leave later practitioners an accurate account of how the school developed. What is uncertain should remain identified as uncertain. What is provisional should remain provisional until practice gives sufficient reason to preserve it.",
+              `The Twelve preserve the inheritance. The Seventy reveal its living possibilities. The Experimental Ground tests what survives when form meets reality.`,
+
+            class:"closing"
+          }
+        ]
+
+      },
+
+
+      {
+
+        jp:
+          `十二人または七十人に含めることは、研究と敬意を示すものであり、聖都流への所属、承認、支持を意味するものではない。`,
+
+        en:[
+          {
+            text:
+              `Inclusion among the Twelve or the Seventy signifies study and respect, not affiliation, endorsement, or membership in Seito-ryū.`,
 
             class:""
           }
@@ -663,43 +1657,39 @@ const sections = [
       {
 
         jp:
-          "一つの学校は、自らが何を受け継ぎ、何を創り出したのかを知っていなければならない。",
+          `聖都流の一年間の内弟子、uchi-deshi、「live-in disciple」の形成も、同じ弧をたどる。`,
 
         en:[
           {
             text:
-              "A school should know what it inherited and what it created.",
+              `The one-year 内弟子, uchi-deshi, “live-in disciple” formation of Seito-ryū will follow that same arc:`,
 
             class:""
+          },
+
+          {
+            text:
+              `INSTRUCTION IS LIVED.
+TECHNIQUE BECOMES FAMILIARITY.
+FAMILIARITY BECOMES PERCEPTION.
+PERCEPTION IS PLACED UNDER UNCERTAINTY.`,
+
+            class:"sequence"
           }
         ]
 
-      }
+      },
 
-    ]
-
-  },
-
-
-  {
-
-    jpTitle:
-      "武道",
-
-    enTitle:
-      "Budō",
-
-    rows:[
 
       {
 
         jp:
-          "技術的な有効性だけが武道の目的ではない。稽古は、規律、節度、勇気、礼、自制、他者への責任も養うべきである。技術が高まるほど、いつ、なぜ、どの程度の力を用いるのかを律する責任も大きくなる。",
+          `不確実性の中で、知覚は判断となる。判断は適切な行為を生み出す。学ぶ者は、教えが単に記憶されたものではなくなり、行為の中で利用可能なものとなったことを示さなければならない。`,
 
         en:[
           {
             text:
-              "Technical effectiveness is not the whole purpose of budō. Practice should also cultivate discipline, restraint, courage, courtesy, self-command, and responsibility toward others. Greater technical ability brings a greater obligation to govern when, why, and to what degree force is used.",
+              `Under uncertainty, perception becomes judgment. Judgment gives birth to appropriate action. The student must demonstrate that the teaching has ceased to be merely remembered and has become available in action.`,
 
             class:""
           }
@@ -711,12 +1701,12 @@ const sections = [
       {
 
         jp:
-          "聖都流はいま創流期にある。われわれの務めは、完成した体系を宣言することではない。慎重に稽古し、誠実に学び、古典合気柔術に保存された原理が、遭遇の始まりから技へといかに続いていくのかを、経験によって確かめることである。",
+          `継承された技術体系が素材を与える。生きた条件が実験場を与える。合気が働きを与える。武産合気こそ、われわれが見極めようとする現象である。`,
 
         en:[
           {
             text:
-              "Seito-ryū is presently in Sōryū-ki, its formative period. Our task is not to proclaim a completed system, but to practice carefully, study honestly, and establish through experience how the principles preserved in classical Aiki Jujutsu continue from the beginning of an encounter into waza.",
+              `The inherited technical body provides the material. Alive conditions provide the Experimental Ground. Aiki provides the operation. Takemusu Aiki is the phenomenon we seek to recognize.`,
 
             class:""
           }
@@ -728,12 +1718,12 @@ const sections = [
       {
 
         jp:
-          "われわれは、受け取ったものを守り、他者から学んだことを明らかにし、自ら再構成したものを明確に区別し、稽古によって十分に理解されたものだけを伝えることを目指す。",
+          `したがって聖都流の創流の問いは、継承された技が今も実行できるかどうかだけではない。`,
 
         en:[
           {
             text:
-              "We seek to preserve what has been received, acknowledge what we learn from others, distinguish clearly what we reconstruct ourselves, and transmit only what has been sufficiently understood through practice.",
+              `The founding question of Seito-ryū is therefore not simply whether inherited techniques can still be performed.`,
 
             class:""
           }
@@ -745,12 +1735,12 @@ const sections = [
       {
 
         jp:
-          "形を忠実に学ぶ。遭遇を誠実に学ぶ。",
+          `合気が再び技を生み出す、その条件を創ることができるのか。`,
 
         en:[
           {
             text:
-              "Study the form faithfully. Study the encounter honestly.",
+              `It is whether the conditions can be created in which aiki once again gives birth to technique.`,
 
             class:"closing"
           }
