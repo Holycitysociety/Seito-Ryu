@@ -1,7 +1,7 @@
 const sections = [
   {
     jpTitle: "聖都流縁起",
-    enTitle: "Seito-ryū Engi – The Founding Lore",
+    enTitle: "Seito-ryū Engi – The Founding Lore of Seito-ryū",
     rows: [
       {
         jp: "聖都流は、二〇二六年、サウスカロライナ州チャールストンにおいて設立された、形成途上にある武道校である。その創流の探究領域は武産合気であり、柔術と合気道という継承された技術体系を通してこれを探究する。本校はホーリー・シティ・ソサエティの後援のもとに置かれ、『聖都』という名はそこに由来する。",
