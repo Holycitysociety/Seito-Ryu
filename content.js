@@ -14,7 +14,7 @@ const sections = [
     ]
   },
   {
-    jpTitle: "系譜への問い",
+    jpTitle: "SEPTEMBER 10, 2026",
     enTitle: "nobody, somewhere",
     rows: [
       {
