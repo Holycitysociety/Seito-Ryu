@@ -142,8 +142,8 @@ main{
 .header-blossom{
  position:absolute;
  z-index:0;
- left:-18px;
- top:0;
+ left:-58px;
+ top:-4px;
  width:314px;
  height:auto;
  max-width:none;
@@ -250,6 +250,11 @@ main{
  .brand-stack .romaji{
  font-size:10.2px;
  letter-spacing:.045em;
+ }
+ .header-blossom{
+ left:-64px;
+ top:-2px;
+ width:292px;
  }
 }
 
@@ -661,32 +666,39 @@ main{
  --hero-place-size:
  clamp(12.8px,1.28vw,19.2px);
  }
+
  /* =======================================================
  DESKTOP BLOSSOM
  ======================================================= */
+
  .header-blossom{
- left:-16px;
- top:0;
+ left:-118px;
+ top:-8px;
  width:684px;
  height:auto;
  opacity:1;
  }
+
  /* =======================================================
  DESKTOP HEADER BRAND
  ======================================================= */
+
  .brand{
  margin-left:205px;
  gap:14px;
  }
+
  .brand .mon{
  width:88px;
  height:auto;
  opacity:1;
  transform:translateX(0);
  }
+
  .brand-stack{
  opacity:1;
  }
+
  .brand-stack .jp{
  font-family:var(--brush);
  font-weight:400;
@@ -697,6 +709,7 @@ main{
  letter-spacing:.045em;
  white-space:nowrap;
  }
+
  .brand-stack .romaji{
  font-size:
  clamp(14px,1.05vw,18px);
@@ -704,27 +717,34 @@ main{
  letter-spacing:.085em;
  white-space:nowrap;
  }
+
  .menu{
  width:44px;
  height:44px;
  }
+
  .menu span{
  width:22px;
  }
+
  .section-mark{
  margin-bottom:32px;
  }
+
  .section-mark img{
  width:30px;
  }
+
  .section-title .kicker{
  font-size:
  clamp(25px,2.7vw,38px);
  letter-spacing:.06em;
  }
+
  .jp-paragraph{
  width:17rem;
  }
+
  .en-group{
  width:
  min(100%,var(--en-measure));
