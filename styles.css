@@ -1,1412 +1,1190 @@
+:root{
+
+  /* =======================================================
+     COLOR
+     ======================================================= */
+
+  --paper:#e8d7c7;
+  --folio:#f2e7db;
+
+  --ink:#171411;
+  --muted:#6b645d;
+  --shu:#b02a20;
+
+
+  /* =======================================================
+     FONT FAMILIES
+     ======================================================= */
+
+  --brush:
+    "Yuji Syuku",
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+  --jp-body:
+    "Hiragino Mincho ProN",
+    "Yu Mincho",
+    "YuMincho",
+    "Noto Serif JP",
+    serif;
+
+
+  /* =======================================================
+     MOBILE HEADER
+     ======================================================= */
+
+  --header-h:58px;
+
+
+  /* =======================================================
+     READER
+     ======================================================= */
+
+  --reader-max:940px;
+
+  --jp-size:16.5px;
+  --jp-leading:1.68;
+
+  --en-size:18.2px;
+  --en-leading:1.44;
+
+  --pair-gap:14px;
+
+  --folio-pad-x:12px;
+  --folio-pad-y:18px;
+
+  --paragraph-gap:30px;
+
+  --section-pad-x:18px;
+
+
+  /* =======================================================
+     HERO — MOBILE
+     ======================================================= */
+
+  --hero-pad-top:34px;
+  --hero-pad-bottom:38px;
+
+  --hero-poster-max:640px;
+
+  --hero-mon-w:
+    min(84vw,360px);
+
+  --hero-wordmark-lift:-78px;
+
+  --hero-title-size:
+    clamp(36.8px,8.96vw,60.8px);
+
+  --hero-title-line:1.05;
+
+  --hero-title-track:.03em;
+
+  --hero-rule-w:88px;
+  --hero-rule-h:2px;
+
+  --hero-rule-gap-top:10px;
+  --hero-rule-gap-bottom:12px;
+
+  --hero-romaji-size:
+    clamp(15.2px,4.08vw,24.8px);
+
+  --hero-romaji-line:1.15;
+
+  --hero-romaji-track:.12em;
+
+  --hero-mark-gap-top:24px;
+  --hero-mark-gap-bottom:32px;
+
+  --hero-mark-size:32px;
+
+  --hero-soryuki-jp:
+    clamp(14.4px,4.64vw,27.2px);
+
+  --hero-soryuki-sub:
+    clamp(12.8px,3.92vw,22.4px);
+
+  --hero-place-size:
+    clamp(11.2px,3.52vw,17.6px);
+}
+
+
 /* =========================================================
-   SEITO-RYŪ BILINGUAL NAVIGATION
+   RESET
    ========================================================= */
 
-(() => {
-
-  const navigationGroups = [
-
-    {
-      titleJp: "聖都流",
-      titleEn: "SEITO-RYŪ",
-      links: [
-
-        {
-          jp: "縁起",
-          en: "ENGI",
-          sub: "Founding Lore",
-          href: "/"
-        },
-
-        {
-          jp: "合気柔術",
-          en: "AIKI-JŪJUTSU",
-          sub: "Holy City Aiki Jujutsu",
-          href: "/aiki-jujutsu/"
-        },
-
-        {
-          jp: "合気道",
-          en: "AIKIDŌ",
-          sub: "Aikido",
-          href: "/aikido/"
-        },
-
-        {
-          jp: "礼法",
-          en: "REIHŌ",
-          sub: "Reihō / Etiquette",
-          href: "/reiho/"
-        },
+*{
+  box-sizing:border-box;
+}
 
-        {
-          jp: "弓馬道",
-          en: "KYŪBADŌ",
-          sub: "The Way of Bow & Horse",
-          href: "/kyubado/"
-        },
+html{
+  scroll-behavior:smooth;
+}
 
-        {
-          jp: "貴理師端瞑想",
-          en: "KIRISHITAN MEISŌ",
-          sub: "Christian Meditation",
-          href: "/kirishitan-meiso/"
-        }
+body{
 
-      ]
-    },
+  margin:0;
 
+  color:var(--ink);
 
-    {
-      titleJp: "系譜・所属",
-      titleEn: "LINEAGE & AFFILIATION",
-      links: [
+  background:var(--paper);
 
-        {
-          jp: "合気道親睦会",
-          en: "AIKIDO SHIMBOKUKAI",
-          sub: "Recognized Aikido Organization",
-          href: "https://www.aikidoshimbokukai.org/",
-          external: true
-        },
+  font-family:
+    "Bodoni 72",
+    "Bodoni 72 Smallcaps",
+    "Baskerville",
+    "Iowan Old Style",
+    "Times New Roman",
+    serif;
 
-        {
-          jp: "合気会",
-          en: "AIKIKAI",
-          sub: "Aikikai Foundation · Hombu Dojo",
-          href: "https://aikikai.or.jp/eng/",
-          external: true
-        }
+  line-height:1.48;
+}
 
-      ]
-    },
+img{
+  display:block;
+  max-width:100%;
+}
 
+main{
+  overflow:hidden;
+}
 
-    {
-      titleJp: "後援",
-      titleEn: "PATRONAGE",
-      links: [
 
-        {
-          jp: "聖都会",
-          en: "HOLY CITY SOCIETY",
-          sub: "Seito-kai",
-          href: "/holy-city-society/"
-        }
+/* =========================================================
+   HEADER — MOBILE
+   ========================================================= */
 
-      ]
-    }
+.site-header{
 
-  ];
+  position:sticky;
+  top:0;
 
+  z-index:100;
 
+  height:var(--header-h);
+  min-height:var(--header-h);
 
-  /* =======================================================
-     MENU STYLES
-     ======================================================= */
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
 
-  const style =
-    document.createElement("style");
+  gap:10px;
 
+  padding:
+    0
+    14px
+    0
+    max(12px,env(safe-area-inset-left));
 
-  style.textContent = `
+  background:var(--paper);
 
-    /* =====================================================
-       MENU BUTTON
-       ===================================================== */
+  border-bottom:
+    1px solid rgba(0,0,0,.08);
 
-    .menu{
-      transition:
-        background-color .18s ease,
-        transform .18s ease;
-    }
+  box-shadow:
+    0 4px 14px rgba(0,0,0,.045);
 
+  overflow:visible;
 
-    .menu:hover,
-    .menu:focus-visible{
-      background:
-        rgba(176,42,32,.07);
+  isolation:isolate;
+}
 
-      outline:none;
-    }
 
+/* =========================================================
+   FLOATING CHERRY BLOSSOM
+   ========================================================= */
 
-    .menu:active{
-      transform:
-        scale(.96);
-    }
+.header-blossom{
 
+  position:absolute;
 
+  z-index:0;
 
-    /* =====================================================
-       PAGE LOCK
-       ===================================================== */
+  left:-18px;
+  bottom:-25px;
 
-    body.seito-menu-open{
-      overflow:hidden;
-    }
+  width:165px;
+  height:auto;
 
+  max-width:none;
 
+  opacity:1;
 
-    /* =====================================================
-       DARKENED BACKDROP
-       ===================================================== */
+  pointer-events:none;
 
-    .seito-menu-backdrop{
+  user-select:none;
+}
 
-      position:fixed;
 
-      z-index:998;
+/* =========================================================
+   HEADER IDENTITY
+   ========================================================= */
 
-      inset:0;
+.brand{
 
-      background:
-        rgba(23,20,17,.48);
+  position:relative;
 
-      opacity:0;
+  z-index:2;
 
-      visibility:hidden;
+  display:flex;
+  align-items:center;
 
-      transition:
-        opacity .28s ease,
-        visibility .28s ease;
+  gap:10px;
 
-      -webkit-backdrop-filter:
-        blur(2px);
+  min-width:0;
 
-      backdrop-filter:
-        blur(2px);
-    }
+  margin-left:56px;
 
+  color:inherit;
 
-    body.seito-menu-open
-    .seito-menu-backdrop{
+  text-decoration:none;
+}
 
-      opacity:1;
 
-      visibility:visible;
-    }
+.brand .mon{
 
+  width:64px;
+  height:auto;
 
+  flex:0 0 auto;
 
-    /* =====================================================
-       DRAWER
-       ===================================================== */
+  opacity:1;
 
-    .seito-menu-drawer{
+  transform:translateX(7px);
+}
 
-      position:fixed;
 
-      z-index:999;
+.brand-stack{
 
-      top:0;
-      right:0;
-      bottom:0;
+  min-width:0;
 
-      width:
-        min(88vw, 410px);
+  line-height:1;
 
-      display:flex;
+  opacity:1;
+}
 
-      flex-direction:column;
 
-      background:
-        var(--folio);
+.brand-stack .jp{
 
-      color:
-        var(--ink);
+  display:block;
 
-      border-left:
-        1px solid
-        rgba(23,20,17,.12);
+  margin-bottom:5px;
 
-      box-shadow:
-        -12px 0 40px
-        rgba(0,0,0,.14);
+  font-family:var(--brush);
 
-      transform:
-        translateX(102%);
+  font-weight:400;
 
-      transition:
-        transform .32s
-        cubic-bezier(.22,.7,.25,1);
+  font-size:20px;
 
-      overflow-y:auto;
+  line-height:1.05;
 
-      overscroll-behavior:
-        contain;
+  letter-spacing:.045em;
 
-      padding-bottom:
-        env(safe-area-inset-bottom);
-    }
+  white-space:nowrap;
+}
 
 
-    body.seito-menu-open
-    .seito-menu-drawer{
+.brand-stack .romaji{
 
-      transform:
-        translateX(0);
-    }
+  display:block;
 
+  font-size:11.5px;
 
+  line-height:1;
 
-    /* =====================================================
-       DRAWER HEADER
-       ===================================================== */
+  letter-spacing:.065em;
 
-    .seito-menu-head{
+  white-space:nowrap;
+}
 
-      position:sticky;
 
-      z-index:2;
+/* =========================================================
+   MENU
+   ========================================================= */
 
-      top:0;
+.menu{
 
-      display:flex;
+  position:relative;
 
-      align-items:center;
+  z-index:3;
 
-      justify-content:
-        space-between;
+  width:40px;
+  height:40px;
 
-      min-height:
-        var(--header-h);
+  flex:0 0 auto;
 
-      padding:
-        11px 18px
-        11px 20px;
+  border:
+    2px solid var(--shu);
 
-      background:
-        rgba(242,231,219,.97);
+  border-radius:2px;
 
-      border-bottom:
-        1px solid
-        rgba(23,20,17,.1);
+  background:var(--paper);
 
-      -webkit-backdrop-filter:
-        blur(9px);
+  display:flex;
+  flex-direction:column;
 
-      backdrop-filter:
-        blur(9px);
-    }
+  align-items:center;
+  justify-content:center;
 
+  gap:4px;
 
-    .seito-menu-identity{
+  cursor:pointer;
+}
 
-      display:flex;
 
-      align-items:center;
+.menu span{
 
-      gap:11px;
-    }
+  width:20px;
+  height:3px;
 
+  display:block;
 
-    .seito-menu-mon{
+  background:var(--shu);
 
-      width:38px;
+  border-radius:1px;
+}
 
-      height:auto;
 
-      flex:0 0 auto;
-    }
+/* =========================================================
+   NARROW PHONE
+   ========================================================= */
 
+@media(max-width:390px){
 
-    .seito-menu-brand{
+  .brand{
 
-      line-height:1;
-    }
+    margin-left:48px;
 
-
-    .seito-menu-brand-jp{
-
-      display:block;
-
-      font-family:
-        var(--brush);
-
-      font-size:
-        18px;
-
-      line-height:
-        1.05;
-
-      letter-spacing:
-        .06em;
-    }
-
-
-    .seito-menu-brand-en{
-
-      display:block;
-
-      margin-top:
-        5px;
-
-      font-size:
-        9.5px;
-
-      line-height:
-        1;
-
-      letter-spacing:
-        .13em;
-    }
-
-
-
-    /* =====================================================
-       CLOSE CONTROL
-       ===================================================== */
-
-    .seito-menu-close{
-
-      appearance:none;
-
-      -webkit-appearance:none;
-
-      width:38px;
-      height:38px;
-
-      position:relative;
-
-      flex:0 0 auto;
-
-      border:
-        2px solid
-        var(--shu);
-
-      border-radius:
-        50%;
-
-      background:
-        transparent;
-
-      cursor:pointer;
-    }
-
-
-    .seito-menu-close::before,
-    .seito-menu-close::after{
-
-      content:"";
-
-      position:absolute;
-
-      top:50%;
-      left:50%;
-
-      width:18px;
-      height:2px;
-
-      background:
-        var(--shu);
-
-      transform-origin:
-        center;
-    }
-
-
-    .seito-menu-close::before{
-
-      transform:
-        translate(-50%,-50%)
-        rotate(45deg);
-    }
-
-
-    .seito-menu-close::after{
-
-      transform:
-        translate(-50%,-50%)
-        rotate(-45deg);
-    }
-
-
-
-    /* =====================================================
-       MENU BODY
-       ===================================================== */
-
-    .seito-menu-body{
-
-      padding:
-        26px
-        22px
-        44px;
-    }
-
-
-
-    /* =====================================================
-       GROUP
-       ===================================================== */
-
-    .seito-menu-group{
-
-      margin:
-        0
-        0
-        34px;
-    }
-
-
-    .seito-menu-group:last-child{
-
-      margin-bottom:
-        8px;
-    }
-
-
-    .seito-menu-group-title{
-
-      display:flex;
-
-      align-items:baseline;
-
-      gap:
-        9px;
-
-      margin:
-        0
-        0
-        12px;
-
-      padding-bottom:
-        8px;
-
-      border-bottom:
-        1px solid
-        rgba(176,42,32,.28);
-
-      color:
-        var(--shu);
-    }
-
-
-    .seito-menu-group-title-jp{
-
-      font-family:
-        var(--brush);
-
-      font-size:
-        15px;
-
-      line-height:
-        1;
-    }
-
-
-    .seito-menu-group-title-en{
-
-      font-size:
-        9px;
-
-      font-weight:
-        700;
-
-      line-height:
-        1;
-
-      letter-spacing:
-        .15em;
-    }
-
-
-
-    /* =====================================================
-       LINKS
-       ===================================================== */
-
-    .seito-menu-link{
-
-      position:relative;
-
-      display:grid;
-
-      grid-template-columns:
-        minmax(0,1fr)
-        auto;
-
-      align-items:center;
-
-      gap:
-        10px;
-
-      width:100%;
-
-      min-height:
-        62px;
-
-      padding:
-        10px
-        3px;
-
-      color:
-        var(--ink);
-
-      text-decoration:
-        none;
-
-      border-bottom:
-        1px solid
-        rgba(23,20,17,.09);
-
-      transition:
-        color .17s ease,
-        padding-left .17s ease;
-    }
-
-
-    .seito-menu-link:hover,
-    .seito-menu-link:focus-visible{
-
-      color:
-        var(--shu);
-
-      padding-left:
-        6px;
-
-      outline:
-        none;
-    }
-
-
-    .seito-menu-link-main{
-
-      min-width:0;
-    }
-
-
-    .seito-menu-link-jp{
-
-      display:block;
-
-      font-family:
-        var(--brush);
-
-      font-size:
-        20px;
-
-      line-height:
-        1.15;
-
-      letter-spacing:
-        .035em;
-    }
-
-
-    .seito-menu-link-en{
-
-      display:block;
-
-      margin-top:
-        3px;
-
-      font-size:
-        12px;
-
-      font-weight:
-        700;
-
-      line-height:
-        1.1;
-
-      letter-spacing:
-        .105em;
-    }
-
-
-    .seito-menu-link-sub{
-
-      display:block;
-
-      margin-top:
-        5px;
-
-      color:
-        var(--muted);
-
-      font-size:
-        10px;
-
-      line-height:
-        1.2;
-
-      letter-spacing:
-        .04em;
-    }
-
-
-
-    /* =====================================================
-       LINK ARROW
-       ===================================================== */
-
-    .seito-menu-arrow{
-
-      display:flex;
-
-      align-items:center;
-
-      justify-content:center;
-
-      width:
-        26px;
-
-      height:
-        26px;
-
-      color:
-        var(--shu);
-
-      font-size:
-        18px;
-
-      line-height:
-        1;
-    }
-
-
-    .seito-menu-link[data-external="true"]
-    .seito-menu-arrow{
-
-      font-size:
-        15px;
-    }
-
-
-
-    /* =====================================================
-       FOOTER
-       ===================================================== */
-
-    .seito-menu-footer{
-
-      margin-top:
-        20px;
-
-      padding-top:
-        20px;
-
-      border-top:
-        1px solid
-        rgba(23,20,17,.12);
-
-      text-align:center;
-    }
-
-
-    .seito-menu-footer-mon{
-
-      width:
-        34px;
-
-      margin:
-        0 auto 10px;
-    }
-
-
-    .seito-menu-footer-jp{
-
-      font-family:
-        var(--brush);
-
-      font-size:
-        15px;
-
-      line-height:
-        1.1;
-
-      letter-spacing:
-        .06em;
-    }
-
-
-    .seito-menu-footer-en{
-
-      margin-top:
-        5px;
-
-      font-size:
-        9px;
-
-      letter-spacing:
-        .13em;
-    }
-
-
-
-    /* =====================================================
-       DESKTOP
-       ===================================================== */
-
-    @media(min-width:760px){
-
-      .seito-menu-drawer{
-
-        width:
-          min(410px,40vw);
-      }
-
-
-      .seito-menu-body{
-
-        padding:
-          32px
-          30px
-          48px;
-      }
-
-
-      .seito-menu-link{
-
-        min-height:
-          67px;
-      }
-
-
-      .seito-menu-link-jp{
-
-        font-size:
-          22px;
-      }
-
-    }
-
-
-
-    /* =====================================================
-       REDUCED MOTION
-       ===================================================== */
-
-    @media(
-      prefers-reduced-motion:
-      reduce
-    ){
-
-      .seito-menu-drawer,
-      .seito-menu-backdrop,
-      .seito-menu-link,
-      .menu{
-
-        transition:none;
-      }
-
-    }
-
-  `;
-
-
-  document.head.appendChild(
-    style
-  );
-
-
-
-  /* =======================================================
-     CREATE BACKDROP
-     ======================================================= */
-
-  const backdrop =
-    document.createElement(
-      "div"
-    );
-
-
-  backdrop.className =
-    "seito-menu-backdrop";
-
-
-  backdrop.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-
-
-  /* =======================================================
-     CREATE DRAWER
-     ======================================================= */
-
-  const drawer =
-    document.createElement(
-      "nav"
-    );
-
-
-  drawer.className =
-    "seito-menu-drawer";
-
-
-  drawer.id =
-    "seito-navigation";
-
-
-  drawer.setAttribute(
-    "aria-label",
-    "Seito-ryū navigation"
-  );
-
-
-  drawer.setAttribute(
-    "aria-hidden",
-    "true"
-  );
-
-
-
-  /* =======================================================
-     DRAWER HEADER
-     ======================================================= */
-
-  const menuHead =
-    document.createElement(
-      "div"
-    );
-
-
-  menuHead.className =
-    "seito-menu-head";
-
-
-  menuHead.innerHTML = `
-
-    <div class="seito-menu-identity">
-
-      <img
-        class="seito-menu-mon"
-        src="/assets/seito-mon.png"
-        alt=""
-        aria-hidden="true"
-      >
-
-      <div class="seito-menu-brand">
-
-        <span class="seito-menu-brand-jp">
-          聖都流
-        </span>
-
-        <span class="seito-menu-brand-en">
-          SEITO-RYŪ
-        </span>
-
-      </div>
-
-    </div>
-
-  `;
-
-
-
-  const closeButton =
-    document.createElement(
-      "button"
-    );
-
-
-  closeButton.type =
-    "button";
-
-
-  closeButton.className =
-    "seito-menu-close";
-
-
-  closeButton.setAttribute(
-    "aria-label",
-    "Close navigation"
-  );
-
-
-  menuHead.appendChild(
-    closeButton
-  );
-
-
-  drawer.appendChild(
-    menuHead
-  );
-
-
-
-  /* =======================================================
-     DRAWER BODY
-     ======================================================= */
-
-  const menuBody =
-    document.createElement(
-      "div"
-    );
-
-
-  menuBody.className =
-    "seito-menu-body";
-
-
-
-  navigationGroups.forEach(
-    groupData => {
-
-      const group =
-        document.createElement(
-          "section"
-        );
-
-
-      group.className =
-        "seito-menu-group";
-
-
-      const heading =
-        document.createElement(
-          "div"
-        );
-
-
-      heading.className =
-        "seito-menu-group-title";
-
-
-      heading.innerHTML = `
-
-        <span
-          class="seito-menu-group-title-jp"
-          lang="ja"
-        >
-          ${groupData.titleJp}
-        </span>
-
-        <span
-          class="seito-menu-group-title-en"
-        >
-          ${groupData.titleEn}
-        </span>
-
-      `;
-
-
-      group.appendChild(
-        heading
-      );
-
-
-
-      groupData.links.forEach(
-        linkData => {
-
-          const link =
-            document.createElement(
-              "a"
-            );
-
-
-          link.className =
-            "seito-menu-link";
-
-
-          link.href =
-            linkData.href;
-
-
-          if(
-            linkData.external
-          ){
-
-            link.target =
-              "_blank";
-
-
-            link.rel =
-              "noopener noreferrer";
-
-
-            link.dataset.external =
-              "true";
-
-          }
-
-
-          link.innerHTML = `
-
-            <span
-              class="seito-menu-link-main"
-            >
-
-              <span
-                class="seito-menu-link-jp"
-                lang="ja"
-              >
-                ${linkData.jp}
-              </span>
-
-              <span
-                class="seito-menu-link-en"
-              >
-                ${linkData.en}
-              </span>
-
-              ${
-                linkData.sub
-                ?
-                `
-                  <span
-                    class="seito-menu-link-sub"
-                  >
-                    ${linkData.sub}
-                  </span>
-                `
-                :
-                ""
-              }
-
-            </span>
-
-
-            <span
-              class="seito-menu-arrow"
-              aria-hidden="true"
-            >
-              ${
-                linkData.external
-                  ? "↗"
-                  : "›"
-              }
-            </span>
-
-          `;
-
-
-          group.appendChild(
-            link
-          );
-
-        }
-      );
-
-
-      menuBody.appendChild(
-        group
-      );
-
-    }
-  );
-
-
-
-  /* =======================================================
-     MENU FOOTER
-     ======================================================= */
-
-  const footer =
-    document.createElement(
-      "div"
-    );
-
-
-  footer.className =
-    "seito-menu-footer";
-
-
-  footer.innerHTML = `
-
-    <img
-      class="seito-menu-footer-mon"
-      src="/assets/seito-mon.png"
-      alt=""
-      aria-hidden="true"
-    >
-
-    <div
-      class="seito-menu-footer-jp"
-      lang="ja"
-    >
-      聖都流合気武道
-    </div>
-
-    <div
-      class="seito-menu-footer-en"
-    >
-      SEITO-RYŪ AIKI BUDŌ
-    </div>
-
-  `;
-
-
-  menuBody.appendChild(
-    footer
-  );
-
-
-  drawer.appendChild(
-    menuBody
-  );
-
-
-  document.body.append(
-    backdrop,
-    drawer
-  );
-
-
-
-  /* =======================================================
-     TAKE OVER EXISTING HAMBURGER
-     ======================================================= */
-
-  const menuButton =
-    document.querySelector(
-      ".menu"
-    );
-
-
-  if(!menuButton){
-    return;
+    gap:8px;
   }
 
 
-  /*
-    Remove the old inline behavior that
-    jumped directly to About.
-  */
+  .brand .mon{
 
-  menuButton.removeAttribute(
-    "onclick"
-  );
+    width:58px;
 
-
-  menuButton.setAttribute(
-    "aria-label",
-    "Open navigation"
-  );
-
-
-  menuButton.setAttribute(
-    "aria-controls",
-    "seito-navigation"
-  );
-
-
-  menuButton.setAttribute(
-    "aria-expanded",
-    "false"
-  );
-
-
-
-  /* =======================================================
-     OPEN / CLOSE
-     ======================================================= */
-
-  let lastFocusedElement =
-    null;
-
-
-  function openMenu(){
-
-    lastFocusedElement =
-      document.activeElement;
-
-
-    document.body
-      .classList
-      .add(
-        "seito-menu-open"
-      );
-
-
-    menuButton.setAttribute(
-      "aria-expanded",
-      "true"
-    );
-
-
-    drawer.setAttribute(
-      "aria-hidden",
-      "false"
-    );
-
-
-    window.setTimeout(
-      () => {
-
-        closeButton.focus();
-
-      },
-      40
-    );
-
+    transform:translateX(6px);
   }
 
 
+  .brand-stack .jp{
 
-  function closeMenu(
-    restoreFocus = true
-  ){
-
-    document.body
-      .classList
-      .remove(
-        "seito-menu-open"
-      );
-
-
-    menuButton.setAttribute(
-      "aria-expanded",
-      "false"
-    );
-
-
-    drawer.setAttribute(
-      "aria-hidden",
-      "true"
-    );
-
-
-    if(
-      restoreFocus &&
-      lastFocusedElement
-    ){
-
-      lastFocusedElement.focus();
-
-    }
-
+    font-size:18px;
   }
 
 
+  .brand-stack .romaji{
 
-  menuButton.addEventListener(
-    "click",
-    openMenu
-  );
+    font-size:10.2px;
 
+    letter-spacing:.045em;
+  }
 
-  closeButton.addEventListener(
-    "click",
-    () => closeMenu()
-  );
+}
 
 
-  backdrop.addEventListener(
-    "click",
-    () => closeMenu()
-  );
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero{
+
+  min-height:
+    calc(100svh - var(--header-h));
+
+  display:grid;
+
+  align-content:center;
+  justify-items:center;
+
+  padding:
+    var(--hero-pad-top)
+    18px
+    var(--hero-pad-bottom);
+
+  text-align:center;
+}
 
 
+.hero-poster{
 
-  /* =======================================================
-     CLOSE AFTER INTERNAL NAVIGATION
-     ======================================================= */
+  width:
+    min(100%,var(--hero-poster-max));
 
-  drawer
-    .querySelectorAll(
-      'a:not([target="_blank"])'
-    )
-    .forEach(
-      link => {
+  display:grid;
 
-        link.addEventListener(
-          "click",
-          () => closeMenu(false)
-        );
+  justify-items:center;
 
-      }
+  align-content:start;
+}
+
+
+/* =========================================================
+   LARGE HERO MON
+   ========================================================= */
+
+.hero-mon{
+
+  width:
+    var(--hero-mon-w);
+
+  margin:0;
+}
+
+
+/* =========================================================
+   HERO WORDMARK
+   ========================================================= */
+
+.hero-wordmark{
+
+  display:grid;
+
+  justify-items:center;
+
+  width:max-content;
+  max-width:100%;
+
+  margin-top:
+    var(--hero-wordmark-lift);
+}
+
+
+.hero-title-block{
+
+  width:max-content;
+
+  max-width:100%;
+
+  display:grid;
+
+  justify-items:center;
+}
+
+
+/* =========================================================
+   HERO BRUSH TITLE
+   ========================================================= */
+
+.hero h1{
+
+  --match-extra:0px;
+
+  margin:0;
+
+  width:max-content;
+
+  max-width:100%;
+
+  font-family:var(--brush);
+
+  font-weight:400;
+
+  font-size:
+    var(--hero-title-size);
+
+  line-height:
+    var(--hero-title-line);
+
+  letter-spacing:
+    calc(
+      var(--hero-title-track)
+      +
+      var(--match-extra)
     );
 
+  white-space:nowrap;
+}
+
+
+.hero-rule{
+
+  width:
+    var(--hero-rule-w);
+
+  height:
+    var(--hero-rule-h);
+
+  margin-top:
+    var(--hero-rule-gap-top);
+
+  margin-bottom:
+    var(--hero-rule-gap-bottom);
+
+  background:
+    rgba(176,42,32,.72);
+}
+
+
+.hero .romaji{
+
+  --match-extra:0px;
+
+  width:max-content;
+
+  max-width:100%;
+
+  font-size:
+    var(--hero-romaji-size);
+
+  line-height:
+    var(--hero-romaji-line);
+
+  letter-spacing:
+    calc(
+      var(--hero-romaji-track)
+      +
+      var(--match-extra)
+    );
+
+  white-space:nowrap;
+}
+
+
+/* =========================================================
+   WORDMARK MON
+   ========================================================= */
+
+.hero-mark{
+
+  margin:
+    var(--hero-mark-gap-top)
+    auto
+    var(--hero-mark-gap-bottom);
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+}
+
+
+.hero-mark img{
+
+  width:
+    var(--hero-mark-size);
+
+  height:auto;
+}
+
+
+/* =========================================================
+   SORYU-KI
+   ========================================================= */
+
+.soryuki{
+
+  line-height:1.24;
+
+  margin-bottom:20px;
+}
+
+
+.soryuki span{
+  display:block;
+}
+
+
+.soryuki .jp{
+
+  font-family:var(--brush);
+
+  font-weight:400;
+
+  font-size:
+    var(--hero-soryuki-jp);
+
+  letter-spacing:.04em;
+}
+
+
+.soryuki .rom,
+.soryuki .en{
+
+  font-size:
+    var(--hero-soryuki-sub);
+}
+
+
+.soryuki .place{
+
+  margin-top:10px;
+
+  font-size:
+    var(--hero-place-size);
+}
+
+
+/* =========================================================
+   SECTIONS
+   ========================================================= */
+
+.section{
+
+  width:
+    min(100%,var(--reader-max));
+
+  margin:
+    0 auto;
+
+  padding:
+    48px
+    var(--section-pad-x)
+    72px;
+}
+
+
+.section-title{
+
+  text-align:center;
+
+  margin-bottom:32px;
+}
+
+
+/* =========================================================
+   SECTION BRUSH TITLES
+   ========================================================= */
+
+.section-title .kicker{
+
+  font-family:var(--brush);
+
+  font-size:
+    clamp(21px,5.4vw,32px);
+
+  font-weight:400;
+
+  line-height:1.15;
+
+  letter-spacing:.055em;
+}
+
+
+.section-title .sub{
+
+  margin-top:8px;
+
+  font-size:
+    clamp(13px,3.8vw,17px);
+
+  font-weight:600;
+
+  letter-spacing:.08em;
+}
+
+
+/* =========================================================
+   SECTION MON
+   ========================================================= */
+
+.section-mark{
+
+  margin:
+    0
+    auto
+    28px;
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+}
+
+
+.section-mark img{
+
+  width:24px;
+
+  height:auto;
+}
+
+
+/* =========================================================
+   CONTINUOUS BILINGUAL FIELD
+   ========================================================= */
+
+.section-body{
+
+  position:relative;
+
+  width:100%;
+
+  display:grid;
+
+  grid-template-columns:
+    minmax(0,1fr)
+    minmax(0,1fr);
+
+  column-gap:
+    var(--pair-gap);
+
+  row-gap:
+    var(--paragraph-gap);
+
+  align-items:start;
+
+  padding-top:
+    var(--folio-pad-y);
+
+  padding-bottom:
+    var(--folio-pad-y);
+}
+
+
+/* =========================================================
+   CONTINUOUS JAPANESE FOLIO
+   ========================================================= */
+
+.section-body::before{
+
+  content:"";
+
+  position:absolute;
+
+  z-index:0;
+
+  top:0;
+  bottom:0;
+
+  right:
+    calc(
+      50% +
+      (var(--pair-gap) / 2)
+    );
+
+  width:
+    min(
+      17rem,
+      calc(
+        (100% - var(--pair-gap)) / 2
+      )
+    );
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,.34),
+      transparent 36%
+    ),
+    repeating-linear-gradient(
+      0deg,
+      rgba(85,65,45,.012) 0 1px,
+      transparent 1px 4px
+    ),
+    var(--folio);
+
+  border:
+    1px solid rgba(72,52,37,.13);
+
+  border-radius:2px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255,255,255,.50),
+    0 1px 2px rgba(74,45,25,.055),
+    0 8px 20px rgba(74,45,25,.085);
+
+  pointer-events:none;
+}
+
+
+/* =========================================================
+   JAPANESE BODY TEXT
+   ========================================================= */
+
+.jp-paragraph{
+
+  position:relative;
+
+  z-index:1;
+
+  grid-column:1;
+
+  width:
+    min(17rem,100%);
+
+  justify-self:end;
+
+  padding-left:
+    var(--folio-pad-x);
+
+  padding-right:
+    var(--folio-pad-x);
+
+  writing-mode:vertical-rl;
+
+  text-orientation:mixed;
+
+  overflow:hidden;
+
+  font-family:var(--jp-body);
+
+  font-size:
+    var(--jp-size);
+
+  line-height:
+    var(--jp-leading);
+
+  letter-spacing:.14em;
+}
+
+
+/* =========================================================
+   ENGLISH TEXT
+   ========================================================= */
+
+.en-group{
+
+  position:relative;
+
+  z-index:1;
+
+  grid-column:2;
+
+  min-width:0;
+
+  font-size:
+    var(--en-size);
+
+  font-weight:500;
+
+  line-height:
+    var(--en-leading);
+
+  letter-spacing:.015em;
+
+  font-kerning:normal;
+
+  overflow-wrap:anywhere;
+}
+
+
+.en-group p{
+
+  margin:
+    0
+    0
+    1.38em;
+
+  text-align:left;
+
+  hyphens:auto;
+
+  -webkit-hyphens:auto;
+
+  word-spacing:.08em;
+}
+
+
+.en-group p:last-child{
+  margin-bottom:0;
+}
+
+
+.en-group .sequence{
+
+  font-size:.92em;
+
+  line-height:1.75;
+
+  letter-spacing:.05em;
+
+  text-align:left;
+}
+
+
+.en-group .closing{
+
+  font-size:1.34em;
+
+  line-height:1.25;
+
+  text-align:left;
+}
+
+
+/* =========================================================
+   TABLET / DESKTOP
+   ========================================================= */
+
+@media(min-width:760px){
+
+  :root{
+
+    --header-h:82px;
+
+    --reader-max:68rem;
+
+    --jp-size:18px;
+    --jp-leading:1.72;
+
+    --en-size:20px;
+    --en-leading:1.62;
+
+    --en-measure:25ch;
+
+    --pair-gap:30px;
+
+    --folio-pad-x:18px;
+    --folio-pad-y:20px;
+
+    --paragraph-gap:36px;
+
+    --section-pad-x:38px;
+
+
+    /* HERO */
+
+    --hero-pad-top:48px;
+    --hero-pad-bottom:44px;
+
+    --hero-poster-max:1000px;
+
+    --hero-mon-w:
+      min(45vw,525.6px);
+
+    --hero-wordmark-lift:-108px;
+
+    --hero-title-size:
+      clamp(54.4px,4.8vw,89.6px);
+
+    --hero-title-line:1.03;
+
+    --hero-title-track:.025em;
+
+    --hero-rule-w:130px;
+    --hero-rule-h:2px;
+
+    --hero-rule-gap-top:12px;
+    --hero-rule-gap-bottom:14px;
+
+    --hero-romaji-size:
+      clamp(21.6px,1.8vw,32px);
+
+    --hero-romaji-line:1.12;
+
+    --hero-romaji-track:.14em;
+
+    --hero-mark-gap-top:28px;
+    --hero-mark-gap-bottom:36px;
+
+    --hero-mark-size:36px;
+
+    --hero-soryuki-jp:
+      clamp(19.2px,2.24vw,33.6px);
+
+    --hero-soryuki-sub:
+      clamp(14.4px,1.68vw,24.8px);
+
+    --hero-place-size:
+      clamp(12.8px,1.28vw,19.2px);
+  }
 
 
   /* =======================================================
-     KEYBOARD
+     DESKTOP BLOSSOM
      ======================================================= */
 
-  document.addEventListener(
-    "keydown",
-    event => {
+  .header-blossom{
 
-      if(
-        !document.body
-          .classList
-          .contains(
-            "seito-menu-open"
-          )
-      ){
-        return;
-      }
+    left:-16px;
 
+    bottom:-62px;
 
-      if(
-        event.key ===
-        "Escape"
-      ){
+    width:360px;
 
-        closeMenu();
+    height:auto;
 
-        return;
-
-      }
+    opacity:1;
+  }
 
 
-      if(
-        event.key !==
-        "Tab"
-      ){
-        return;
-      }
+  /* =======================================================
+     DESKTOP HEADER BRAND
+     ======================================================= */
+
+  .brand{
+
+    margin-left:205px;
+
+    gap:14px;
+  }
 
 
-      const focusable = [
-        ...drawer.querySelectorAll(
-          `
-            a[href],
-            button:not([disabled])
-          `
-        )
-      ];
+  .brand .mon{
+
+    width:88px;
+
+    height:auto;
+
+    opacity:1;
+
+    transform:translateX(0);
+  }
 
 
-      if(
-        focusable.length === 0
-      ){
-        return;
-      }
+  .brand-stack{
+    opacity:1;
+  }
 
 
-      const first =
-        focusable[0];
+  .brand-stack .jp{
+
+    font-family:var(--brush);
+
+    font-weight:400;
+
+    font-size:
+      clamp(25px,2.35vw,38px);
+
+    line-height:1.02;
+
+    margin-bottom:6px;
+
+    letter-spacing:.045em;
+
+    white-space:nowrap;
+  }
 
 
-      const last =
-        focusable[
-          focusable.length - 1
-        ];
+  .brand-stack .romaji{
+
+    font-size:
+      clamp(14px,1.05vw,18px);
+
+    line-height:1;
+
+    letter-spacing:.085em;
+
+    white-space:nowrap;
+  }
 
 
-      if(
-        event.shiftKey &&
-        document.activeElement ===
-        first
-      ){
+  .menu{
 
-        event.preventDefault();
-
-        last.focus();
-
-      }
+    width:44px;
+    height:44px;
+  }
 
 
-      else if(
-        !event.shiftKey &&
-        document.activeElement ===
-        last
-      ){
+  .menu span{
+    width:22px;
+  }
 
-        event.preventDefault();
 
-        first.focus();
+  .section-mark{
+    margin-bottom:32px;
+  }
 
-      }
 
-    }
-  );
+  .section-mark img{
+    width:30px;
+  }
 
-})();
+
+  .section-title .kicker{
+
+    font-size:
+      clamp(25px,2.7vw,38px);
+
+    letter-spacing:.06em;
+  }
+
+
+  .jp-paragraph{
+    width:17rem;
+  }
+
+
+  .en-group{
+
+    width:
+      min(100%,var(--en-measure));
+
+    justify-self:start;
+
+    font-size:
+      var(--en-size);
+
+    line-height:
+      var(--en-leading);
+  }
+
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.colophon{
+
+  text-align:center;
+
+  padding:
+    28px
+    16px
+    78px;
+
+  color:var(--muted);
+}
+
+
+.colophon .mon{
+
+  width:82px;
+
+  margin:
+    0
+    auto
+    10px;
+}
+
+
+.colophon .jp{
+
+  color:var(--ink);
+
+  font-family:var(--brush);
+
+  font-size:25px;
+
+  font-weight:400;
+
+  letter-spacing:.045em;
+}
+
+
+.colophon .romaji{
+
+  color:var(--ink);
+
+  margin-top:6px;
+
+  font-size:12px;
+
+  letter-spacing:.11em;
+}
+
+
+.colophon .meta{
+
+  margin-top:12px;
+
+  font-size:13px;
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media(prefers-reduced-motion:reduce){
+
+  html{
+    scroll-behavior:auto;
+  }
+
+}
