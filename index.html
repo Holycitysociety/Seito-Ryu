@@ -1,1162 +1,800 @@
-index.html
 <!doctype html>
 <html lang="en">
-
 <head>
-
 <meta charset="utf-8">
-
 <meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, viewport-fit=cover"
+	name="viewport"
+	content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
-
-<title>Seito-ryū Aiki Budō</title>
-
+<title>Seito-ryÅ« Aiki BudÅ</title>
 <meta
-  name="description"
-  content="Seito-ryū Aiki Budō"
+	name="description"
+	content="Seito-ryÅ« Aiki BudÅ"
 >
-
-
 <!-- =======================================================
      DISPLAY BRUSH FONT
      ======================================================= -->
-
 <link
-  rel="preconnect"
-  href="https://fonts.googleapis.com"
+	rel="preconnect"
+	href="https://fonts.googleapis.com"
 >
-
 <link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin
+	rel="preconnect"
+	href="https://fonts.gstatic.com"
+	crossorigin
 >
-
 <link
-  href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
-  rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
+	rel="stylesheet"
 >
-
-
 <!-- =======================================================
      SITE STYLES
      ======================================================= -->
-
 <link
-  rel="stylesheet"
-  href="styles.css"
+	rel="stylesheet"
+	href="styles.css"
 >
-
 </head>
-
-
 <body>
-
-
 <!-- =======================================================
      HEADER
      ======================================================= -->
-
 <header class="site-header">
-
-  <img
-    class="header-blossom"
-    src="/assets/cherry_blossom_header.png"
-    alt=""
-    aria-hidden="true"
-  >
-
-
-  <a
-    class="brand"
-    href="#top"
-  >
-
-    <img
-      class="mon"
-      src="/assets/seito-mon.png"
-      alt="Seito-ryū mon"
-    >
-
-
-    <div class="brand-stack">
-
-      <span class="jp">
-        聖都流合気武道
-      </span>
-
-      <span class="romaji">
-        SEITO-RYŪ AIKI BUDŌ
-      </span>
-
-    </div>
-
-  </a>
-
-
-  <button
-    class="menu"
-    type="button"
-    aria-label="Open navigation"
-    aria-controls="site-menu"
-    aria-expanded="false"
-  >
-
-    <span></span>
-    <span></span>
-    <span></span>
-
-  </button>
-
+	<img
+		class="header-blossom"
+		src="/assets/cherry_blossom_header.png"
+		alt=""
+		aria-hidden="true"
+	>
+	<a
+		class="brand"
+		href="#top"
+	>
+		<img
+			class="mon"
+			src="/assets/seito-mon.png"
+			alt="Seito-ryÅ« mon"
+		>
+		<div class="brand-stack">
+			<span class="jp">
+				è–éƒ½æµåˆæ°—æ­¦é“
+			</span>
+			<span class="romaji">
+				SEITO-RYÅª AIKI BUDÅŒ
+			</span>
+		</div>
+	</a>
+	<button
+		class="menu"
+		id="menu-toggle"
+		aria-label="Open menu"
+		aria-expanded="false"
+		aria-controls="site-nav"
+	>
+		<span></span>
+		<span></span>
+		<span></span>
+	</button>
 </header>
-
-
-<button
-  class="menu-backdrop"
-  type="button"
-  aria-label="Close navigation"
-  tabindex="-1"
-></button>
-
-
-<aside
-  class="site-menu"
-  id="site-menu"
-  aria-hidden="true"
+<!-- =======================================================
+     SLIDE-OUT NAVIGATION
+     ======================================================= -->
+<nav
+	class="site-nav"
+	id="site-nav"
+	aria-label="Main navigation"
 >
-
-  <nav aria-label="Primary">
-
-    <a href="#about">
-      <span class="menu-jp">縁起</span>
-      <span class="menu-en">ENGI</span>
-      <span class="menu-note">Founding Lore</span>
-    </a>
-
-    <a href="/aiki-jujutsu/">
-      <span class="menu-jp">合気柔術</span>
-      <span class="menu-en">AIKI-JŪJUTSU</span>
-      <span class="menu-note">Holy City Aiki Jujutsu</span>
-    </a>
-
-    <a href="/aikido/">
-      <span class="menu-jp">合気道</span>
-      <span class="menu-en">AIKIDŌ</span>
-      <span class="menu-note">Aikido</span>
-    </a>
-
-    <a href="/reiho/">
-      <span class="menu-jp">礼法</span>
-      <span class="menu-en">REIHŌ</span>
-      <span class="menu-note">Reihō / Etiquette</span>
-    </a>
-
-    <a href="/kyubado/">
-      <span class="menu-jp">弓馬道</span>
-      <span class="menu-en">KYŪBADŌ</span>
-      <span class="menu-note">The Way of Bow &amp; Horse</span>
-    </a>
-
-    <a href="/kirishitan-meiso/">
-      <span class="menu-jp">貴理師端瞑想</span>
-      <span class="menu-en">KIRISHITAN MEISŌ</span>
-      <span class="menu-note">Christian Meditation</span>
-    </a>
-
-    <a
-      href="https://www.aikidoshimbokukai.org/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span class="menu-jp">合気道親睦会</span>
-      <span class="menu-en">AIKIDO SHIMBOKUKAI</span>
-      <span class="menu-note">external link</span>
-    </a>
-
-    <a
-      href="https://aikikai.or.jp/eng/"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <span class="menu-jp">合気会</span>
-      <span class="menu-en">AIKIKAI</span>
-      <span class="menu-note">external link</span>
-    </a>
-
-    <a href="/holy-city-society/">
-      <span class="menu-jp">聖都会</span>
-      <span class="menu-en">HOLY CITY SOCIETY</span>
-      <span class="menu-note">patron institution</span>
-    </a>
-
-  </nav>
-
-</aside>
-
-
-
+	<div class="nav-head">
+		<div class="nav-brand">
+			<span class="jp">
+				è–éƒ½æµåˆæ°—æ­¦é“
+			</span>
+			<span class="romaji">
+				SEITO-RYÅª AIKI BUDÅŒ
+			</span>
+		</div>
+		<button
+			class="nav-close"
+			id="nav-close"
+			aria-label="Close menu"
+		>
+			âœ•
+		</button>
+	</div>
+	<ul class="nav-list">
+		<li>
+			<a class="nav-link" href="#engi">
+				<span class="jp">ç¸èµ·</span>
+				<span class="romaji">ENGI</span>
+				<span class="en">Founding Lore</span>
+			</a>
+		</li>
+		<li>
+			<a class="nav-link" href="#aiki-jujutsu">
+				<span class="jp">åˆæ°—æŸ”è¡“</span>
+				<span class="romaji">AIKI-JÅªJUTSU</span>
+				<span class="en">Holy City Aiki Jujutsu</span>
+			</a>
+		</li>
+		<li>
+			<a class="nav-link" href="#aikido">
+				<span class="jp">åˆæ°—é“</span>
+				<span class="romaji">AIKIDÅŒ</span>
+				<span class="en">Aikido</span>
+			</a>
+		</li>
+		<li>
+			<a class="nav-link" href="#reiho">
+				<span class="jp">ç¤¼æ³•</span>
+				<span class="romaji">REIHÅŒ</span>
+				<span class="en">ReihÅ / Etiquette</span>
+			</a>
+		</li>
+		<li>
+			<a class="nav-link" href="#kyubado">
+				<span class="jp">å¼“é¦¬é“</span>
+				<span class="romaji">KYÅªBADÅŒ</span>
+				<span class="en">The Way of Bow &amp; Horse</span>
+			</a>
+		</li>
+		<li>
+			<a class="nav-link" href="#kirishitan-meiso">
+				<span class="jp">è²´ç†å¸«ç«¯çž‘æƒ³</span>
+				<span class="romaji">KIRISHITAN MEISÅŒ</span>
+				<span class="en">Christian Meditation</span>
+			</a>
+		</li>
+		<li>
+			<a
+				class="nav-link nav-external"
+				href="https://www.aikidoshimbokukai.org"
+				target="_blank"
+				rel="noopener"
+			>
+				<span class="jp">åˆæ°—é“è¦ªç¦ä¼š</span>
+				<span class="romaji">AIKIDO SHIMBOKUKAI<span class="ext">â†—</span></span>
+				<span class="en">External Link</span>
+			</a>
+		</li>
+		<li>
+			<a
+				class="nav-link nav-external"
+				href="https://www.aikikai.or.jp"
+				target="_blank"
+				rel="noopener"
+			>
+				<span class="jp">åˆæ°—ä¼š</span>
+				<span class="romaji">AIKIKAI<span class="ext">â†—</span></span>
+				<span class="en">External Link</span>
+			</a>
+		</li>
+		<li>
+			<a class="nav-link nav-patron" href="#holy-city-society">
+				<span class="jp">è–éƒ½ä¼š</span>
+				<span class="romaji">HOLY CITY SOCIETY</span>
+				<span class="en">Patron Institution</span>
+			</a>
+		</li>
+	</ul>
+</nav>
+<div
+	class="nav-backdrop"
+	id="nav-backdrop"
+	aria-hidden="true"
+></div>
 <!-- =======================================================
      MAIN
      ======================================================= -->
-
 <main id="top">
-
-
 <!-- =======================================================
      HERO
-
      HERO CONTENT STAYS HERE.
      NORMAL PAGE TEXT LIVES IN content.js
      ======================================================= -->
-
 <section class="hero">
-
-  <div class="hero-poster">
-
-    <img
-      class="hero-mon"
-      src="/assets/seito-mon.png"
-      alt="Seito-ryū mon"
-    >
-
-
-    <div class="hero-wordmark">
-
-      <div
-        class="hero-title-block"
-        data-title-equalizer
-      >
-
-        <h1 data-title-jp>
-          聖都流合気武道
-        </h1>
-
-
-        <div
-          class="hero-rule"
-          aria-hidden="true"
-        ></div>
-
-
-        <div
-          class="romaji"
-          data-title-romaji
-        >
-          SEITO-RYŪ AIKI BUDŌ
-        </div>
-
-      </div>
-
-
-      <div class="hero-mark">
-
-        <img
-          src="/assets/seito-mon.png"
-          alt=""
-        >
-
-      </div>
-
-    </div>
-
-
-    <div class="soryuki">
-
-      <span class="jp">
-        創流期
-      </span>
-
-      <span class="rom">
-        Sōryū-ki
-      </span>
-
-      <span class="en">
-        Formative Period
-      </span>
-
-      <span class="place">
-        Charleston, South Carolina · 2026
-      </span>
-
-    </div>
-
-  </div>
-
+	<div class="hero-poster">
+		<img
+			class="hero-mon"
+			src="/assets/seito-mon.png"
+			alt="Seito-ryÅ« mon"
+		>
+		<div class="hero-wordmark">
+			<div
+				class="hero-title-block"
+				data-title-equalizer
+			>
+				<h1 data-title-jp>
+					è–éƒ½æµåˆæ°—æ­¦é“
+				</h1>
+				<div
+					class="hero-rule"
+					aria-hidden="true"
+				></div>
+				<div
+					class="romaji"
+					data-title-romaji
+				>
+					SEITO-RYÅª AIKI BUDÅŒ
+				</div>
+			</div>
+			<div class="hero-mark">
+				<img
+					src="/assets/seito-mon.png"
+					alt=""
+				>
+			</div>
+		</div>
+		<div class="soryuki">
+			<span class="jp">
+				å‰µæµæœŸ
+			</span>
+			<span class="rom">
+				SÅryÅ«-ki
+			</span>
+			<span class="en">
+				Formative Period
+			</span>
+			<span class="place">
+				Charleston, South Carolina Â· 2026
+			</span>
+		</div>
+	</div>
 </section>
-
-
-
 <!-- =======================================================
      NON-HERO CONTENT IS INSERTED HERE
      ======================================================= -->
-
 <div id="sections"></div>
-
-
-
 <!-- =======================================================
      FOOTER
      ======================================================= -->
-
 <footer class="colophon">
-
-  <img
-    class="mon"
-    src="/assets/seito-mon.png"
-    alt=""
-  >
-
-  <div class="jp">
-    聖都流合気武道
-  </div>
-
-  <div class="romaji">
-    SEITO-RYŪ AIKI BUDŌ
-  </div>
-
-  <div class="meta">
-    創流期 — Sōryū-ki — Formative Period
-  </div>
-
-  <div class="meta">
-    Charleston, South Carolina · 2026
-  </div>
-
+	<img
+		class="mon"
+		src="/assets/seito-mon.png"
+		alt=""
+	>
+	<div class="jp">
+		è–éƒ½æµåˆæ°—æ­¦é“
+	</div>
+	<div class="romaji">
+		SEITO-RYÅª AIKI BUDÅŒ
+	</div>
+	<div class="meta">
+		å‰µæµæœŸ â€” SÅryÅ«-ki â€” Formative Period
+	</div>
+	<div class="meta">
+		Charleston, South Carolina Â· 2026
+	</div>
 </footer>
-
-
 </main>
-
-
-
 <!-- =======================================================
      CONTENT DATA
-
      ALL EDITABLE NON-HERO TEXT IS IN content.js
      ======================================================= -->
-
 <script src="content.js"></script>
-
-
-
 <script>
-
 /* =========================================================
    RENDER NON-HERO CONTENT
+
+   Each section renders as:
+   1. A Japanese folio â€” vertical text in two columns,
+      height capped below screen height.
+   2. A full-width English body below it.
    ========================================================= */
-
 const root =
-  document.getElementById("sections");
-
-
-function splitJapaneseForColumns(text){
-
-  const source =
-    String(text || "").trim();
-
-
-  if(!source){
-    return ["",""];
-  }
-
-
-  const midpoint =
-    source.length / 2;
-
-
-  const breakCharacters =
-    ["。","！","？","、","；","："];
-
-
-  let bestIndex =
-    -1;
-
-
-  let bestDistance =
-    Infinity;
-
-
-  breakCharacters.forEach(
-    character => {
-
-      let index =
-        source.indexOf(character);
-
-
-      while(index !== -1){
-
-        const splitIndex =
-          index + 1;
-
-
-        const distance =
-          Math.abs(
-            splitIndex - midpoint
-          );
-
-
-        if(distance < bestDistance){
-
-          bestDistance =
-            distance;
-
-          bestIndex =
-            splitIndex;
-
-        }
-
-
-        index =
-          source.indexOf(
-            character,
-            index + 1
-          );
-
-      }
-
-    }
-  );
-
-
-  if(
-    bestIndex < 1
-    ||
-    bestIndex >= source.length
-  ){
-
-    bestIndex =
-      Math.ceil(
-        source.length / 2
-      );
-
-  }
-
-
-  return [
-    source.slice(0,bestIndex),
-    source.slice(bestIndex)
-  ];
-
-}
-
+	document.getElementById("sections");
 
 sections.forEach(
-  (section,index) => {
-
-    const sectionElement =
-      document.createElement("section");
-
-
-    sectionElement.className =
-      "section";
-
-
-    if(index === 0){
-
-      sectionElement.id =
-        "about";
-
-    }
-
-
-    sectionElement.innerHTML = `
-
-      <div class="section-title">
-
-        <div class="section-mark">
-
-          <img
-            src="/assets/seito-mon.png"
-            alt=""
-          >
-
-        </div>
-
-        <div class="kicker">
-          ${section.jpTitle}
-        </div>
-
-        <div class="sub">
-          ${section.enTitle}
-        </div>
-
-      </div>
-
-      <div class="section-body"></div>
-
-    `;
-
-
-    const body =
-      sectionElement.querySelector(
-        ".section-body"
-      );
-
-
-    section.rows.forEach(
-      (row,rowIndex) => {
-
-        const storyRow =
-          document.createElement("div");
-
-
-        storyRow.className =
-          "story-row";
-
-
-        storyRow.dataset.rowIndex =
-          String(rowIndex);
-
-
-        const jpFolio =
-          document.createElement("div");
-
-
-        jpFolio.className =
-          "jp-folio";
-
-
-        jpFolio.lang =
-          "ja";
-
-
-        const jpColumns =
-          document.createElement("div");
-
-
-        jpColumns.className =
-          "jp-columns";
-
-
-        const [
-          firstJapaneseColumn,
-          secondJapaneseColumn
-        ] =
-          splitJapaneseForColumns(
-            row.jp
-          );
-
-
-        [
-          firstJapaneseColumn,
-          secondJapaneseColumn
-        ].forEach(
-          (columnText,columnIndex) => {
-
-            const column =
-              document.createElement("div");
-
-
-            column.className =
-              "jp-column";
-
-
-            column.dataset.column =
-              String(columnIndex + 1);
-
-
-            column.textContent =
-              columnText;
-
-
-            jpColumns.appendChild(
-              column
-            );
-
-          }
-        );
-
-
-        jpFolio.appendChild(
-          jpColumns
-        );
-
-
-        const en =
-          document.createElement("div");
-
-
-        en.className =
-          "en-group";
-
-
-        en.dataset.rowIndex =
-          String(rowIndex);
-
-
-        row.en.forEach(
-          paragraph => {
-
-            const node =
-              document.createElement("p");
-
-
-            if(paragraph.class){
-
-              node.className =
-                paragraph.class;
-
-            }
-
-
-            node.textContent =
-              paragraph.text;
-
-
-            en.appendChild(
-              node
-            );
-
-          }
-        );
-
-
-        storyRow.append(
-          jpFolio,
-          en
-        );
-
-
-        body.appendChild(
-          storyRow
-        );
-
-      }
-    );
-
-
-    root.appendChild(
-      sectionElement
-    );
-
-  }
+	(section, index) => {
+		const sectionElement =
+			document.createElement("section");
+		sectionElement.className =
+			"section";
+		if(index === 0){
+			sectionElement.id =
+				"engi";
+		}
+		sectionElement.innerHTML = `
+			<div class="section-title">
+				<div class="section-mark">
+					<img
+						src="/assets/seito-mon.png"
+						alt=""
+					>
+				</div>
+				<div class="kicker">
+					${section.jpTitle}
+				</div>
+				<div class="sub">
+					${section.enTitle}
+				</div>
+			</div>
+			<div class="section-body"></div>
+		`;
+		const body =
+			sectionElement.querySelector(
+				".section-body"
+			);
+
+		/* ---------- JAPANESE FOLIO ---------- */
+		const folio =
+			document.createElement("div");
+		folio.className =
+			"jp-folio";
+		folio.lang =
+			"ja";
+
+		const firstCol =
+			document.createElement("div");
+		firstCol.className =
+			"jp-col jp-col-first";
+		const secondCol =
+			document.createElement("div");
+		secondCol.className =
+			"jp-col jp-col-second";
+
+		const half =
+			Math.ceil(section.rows.length / 2);
+
+		section.rows.forEach(
+			(row, rowIndex) => {
+				const paragraph =
+					document.createElement("p");
+				paragraph.textContent =
+					row.jp;
+				(
+					rowIndex < half
+						? firstCol
+						: secondCol
+				).appendChild(
+					paragraph
+				);
+			}
+		);
+
+		const cols =
+			document.createElement("div");
+		cols.className =
+			"jp-cols";
+		cols.append(
+			firstCol,
+			secondCol
+		);
+		folio.appendChild(
+			cols
+		);
+
+		/* ---------- FULL-WIDTH ENGLISH ---------- */
+		const enBody =
+			document.createElement("div");
+		enBody.className =
+			"en-body";
+
+		section.rows.forEach(
+			row => {
+				const en =
+					document.createElement("div");
+				en.className =
+					"en-group";
+				row.en.forEach(
+					paragraph => {
+						const node =
+							document.createElement("p");
+						if(paragraph.class){
+							node.className =
+								paragraph.class;
+						}
+						node.textContent =
+							paragraph.text;
+						en.appendChild(
+							node
+						);
+					}
+				);
+				enBody.appendChild(
+					en
+				);
+			}
+		);
+
+		body.append(
+			folio,
+			enBody
+		);
+		root.appendChild(
+			sectionElement
+		);
+	}
 );
-
-
 
 /* =========================================================
    HERO TITLE WIDTH EQUALIZER
    ========================================================= */
-
 function equalizeHeroTitle(){
-
-  document
-    .querySelectorAll(
-      "[data-title-equalizer]"
-    )
-    .forEach(
-      group => {
-
-        const japanese =
-          group.querySelector(
-            "[data-title-jp]"
-          );
-
-
-        const romaji =
-          group.querySelector(
-            "[data-title-romaji]"
-          );
-
-
-        if(
-          !japanese
-          ||
-          !romaji
-        ){
-          return;
-        }
-
-
-        japanese.style
-          .setProperty(
-            "--match-extra",
-            "0px"
-          );
-
-
-        romaji.style
-          .setProperty(
-            "--match-extra",
-            "0px"
-          );
-
-
-        const jpWidth =
-          japanese
-            .getBoundingClientRect()
-            .width;
-
-
-        const romajiWidth =
-          romaji
-            .getBoundingClientRect()
-            .width;
-
-
-        const targetWidth =
-          Math.max(
-            jpWidth,
-            romajiWidth
-          );
-
-
-        function expandLine(
-          element,
-          currentWidth
-        ){
-
-          if(
-            currentWidth >=
-            targetWidth - .5
-          ){
-            return;
-          }
-
-
-          const characters =
-            Array.from(
-              element
-                .textContent
-                .trim()
-            ).length;
-
-
-          if(
-            characters < 2
-          ){
-            return;
-          }
-
-
-          const extra =
-            (
-              targetWidth -
-              currentWidth
-            )
-            /
-            (
-              characters -
-              1
-            );
-
-
-          element.style
-            .setProperty(
-              "--match-extra",
-              `${extra}px`
-            );
-
-        }
-
-
-        expandLine(
-          japanese,
-          jpWidth
-        );
-
-
-        expandLine(
-          romaji,
-          romajiWidth
-        );
-
-      }
-    );
-
+	document
+		.querySelectorAll(
+			"[data-title-equalizer]"
+		)
+		.forEach(
+			group => {
+				const japanese =
+					group.querySelector(
+						"[data-title-jp]"
+					);
+				const romaji =
+					group.querySelector(
+						"[data-title-romaji]"
+					);
+				if(
+					!japanese
+					||
+					!romaji
+				){
+					return;
+				}
+				japanese.style
+					.setProperty(
+						"--match-extra",
+						"0px"
+					);
+				romaji.style
+					.setProperty(
+						"--match-extra",
+						"0px"
+					);
+				const jpWidth =
+					japanese
+						.getBoundingClientRect()
+						.width;
+				const romajiWidth =
+					romaji
+						.getBoundingClientRect()
+						.width;
+				const targetWidth =
+					Math.max(
+						jpWidth,
+						romajiWidth
+					);
+				function expandLine(
+					element,
+					currentWidth
+				){
+					if(
+						currentWidth >=
+						targetWidth - .5
+					){
+						return;
+					}
+					const characters =
+						Array.from(
+							element
+								.textContent
+								.trim()
+						).length;
+					if(
+						characters < 2
+					){
+						return;
+					}
+					const extra =
+						(
+							targetWidth -
+							currentWidth
+						)
+						/
+						(
+							characters -
+							1
+						);
+					element.style
+						.setProperty(
+							"--match-extra",
+							`${extra}px`
+						);
+				}
+				expandLine(
+					japanese,
+					jpWidth
+				);
+				expandLine(
+					romaji,
+					romajiWidth
+				);
+			}
+		);
 }
-
 
 /* =========================================================
-   JAPANESE TWO-COLUMN FOLIO FITTING
-   Keeps every Japanese folio shorter than the viewport
-   without changing its text.
+   JAPANESE FOLIO VERTICAL FITTING
+
+   Each column is fitted so the folio stays shorter than
+   the screen height. Two columns carry the text.
    ========================================================= */
-
-function japaneseColumnFits(
-  column
+function columnFits(
+	column
 ){
-
-  const tolerance =
-    1.5;
-
-
-  return(
-
-    column.scrollWidth <=
-      column.clientWidth + tolerance
-
-    &&
-
-    column.scrollHeight <=
-      column.clientHeight + tolerance
-
-  );
-
+	const tolerance =
+		1.5;
+	return(
+		column.scrollWidth <=
+		column.clientWidth + tolerance
+		&&
+		column.scrollHeight <=
+		column.clientHeight + tolerance
+	);
 }
 
-
-function fitJapaneseColumn(
-  column
+function fitVerticalColumn(
+	column,
+	cap
 ){
+	const minimum =
+		window.innerWidth >= 760
+			? 260
+			: 220;
+	const maximum =
+		Math.max(minimum, cap);
 
-  const computed =
-    getComputedStyle(
-      document.documentElement
-    );
+	column.style.height =
+		`${maximum}px`;
 
+	if(!columnFits(column)){
+		/* Content exceeds the cap:
+		   clamp below screen height. */
+		return maximum;
+	}
 
-  const startingSize =
-    parseFloat(
-      computed.getPropertyValue(
-        "--jp-size"
-      )
-    ) || 16.5;
+	let low =
+		minimum;
+	let high =
+		maximum;
 
+	while(
+		low < high
+	){
+		const middle =
+			Math.floor(
+				(low + high) / 2
+			);
+		column.style.height =
+			`${middle}px`;
+		if(
+			columnFits(column)
+		){
+			high =
+				middle;
+		}
+		else{
+			low =
+				middle + 1;
+		}
+	}
 
-  const minimumSize =
-    window.innerWidth >= 760
-      ? 13
-      : 11.5;
+	const fontSize =
+		parseFloat(
+			getComputedStyle(
+				column
+			).fontSize
+		);
+	const breathingRoom =
+		Math.max(
+			10,
+			fontSize * .55
+		);
 
-
-  let low =
-    minimumSize;
-
-
-  let high =
-    startingSize;
-
-
-  column.style.fontSize =
-    `${high}px`;
-
-
-  if(
-    japaneseColumnFits(
-      column
-    )
-  ){
-
-    return;
-
-  }
-
-
-  while(
-    high - low > .15
-  ){
-
-    const middle =
-      (low + high) / 2;
-
-
-    column.style.fontSize =
-      `${middle}px`;
-
-
-    if(
-      japaneseColumnFits(
-        column
-      )
-    ){
-
-      low =
-        middle;
-
-    }
-
-    else{
-
-      high =
-        middle;
-
-    }
-
-  }
-
-
-  column.style.fontSize =
-    `${low}px`;
-
+	return Math.min(
+		high + breathingRoom,
+		maximum
+	);
 }
 
+function fitFolio(
+	folio
+){
+	const cap =
+		Math.round(
+			window.innerHeight * .70
+		);
+	const columns =
+		[...folio.querySelectorAll(".jp-col")];
+	let target =
+		0;
+	columns.forEach(
+		column => {
+			target =
+				Math.max(
+					target,
+					fitVerticalColumn(
+						column,
+						cap
+					)
+				);
+		}
+	);
+	columns.forEach(
+		column => {
+			column.style.height =
+				`${target}px`;
+		}
+	);
+}
 
 /* =========================================================
    COMPLETE PAGE LAYOUT
    ========================================================= */
-
 function layoutPage(){
-
-  equalizeHeroTitle();
-
-
-  document
-    .querySelectorAll(
-      ".jp-column"
-    )
-    .forEach(
-      column => {
-
-        column.style.fontSize =
-          "";
-
-
-        fitJapaneseColumn(
-          column
-        );
-
-      }
-    );
-
+	equalizeHeroTitle();
+	document
+		.querySelectorAll(
+			".jp-folio"
+		)
+		.forEach(
+			folio => {
+				fitFolio(
+					folio
+				);
+			}
+		);
 }
-
-
 
 /* =========================================================
    DEBOUNCE
    ========================================================= */
-
 function debounce(
-  callback,
-  delay
+	callback,
+	delay
 ){
-
-  let timer;
-
-
-  return function(){
-
-    clearTimeout(
-      timer
-    );
-
-
-    timer =
-      setTimeout(
-        callback,
-        delay
-      );
-
-  };
-
+	let timer;
+	return function(){
+		clearTimeout(
+			timer
+		);
+		timer =
+			setTimeout(
+				callback,
+				delay
+			);
+	};
 }
-
 
 /* =========================================================
    SLIDE-OUT MENU
    ========================================================= */
+const menuToggle =
+	document.getElementById("menu-toggle");
+const navClose =
+	document.getElementById("nav-close");
+const navBackdrop =
+	document.getElementById("nav-backdrop");
 
-const menuButton =
-  document.querySelector(".menu");
-
-
-const menuPanel =
-  document.getElementById("site-menu");
-
-
-const menuBackdrop =
-  document.querySelector(".menu-backdrop");
-
-
-function setMenuOpen(
-  isOpen
+function setNav(
+	open
 ){
-
-  document.body.classList.toggle(
-    "menu-open",
-    isOpen
-  );
-
-
-  menuButton?.setAttribute(
-    "aria-expanded",
-    String(isOpen)
-  );
-
-
-  menuButton?.setAttribute(
-    "aria-label",
-    isOpen
-      ? "Close navigation"
-      : "Open navigation"
-  );
-
-
-  menuPanel?.setAttribute(
-    "aria-hidden",
-    String(!isOpen)
-  );
-
-
-  if(isOpen){
-
-    requestAnimationFrame(
-      () => {
-
-        menuPanel
-          ?.querySelector("a")
-          ?.focus();
-
-      }
-    );
-
-  }
-
+	document.body.classList.toggle(
+		"nav-open",
+		open
+	);
+	menuToggle.setAttribute(
+		"aria-expanded",
+		String(open)
+	);
+	menuToggle.setAttribute(
+		"aria-label",
+		open
+			? "Close menu"
+			: "Open menu"
+	);
 }
 
-
-menuButton?.addEventListener(
-  "click",
-  () => {
-
-    setMenuOpen(
-      !document.body.classList.contains(
-        "menu-open"
-      )
-    );
-
-  }
+menuToggle.addEventListener(
+	"click",
+	() => {
+		setNav(
+			!document.body.classList.contains(
+				"nav-open"
+			)
+		);
+	}
 );
 
-
-menuBackdrop?.addEventListener(
-  "click",
-  () => {
-
-    setMenuOpen(false);
-
-    menuButton?.focus();
-
-  }
+navClose.addEventListener(
+	"click",
+	() => {
+		setNav(false);
+	}
 );
 
-
-menuPanel
-  ?.querySelectorAll("a")
-  .forEach(
-    link => {
-
-      link.addEventListener(
-        "click",
-        () => {
-
-          setMenuOpen(false);
-
-        }
-      );
-
-    }
-  );
-
+navBackdrop.addEventListener(
+	"click",
+	() => {
+		setNav(false);
+	}
+);
 
 document.addEventListener(
-  "keydown",
-  event => {
-
-    if(
-      event.key === "Escape"
-      &&
-      document.body.classList.contains(
-        "menu-open"
-      )
-    ){
-
-      setMenuOpen(false);
-
-      menuButton?.focus();
-
-    }
-
-  }
+	"keydown",
+	event => {
+		if(event.key === "Escape"){
+			setNav(false);
+		}
+	}
 );
 
-
+document
+	.querySelectorAll(
+		".site-nav a"
+	)
+	.forEach(
+		link => {
+			link.addEventListener(
+				"click",
+				() => {
+					setNav(false);
+				}
+			);
+		}
+	);
 
 /* =========================================================
    INITIAL LAYOUT
    ========================================================= */
-
 if(
-  document.fonts
-  &&
-  document.fonts.ready
+	document.fonts
+	&&
+	document.fonts.ready
 ){
-
-  document.fonts.ready.then(
-    () => {
-
-      requestAnimationFrame(
-        () => {
-
-          requestAnimationFrame(
-            layoutPage
-          );
-
-        }
-      );
-
-    }
-  );
-
+	document.fonts.ready.then(
+		() => {
+			requestAnimationFrame(
+				() => {
+					requestAnimationFrame(
+						layoutPage
+					);
+				}
+			);
+		}
+	);
 }
-
 else{
-
-  window.addEventListener(
-    "load",
-    layoutPage
-  );
-
+	window.addEventListener(
+		"load",
+		layoutPage
+	);
 }
-
 
 /* =========================================================
    RESPONSIVE RECALCULATION
    ========================================================= */
-
 const relayout =
-  debounce(
-    layoutPage,
-    120
-  );
-
-
-window.addEventListener(
-  "resize",
-  relayout
-);
-
+	debounce(
+		layoutPage,
+		120
+	);
 
 window.addEventListener(
-  "orientationchange",
-  () => {
-
-    setTimeout(
-      layoutPage,
-      250
-    );
-
-  }
+	"resize",
+	relayout
 );
 
+window.addEventListener(
+	"orientationchange",
+	() => {
+		setTimeout(
+			layoutPage,
+			250
+		);
+	}
+);
 
 if(
-  window.visualViewport
+	window.visualViewport
 ){
-
-  window.visualViewport
-    .addEventListener(
-      "resize",
-      relayout
-    );
-
+	window.visualViewport
+		.addEventListener(
+			"resize",
+			relayout
+		);
 }
-
 </script>
-
-
 </body>
 </html>
