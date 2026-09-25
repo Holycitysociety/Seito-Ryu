@@ -214,13 +214,13 @@ const sections = [
        jp: "軍勢は、すでに争われている線へただ力を足すのではない。その身体の一部が、その線との関係を変え、準備された防御の強さを迂回して動く。寅の刻。義経と七十騎は鵯越へ向かう。崖際に出る。斜面は急で、鎧は重い。馬は勇敢な動物だ。",
        en: [
          { text: "‘The Minamoto host doesn't merely add more forces to the front line. Yoshitsune and Tashiro Nobutsuna concieve a movement around the prepared defense." },
-         { text: "‘Tora no koku! The Hour of the Tiger. Yoshitsune and the seventy move toward Hiyodorigoe. They come to the edge. The slope is steep. Armor is heavy. Horses are brave animals." }
+         { text: "‘Tora no koku! The Hour of the Tiger. Yoshitsune and the seventy move toward Hiyodorigoe. They come to the edge. The slope is steep. Armor is heavy. But, horses are brave animals." }
        ]
      },
      {
        jp: "そこで彼らは入る。騎馬の分遣隊は、平氏が通行不能とみなした背後の進路を貫き、防御空間の後方へ侵入する。",
        en: [
-         { text: "‘Then they enter." },
+         { text: "‘So they ride." },
          { text: "‘The mounted detachment penetrates through the rear approach the Taira have treated as impassable and enters the defensive space from behind." }
        ]
      },
