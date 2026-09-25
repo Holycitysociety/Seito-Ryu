@@ -75,7 +75,7 @@ const sections = [
      {
        jp: "『誰も“合気”を一つの武術の名として考えるよりずっと前から、源氏はすでに苛烈な戦の遺産を持っていた。源義光はその始まり近くに立つ人物だ。打つこと、組むこと、関節を制すること、自分の構造を保ち、相手の構造を奪うこと。そのような方法が彼の子孫を通じて甲斐源氏へ、そしてその中の武田家へと伝わっていった。大東流の技術的な身体は、すでにそこにあった。強く、実際的だった。』",
        en: [
-         { text: "‘Long before anyone thought of aiki as the name of an art, the Minamoto already possessed a leathal martial inheritance. Minamoto no Yoshimitsu stood near its beginning. From him came how to strike, grapple, control a joint, keep one’s own structure and take another’s away. Those methods passed through his descendants into the Kai-Genji, and among them into the house of Takeda. The technical body of Daitō-ryū was already there. Strong. Practical." }
+         { text: "‘Long before anyone thought of aiki as the name of an art, the Minamoto already possessed a leathal martial inheritance. Minamoto no Yoshimitsu stood near its beginning. From him came how to strike, grapple, control a joint, keep one’s own structure and take another’s away. Those methods passed through his descendants into the Kai-Genji, and among them into the house of Takeda. The technical body of Daitō-ryū was already there. Strong and Practical." }
        ]
      },
      {
