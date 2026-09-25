@@ -251,7 +251,7 @@ const sections = [
      {
        jp: "陣地は持ちこたえられなくなる。平氏は準備していた防御位置から押し出され、崩壊は退却と潰走へ変わる。",
        en: [
-         { text: "‘The position gives way. The Taira are displaced from the defense they had prepared, and collapse becomes withdrawal and flight." }
+         { text: "‘The position gives way. The Taira are displaced from the defense they had prepared, and collapse becomes withdrawal and flight. Quickly!" }
        ]
      }
    ]
@@ -261,9 +261,9 @@ const sections = [
    enTitle: "Naming It Only Afterward",
    rows: [
      {
-       jp: "『速やかに。』彼は少し身を引き、声はまた会話の調子へ戻った。『あとになって……土埃が収まってから……その働きには名前をつけられる。構え。間合い。先。体捌き。入身。死角。当身。崩し。技。投げ。』",
+       jp: "彼は少し身を引き、声はまた会話の調子へ戻った。『あとになって……土埃が収まってから……その働きには名前をつけられる。構え。間合い。先。体捌き。入身。死角。当身。崩し。技。投げ。』",
        en: [
-         { text: "‘Quickly." },
+      
          { text: "He sat back. His voice became conversational again." },
          { text: "‘Only afterward… when the dust settles… can the action be named." },
          { class: "sequence", text: "‘Kamae. Ma-ai. Sen. Tai-sabaki. Irimi. Shikaku. Atemi. Kuzushi. Waza. Nage.’" }
