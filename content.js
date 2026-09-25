@@ -383,7 +383,7 @@ const sections = [
      {
        jp: "『武産合気とは、認識されるのを待つものだ。だから、君の夢の道場への問いは、合気がもう一度、技を生み出すような条件を作れるかどうかだ……。』",
        en: [
-         { class: "closing", text: "‘Takemusu Aiki is the subject" },
+         { class: "closing", text: "‘You could start a new ryuha Takemusu Aiki is the subject" },
          { text: "‘So the question for your dream school is whether conditions can be created in which aiki once again gives birth to technique… …’" }
        ]
      },
