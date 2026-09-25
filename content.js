@@ -371,7 +371,7 @@ const sections = [
      {
        jp: "『だが、目的が本当に武産合気なら、稽古はいつまでも、問いが出る前から答えが決まっている世界に留まることはできない。』",
        en: [
-         { text: "‘But if the object is truly Takemusu Aiki, practice cannot remain forever in a world where every answer is known before the question is asked." }
+         { text: "‘But if your object is truly Takemusu Aiki, practice cannot remain forever in a world where every answer is known before the question is asked." }
        ]
      },
      {
