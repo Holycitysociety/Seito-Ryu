@@ -45,14 +45,14 @@ const sections = [
        jp: "ほとんどの人はもう帰っていた。私は残っていた。しばらくして、年老いた男も残っていることに気づいた。前から目には入っていたのだろうが、意識してはいなかった。ただ静かにそこにいて、急いで行く場所など何もないようだった。やがて彼は私を見て、何を考えているのかと尋ねた。",
        en: [
          { text: "Most of the people had left. I stayed behind. After a while I realized that an elderly man stayed behind too. I noticed him earlier without really noticing him. He was simply there, quiet, as though there was nowhere in particular to be." },
-         { text: "Eventually he looked over and we bagan to chat, and he asked what I was contemplating." }
+         { text: "Eventually he looked over and asked where I came from, and what I was contemplating." }
        ]
      },
      {
        jp: "『ああ、系譜です』と私は言った。『合気道をご存じですか。道場を開こうかと考えているんです。』彼はうなずいた。『多くの人は新羅三郎源義光から話を始める。』『!?』『名前は知っています』と私は言った。『それ以上は、あまり。』『そこが古い大東流の伝承の始まりだ。大東流の伝承では、その名自体も“大東三郎”と記憶される義光に結びつけられている。だが、それは物語の一部にすぎない。』",
        en: [
-         { text: "‘Ha, lineage,’ I said. ‘Do you know Aikidō? I’m thinking about where to train.’" },
-         { text: "He nodded. ‘A lot of people begin with Shinra Saburō Minamoto no Yoshimitsu.’" },
+         { text: "‘Charleston, SC. Uh, lineage,’ I said. ‘Do you know Aikidō? I’m thinking about where to train.’" },
+         { text: "'The Holy City, he nodded. ‘A lot of people begin with Shinra Saburō Minamoto no Yoshimitsu.’" },
          { text: "‘!?’" },
          { text: "‘I know the name,’ I said. ‘Not much more than that.’" },
          { text: "‘That is where the old jūjutsu inheritance begins. The Daitō-ryū tradition traces its name itself to Yoshimitsu, remembered as Daitō Saburō. But that is only one half of the story.’" }
