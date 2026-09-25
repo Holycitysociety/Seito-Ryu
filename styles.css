@@ -36,8 +36,7 @@
   --en-leading:1.46;
 
   /*
-    One Japanese folio can never be taller
-    than 60% of the visible screen.
+    Maximum vertical Japanese reading depth.
   */
 
   --jp-field-height:
@@ -305,7 +304,7 @@ main{
 
 
 /* =========================================================
-   NARROW PHONE HEADER
+   NARROW PHONE
    ========================================================= */
 
 @media(max-width:390px){
@@ -376,22 +375,12 @@ main{
   align-content:start;
 }
 
-
-/* =========================================================
-   HERO MON
-   ========================================================= */
-
 .hero-mon{
   width:
     var(--hero-mon-w);
 
   margin:0;
 }
-
-
-/* =========================================================
-   HERO WORDMARK
-   ========================================================= */
 
 .hero-wordmark{
   display:grid;
@@ -413,11 +402,6 @@ main{
 
   justify-items:center;
 }
-
-
-/* =========================================================
-   HERO JAPANESE TITLE
-   ========================================================= */
 
 .hero h1{
   --match-extra:0px;
@@ -448,11 +432,6 @@ main{
   white-space:nowrap;
 }
 
-
-/* =========================================================
-   HERO RULE
-   ========================================================= */
-
 .hero-rule{
   width:
     var(--hero-rule-w);
@@ -469,11 +448,6 @@ main{
   background:
     rgba(176,42,32,.72);
 }
-
-
-/* =========================================================
-   HERO ROMAJI
-   ========================================================= */
 
 .hero .romaji{
   --match-extra:0px;
@@ -497,11 +471,6 @@ main{
   white-space:nowrap;
 }
 
-
-/* =========================================================
-   SMALL HERO MON
-   ========================================================= */
-
 .hero-mark{
   margin:
     var(--hero-mark-gap-top)
@@ -520,11 +489,6 @@ main{
 
   height:auto;
 }
-
-
-/* =========================================================
-   SORYU-KI
-   ========================================================= */
 
 .soryuki{
   line-height:1.24;
@@ -562,7 +526,7 @@ main{
 
 
 /* =========================================================
-   STORY SECTIONS
+   SECTIONS
    ========================================================= */
 
 .section{
@@ -588,14 +552,8 @@ main{
     );
 }
 
-
-/* =========================================================
-   SECTION HEADING
-   ========================================================= */
-
 .section-title{
   text-align:center;
-
   margin-bottom:30px;
 }
 
@@ -654,7 +612,6 @@ main{
 
 /* =========================================================
    BILINGUAL FIELD
-
    EXACTLY 50 / 50
    ========================================================= */
 
@@ -675,9 +632,7 @@ main{
 
 
 /* =========================================================
-   JAPANESE SIDE
-
-   Folios stack vertically DOWN the page.
+   JAPANESE COLUMN
    ========================================================= */
 
 .jp-block{
@@ -694,10 +649,10 @@ main{
 /* =========================================================
    JAPANESE FOLIO
 
-   No horizontal scrolling.
+   Each folio is filled before another is created.
 
-   A long Japanese paragraph is split by the HTML script
-   and the continuation becomes another folio below.
+   Newlines inside the text preserve paragraph divisions
+   WITHOUT forcing a new folio.
    ========================================================= */
 
 .jp-folio{
@@ -718,6 +673,14 @@ main{
 
   text-orientation:
     mixed;
+
+  /*
+    Preserve paragraph breaks inside the continuous
+    Japanese stream.
+  */
+
+  white-space:
+    pre-wrap;
 
   overflow:hidden;
 
@@ -768,7 +731,7 @@ main{
 
 
 /* =========================================================
-   ENGLISH SIDE
+   ENGLISH
    ========================================================= */
 
 .en-block{
@@ -790,11 +753,6 @@ main{
   overflow-wrap:anywhere;
 }
 
-
-/* =========================================================
-   ENGLISH PARAGRAPHS
-   ========================================================= */
-
 .en-entry{
   margin:
     0
@@ -812,7 +770,6 @@ main{
   text-align:left;
 
   hyphens:auto;
-
   -webkit-hyphens:auto;
 
   word-spacing:.06em;
@@ -872,7 +829,6 @@ main{
     left center;
 }
 
-
 .aiki-seal[data-seal="KAMAE"]{
   --seal-order:0;
 }
@@ -913,11 +869,6 @@ main{
   --seal-order:9;
 }
 
-
-/* =========================================================
-   REVEALED AIKI SEALS
-   ========================================================= */
-
 body.aiki-imprint-revealed
 .aiki-seal{
   display:block;
@@ -939,11 +890,6 @@ body.aiki-imprint-revealed
       42ms
     );
 }
-
-
-/* =========================================================
-   SEAL KANJI
-   ========================================================= */
 
 .aiki-seal-jp{
   display:inline-block;
@@ -982,11 +928,6 @@ body.aiki-imprint-revealed
     upright;
 }
 
-
-/* =========================================================
-   SEAL ROMAJI
-   ========================================================= */
-
 .aiki-seal-romaji{
   display:block;
 
@@ -1002,11 +943,6 @@ body.aiki-imprint-revealed
 
   white-space:nowrap;
 }
-
-
-/* =========================================================
-   SEAL GLOSS
-   ========================================================= */
 
 .aiki-seal-gloss{
   display:block;
@@ -1038,11 +974,6 @@ body.aiki-imprint-revealed
     );
 }
 
-
-/* =========================================================
-   SEAL ANIMATION
-   ========================================================= */
-
 @keyframes aiki-seal-arrive{
 
   from{
@@ -1062,7 +993,7 @@ body.aiki-imprint-revealed
 
 
 /* =========================================================
-   FINAL AIKI REVEAL
+   AIKI REVEAL BUTTON
    ========================================================= */
 
 .aiki-reveal-wrap{
@@ -1073,7 +1004,6 @@ body.aiki-imprint-revealed
 
 .aiki-reveal-button{
   appearance:none;
-
   -webkit-appearance:none;
 
   display:inline-block;
@@ -1176,11 +1106,7 @@ body.aiki-imprint-revealed
     --hero-wordmark-lift:-108px;
 
     --hero-title-size:
-      clamp(
-        54.4px,
-        4.8vw,
-        89.6px
-      );
+      clamp(54.4px,4.8vw,89.6px);
 
     --hero-title-line:1.03;
 
@@ -1193,11 +1119,7 @@ body.aiki-imprint-revealed
     --hero-rule-gap-bottom:14px;
 
     --hero-romaji-size:
-      clamp(
-        21.6px,
-        1.8vw,
-        32px
-      );
+      clamp(21.6px,1.8vw,32px);
 
     --hero-romaji-line:1.12;
 
@@ -1209,25 +1131,13 @@ body.aiki-imprint-revealed
     --hero-mark-size:36px;
 
     --hero-soryuki-jp:
-      clamp(
-        19.2px,
-        2.24vw,
-        33.6px
-      );
+      clamp(19.2px,2.24vw,33.6px);
 
     --hero-soryuki-sub:
-      clamp(
-        14.4px,
-        1.68vw,
-        24.8px
-      );
+      clamp(14.4px,1.68vw,24.8px);
 
     --hero-place-size:
-      clamp(
-        12.8px,
-        1.28vw,
-        19.2px
-      );
+      clamp(12.8px,1.28vw,19.2px);
 
   }
 
@@ -1256,11 +1166,7 @@ body.aiki-imprint-revealed
 
   .brand-stack .jp{
     font-size:
-      clamp(
-        25px,
-        2.35vw,
-        38px
-      );
+      clamp(25px,2.35vw,38px);
 
     line-height:1.02;
 
@@ -1272,11 +1178,7 @@ body.aiki-imprint-revealed
 
   .brand-stack .romaji{
     font-size:
-      clamp(
-        14px,
-        1.05vw,
-        18px
-      );
+      clamp(14px,1.05vw,18px);
 
     letter-spacing:.085em;
   }
@@ -1317,11 +1219,7 @@ body.aiki-imprint-revealed
 
   .section-title .kicker{
     font-size:
-      clamp(
-        25px,
-        2.7vw,
-        38px
-      );
+      clamp(25px,2.7vw,38px);
 
     letter-spacing:.06em;
   }
@@ -1329,17 +1227,9 @@ body.aiki-imprint-revealed
 
   .section-title .sub{
     font-size:
-      clamp(
-        14px,
-        1.5vw,
-        18px
-      );
+      clamp(14px,1.5vw,18px);
   }
 
-
-  /*
-    Still exactly 50 / 50 on desktop.
-  */
 
   .bilingual-block{
     grid-template-columns:
