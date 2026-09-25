@@ -581,7 +581,6 @@ const sections = [
 
   document.head.appendChild(style);
 
-
   function sectionByEnglishTitle(title){
 
     return [...document.querySelectorAll(".section")]
@@ -594,7 +593,6 @@ const sections = [
 
   }
 
-
   function enhanceAikiImprint(){
 
     const battleSection =
@@ -603,20 +601,19 @@ const sections = [
     const namingSection =
       sectionByEnglishTitle("Naming It Only Afterward");
 
+    const returnSection =
+      sectionByEnglishTitle("Return");
 
-    if(!battleSection || !namingSection){
+    if(!battleSection || !namingSection || !returnSection){
       return;
     }
-
 
     const battleGroups =
       [...battleSection.querySelectorAll(".en-group")];
 
-
     if(battleGroups.length < seals.length){
       return;
     }
-
 
     seals.forEach((sealData,index) => {
 
@@ -625,23 +622,19 @@ const sections = [
       const seal =
         document.createElement("div");
 
-
       seal.className =
         "aiki-seal" +
         (index === 0 ? " aiki-seal-first" : "");
-
 
       seal.setAttribute(
         "aria-label",
         `${sealData.romaji}: ${sealData.gloss}`
       );
 
-
       seal.style.setProperty(
         "--seal-order",
         index
       );
-
 
       seal.innerHTML = `
         <span class="aiki-seal-jp">${sealData.jp}</span>
@@ -649,60 +642,50 @@ const sections = [
         <span class="aiki-seal-gloss">${sealData.gloss}</span>
       `;
 
-
       group.prepend(seal);
 
     });
 
+    const returnGroups =
+      [...returnSection.querySelectorAll(".en-group")];
 
-    const firstNamingGroup =
-      namingSection.querySelector(".en-group");
+    const lastReturnGroup =
+      returnGroups[returnGroups.length - 1];
 
-
-    if(!firstNamingGroup){
+    if(!lastReturnGroup){
       return;
     }
-
 
     const revealWrap =
       document.createElement("div");
 
-
     revealWrap.className =
       "aiki-reveal-wrap";
-
 
     const revealButton =
       document.createElement("button");
 
-
     revealButton.type =
       "button";
-
 
     revealButton.className =
       "aiki-reveal-button";
 
-
     revealButton.textContent =
       "SEE THE IMPRINT OF AIKI";
-
 
     revealButton.setAttribute(
       "aria-expanded",
       "false"
     );
 
-
     revealWrap.appendChild(
       revealButton
     );
 
-
-    firstNamingGroup.appendChild(
+    lastReturnGroup.appendChild(
       revealWrap
     );
-
 
     revealButton.addEventListener(
       "click",
@@ -716,32 +699,26 @@ const sections = [
           return;
         }
 
-
         document.body.classList.add(
           "aiki-imprint-revealed"
         );
 
-
         revealButton.classList.add(
           "is-revealed"
         );
-
 
         revealButton.setAttribute(
           "aria-expanded",
           "true"
         );
 
-
         revealButton.textContent =
           "AIKI IMPRINT REVEALED";
-
 
         const firstSeal =
           battleSection.querySelector(
             ".aiki-seal-first"
           );
-
 
         requestAnimationFrame(
           () => {
@@ -769,7 +746,6 @@ const sections = [
     );
 
   }
-
 
   if(document.readyState === "loading"){
 
