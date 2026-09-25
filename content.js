@@ -173,7 +173,7 @@ const sections = [
      {
        jp: "『四年間、軍陣が彼らの試験場だった。戦場が免許を与えた。』そして一ノ谷が来た。",
        en: [
-         { text: "‘For four years, campaign had been their testing ground. The battlefield gave the menkyo." },
+         { text: "‘For four years, campaign had been their testing ground." },
          { text: "‘Then came Ichi-no-Tani." }
        ]
      }
