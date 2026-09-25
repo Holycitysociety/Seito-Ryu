@@ -245,7 +245,7 @@ const sections = [
      {
        jp: "義経は崩れた構造へ押し込む。平氏が古い関係を回復する前に、開いたところを利用する。",
        en: [
-         { text: "‘Yoshitsune presses into the broken structure. The opening is exploited before the Taira can restore the old relationship." }
+         { text: "‘Yoshitsune presses into the broken Tiara formations. The opening is exploited before the Taira can restore the old relationship." }
        ]
      },
      {
