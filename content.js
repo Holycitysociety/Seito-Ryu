@@ -273,7 +273,7 @@ const sections = [
        jp: "彼は間を置いた。『その言葉が、前もって何が起こらなければならないかを教えてくれると思ってはいけない。そうではない。振り返って探すのだ。どこで構えが定まり、どこで間合いが理解され、どこで先が取られたか。どこで身体が力を回り、入り、死角を取り、体系を打ち、秩序を崩し、開きの中で働き、それを移動させたのか。』",
        en: [
          { text: "He paused." },
-         { text: "‘Do not make the mistake of thinking those words tell you beforehand what must happen. They do not. Look back. Find where the position was established. Where the interval was understood. Where initiative was taken. Where the body moved around strength, entered, established the dead angle, struck the system, broke its order, acted through the opening, and displaced it." }
+         { text: "" }
        ]
      },
      {
