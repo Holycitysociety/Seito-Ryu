@@ -2,40 +2,42 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1, viewport-fit=cover"
-  >
+<meta charset="utf-8">
 
-  <title>Seito-ryū Aiki Budō</title>
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1, viewport-fit=cover"
+>
 
-  <meta
-    name="description"
-    content="Seito-ryū Aiki Budō"
-  >
+<title>Seito-ryū Aiki Budō</title>
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
+<meta
+  name="description"
+  content="Seito-ryū Aiki Budō"
+>
 
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+<link
+  rel="preconnect"
+  href="https://fonts.googleapis.com"
+>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
-    rel="stylesheet"
-  >
+<link
+  rel="preconnect"
+  href="https://fonts.gstatic.com"
+  crossorigin
+>
 
-  <link
-    rel="stylesheet"
-    href="styles.css"
-  >
+<link
+  href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
+  rel="stylesheet"
+>
+
+<link
+  rel="stylesheet"
+  href="styles.css"
+>
+
 </head>
 
 
@@ -82,9 +84,11 @@
     type="button"
     aria-label="Go to founding lore"
   >
+
     <span></span>
     <span></span>
     <span></span>
+
   </button>
 
 </header>
@@ -214,10 +218,6 @@
 </main>
 
 
-<!-- =======================================================
-     CONTENT
-     ======================================================= -->
-
 <script src="content.js"></script>
 
 
@@ -247,21 +247,27 @@ function createAikiSeal(key){
     return null;
   }
 
+
   const seal =
     document.createElement("div");
+
 
   seal.className =
     "aiki-seal";
 
+
   seal.dataset.seal =
     key;
+
 
   seal.setAttribute(
     "aria-label",
     `${data.romaji}: ${data.gloss}`
   );
 
+
   seal.innerHTML = `
+
     <span class="aiki-seal-jp">
       ${data.jp}
     </span>
@@ -273,20 +279,24 @@ function createAikiSeal(key){
     <span class="aiki-seal-gloss">
       ${data.gloss}
     </span>
+
   `;
 
+
   return seal;
+
 }
 
 
 /* =========================================================
-   ENGLISH PARAGRAPH
+   ENGLISH ENTRY
    ========================================================= */
 
 function createEnglishEntry(paragraph){
 
   const entry =
     document.createElement("div");
+
 
   entry.className =
     "en-entry";
@@ -299,54 +309,99 @@ function createEnglishEntry(paragraph){
         paragraph.seal
       );
 
+
     if(seal){
 
       if(
         paragraph.seal ===
         "KAMAE"
       ){
+
         seal.classList.add(
           "aiki-seal-first"
         );
+
       }
+
 
       entry.appendChild(
         seal
       );
+
     }
+
   }
 
 
   const p =
     document.createElement("p");
 
+
   if(paragraph.class){
+
     p.className =
       paragraph.class;
+
   }
+
 
   p.textContent =
     paragraph.text;
+
 
   entry.appendChild(
     p
   );
 
+
   return entry;
+
 }
 
 
 /* =========================================================
-   JAPANESE COLUMN
+   NORMALIZE JAPANESE TEXT
 
-   content.js still stores one Japanese text field per
-   section.
+   Entire Japanese section becomes ONE continuous stream.
 
-   Blank-line paragraphs are preserved.
+   Blank source lines become paragraph breaks inside the
+   stream. They DO NOT create separate 60svh folios.
+   ========================================================= */
 
-   Long Japanese paragraphs are automatically paginated
-   into additional 60svh folios DOWN the page instead of
-   continuing indefinitely toward the left.
+function normalizeJapaneseText(text){
+
+  return text
+
+    .trim()
+
+    .replace(
+      /\r\n?/g,
+      "\n"
+    )
+
+    .replace(
+      /[ \t]+\n/g,
+      "\n"
+    )
+
+    .replace(
+      /\n[ \t]+/g,
+      "\n"
+    )
+
+    .replace(
+      /\n{2,}/g,
+      "\n"
+    );
+
+}
+
+
+/* =========================================================
+   JAPANESE BLOCK
+
+   Stores ONE section-level Japanese text stream.
+   Pagination happens later after fonts/layout are ready.
    ========================================================= */
 
 function createJapaneseBlock(text){
@@ -354,30 +409,28 @@ function createJapaneseBlock(text){
   const block =
     document.createElement("div");
 
+
   block.className =
     "jp-block";
+
 
   block.lang =
     "ja";
 
 
-  block._sourceParagraphs =
-    text
-      .trim()
-      .split(/\n\s*\n/)
-      .map(
-        paragraph =>
-          paragraph.trim()
-      )
-      .filter(Boolean);
+  block._sourceText =
+    normalizeJapaneseText(
+      text
+    );
 
 
   return block;
+
 }
 
 
 /* =========================================================
-   DOES A JAPANESE FOLIO FIT?
+   CHECK WHETHER A FOLIO FITS
    ========================================================= */
 
 function folioFits(folio){
@@ -385,7 +438,9 @@ function folioFits(folio){
   const tolerance =
     1.5;
 
+
   return(
+
     folio.scrollWidth <=
       folio.clientWidth + tolerance
 
@@ -393,12 +448,20 @@ function folioFits(folio){
 
     folio.scrollHeight <=
       folio.clientHeight + tolerance
+
   );
+
 }
 
 
 /* =========================================================
-   PREFER A NATURAL JAPANESE BREAK
+   FIND A NATURAL BREAK NEAR THE END OF A FULL FOLIO
+
+   Preference:
+   1. paragraph break
+   2. Japanese sentence ending
+   3. quotation ending
+   4. exact maximum fit
    ========================================================= */
 
 function naturalJapaneseBreak(
@@ -406,13 +469,48 @@ function naturalJapaneseBreak(
   maximum
 ){
 
+  if(
+    maximum >= text.length
+  ){
+    return text.length;
+  }
+
+
+  const searchDepth =
+    48;
+
+
   const minimum =
     Math.max(
       1,
-      maximum - 28
+      maximum - searchDepth
     );
 
-  const candidates = [
+
+  /* -------------------------------------------------------
+     Prefer an existing paragraph break
+     ------------------------------------------------------- */
+
+  for(
+    let i = maximum - 1;
+    i >= minimum;
+    i--
+  ){
+
+    if(
+      text[i] === "\n"
+    ){
+      return i + 1;
+    }
+
+  }
+
+
+  /* -------------------------------------------------------
+     Otherwise use nearby punctuation
+     ------------------------------------------------------- */
+
+  const punctuation = [
     "。",
     "！",
     "？",
@@ -428,21 +526,23 @@ function naturalJapaneseBreak(
   ){
 
     if(
-      candidates.includes(
+      punctuation.includes(
         text[i]
       )
     ){
       return i + 1;
     }
+
   }
 
 
   return maximum;
+
 }
 
 
 /* =========================================================
-   FIND HOW MUCH TEXT FITS IN ONE FOLIO
+   FIND MAXIMUM TEXT THAT FITS ONE FOLIO
    ========================================================= */
 
 function findFittingLength(
@@ -453,8 +553,10 @@ function findFittingLength(
   let low =
     1;
 
+
   let high =
     text.length;
+
 
   let best =
     1;
@@ -484,14 +586,17 @@ function findFittingLength(
       best =
         middle;
 
+
       low =
         middle + 1;
+
     }
 
     else{
 
       high =
         middle - 1;
+
     }
 
   }
@@ -501,20 +606,39 @@ function findFittingLength(
     text,
     best
   );
+
 }
 
 
 /* =========================================================
-   PAGINATE ONE JAPANESE BLOCK
+   PAGINATE ONE JAPANESE SECTION
+
+   This is the key behavior:
+
+   SECTION TEXT
+       ↓
+   fill folio 1 completely
+       ↓
+   fill folio 2 completely
+       ↓
+   fill folio 3...
+
+   Paragraph boundaries stay within the stream.
+
+   A paragraph boundary does NOT automatically create a
+   new folio.
    ========================================================= */
 
 function paginateJapaneseBlock(block){
 
-  const paragraphs =
-    block._sourceParagraphs;
+  const source =
+    block._sourceText;
+
 
   if(
-    !Array.isArray(paragraphs)
+    typeof source !== "string"
+    ||
+    !source.length
   ){
     return;
   }
@@ -524,83 +648,106 @@ function paginateJapaneseBlock(block){
     "";
 
 
-  paragraphs.forEach(
-    sourceParagraph => {
-
-      let remaining =
-        sourceParagraph;
+  let remaining =
+    source;
 
 
-      while(
-        remaining.length
-      ){
+  while(
+    remaining.length
+  ){
 
-        const folio =
-          document.createElement(
-            "div"
-          );
-
-        folio.className =
-          "jp-folio";
+    const folio =
+      document.createElement(
+        "div"
+      );
 
 
-        block.appendChild(
-          folio
+    folio.className =
+      "jp-folio";
+
+
+    block.appendChild(
+      folio
+    );
+
+
+    /* -----------------------------------------------------
+       First see whether EVERYTHING remaining fits.
+       ----------------------------------------------------- */
+
+    folio.textContent =
+      remaining;
+
+
+    if(
+      folioFits(folio)
+    ){
+
+      remaining =
+        "";
+
+      continue;
+
+    }
+
+
+    /* -----------------------------------------------------
+       Otherwise calculate the largest fitting page.
+       ----------------------------------------------------- */
+
+    const fittingLength =
+      findFittingLength(
+        folio,
+        remaining
+      );
+
+
+    let pageText =
+      remaining
+        .slice(
+          0,
+          fittingLength
         );
 
 
-        folio.textContent =
-          remaining;
+    /*
+      Remove only whitespace at the very OUTER edges.
+      Interior newline paragraph breaks remain intact.
+    */
+
+    pageText =
+      pageText
+        .replace(
+          /^\s+/,
+          ""
+        )
+        .replace(
+          /\s+$/,
+          ""
+        );
 
 
-        if(
-          folioFits(folio)
-        ){
-
-          remaining =
-            "";
-
-          continue;
-        }
+    folio.textContent =
+      pageText;
 
 
-        const fittingLength =
-          findFittingLength(
-            folio,
-            remaining
-          );
+    remaining =
+      remaining
+        .slice(
+          fittingLength
+        )
+        .replace(
+          /^\s+/,
+          ""
+        );
 
-
-        const pageText =
-          remaining
-            .slice(
-              0,
-              fittingLength
-            )
-            .trim();
-
-
-        folio.textContent =
-          pageText;
-
-
-        remaining =
-          remaining
-            .slice(
-              fittingLength
-            )
-            .trim();
-
-      }
-
-    }
-  );
+  }
 
 }
 
 
 /* =========================================================
-   PAGINATE ALL JAPANESE
+   PAGINATE ALL JAPANESE SECTIONS
    ========================================================= */
 
 function paginateJapanese(){
@@ -618,17 +765,19 @@ function paginateJapanese(){
 
       }
     );
+
 }
 
 
 /* =========================================================
-   AIKI REVEAL BUTTON
+   AIKI REVEAL
    ========================================================= */
 
 function createRevealControl(){
 
   const wrap =
     document.createElement("div");
+
 
   wrap.className =
     "aiki-reveal-wrap";
@@ -637,11 +786,14 @@ function createRevealControl(){
   const button =
     document.createElement("button");
 
+
   button.type =
     "button";
 
+
   button.className =
     "aiki-reveal-button";
+
 
   button.setAttribute(
     "aria-expanded",
@@ -650,6 +802,7 @@ function createRevealControl(){
 
 
   button.innerHTML = `
+
     <span class="aiki-seal-jp">
       合気
     </span>
@@ -661,6 +814,7 @@ function createRevealControl(){
     <span class="aiki-seal-gloss">
       SEE THE IMPRINT OF AIKI
     </span>
+
   `;
 
 
@@ -738,6 +892,7 @@ function createRevealControl(){
 
 
   return wrap;
+
 }
 
 
@@ -781,6 +936,10 @@ function renderSections(){
       }
 
 
+      /* ---------------------------------------------------
+         HEADING
+         --------------------------------------------------- */
+
       const title =
         document.createElement(
           "header"
@@ -792,6 +951,7 @@ function renderSections(){
 
 
       title.innerHTML = `
+
         <div class="section-mark">
 
           <img
@@ -809,8 +969,13 @@ function renderSections(){
         <div class="sub">
           ${section.enTitle}
         </div>
+
       `;
 
+
+      /* ---------------------------------------------------
+         50 / 50 BILINGUAL FIELD
+         --------------------------------------------------- */
 
       const bilingual =
         document.createElement(
@@ -822,11 +987,19 @@ function renderSections(){
         "bilingual-block";
 
 
+      /* ---------------------------------------------------
+         JAPANESE
+         --------------------------------------------------- */
+
       const japanese =
         createJapaneseBlock(
           section.jp
         );
 
+
+      /* ---------------------------------------------------
+         ENGLISH
+         --------------------------------------------------- */
 
       const english =
         document.createElement(
@@ -918,7 +1091,7 @@ menuButton?.addEventListener(
 
 
 /* =========================================================
-   HERO TITLE WIDTH EQUALIZER
+   HERO TITLE EQUALIZER
    ========================================================= */
 
 function equalizeHeroTitle(){
@@ -1076,6 +1249,7 @@ function debounce(
       );
 
   };
+
 }
 
 
@@ -1131,7 +1305,7 @@ else{
 
 
 /* =========================================================
-   REPAGINATE ONLY WHEN SCREEN SIZE ACTUALLY CHANGES
+   REPAGINATE ON SCREEN SIZE CHANGE
    ========================================================= */
 
 const repaginate =
