@@ -239,7 +239,7 @@ const sections = [
      {
        jp: "注意は分かれる。安全だった背後は、もう安全ではない。結束が崩れ始め、防御の配置は一体性を失う。",
        en: [
-         { text: "‘Attention divides. The secure rear is no longer secure. Cohesion breaks. The defensive arrangement loses its integrity." }
+         { text: "‘Attention divides. The secure rear is no longer secure. Cohesion breaks. The defense loses its integrity." }
        ]
      },
      {
