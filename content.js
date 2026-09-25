@@ -45,7 +45,7 @@ const sections = [
        jp: "ほとんどの人はもう帰っていた。私は残っていた。しばらくして、年老いた男も残っていることに気づいた。前から目には入っていたのだろうが、意識してはいなかった。ただ静かにそこにいて、急いで行く場所など何もないようだった。やがて彼は私を見て、何を考えているのかと尋ねた。",
        en: [
          { text: "Most of the people had left. I stayed behind. After a while I realized that an elderly man stayed behind too. I noticed him earlier without really noticing him. He was simply there, quiet, as though there was nowhere in particular to be." },
-         { text: "Eventually he looked over and asked what I was contemplating." }
+         { text: "Eventually he looked over and we bagan to chat, and he asked what I was contemplating." }
        ]
      },
      {
