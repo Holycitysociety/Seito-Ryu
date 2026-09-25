@@ -2,61 +2,45 @@
 <html lang="en">
 
 <head>
+  <meta charset="utf-8">
 
-<meta charset="utf-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, viewport-fit=cover"
->
+  <title>Seito-ryū Aiki Budō</title>
 
-<title>Seito-ryū Aiki Budō</title>
+  <meta
+    name="description"
+    content="Seito-ryū Aiki Budō"
+  >
 
-<meta
-  name="description"
-  content="Seito-ryū Aiki Budō"
->
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
 
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
-<!-- =======================================================
-     DISPLAY BRUSH FONT
-     ======================================================= -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
+    rel="stylesheet"
+  >
 
-<link
-  rel="preconnect"
-  href="https://fonts.googleapis.com"
->
-
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin
->
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
-  rel="stylesheet"
->
-
-
-<!-- =======================================================
-     SITE STYLES
-     ======================================================= -->
-
-<link
-  rel="stylesheet"
-  href="styles.css"
->
-
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
 </head>
 
 
 <body>
 
-
-<!-- =======================================================
-     HEADER
-     ======================================================= -->
 
 <header class="site-header">
 
@@ -66,7 +50,6 @@
     alt=""
     aria-hidden="true"
   >
-
 
   <a
     class="brand"
@@ -78,7 +61,6 @@
       src="/assets/seito-mon.png"
       alt="Seito-ryū mon"
     >
-
 
     <div class="brand-stack">
 
@@ -100,20 +82,13 @@
     type="button"
     aria-label="Go to founding lore"
   >
-
     <span></span>
     <span></span>
     <span></span>
-
   </button>
 
 </header>
 
-
-
-<!-- =======================================================
-     MAIN
-     ======================================================= -->
 
 <main id="top">
 
@@ -144,12 +119,10 @@
           聖都流合気武道
         </h1>
 
-
         <div
           class="hero-rule"
           aria-hidden="true"
         ></div>
-
 
         <div
           class="romaji"
@@ -199,23 +172,11 @@
 </section>
 
 
-
 <!-- =======================================================
-     STORY CONTENT
-
-     content.js renders every section here.
-
-     STRUCTURE:
-
-     SECTION
-       TITLE
-       BILINGUAL FIELD
-         JAPANESE BLOCK
-         ENGLISH BLOCK
+     STORY
      ======================================================= -->
 
 <div id="sections"></div>
-
 
 
 <!-- =======================================================
@@ -253,19 +214,17 @@
 </main>
 
 
-
 <!-- =======================================================
-     CONTENT DATA
+     CONTENT
      ======================================================= -->
 
 <script src="content.js"></script>
 
 
-
 <script>
 
 /* =========================================================
-   ELEMENT REFERENCES
+   REFERENCES
    ========================================================= */
 
 const root =
@@ -275,9 +234,8 @@ const menuButton =
   document.querySelector(".menu");
 
 
-
 /* =========================================================
-   CREATE AIKI SEAL
+   AIKI SEAL
    ========================================================= */
 
 function createAikiSeal(key){
@@ -285,32 +243,25 @@ function createAikiSeal(key){
   const data =
     aikiSeals[key];
 
-
   if(!data){
     return null;
   }
 
-
   const seal =
     document.createElement("div");
-
 
   seal.className =
     "aiki-seal";
 
-
   seal.dataset.seal =
     key;
-
 
   seal.setAttribute(
     "aria-label",
     `${data.romaji}: ${data.gloss}`
   );
 
-
   seal.innerHTML = `
-
     <span class="aiki-seal-jp">
       ${data.jp}
     </span>
@@ -322,37 +273,24 @@ function createAikiSeal(key){
     <span class="aiki-seal-gloss">
       ${data.gloss}
     </span>
-
   `;
 
-
   return seal;
-
 }
 
 
-
 /* =========================================================
-   CREATE ENGLISH PARAGRAPH
+   ENGLISH PARAGRAPH
    ========================================================= */
 
-function createEnglishEntry(
-  paragraph,
-  sectionIndex,
-  paragraphIndex
-){
+function createEnglishEntry(paragraph){
 
   const entry =
     document.createElement("div");
 
-
   entry.className =
     "en-entry";
 
-
-  /* -------------------------------------------------------
-     OPTIONAL AIKI MARKER
-     ------------------------------------------------------- */
 
   if(paragraph.seal){
 
@@ -361,70 +299,336 @@ function createEnglishEntry(
         paragraph.seal
       );
 
-
     if(seal){
 
       if(
         paragraph.seal ===
         "KAMAE"
       ){
-
         seal.classList.add(
           "aiki-seal-first"
         );
-
       }
-
 
       entry.appendChild(
         seal
       );
-
     }
-
   }
 
-
-  /* -------------------------------------------------------
-     PARAGRAPH
-     ------------------------------------------------------- */
 
   const p =
     document.createElement("p");
 
-
   if(paragraph.class){
-
     p.className =
       paragraph.class;
-
   }
-
 
   p.textContent =
     paragraph.text;
-
 
   entry.appendChild(
     p
   );
 
-
   return entry;
+}
+
+
+/* =========================================================
+   JAPANESE COLUMN
+
+   content.js still stores one Japanese text field per
+   section.
+
+   Blank-line paragraphs are preserved.
+
+   Long Japanese paragraphs are automatically paginated
+   into additional 60svh folios DOWN the page instead of
+   continuing indefinitely toward the left.
+   ========================================================= */
+
+function createJapaneseBlock(text){
+
+  const block =
+    document.createElement("div");
+
+  block.className =
+    "jp-block";
+
+  block.lang =
+    "ja";
+
+
+  block._sourceParagraphs =
+    text
+      .trim()
+      .split(/\n\s*\n/)
+      .map(
+        paragraph =>
+          paragraph.trim()
+      )
+      .filter(Boolean);
+
+
+  return block;
+}
+
+
+/* =========================================================
+   DOES A JAPANESE FOLIO FIT?
+   ========================================================= */
+
+function folioFits(folio){
+
+  const tolerance =
+    1.5;
+
+  return(
+    folio.scrollWidth <=
+      folio.clientWidth + tolerance
+
+    &&
+
+    folio.scrollHeight <=
+      folio.clientHeight + tolerance
+  );
+}
+
+
+/* =========================================================
+   PREFER A NATURAL JAPANESE BREAK
+   ========================================================= */
+
+function naturalJapaneseBreak(
+  text,
+  maximum
+){
+
+  const minimum =
+    Math.max(
+      1,
+      maximum - 28
+    );
+
+  const candidates = [
+    "。",
+    "！",
+    "？",
+    "』",
+    "」"
+  ];
+
+
+  for(
+    let i = maximum - 1;
+    i >= minimum;
+    i--
+  ){
+
+    if(
+      candidates.includes(
+        text[i]
+      )
+    ){
+      return i + 1;
+    }
+  }
+
+
+  return maximum;
+}
+
+
+/* =========================================================
+   FIND HOW MUCH TEXT FITS IN ONE FOLIO
+   ========================================================= */
+
+function findFittingLength(
+  folio,
+  text
+){
+
+  let low =
+    1;
+
+  let high =
+    text.length;
+
+  let best =
+    1;
+
+
+  while(
+    low <= high
+  ){
+
+    const middle =
+      Math.floor(
+        (low + high) / 2
+      );
+
+
+    folio.textContent =
+      text.slice(
+        0,
+        middle
+      );
+
+
+    if(
+      folioFits(folio)
+    ){
+
+      best =
+        middle;
+
+      low =
+        middle + 1;
+    }
+
+    else{
+
+      high =
+        middle - 1;
+    }
+
+  }
+
+
+  return naturalJapaneseBreak(
+    text,
+    best
+  );
+}
+
+
+/* =========================================================
+   PAGINATE ONE JAPANESE BLOCK
+   ========================================================= */
+
+function paginateJapaneseBlock(block){
+
+  const paragraphs =
+    block._sourceParagraphs;
+
+  if(
+    !Array.isArray(paragraphs)
+  ){
+    return;
+  }
+
+
+  block.innerHTML =
+    "";
+
+
+  paragraphs.forEach(
+    sourceParagraph => {
+
+      let remaining =
+        sourceParagraph;
+
+
+      while(
+        remaining.length
+      ){
+
+        const folio =
+          document.createElement(
+            "div"
+          );
+
+        folio.className =
+          "jp-folio";
+
+
+        block.appendChild(
+          folio
+        );
+
+
+        folio.textContent =
+          remaining;
+
+
+        if(
+          folioFits(folio)
+        ){
+
+          remaining =
+            "";
+
+          continue;
+        }
+
+
+        const fittingLength =
+          findFittingLength(
+            folio,
+            remaining
+          );
+
+
+        const pageText =
+          remaining
+            .slice(
+              0,
+              fittingLength
+            )
+            .trim();
+
+
+        folio.textContent =
+          pageText;
+
+
+        remaining =
+          remaining
+            .slice(
+              fittingLength
+            )
+            .trim();
+
+      }
+
+    }
+  );
 
 }
 
 
+/* =========================================================
+   PAGINATE ALL JAPANESE
+   ========================================================= */
+
+function paginateJapanese(){
+
+  document
+    .querySelectorAll(
+      ".jp-block"
+    )
+    .forEach(
+      block => {
+
+        paginateJapaneseBlock(
+          block
+        );
+
+      }
+    );
+}
+
 
 /* =========================================================
-   CREATE AIKI REVEAL BUTTON
+   AIKI REVEAL BUTTON
    ========================================================= */
 
 function createRevealControl(){
 
   const wrap =
     document.createElement("div");
-
 
   wrap.className =
     "aiki-reveal-wrap";
@@ -433,14 +637,11 @@ function createRevealControl(){
   const button =
     document.createElement("button");
 
-
   button.type =
     "button";
 
-
   button.className =
     "aiki-reveal-button";
-
 
   button.setAttribute(
     "aria-expanded",
@@ -449,7 +650,6 @@ function createRevealControl(){
 
 
   button.innerHTML = `
-
     <span class="aiki-seal-jp">
       合気
     </span>
@@ -461,7 +661,6 @@ function createRevealControl(){
     <span class="aiki-seal-gloss">
       SEE THE IMPRINT OF AIKI
     </span>
-
   `;
 
 
@@ -539,13 +738,11 @@ function createRevealControl(){
 
 
   return wrap;
-
 }
 
 
-
 /* =========================================================
-   RENDER STORY
+   RENDER SECTIONS
    ========================================================= */
 
 function renderSections(){
@@ -566,10 +763,6 @@ function renderSections(){
   sections.forEach(
     (section,index) => {
 
-      /* ---------------------------------------------------
-         SECTION
-         --------------------------------------------------- */
-
       const sectionElement =
         document.createElement(
           "section"
@@ -588,10 +781,6 @@ function renderSections(){
       }
 
 
-      /* ---------------------------------------------------
-         TITLE
-         --------------------------------------------------- */
-
       const title =
         document.createElement(
           "header"
@@ -603,7 +792,6 @@ function renderSections(){
 
 
       title.innerHTML = `
-
         <div class="section-mark">
 
           <img
@@ -614,22 +802,15 @@ function renderSections(){
 
         </div>
 
-
         <div class="kicker">
           ${section.jpTitle}
         </div>
 
-
         <div class="sub">
           ${section.enTitle}
         </div>
-
       `;
 
-
-      /* ---------------------------------------------------
-         BILINGUAL FIELD
-         --------------------------------------------------- */
 
       const bilingual =
         document.createElement(
@@ -641,35 +822,11 @@ function renderSections(){
         "bilingual-block";
 
 
-      /* ---------------------------------------------------
-         JAPANESE
-
-         This is ONE continuous vertical text field.
-
-         CSS will give this a maximum vertical run of 60svh.
-         --------------------------------------------------- */
-
       const japanese =
-        document.createElement(
-          "div"
+        createJapaneseBlock(
+          section.jp
         );
 
-
-      japanese.className =
-        "jp-block";
-
-
-      japanese.lang =
-        "ja";
-
-
-      japanese.textContent =
-        section.jp.trim();
-
-
-      /* ---------------------------------------------------
-         ENGLISH
-         --------------------------------------------------- */
 
       const english =
         document.createElement(
@@ -682,27 +839,17 @@ function renderSections(){
 
 
       section.en.forEach(
-        (paragraph,paragraphIndex) => {
-
-          const entry =
-            createEnglishEntry(
-              paragraph,
-              index,
-              paragraphIndex
-            );
-
+        paragraph => {
 
           english.appendChild(
-            entry
+            createEnglishEntry(
+              paragraph
+            )
           );
 
         }
       );
 
-
-      /* ---------------------------------------------------
-         FINAL AIKI REVEAL CONTROL
-         --------------------------------------------------- */
 
       if(
         section.revealAikiImprint
@@ -714,10 +861,6 @@ function renderSections(){
 
       }
 
-
-      /* ---------------------------------------------------
-         ASSEMBLE SECTION
-         --------------------------------------------------- */
 
       bilingual.append(
         japanese,
@@ -746,15 +889,8 @@ function renderSections(){
 }
 
 
-
 /* =========================================================
-   HEADER MENU
-
-   For now this remains deliberately simple:
-   hamburger → first Engi section.
-
-   A slide-out navigation can be added independently later
-   without touching the story renderer.
+   HEADER BUTTON
    ========================================================= */
 
 menuButton?.addEventListener(
@@ -781,12 +917,8 @@ menuButton?.addEventListener(
 );
 
 
-
 /* =========================================================
-   HERO TITLE EQUALIZER
-
-   This affects ONLY the hero wordmark.
-   It has nothing to do with story layout.
+   HERO TITLE WIDTH EQUALIZER
    ========================================================= */
 
 function equalizeHeroTitle(){
@@ -918,12 +1050,49 @@ function equalizeHeroTitle(){
 }
 
 
+/* =========================================================
+   DEBOUNCE
+   ========================================================= */
+
+function debounce(
+  callback,
+  delay
+){
+
+  let timer;
+
+
+  return function(){
+
+    clearTimeout(
+      timer
+    );
+
+
+    timer =
+      setTimeout(
+        callback,
+        delay
+      );
+
+  };
+}
+
 
 /* =========================================================
    INITIALIZE
    ========================================================= */
 
 renderSections();
+
+
+function completeLayout(){
+
+  equalizeHeroTitle();
+
+  paginateJapanese();
+
+}
 
 
 if(
@@ -936,26 +1105,62 @@ if(
     () => {
 
       requestAnimationFrame(
-        equalizeHeroTitle
+        () => {
+
+          requestAnimationFrame(
+            completeLayout
+          );
+
+        }
       );
 
     }
   );
 
 }
+
 else{
 
   window.addEventListener(
     "load",
-    equalizeHeroTitle,
+    completeLayout,
     { once:true }
   );
 
 }
 
+
+/* =========================================================
+   REPAGINATE ONLY WHEN SCREEN SIZE ACTUALLY CHANGES
+   ========================================================= */
+
+const repaginate =
+  debounce(
+    paginateJapanese,
+    150
+  );
+
+
+window.addEventListener(
+  "resize",
+  repaginate
+);
+
+
+window.addEventListener(
+  "orientationchange",
+  () => {
+
+    setTimeout(
+      paginateJapanese,
+      250
+    );
+
+  }
+);
+
 </script>
 
 
 </body>
-
 </html>
