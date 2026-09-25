@@ -353,7 +353,7 @@ const sections = [
      {
        jp: "『いま……私たちは別の道を通って、山の秘法へ戻ってきた。合気は技を磨くだけではない。その最高の働きにおいて、合気が技を生む。』",
        en: [
-         { class: "closing", text: "‘Now… we have returned to the secret of the mountain, by another road. Aiki does not merely polish technique. At its highest operation, aiki gives birth to technique." }
+         { class: "closing", text: " Aiki does not merely polish technique. At its highest operation, aiki gives birth to technique." }
        ]
      }
    ]
