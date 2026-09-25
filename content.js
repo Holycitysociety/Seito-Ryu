@@ -26,7 +26,7 @@ const sections = [
      {
        jp: "そこで、それまで真剣に決める必要のなかった問いが生じた。もし稽古の場を立ち上げるのなら、私はいったい何の系譜を受け取っているのか。",
        en: [
-         { text: "That raised a question I had never had much reason to settle before. If I was going to establish a practice, what exactly was the lineage I was receiving?" }
+         { text: "There was a question I had never had much reason to settle before. If I was going to establish a practice, what exactly was the lineage I was receiving?" }
        ]
      },
      {
