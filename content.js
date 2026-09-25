@@ -30,7 +30,7 @@ const sections = [
         ]
       },
       {
-        jp: "よく知られた部分は知っていた。植芝盛平は武田惣角に学び、その惣角の背後には大東流と、さらに古い源氏の伝承を祖とするという系譜があった。古い名は以前から聞いていたが、頭の中ではまだ一つ一つがはっきり分かれていなかった。その週、私は初めて本気で気になった。",
+        jp: "よく知られた部分は知っていた。植芝盛平は武田惣角に学び、その惣角の背後には大東流と、さらに古い源氏の伝承を祖とするという系譜があった。古い名は以前から聞いていたが、頭の中ではまだ一つ一つがはっきり分かれていなかった。その週、私は初めて本気に気になった。",
         en: [
           { text: "I knew the familiar part. Morihei Ueshiba had studied under Takeda Sōkaku, and behind Sōkaku stood Daitō-ryū and its claim to a much older Minamoto inheritance. I had heard the ancient names before, but they had never separated themselves clearly in my mind. That week, for the first time, I got really curious." }
         ]
@@ -466,15 +466,17 @@ const sections = [
 
     .aiki-seal-jp{
       display:inline-block;
-      padding:.26em .34em .22em;
+      padding:.30em .34em .26em;
       border:2px solid var(--shu);
       border-radius:.32em;
       background:rgba(242,231,219,.20);
       box-shadow:inset 0 0 0 1px rgba(176,42,32,.12);
       font-size:1.12em;
-      letter-spacing:.08em;
+      letter-spacing:.14em;
       white-space:nowrap;
       line-height:1;
+      writing-mode:vertical-rl;
+      text-orientation:upright;
     }
 
     .aiki-seal-romaji{
@@ -534,14 +536,15 @@ const sections = [
       -webkit-appearance:none;
       width:100%;
       padding:.88em 1em .82em;
-      border:1.5px solid var(--shu);
-      border-radius:2px;
+      border:2px solid var(--shu);
+      border-radius:.32em;
       color:var(--shu);
       background:rgba(242,231,219,.46);
-      font:inherit;
-      font-size:.78em;
+      box-shadow:inset 0 0 0 1px rgba(176,42,32,.12);
+      font-family:var(--brush);
+      font-size:.92em;
       font-weight:700;
-      letter-spacing:.12em;
+      letter-spacing:.14em;
       line-height:1.25;
       text-transform:uppercase;
       cursor:pointer;
