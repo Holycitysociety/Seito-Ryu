@@ -390,7 +390,7 @@ const sections = [
      {
        jp: "『君の大先生は知っていた。鬼一法眼の教えを“合気道極意”と呼んだ。』",
        en: [
-         { text: "‘Your Ōsensei knew. He called Kiichi Hōgen’s teachings Aikidō gokui.’" }
+         { text: "‘Your Ōsensei knew quite a bit about all this.’" }
        ]
      }
    ]
