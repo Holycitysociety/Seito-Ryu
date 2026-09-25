@@ -10,13 +10,12 @@
   content="width=device-width, initial-scale=1, viewport-fit=cover"
 >
 
-<title>Seito-ryū Aiki Budō</title>
+<title>Seito-ryÅ« Aiki BudÅ</title>
 
 <meta
   name="description"
-  content="Seito-ryū Aiki Budō"
+  content="Seito-ryÅ« Aiki BudÅ"
 >
-
 
 <!-- =======================================================
      DISPLAY BRUSH FONT
@@ -38,7 +37,6 @@
   rel="stylesheet"
 >
 
-
 <!-- =======================================================
      SITE STYLES
      ======================================================= -->
@@ -50,9 +48,7 @@
 
 </head>
 
-
 <body>
-
 
 <!-- =======================================================
      HEADER
@@ -67,7 +63,6 @@
     aria-hidden="true"
   >
 
-
   <a
     class="brand"
     href="#top"
@@ -76,35 +71,27 @@
     <img
       class="mon"
       src="/assets/seito-mon.png"
-      alt="Seito-ryū mon"
+      alt="Seito-ryÅ« mon"
     >
-
 
     <div class="brand-stack">
 
       <span class="jp">
-        聖都流合気武道
+        è–éƒ½æµåˆæ°—æ­¦é“
       </span>
 
       <span class="romaji">
-        SEITO-RYŪ AIKI BUDŌ
+        SEITO-RYÅª AIKI BUDÅŒ
       </span>
 
     </div>
 
   </a>
 
-
   <button
     class="menu"
-    aria-label="Go to About"
-    onclick="
-      document
-        .getElementById('about')
-        .scrollIntoView({
-          behavior:'smooth'
-        })
-    "
+    id="menuToggle"
+    aria-label="Toggle Navigation Menu"
   >
 
     <span></span>
@@ -115,7 +102,20 @@
 
 </header>
 
+<!-- =======================================================
+     NAVIGATION OVERLAY (PLACEHOLDER LINKS)
+     ======================================================= -->
 
+<nav class="site-nav-overlay" id="siteNav">
+  <button class="site-nav-close" id="menuClose" aria-label="Close Menu">Ã—</button>
+  <ul class="site-nav-list">
+    <li><a class="site-nav-link" href="#top">Engi / Founding Lore</a></li>
+    <li><a class="site-nav-link" href="#about">Lineage & History</a></li>
+    <li><a class="site-nav-link" href="#about">Curriculum</a></li>
+    <li><a class="site-nav-link" href="#about">Dojo & Schedule</a></li>
+    <li><a class="site-nav-link" href="#about">Contact & Patronage</a></li>
+  </ul>
+</nav>
 
 <!-- =======================================================
      MAIN
@@ -123,12 +123,8 @@
 
 <main id="top">
 
-
 <!-- =======================================================
      HERO
-
-     HERO CONTENT STAYS HERE.
-     NORMAL PAGE TEXT LIVES IN content.js
      ======================================================= -->
 
 <section class="hero">
@@ -138,9 +134,8 @@
     <img
       class="hero-mon"
       src="/assets/seito-mon.png"
-      alt="Seito-ryū mon"
+      alt="Seito-ryÅ« mon"
     >
-
 
     <div class="hero-wordmark">
 
@@ -150,25 +145,22 @@
       >
 
         <h1 data-title-jp>
-          聖都流合気武道
+          è–éƒ½æµåˆæ°—æ­¦é“
         </h1>
-
 
         <div
           class="hero-rule"
           aria-hidden="true"
         ></div>
 
-
         <div
           class="romaji"
           data-title-romaji
         >
-          SEITO-RYŪ AIKI BUDŌ
+          SEITO-RYÅª AIKI BUDÅŒ
         </div>
 
       </div>
-
 
       <div class="hero-mark">
 
@@ -181,15 +173,14 @@
 
     </div>
 
-
     <div class="soryuki">
 
       <span class="jp">
-        創流期
+        å‰µæµæœŸ
       </span>
 
       <span class="rom">
-        Sōryū-ki
+        SÅryÅ«-ki
       </span>
 
       <span class="en">
@@ -197,7 +188,7 @@
       </span>
 
       <span class="place">
-        Charleston, South Carolina · 2026
+        Charleston, South Carolina Â· 2026
       </span>
 
     </div>
@@ -206,15 +197,11 @@
 
 </section>
 
-
-
 <!-- =======================================================
      NON-HERO CONTENT IS INSERTED HERE
      ======================================================= -->
 
 <div id="sections"></div>
-
-
 
 <!-- =======================================================
      FOOTER
@@ -229,39 +216,53 @@
   >
 
   <div class="jp">
-    聖都流合気武道
+    è–éƒ½æµåˆæ°—æ­¦é“
   </div>
 
   <div class="romaji">
-    SEITO-RYŪ AIKI BUDŌ
+    SEITO-RYÅª AIKI BUDÅŒ
   </div>
 
   <div class="meta">
-    創流期 — Sōryū-ki — Formative Period
+    å‰µæµæœŸ â€” SÅryÅ«-ki â€” Formative Period
   </div>
 
   <div class="meta">
-    Charleston, South Carolina · 2026
+    Charleston, South Carolina Â· 2026
   </div>
 
 </footer>
 
-
 </main>
-
-
 
 <!-- =======================================================
      CONTENT DATA
-
-     ALL EDITABLE NON-HERO TEXT IS IN content.js
      ======================================================= -->
 
 <script src="content.js"></script>
 
-
-
 <script>
+
+/* =========================================================
+   MENU TOGGLE LOGIC
+   ========================================================= */
+
+const menuToggle = document.getElementById('menuToggle');
+const menuClose = document.getElementById('menuClose');
+const siteNav = document.getElementById('siteNav');
+
+function toggleMenu(){
+  siteNav.classList.toggle('is-open');
+}
+
+menuToggle.addEventListener('click', toggleMenu);
+menuClose.addEventListener('click', toggleMenu);
+
+document.querySelectorAll('.site-nav-link').forEach(link => {
+  link.addEventListener('click', () => {
+    siteNav.classList.remove('is-open');
+  });
+});
 
 /* =========================================================
    RENDER NON-HERO CONTENT
@@ -270,17 +271,14 @@
 const root =
   document.getElementById("sections");
 
-
 sections.forEach(
   (section,index) => {
 
     const sectionElement =
       document.createElement("section");
 
-
     sectionElement.className =
       "section";
-
 
     if(index === 0){
 
@@ -288,7 +286,6 @@ sections.forEach(
         "about";
 
     }
-
 
     sectionElement.innerHTML = `
 
@@ -317,12 +314,10 @@ sections.forEach(
 
     `;
 
-
     const body =
       sectionElement.querySelector(
         ".section-body"
       );
-
 
     section.rows.forEach(
       (row,rowIndex) => {
@@ -330,33 +325,26 @@ sections.forEach(
         const jp =
           document.createElement("div");
 
-
         jp.className =
           "jp-paragraph";
-
 
         jp.lang =
           "ja";
 
-
         jp.textContent =
           row.jp;
-
 
         const en =
           document.createElement("div");
 
-
         en.className =
           "en-group";
-
 
         row.en.forEach(
           paragraph => {
 
             const node =
               document.createElement("p");
-
 
             if(paragraph.class){
 
@@ -365,10 +353,8 @@ sections.forEach(
 
             }
 
-
             node.textContent =
               paragraph.text;
-
 
             en.appendChild(
               node
@@ -377,18 +363,14 @@ sections.forEach(
           }
         );
 
-
         const gridRow =
           rowIndex + 1;
-
 
         jp.style.gridRow =
           gridRow;
 
-
         en.style.gridRow =
           gridRow;
-
 
         body.append(
           jp,
@@ -398,14 +380,12 @@ sections.forEach(
       }
     );
 
-
     root.appendChild(
       sectionElement
     );
 
   }
 );
-
 
 /* =========================================================
    HERO TITLE WIDTH EQUALIZER
@@ -425,12 +405,10 @@ function equalizeHeroTitle(){
             "[data-title-jp]"
           );
 
-
         const romaji =
           group.querySelector(
             "[data-title-romaji]"
           );
-
 
         if(
           !japanese
@@ -440,13 +418,11 @@ function equalizeHeroTitle(){
           return;
         }
 
-
         japanese.style
           .setProperty(
             "--match-extra",
             "0px"
           );
-
 
         romaji.style
           .setProperty(
@@ -454,25 +430,21 @@ function equalizeHeroTitle(){
             "0px"
           );
 
-
         const jpWidth =
           japanese
             .getBoundingClientRect()
             .width;
-
 
         const romajiWidth =
           romaji
             .getBoundingClientRect()
             .width;
 
-
         const targetWidth =
           Math.max(
             jpWidth,
             romajiWidth
           );
-
 
         function expandLine(
           element,
@@ -486,7 +458,6 @@ function equalizeHeroTitle(){
             return;
           }
 
-
           const characters =
             Array.from(
               element
@@ -494,13 +465,11 @@ function equalizeHeroTitle(){
                 .trim()
             ).length;
 
-
           if(
             characters < 2
           ){
             return;
           }
-
 
           const extra =
             (
@@ -513,7 +482,6 @@ function equalizeHeroTitle(){
               1
             );
 
-
           element.style
             .setProperty(
               "--match-extra",
@@ -522,12 +490,10 @@ function equalizeHeroTitle(){
 
         }
 
-
         expandLine(
           japanese,
           jpWidth
         );
-
 
         expandLine(
           romaji,
@@ -539,7 +505,6 @@ function equalizeHeroTitle(){
 
 }
 
-
 /* =========================================================
    JAPANESE VERTICAL FITTING
    ========================================================= */
@@ -550,7 +515,6 @@ function paragraphFits(
 
   const tolerance =
     1.5;
-
 
   return(
 
@@ -566,6 +530,36 @@ function paragraphFits(
 
 }
 
+function maxColumnHeight(
+  paragraph
+){
+
+  const viewportHeight =
+    window.visualViewport
+      ? window.visualViewport.height
+      : window.innerHeight;
+
+  const rect =
+    paragraph.getBoundingClientRect();
+
+  const bottomAllowance =
+    window.innerWidth >= 760
+      ? 72
+      : 96;
+
+  const visibleHeight =
+    Math.floor(
+      viewportHeight
+      - rect.top
+      - bottomAllowance
+    );
+
+  return Math.max(
+    140,
+    visibleHeight
+  );
+
+}
 
 function fitVerticalParagraph(
   paragraph
@@ -573,36 +567,42 @@ function fitVerticalParagraph(
 
   const minimum =
     window.innerWidth >= 760
-      ? 220
-      : 200;
+      ? 180
+      : 140;
 
+  const ceiling =
+    Math.max(
+      minimum,
+      maxColumnHeight(
+        paragraph
+      )
+    );
 
   let low =
     minimum;
 
-
   let high =
     minimum;
-
 
   paragraph.style.height =
     `${high}px`;
 
-
   while(
     !paragraphFits(paragraph)
     &&
-    high < 1800
+    high < ceiling
   ){
 
-    high += 60;
-
+    high =
+      Math.min(
+        high + 32,
+        ceiling
+      );
 
     paragraph.style.height =
       `${high}px`;
 
   }
-
 
   while(
     low < high
@@ -613,10 +613,8 @@ function fitVerticalParagraph(
         (low + high) / 2
       );
 
-
     paragraph.style.height =
       `${middle}px`;
-
 
     if(
       paragraphFits(paragraph)
@@ -636,7 +634,6 @@ function fitVerticalParagraph(
 
   }
 
-
   const fontSize =
     parseFloat(
       getComputedStyle(
@@ -644,21 +641,21 @@ function fitVerticalParagraph(
       ).fontSize
     );
 
-
   const breathingRoom =
     Math.max(
-      10,
-      fontSize * .55
+      6,
+      fontSize * .28
     );
 
-
   paragraph.style.height =
-    `${Math.ceil(
-      high + breathingRoom
+    `${Math.min(
+      ceiling,
+      Math.ceil(
+        high + breathingRoom
+      )
     )}px`;
 
 }
-
 
 /* =========================================================
    COMPLETE PAGE LAYOUT
@@ -667,7 +664,6 @@ function fitVerticalParagraph(
 function layoutPage(){
 
   equalizeHeroTitle();
-
 
   document
     .querySelectorAll(
@@ -685,7 +681,6 @@ function layoutPage(){
 
 }
 
-
 /* =========================================================
    DEBOUNCE
    ========================================================= */
@@ -697,13 +692,11 @@ function debounce(
 
   let timer;
 
-
   return function(){
 
     clearTimeout(
       timer
     );
-
 
     timer =
       setTimeout(
@@ -714,7 +707,6 @@ function debounce(
   };
 
 }
-
 
 /* =========================================================
    INITIAL LAYOUT
@@ -753,7 +745,6 @@ else{
 
 }
 
-
 /* =========================================================
    RESPONSIVE RECALCULATION
    ========================================================= */
@@ -764,12 +755,10 @@ const relayout =
     120
   );
 
-
 window.addEventListener(
   "resize",
   relayout
 );
-
 
 window.addEventListener(
   "orientationchange",
@@ -782,7 +771,6 @@ window.addEventListener(
 
   }
 );
-
 
 if(
   window.visualViewport
@@ -797,7 +785,6 @@ if(
 }
 
 </script>
-
 
 </body>
 </html>
