@@ -199,7 +199,7 @@ const sections = [
        jp: "眼前にあるのは一ノ谷。海、道、山、距離、時機、そして予測。それらが合わさって両軍の見かけ上の関係を定める。険しい背後の地形は騎馬の侵入を排除しているように見える。平氏にとって、背後は事実上到達不能である。通常の進路では戦闘が始まる。平氏は予想どおりのものを見て、当然そのように応じる。兵は持ち場へ走り、弓は向きを変え、槍が集まり、注意は狭まっていく。",
        en: [
          { text: "‘Before them lies Ichi-no-Tani: sea, roads, mountain, and enemy strength. Together they define the reality between the armies. The steep rear terrain seems to exclude mounted entry. To the Taira, their back is covered by the mountain." },
-         { text: "‘The ordinary approaches are engaged. The Taira see what they expect to see, and naturally they answer it. Men run to their stations. Bows turn. Spears gather. Attention narrows." }
+         { text: "‘The front approaches are engaged By the Minamoto. The Taira see what they expect to see, and naturally they answer it. Men run to their stations. Bows turn. Spears gather. Attention narrows." }
        ]
      },
      {
