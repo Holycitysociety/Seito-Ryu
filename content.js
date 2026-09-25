@@ -227,7 +227,7 @@ const sections = [
      {
        jp: "ここで関係は使えるものになる。義経の軍は平氏の死角、攻撃が働く後方の位置に立つ。",
        en: [
-         { text: "‘Now the relationship is usable. Yoshitsune’s force establishes itself in the Taira’s dead angle, a rear position from which the attack can work." }
+         { text: "‘Now, they have field advantage. Yoshitsune’s force establishes itself in the Taira’s rear position from which the attack is undefended." }
        ]
      },
      {
