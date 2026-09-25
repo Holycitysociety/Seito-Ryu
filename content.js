@@ -305,7 +305,7 @@ const sections = [
      {
        jp: "『三つの長く残る流れ。小笠原流武道には馬と弓、そして武人社会の関係。武田流には指揮、戦略、戦。大東流には身体と遭遇を制する方法。』",
        en: [
-         { text: "‘Three enduring streams: Ogasawara ryu budo in the very form of the Samurai of horse & bow, and navigating warrior society; Takeda-ryū in command strategy and war; Daitō-ryū in the control of the body and encounter." }
+         { text: "" }
        ]
      }
    ]
