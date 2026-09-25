@@ -51,7 +51,7 @@ const sections = [
      {
        jp: "『ああ、系譜です』と私は言った。『合気道をご存じですか。道場を開こうかと考えているんです。』彼はうなずいた。『多くの人は新羅三郎源義光から話を始める。』『!?』『名前は知っています』と私は言った。『それ以上は、あまり。』『そこが古い大東流の伝承の始まりだ。大東流の伝承では、その名自体も“大東三郎”と記憶される義光に結びつけられている。だが、それは物語の一部にすぎない。』",
        en: [
-         { text: "‘Ha, lineage,’ I said. ‘Do you know Aikidō? I’m thinking about opening a dojo.’" },
+         { text: "‘Ha, lineage,’ I said. ‘Do you know Aikidō? I’m thinking about where to train.’" },
          { text: "He nodded. ‘A lot of people begin with Shinra Saburō Minamoto no Yoshimitsu.’" },
          { text: "‘!?’" },
          { text: "‘I know the name,’ I said. ‘Not much more than that.’" },
