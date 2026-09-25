@@ -299,7 +299,7 @@ const sections = [
      {
        jp: "『だが、全体は全体のまま残らなかった。継承は異なる家と流派を通り、それぞれが自らの事情に必要なものを守った。小笠原は武人の形、礼法、弓術、弓馬術、身体、弓、馬、そして正しい関係を伝えた。武田本流はより大きな兵法を継承し、後世には武田信玄と、武田流あるいは甲州流として記憶される軍学の伝統へつながった。そして大東流は武田家の近接武術の継承を運んだ。』",
        en: [
-         { text: "‘But Yoshitsune's teachings did not remain whole. The inheritance moved through different houses and ryūha, each preserving what circumstance required. Ogasawara carried the warrior’s form: reihō, kyūjutsu, and kyūbajutsu, body, bow, horse, and right relationship. Main branch Takeda continued the larger art of war, which in later generations gave rise to Takeda Shingen and the military tradition remembered as Takeda-ryū, or Kōshū-ryū. And Daitō-ryū carried forward the personal combat inheritance of the Takeda house." }
+         { text: "‘But Yoshitsune's teachings did not remain whole. The inheritance moved through different houses and ryūha, each preserving what circumstance required. Ogasawara carried the warrior’s form: reihō, kyūjutsu, and kyūbajutsu, body, bow, horse, and right relationship. Main branch Takeda continued the larger art of war, which in later generations gave rise to Takeda Shingen and Takeda-ryū. And Daitō-ryū carried forward the personal combat inheritance of the Takeda house." }
        ]
      },
      {
