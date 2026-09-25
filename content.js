@@ -409,7 +409,7 @@ const sections = [
        jp: "老人が立ち上がったことに気づいたときには、もうゆっくりと扉へ向かっていた。『すみません』と私は呼びかけた。『お名前は？』彼は振り向いた。『吉岡だ。』『新しい道場、うまくやりなさいよ、若いの。』",
        en: [
          { text: "By the time I noticed, the old man was already making his way slowly toward the door." },
-         { text: "‘Excuse me,’ I called. ‘What's your name sir?’" },
+         { text: "‘Excuse me sir,’ I called. ‘What's your name?’" },
          { text: "" },
          { text: "‘I’m Yoshioka.’" },
          { text: "‘Good luck with your new school, son!’" }
