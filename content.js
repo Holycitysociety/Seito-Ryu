@@ -402,7 +402,7 @@ const sections = [
      {
        jp: "一瞬、自分がどこにいるのかを忘れていた。私はまったく別の場所へ行っていた。義光から鞍馬へ、鞍馬から源平合戦へ、一ノ谷の斜面を下り、源氏の離散を経て会津へ入り、そこから惣角、植芝、武産合気へ。老人は一度も書き物を見ず、名前を探すこともなく、糸を一度も失わずに語った。",
        en: [
-         { text: "For a moment I had forgotten where I was. I had been somewhere else entirely. I had followed him from Yoshimitsu to Kurama, from Kurama into the Genpei War, down the slope at Ichi-no-Tani, through the scattering of the Minamoto, into Aizu, then forward to Sōkaku, Ueshiba, and Takemusu Aiki. He spoke without notes, without searching for a name, without losing the thread once." }
+         { text: "For a moment I forgot where I was. I was somewhere else entirely. I had followed him from Yoshimitsu to Kurama, from Kurama into the Genpei War, down the slope at Ichi-no-Tani, through the scattering of the Minamoto, into Aizu, then forward to Sōkaku, Ueshiba, and Takemusu Aiki. He spoke without notes, without searching for a name, without losing the thread once." }
        ]
      },
      {
