@@ -377,7 +377,7 @@ const sections = [
      {
        jp: "『源氏には、そのような不確実性を作る必要はなかった。戦が十分以上に与えていた。彼らの戦場は試験だった。現実で、容赦がなく、絶対的だった。合気実験場、Aiki Jikkenjō。』",
        en: [
-         { class: "sequence", text: "‘The Minamoto did not need to create such uncertainty. War gave them more than enough. Their battlefield was a test, real, unforgiving and absolute. Let's call it The 合気実験場, Aiki Jikkenjō." }
+         { class: "sequence", text: "‘The Minamoto did not need to create such uncertainty. War gave them more than enough. Their battlefield was a test, real, unforgiving and absolute. Let's call it... the 合気実験場, Aiki Jikkenjō." }
        ]
      },
      {
