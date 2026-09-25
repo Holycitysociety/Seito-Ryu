@@ -1,765 +1,571 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-
-<meta charset="utf-8">
+Just to double check this is the current working. Make the edit
 
 <meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, viewport-fit=cover"
->
+name="viewport"
+content="width=device-width, initial-scale=1, viewport-fit=cover"
 
-<title>Seito-ryÅ« Aiki BudÅ</title>
+Seito-ryū Aiki Budō
 
 <meta
-  name="description"
-  content="Seito-ryÅ« Aiki BudÅ"
->
+name="description"
+content="Seito-ryū Aiki Budō"
 
 <!-- =======================================================
-     DISPLAY BRUSH FONT
-     ======================================================= -->
-
-<link
-  rel="preconnect"
-  href="https://fonts.googleapis.com"
->
-
-<link
-  rel="preconnect"
-  href="https://fonts.gstatic.com"
-  crossorigin
->
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
-  rel="stylesheet"
->
+DISPLAY BRUSH FONT
+======================================================= -->
 
 <!-- =======================================================
-     SITE STYLES
-     ======================================================= -->
-
-<link
-  rel="stylesheet"
-  href="styles.css"
->
-
-</head>
-
-<body>
+SITE STYLES
+======================================================= -->
 
 <!-- =======================================================
-     HEADER
-     ======================================================= -->
+HEADER
+======================================================= -->
 
-<header class="site-header">
+<img
+class="header-blossom"
+src="/assets/cherry_blossom_header.png"
+alt=""
+aria-hidden="true"
 
-  <img
-    class="header-blossom"
-    src="/assets/cherry_blossom_header.png"
-    alt=""
-    aria-hidden="true"
-  >
+<a
+class="brand"
+href="#top"
 
-  <a
-    class="brand"
-    href="#top"
-  >
+<img
+class="mon"
+src="/assets/seito-mon.png"
+alt="Seito-ryū mon"
 
-    <img
-      class="mon"
-      src="/assets/seito-mon.png"
-      alt="Seito-ryÅ« mon"
-    >
+聖都流合気武道
 
-    <div class="brand-stack">
+SEITO-RYŪ AIKI BUDŌ
 
-      <span class="jp">
-        è–éƒ½æµåˆæ°—æ­¦é“
-      </span>
-
-      <span class="romaji">
-        SEITO-RYÅª AIKI BUDÅŒ
-      </span>
-
-    </div>
-
-  </a>
-
-  <button
-    class="menu"
-    aria-label="Go to About"
-    onclick="
-      document
-        .getElementById('about')
-        .scrollIntoView({
-          behavior:'smooth'
-        })
-    "
-  >
-
-    <span></span>
-    <span></span>
-    <span></span>
-
-  </button>
-
-</header>
+<button
+class="menu"
+aria-label="Go to About"
+onclick="
+document
+.getElementById('about')
+.scrollIntoView({
+behavior:'smooth'
+})
+"
 
 <!-- =======================================================
-     MAIN
-     ======================================================= -->
-
-<main id="top">
+MAIN
+======================================================= -->
 
 <!-- =======================================================
-     HERO
+HERO
 
-     HERO CONTENT STAYS HERE.
-     NORMAL PAGE TEXT LIVES IN content.js
-     ======================================================= -->
+HERO CONTENT STAYS HERE.
+NORMAL PAGE TEXT LIVES IN content.js
+======================================================= -->
 
-<section class="hero">
+<img
+class="hero-mon"
+src="/assets/seito-mon.png"
+alt="Seito-ryū mon"
 
-  <div class="hero-poster">
+聖都流合気武道
 
-    <img
-      class="hero-mon"
-      src="/assets/seito-mon.png"
-      alt="Seito-ryÅ« mon"
-    >
+SEITO-RYŪ AIKI BUDŌ
 
-    <div class="hero-wordmark">
+<img
+src="/assets/seito-mon.png"
+alt=""
 
-      <div
-        class="hero-title-block"
-        data-title-equalizer
-      >
+創流期
 
-        <h1 data-title-jp>
-          è–éƒ½æµåˆæ°—æ­¦é“
-        </h1>
+Sōryū-ki
 
-        <div
-          class="hero-rule"
-          aria-hidden="true"
-        ></div>
+Formative Period
 
-        <div
-          class="romaji"
-          data-title-romaji
-        >
-          SEITO-RYÅª AIKI BUDÅŒ
-        </div>
-
-      </div>
-
-      <div class="hero-mark">
-
-        <img
-          src="/assets/seito-mon.png"
-          alt=""
-        >
-
-      </div>
-
-    </div>
-
-    <div class="soryuki">
-
-      <span class="jp">
-        å‰µæµæœŸ
-      </span>
-
-      <span class="rom">
-        SÅryÅ«-ki
-      </span>
-
-      <span class="en">
-        Formative Period
-      </span>
-
-      <span class="place">
-        Charleston, South Carolina Â· 2026
-      </span>
-
-    </div>
-
-  </div>
-
-</section>
+Charleston, South Carolina · 2026
 
 <!-- =======================================================
-     NON-HERO CONTENT IS INSERTED HERE
-     ======================================================= -->
-
-<div id="sections"></div>
+NON-HERO CONTENT IS INSERTED HERE
+======================================================= -->
 
 <!-- =======================================================
-     FOOTER
-     ======================================================= -->
+FOOTER
+======================================================= -->
 
-<footer class="colophon">
+<img
+class="mon"
+src="/assets/seito-mon.png"
+alt=""
 
-  <img
-    class="mon"
-    src="/assets/seito-mon.png"
-    alt=""
-  >
+聖都流合気武道
 
-  <div class="jp">
-    è–éƒ½æµåˆæ°—æ­¦é“
-  </div>
+SEITO-RYŪ AIKI BUDŌ
 
-  <div class="romaji">
-    SEITO-RYÅª AIKI BUDÅŒ
-  </div>
+創流期 — Sōryū-ki — Formative Period
 
-  <div class="meta">
-    å‰µæµæœŸ â€” SÅryÅ«-ki â€” Formative Period
-  </div>
-
-  <div class="meta">
-    Charleston, South Carolina Â· 2026
-  </div>
-
-</footer>
-
-</main>
+Charleston, South Carolina · 2026
 
 <!-- =======================================================
-     CONTENT DATA
+CONTENT DATA
 
-     ALL EDITABLE NON-HERO TEXT IS IN content.js
-     ======================================================= -->
-
-<script src="content.js"></script>
-
-<script>
+ALL EDITABLE NON-HERO TEXT IS IN content.js
+======================================================= -->
 
 /* =========================================================
-   RENDER NON-HERO CONTENT
-   ========================================================= */
+RENDER NON-HERO CONTENT
+========================================================= */
 
 const root =
-  document.getElementById("sections");
+document.getElementById("sections");
 
 sections.forEach(
-  (section,index) => {
+(section,index) => {
 
-    const sectionElement =
-      document.createElement("section");
+const sectionElement =
+document.createElement("section");
 
-    sectionElement.className =
-      "section";
+sectionElement.className =
+"section";
 
-    if(index === 0){
+if(index === 0){
 
-      sectionElement.id =
-        "about";
+sectionElement.id =
+"about";
 
-    }
+}
 
-    sectionElement.innerHTML = `
+sectionElement.innerHTML = `
 
-      <div class="section-title">
+<img
+src="/assets/seito-mon.png"
+alt=""
 
-        <div class="section-mark">
+${section.jpTitle}
 
-          <img
-            src="/assets/seito-mon.png"
-            alt=""
-          >
+${section.enTitle}
 
-        </div>
+`;
 
-        <div class="kicker">
-          ${section.jpTitle}
-        </div>
+const body =
+sectionElement.querySelector(
+".section-body"
+);
 
-        <div class="sub">
-          ${section.enTitle}
-        </div>
+section.rows.forEach(
+(row,rowIndex) => {
 
-      </div>
+const jp =
+document.createElement("div");
 
-      <div class="section-body"></div>
+jp.className =
+"jp-paragraph";
 
-    `;
+jp.lang =
+"ja";
 
-    const body =
-      sectionElement.querySelector(
-        ".section-body"
-      );
+jp.textContent =
+row.jp;
 
-    section.rows.forEach(
-      (row,rowIndex) => {
+const en =
+document.createElement("div");
 
-        const jp =
-          document.createElement("div");
+en.className =
+"en-group";
 
-        jp.className =
-          "jp-paragraph";
+row.en.forEach(
+paragraph => {
 
-        jp.lang =
-          "ja";
+const node =
+document.createElement("p");
 
-        jp.textContent =
-          row.jp;
+if(paragraph.class){
 
-        const en =
-          document.createElement("div");
+node.className =
+paragraph.class;
 
-        en.className =
-          "en-group";
+}
 
-        row.en.forEach(
-          paragraph => {
+node.textContent =
+paragraph.text;
 
-            const node =
-              document.createElement("p");
+en.appendChild(
+node
+);
 
-            if(paragraph.class){
+}
+);
 
-              node.className =
-                paragraph.class;
+const gridRow =
+rowIndex + 1;
 
-            }
+jp.style.gridRow =
+gridRow;
 
-            node.textContent =
-              paragraph.text;
+en.style.gridRow =
+gridRow;
 
-            en.appendChild(
-              node
-            );
+body.append(
+jp,
+en
+);
 
-          }
-        );
+}
+);
 
-        const gridRow =
-          rowIndex + 1;
+root.appendChild(
+sectionElement
+);
 
-        jp.style.gridRow =
-          gridRow;
-
-        en.style.gridRow =
-          gridRow;
-
-        body.append(
-          jp,
-          en
-        );
-
-      }
-    );
-
-    root.appendChild(
-      sectionElement
-    );
-
-  }
+}
 );
 
 /* =========================================================
-   HERO TITLE WIDTH EQUALIZER
-   ========================================================= */
+HERO TITLE WIDTH EQUALIZER
+========================================================= */
 
 function equalizeHeroTitle(){
 
-  document
-    .querySelectorAll(
-      "[data-title-equalizer]"
-    )
-    .forEach(
-      group => {
+document
+.querySelectorAll(
+"[data-title-equalizer]"
+)
+.forEach(
+group => {
 
-        const japanese =
-          group.querySelector(
-            "[data-title-jp]"
-          );
+const japanese =
+group.querySelector(
+"[data-title-jp]"
+);
 
-        const romaji =
-          group.querySelector(
-            "[data-title-romaji]"
-          );
+const romaji =
+group.querySelector(
+"[data-title-romaji]"
+);
 
-        if(
-          !japanese
-          ||
-          !romaji
-        ){
-          return;
-        }
+if(
+!japanese
 
-        japanese.style
-          .setProperty(
-            "--match-extra",
-            "0px"
-          );
+!romaji
+){
+return;
+}
 
-        romaji.style
-          .setProperty(
-            "--match-extra",
-            "0px"
-          );
+japanese.style
+.setProperty(
+"--match-extra",
+"0px"
+);
 
-        const jpWidth =
-          japanese
-            .getBoundingClientRect()
-            .width;
+romaji.style
+.setProperty(
+"--match-extra",
+"0px"
+);
 
-        const romajiWidth =
-          romaji
-            .getBoundingClientRect()
-            .width;
+const jpWidth =
+japanese
+.getBoundingClientRect()
+.width;
 
-        const targetWidth =
-          Math.max(
-            jpWidth,
-            romajiWidth
-          );
+const romajiWidth =
+romaji
+.getBoundingClientRect()
+.width;
 
-        function expandLine(
-          element,
-          currentWidth
-        ){
+const targetWidth =
+Math.max(
+jpWidth,
+romajiWidth
+);
 
-          if(
-            currentWidth >=
-            targetWidth - .5
-          ){
-            return;
-          }
+function expandLine(
+element,
+currentWidth
+){
 
-          const characters =
-            Array.from(
-              element
-                .textContent
-                .trim()
-            ).length;
+if(
+currentWidth >=
+targetWidth - .5
+){
+return;
+}
 
-          if(
-            characters < 2
-          ){
-            return;
-          }
+const characters =
+Array.from(
+element
+.textContent
+.trim()
+).length;
 
-          const extra =
-            (
-              targetWidth -
-              currentWidth
-            )
-            /
-            (
-              characters -
-              1
-            );
+if(
+characters < 2
+){
+return;
+}
 
-          element.style
-            .setProperty(
-              "--match-extra",
-              `${extra}px`
-            );
+const extra =
+(
+targetWidth -
+currentWidth
+)
+/
+(
+characters -
+1
+);
 
-        }
+element.style
+.setProperty(
+"--match-extra",
+${extra}px
+);
 
-        expandLine(
-          japanese,
-          jpWidth
-        );
+}
 
-        expandLine(
-          romaji,
-          romajiWidth
-        );
+expandLine(
+japanese,
+jpWidth
+);
 
-      }
-    );
+expandLine(
+romaji,
+romajiWidth
+);
+
+}
+);
 
 }
 
 /* =========================================================
-   JAPANESE VERTICAL FITTING
-   ========================================================= */
+JAPANESE VERTICAL FITTING
+========================================================= */
 
 function paragraphFits(
-  paragraph
+paragraph
 ){
 
-  const tolerance =
-    1.5;
+const tolerance =
+1.5;
 
-  return(
+return(
 
-    paragraph.scrollWidth <=
-      paragraph.clientWidth + tolerance
+paragraph.scrollWidth <=
+paragraph.clientWidth + tolerance
 
-    &&
+&&
 
-    paragraph.scrollHeight <=
-      paragraph.clientHeight + tolerance
+paragraph.scrollHeight <=
+paragraph.clientHeight + tolerance
 
-  );
-
-}
-
-function maxColumnHeight(
-  paragraph
-){
-
-  const viewportHeight =
-    window.visualViewport
-      ? window.visualViewport.height
-      : window.innerHeight;
-
-  const rect =
-    paragraph.getBoundingClientRect();
-
-  const bottomAllowance =
-    window.innerWidth >= 760
-      ? 72
-      : 96;
-
-  const visibleHeight =
-    Math.floor(
-      viewportHeight
-      - rect.top
-      - bottomAllowance
-    );
-
-  return Math.max(
-    140,
-    visibleHeight
-  );
+);
 
 }
 
 function fitVerticalParagraph(
-  paragraph
+paragraph
 ){
 
-  const minimum =
-    window.innerWidth >= 760
-      ? 180
-      : 140;
+const minimum =
+window.innerWidth >= 760
+? 220
+: 200;
 
-  const ceiling =
-    Math.max(
-      minimum,
-      maxColumnHeight(
-        paragraph
-      )
-    );
+let low =
+minimum;
 
-  let low =
-    minimum;
+let high =
+minimum;
 
-  let high =
-    minimum;
+paragraph.style.height =
+${high}px;
 
-  paragraph.style.height =
-    `${high}px`;
-
-  while(
-    !paragraphFits(paragraph)
-    &&
-    high < ceiling
-  ){
-
-    high =
-      Math.min(
-        high + 32,
-        ceiling
-      );
-
-    paragraph.style.height =
-      `${high}px`;
-
-  }
-
-  while(
-    low < high
-  ){
-
-    const middle =
-      Math.floor(
-        (low + high) / 2
-      );
-
-    paragraph.style.height =
-      `${middle}px`;
-
-    if(
-      paragraphFits(paragraph)
-    ){
-
-      high =
-        middle;
-
-    }
-
-    else{
-
-      low =
-        middle + 1;
-
-    }
-
-  }
-
-  const fontSize =
-    parseFloat(
-      getComputedStyle(
-        paragraph
-      ).fontSize
-    );
-
-  const breathingRoom =
-    Math.max(
-      6,
-      fontSize * .28
-    );
-
-  paragraph.style.height =
-    `${Math.min(
-      ceiling,
-      Math.ceil(
-        high + breathingRoom
-      )
-    )}px`;
-
-}
-
-/* =========================================================
-   COMPLETE PAGE LAYOUT
-   ========================================================= */
-
-function layoutPage(){
-
-  equalizeHeroTitle();
-
-  document
-    .querySelectorAll(
-      ".jp-paragraph"
-    )
-    .forEach(
-      paragraph => {
-
-        fitVerticalParagraph(
-          paragraph
-        );
-
-      }
-    );
-
-}
-
-/* =========================================================
-   DEBOUNCE
-   ========================================================= */
-
-function debounce(
-  callback,
-  delay
+while(
+!paragraphFits(paragraph)
+&&
+high < 1800
 ){
 
-  let timer;
+high += 60;
 
-  return function(){
-
-    clearTimeout(
-      timer
-    );
-
-    timer =
-      setTimeout(
-        callback,
-        delay
-      );
-
-  };
+paragraph.style.height =
+${high}px;
 
 }
 
-/* =========================================================
-   INITIAL LAYOUT
-   ========================================================= */
+while(
+low < high
+){
+
+const middle =
+Math.floor(
+(low + high) / 2
+);
+
+paragraph.style.height =
+${middle}px;
 
 if(
-  document.fonts
-  &&
-  document.fonts.ready
+paragraphFits(paragraph)
 ){
 
-  document.fonts.ready.then(
-    () => {
-
-      requestAnimationFrame(
-        () => {
-
-          requestAnimationFrame(
-            layoutPage
-          );
-
-        }
-      );
-
-    }
-  );
+high =
+middle;
 
 }
 
 else{
 
-  window.addEventListener(
-    "load",
-    layoutPage
-  );
+low =
+middle + 1;
+
+}
+
+}
+
+const fontSize =
+parseFloat(
+getComputedStyle(
+paragraph
+).fontSize
+);
+
+const breathingRoom =
+Math.max(
+10,
+fontSize * .55
+);
+
+paragraph.style.height =
+`${Math.ceil(
+high + breathingRoom
+)}px`;
 
 }
 
 /* =========================================================
-   RESPONSIVE RECALCULATION
-   ========================================================= */
+COMPLETE PAGE LAYOUT
+========================================================= */
 
-const relayout =
-  debounce(
-    layoutPage,
-    120
-  );
+function layoutPage(){
 
-window.addEventListener(
-  "resize",
-  relayout
+equalizeHeroTitle();
+
+document
+.querySelectorAll(
+".jp-paragraph"
+)
+.forEach(
+paragraph => {
+
+fitVerticalParagraph(
+paragraph
 );
 
-window.addEventListener(
-  "orientationchange",
-  () => {
-
-    setTimeout(
-      layoutPage,
-      250
-    );
-
-  }
+}
 );
-
-if(
-  window.visualViewport
-){
-
-  window.visualViewport
-    .addEventListener(
-      "resize",
-      relayout
-    );
 
 }
 
-</script>
+/* =========================================================
+DEBOUNCE
+========================================================= */
 
-</body>
-</html>
+function debounce(
+callback,
+delay
+){
+
+let timer;
+
+return function(){
+
+clearTimeout(
+timer
+);
+
+timer =
+setTimeout(
+callback,
+delay
+);
+
+};
+
+}
+
+/* =========================================================
+INITIAL LAYOUT
+========================================================= */
+
+if(
+document.fonts
+&&
+document.fonts.ready
+){
+
+document.fonts.ready.then(
+() => {
+
+requestAnimationFrame(
+() => {
+
+requestAnimationFrame(
+layoutPage
+);
+
+}
+);
+
+}
+);
+
+}
+
+else{
+
+window.addEventListener(
+"load",
+layoutPage
+);
+
+}
+
+/* =========================================================
+RESPONSIVE RECALCULATION
+========================================================= */
+
+const relayout =
+debounce(
+layoutPage,
+120
+);
+
+window.addEventListener(
+"resize",
+relayout
+);
+
+window.addEventListener(
+"orientationchange",
+() => {
+
+setTimeout(
+layoutPage,
+250
+);
+
+}
+);
+
+if(
+window.visualViewport
+){
+
+window.visualViewport
+.addEventListener(
+"resize",
+relayout
+);
+
+}
