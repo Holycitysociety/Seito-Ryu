@@ -63,7 +63,7 @@ const sections = [
        en: [
          { text: "He seemed amused that I did not know this." },
          { text: "‘You see…It was a bit later…during the Genpei War…’" },
-         { text: "‘Yes..., I remember this.’" }
+         { text: "‘Yes..., I remember.’" }
        ]
      }
    ]
