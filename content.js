@@ -365,7 +365,7 @@ const sections = [
      {
        jp: "『そして、ここで古い物語が現在の責任になる。継承された技は、まず忠実に学ばなければならない。まだ身につけてもいないものを試すことに知恵はない。まず学ぶ。繰り返す。受け取る。伝えられたものに身体を慣らす。』",
        en: [
-         { text: "‘A truth from this old story dictates your present responsibility. First, inherited technique must be learned and taught faithfully." }
+         { text: "‘This story, the answer to your question, dictates your responsibility. " }
        ]
      },
      {
