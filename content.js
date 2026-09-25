@@ -233,7 +233,7 @@ const sections = [
      {
        jp: "下方では通常の進路への圧力が続いている。そこへ背後が爆発する。叫び、騎馬、そこにはないはずだった暴力。突然の襲撃が防御体系全体を衝撃する。正面の危険が続く中、兵は背後にも応じなければならない。",
        en: [
-         { text: "‘Below them, the pressure on the expected approaches continues. Then the rear erupts. Shouting. Riders. Violence where the defense had assumed there could be none. The sudden assault shocks the whole defensive system. Men must answer behind them while danger still presses in front." }
+         { text: "‘Below them, the Minamot pressure on the front continues. Then the rear erupts. Shouting. Riders. Violence where there could be none. The sudden assault shocks the whole defensive system. Men must answer behind them while danger still presses in front." }
        ]
      },
      {
