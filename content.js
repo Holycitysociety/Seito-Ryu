@@ -453,11 +453,9 @@ const sections = [
       width:max-content;
       max-width:100%;
       margin:0 0 1.05em 0;
-      padding:.42em .58em .38em;
-      border:2px solid var(--shu);
       color:var(--shu);
-      background:rgba(242,231,219,.34);
-      box-shadow:inset 0 0 0 1px rgba(176,42,32,.18);
+      background:transparent;
+      box-shadow:none;
       font-family:var(--brush);
       line-height:1;
       letter-spacing:.05em;
@@ -467,15 +465,22 @@ const sections = [
     }
 
     .aiki-seal-jp{
-      display:block;
+      display:inline-block;
+      padding:.26em .34em .22em;
+      border:2px solid var(--shu);
+      border-radius:.32em;
+      background:rgba(242,231,219,.20);
+      box-shadow:inset 0 0 0 1px rgba(176,42,32,.12);
       font-size:1.12em;
       letter-spacing:.08em;
       white-space:nowrap;
+      line-height:1;
     }
 
     .aiki-seal-romaji{
       display:block;
-      margin-top:.34em;
+      margin-top:.42em;
+      padding-left:.08em;
       font-family:inherit;
       font-size:.62em;
       letter-spacing:.11em;
@@ -484,7 +489,8 @@ const sections = [
 
     .aiki-seal-gloss{
       display:block;
-      margin-top:.32em;
+      margin-top:.22em;
+      padding-left:.08em;
       font-family:var(--jp-body);
       font-size:.46em;
       font-weight:600;
