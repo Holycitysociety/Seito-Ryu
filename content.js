@@ -20,7 +20,7 @@ const sections = [
      {
        jp: "それは一週間ほど前、ごく普通の理由から始まった。私はもう一度稽古をしたかった。失っていたもの、つまり身体の可動性と、合気との実感あるつながりを取り戻したかったのである。私は馬にも乗る。だから落馬したときには、受身の仕方を身体に思い出してほしかった。古い本を引っぱり出した。少しずつ記憶が戻り、やがて自分がどう稽古したいのか、どう稽古する必要があるのかを考え始めていた。道場を組織することまで考えるとは思っていなかった。",
        en: [
-         { text: "It began about a week ago, for ordinary reasons. I wanted to practice again, to regain things I had lost. Namely, full mobility, and a reconnection to Aikido. I also ride, so if I come off a horse, I want to remember how to fall. I got out the old books. Things began coming back to me, and before long I found myself contemplating how I want to train, how I need to train. I had not expected to consider organizing a dojo." }
+         { text: "It began about a week ago, for ordinary reasons. I wanted to practice again, to regain things I had lost. Namely, full mobility, and renew what I knew of Aiki. I also ride horses, so if I come off, I want to remember how to fall. I got out the old books. Things began coming back to me, and before long I found myself contemplating how I want to train, how I need to train. I had not expected to consider organizing a dojo." }
        ]
      },
      {
