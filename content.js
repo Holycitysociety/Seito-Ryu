@@ -186,7 +186,7 @@ const sections = [
      {
        jp: "平氏は海と山にはさまれた強固な陣を占める。守りの身体は、軍勢が来ると予想される進路へ向けて整えられている。海岸は戦場を狭め、道は監視できる。背後には山が城壁のように立ち上がる。源範頼は正面軍を、義経は搦手を受け持つ。その下に相従ふ輩がいる。正面には武田信義、加賀美遠光、その子小笠原長清、一条忠頼、板垣兼信、武田有義、石和信光の七名。義経の搦手には安田義定、田代信綱、大内惟義、中原親能、佐原十郎義連、または三浦義連とも呼ばれる五名がいる。",
        en: [
-         { text: "‘The Taira hold a strong position between sea and mountain. Their defense is established toward the approaches an army is expected to use. The coast narrows the field. The roads can be watched. Behind them the mountain rises like a fortress wall." },
+         { text: "‘The Taira hold a strong position between sea and mountain. Their defense is toward the approaches an army is expected to use. The coast narrows the field. The roads can be watched. Behind them the mountain rises like a fortress wall." },
          { text: "‘Minamoto no Noriyori holds the main front. Yoshitsune holds the rear." },
          { text: "‘Under them are the Aishitagau Yakara." },
          { text: "‘Seven are named in the front:" },
