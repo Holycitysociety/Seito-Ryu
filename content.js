@@ -32,7 +32,7 @@ const sections = [
      {
        jp: "よく知られた部分は知っていた。植芝盛平は武田惣角に学び、その惣角の背後には大東流と、さらに古い源氏の伝承を祖とするという系譜があった。古い名は以前から聞いていたが、頭の中ではまだ一つ一つがはっきり分かれていなかった。その週、私は初めて本気で気になった。",
        en: [
-         { text: "I knew the familiar part. Morihei Ueshiba had studied under Takeda Sōkaku, and behind Sōkaku stood Daitō-ryū and its claim to a much older Minamoto inheritance. I had heard the ancient names before, but they had never separated themselves clearly in my mind. That week, for the first time, I got really curious." }
+         { text: "I knew the familiar part. Morihei Ueshiba studied under Takeda Sōkaku, and behind Sōkaku stood Daitō-ryū's claim to a much older Minamoto inheritance. I had heard the ancient names before, but they had never separated themselves clearly in my mind. That week, for the first time, I got really curious." }
        ]
      },
      {
