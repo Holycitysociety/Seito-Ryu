@@ -264,7 +264,7 @@ const sections = [
        jp: "彼は少し身を引き、声はまた会話の調子へ戻った。『あとになって……土埃が収まってから……その働きには名前をつけられる。構え。間合い。先。体捌き。入身。死角。当身。崩し。技。投げ。』",
        en: [
       
-         { text: "He sat back. His voice became conversational again." },
+         { text: "He sat back." },
          { text: "‘Only afterward… when the dust settles… can the Aiki be seen." },
          { class: "sequence", text: "‘Kamae. Ma-ai. Sen. Tai-sabaki. Irimi. Shikaku. Atemi. Kuzushi. Waza. Nage.’" }
        ]
