@@ -75,7 +75,7 @@ const sections = [
      {
        jp: "『誰も“合気”を一つの武術の名として考えるよりずっと前から、源氏はすでに苛烈な戦の遺産を持っていた。源義光はその始まり近くに立つ人物だ。打つこと、組むこと、関節を制すること、自分の構造を保ち、相手の構造を奪うこと。そのような方法が彼の子孫を通じて甲斐源氏へ、そしてその中の武田家へと伝わっていった。大東流の技術的な身体は、すでにそこにあった。強く、実際的だった。』",
        en: [
-         { text: "‘Long before anyone thought of aiki as the name of an art, the Minamoto already possessed a leathal martial inheritance. Minamoto no Yoshimitsu stood near its beginning. From him came how to strike, grapple, control a joint, keep one’s own structure and take another’s away. Those methods passed through his descendants into the Kai-Genji, and among them into the house of Takeda. The technical body of Daitō-ryū was already there. Strong and Practical." }
+         { text: "‘Long before anyone thought of Aiki as the name of an art, the Minamoto already possessed a leathal martial inheritance. Minamoto no Yoshimitsu stood near its beginning. From him came how to strike, grapple, control a joint, keep one’s own structure and take another’s away. Those methods passed through his descendants into the Kai-Genji, and among them into the house of Takeda. The technical body of Daitō-ryū was already there. Strong and Practical." }
        ]
      },
      {
@@ -279,7 +279,7 @@ const sections = [
      {
        jp: "『そして、そのすべてを通して合気を探せ。生きた遭遇がその姿を現したあとで、はじめて型を認識するのだ。四年間、軍陣が彼らの試験場だった。戦場が免許を与えた。』",
        en: [
-         { class: "closing", text: "‘And through all of it, find aiki." },
+         { class: "closing", text: "‘And through all of it, find Aiki." },
          { text: "‘You recognize the pattern after the living encounter has revealed it." },
          { text: "‘For four years, campaign had been their testing ground. The battlefield gave the menkyo." }
        ]
@@ -293,7 +293,7 @@ const sections = [
      {
        jp: "『そしてそこで……二つの継承が出会った。大東流の柔術は義光を通って来た。義経を通して、合気が武田の継承へ入った。武田信義はその両方を受け取り、保存し、先へ運んだ。』",
        en: [
-         { text: "‘And there… the two inheritances met. The jūjutsu of Daitō-ryū had come through Yoshimitsu. Through Yoshitsune, aiki entered the inheritance of Takeda. Takeda Nobuyoshi received both, preserved them, and carried them forward." }
+         { text: "‘And there… the two inheritances met. The jūjutsu of Daitō-ryū had come through Yoshimitsu. Through Yoshitsune, Aiki entered the inheritance of Takeda. Takeda Nobuyoshi received both, preserved them, and carried them forward." }
        ]
      },
      {
@@ -323,7 +323,7 @@ const sections = [
      {
        jp: "『だから、古い問題は小さくなったが、単純にはならなかった。かつて丘と軍勢の間で測られていたものが、二人の身体の間の空間へ圧縮された。鞍馬は“見る方法”を教え、一ノ谷はそれを軍勢の規模で示した。会津で大東流はそれを二つの身体の狭い間へ押し込み、後に“合気”と呼ばれる働きがそこで磨かれた。』",
        en: [
-         { text: "‘So the old problem became smaller without becoming simpler. What had once been measured across hills and formations was compressed into the space between two people. Kurama had taught a way of seeing. Ichi-no-Tani had shown it across an army. In Aizu, Daitō-ryū pressed it into the narrow interval between two bodies, and the operation later called aiki was refined there." }
+         { text: "‘So the old problem became smaller without becoming simpler. What had once been measured across hills and formations was compressed into the space between two people. Kurama had taught a way of seeing. Ichi-no-Tani had shown it across an army. In Aizu, Daitō-ryū pressed it into the narrow interval between two bodies, and the operation later called Aiki was refined there." }
        ]
      },
      {
