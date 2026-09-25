@@ -406,7 +406,7 @@ const sections = [
         ]
       },
       {
-        jp: "『すみません』と私は呼びかけた。『お名前は？』彼は振り向いた。『吉岡だ。』『新しい道場、うまくやりなさいよ、若いの。』",
+        jp: "老人が立ち上がったことに気づいたときには、もうゆっくりと扉へ向かっていた。『すみません』と私は呼びかけた。『お名前は？』彼は振り向いた。『吉岡だ。』『新しい道場、うまくやりなさいよ、若いの。』",
         en: [
           { text: "By the time I noticed that the old man had risen, he was already making his way slowly toward the door." },
           { text: "‘Excuse me,’ I called. ‘What is your name?’" },
