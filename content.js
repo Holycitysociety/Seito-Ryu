@@ -207,7 +207,7 @@ const sections = [
        en: [
          { text: "‘But Yoshitsune does not accept the line the Taira have prepared for him. He takes the initiative by acting on a possibility their defense has excluded. The mountain itself becomes the approach." },
          { text: "‘So,... five of the twelve Aishitagau Yakara are assigned other functions in the larger Minamoto body. Itagaki Kanenobu and Takeda Ariyoshi remain with the Kai-Genji command at the front. Yasuda Yoshisada holds the rear command. Ōuchi Koreyoshi and Nakahara Chikayoshi remain with Yoshitsune as aides-de-camp. Seven remain: Takeda Nobuyoshi, Kagami Tōmitsu, Ogasawara Nagakiyo, Ichijō Tadayori, Isawa Nobumitsu, Tashiro Nobutsuna, and Sahara Jūrō Yoshitsura." },
-         { text: "‘Those seven are the unrecognized captains of the extraordinary. Each brings nine mounted men. Seven groups of ten… seventy riders gathered around Yoshitsune. The old record remembers the 殊なる勇士七十余騎, kotonaru yūshi nanajū-yo-ki, some seventy-odd distinguished mounted warriors." }
+         { text: "‘Those seven are the unrecognized captains of the extraordinary. Each brings nine mounted men. Seven groups of ten… seventy some ods riders gathered around Yoshitsune. The old record remembers the 殊なる勇士七十余騎, kotonaru yūshi nanajū-yo-ki, some seventy-odd distinguished mounted warriors." }
        ]
      },
      {
