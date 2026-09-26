@@ -39,7 +39,7 @@
 
 
 /* =========================================================
-   STORY
+   STORY — MOBILE
    ========================================================= */
 
 --reader-max:940px;
@@ -47,11 +47,14 @@
 --jp-size:16px;
 
 /*
-  Slightly tighter than before so roughly seven vertical
-  Japanese lines fit across the mobile half-screen folio.
+  Tighter column spacing on mobile.
+
+  This should allow roughly 8–9 vertical lines across
+  the full 50vw Japanese folio without shrinking the
+  Japanese characters themselves.
 */
 
---jp-leading:1.62;
+--jp-leading:1.38;
 
 --en-size:18px;
 --en-leading:1.46;
@@ -83,7 +86,6 @@
   clamp(36.8px,8.96vw,60.8px);
 
 --hero-title-line:1.05;
-
 --hero-title-track:.03em;
 
 --hero-rule-w:88px;
@@ -96,7 +98,6 @@
   clamp(15.2px,4.08vw,24.8px);
 
 --hero-romaji-line:1.15;
-
 --hero-romaji-track:.12em;
 
 --hero-mark-gap-top:24px;
@@ -125,11 +126,9 @@
   box-sizing:border-box;
 }
 
-
 html{
   scroll-behavior:smooth;
 }
-
 
 body{
   margin:0;
@@ -151,18 +150,15 @@ body{
   line-height:1.48;
 }
 
-
 img{
   display:block;
 
   max-width:100%;
 }
 
-
 button{
   font:inherit;
 }
-
 
 main{
   overflow-x:hidden;
@@ -272,7 +268,6 @@ main{
   text-decoration:none;
 }
 
-
 .brand .mon{
   width:64px;
 
@@ -285,13 +280,11 @@ main{
     translateX(7px);
 }
 
-
 .brand-stack{
   min-width:0;
 
   line-height:1;
 }
-
 
 .brand-stack .jp{
   display:block;
@@ -311,7 +304,6 @@ main{
 
   white-space:nowrap;
 }
-
 
 .brand-stack .romaji{
   display:block;
@@ -365,7 +357,6 @@ main{
   cursor:pointer;
 }
 
-
 .menu span{
   width:20px;
 
@@ -378,7 +369,6 @@ main{
 
   border-radius:1px;
 }
-
 
 .menu:focus-visible{
   outline:
@@ -402,7 +392,6 @@ main{
     gap:8px;
   }
 
-
   .brand .mon{
     width:58px;
 
@@ -410,18 +399,15 @@ main{
       translateX(6px);
   }
 
-
   .brand-stack .jp{
     font-size:18px;
   }
-
 
   .brand-stack .romaji{
     font-size:10.2px;
 
     letter-spacing:.045em;
   }
-
 
   .header-blossom{
     left:-18px;
@@ -461,7 +447,6 @@ main{
   text-align:center;
 }
 
-
 .hero-poster{
   width:
     min(
@@ -476,24 +461,12 @@ main{
   align-content:start;
 }
 
-
-
-/* =========================================================
-   LARGE HERO MON
-   ========================================================= */
-
 .hero-mon{
   width:
     var(--hero-mon-w);
 
   margin:0;
 }
-
-
-
-/* =========================================================
-   HERO WORDMARK
-   ========================================================= */
 
 .hero-wordmark{
   display:grid;
@@ -508,7 +481,6 @@ main{
     var(--hero-wordmark-lift);
 }
 
-
 .hero-title-block{
   width:max-content;
 
@@ -518,12 +490,6 @@ main{
 
   justify-items:center;
 }
-
-
-
-/* =========================================================
-   HERO TITLE
-   ========================================================= */
 
 .hero h1{
   --match-extra:0px;
@@ -555,12 +521,6 @@ main{
   white-space:nowrap;
 }
 
-
-
-/* =========================================================
-   HERO RULE
-   ========================================================= */
-
 .hero-rule{
   width:
     var(--hero-rule-w);
@@ -577,12 +537,6 @@ main{
   background:
     rgba(176,42,32,.72);
 }
-
-
-
-/* =========================================================
-   HERO ROMAJI
-   ========================================================= */
 
 .hero .romaji{
   --match-extra:0px;
@@ -607,12 +561,6 @@ main{
   white-space:nowrap;
 }
 
-
-
-/* =========================================================
-   SMALL HERO MON
-   ========================================================= */
-
 .hero-mark{
   margin:
     var(--hero-mark-gap-top)
@@ -626,7 +574,6 @@ main{
   justify-content:center;
 }
 
-
 .hero-mark img{
   width:
     var(--hero-mark-size);
@@ -634,23 +581,15 @@ main{
   height:auto;
 }
 
-
-
-/* =========================================================
-   SORYU-KI
-   ========================================================= */
-
 .soryuki{
   line-height:1.24;
 
   margin-bottom:20px;
 }
 
-
 .soryuki span{
   display:block;
 }
-
 
 .soryuki .jp{
   font-family:
@@ -664,13 +603,11 @@ main{
   letter-spacing:.04em;
 }
 
-
 .soryuki .rom,
 .soryuki .en{
   font-size:
     var(--hero-soryuki-sub);
 }
-
 
 .soryuki .place{
   margin-top:10px;
@@ -682,10 +619,7 @@ main{
 
 
 /* =========================================================
-   STORY SECTION
-
-   MOBILE:
-   Entire section is full viewport width.
+   STORY SECTION — MOBILE
    ========================================================= */
 
 .section{
@@ -711,8 +645,6 @@ main{
 
 /* =========================================================
    SECTION TITLE
-
-   Heading itself still receives comfortable side padding.
    ========================================================= */
 
 .section-title{
@@ -724,7 +656,6 @@ main{
 
   margin-bottom:30px;
 }
-
 
 .section-mark{
   margin:
@@ -739,13 +670,11 @@ main{
   justify-content:center;
 }
 
-
 .section-mark img{
   width:24px;
 
   height:auto;
 }
-
 
 .section-title .kicker{
   font-family:
@@ -764,7 +693,6 @@ main{
 
   letter-spacing:.055em;
 }
-
 
 .section-title .sub{
   margin-top:8px;
@@ -786,13 +714,7 @@ main{
 
 
 /* =========================================================
-   MOBILE BILINGUAL FIELD
-
-   EXACT SCREEN HALVES.
-
-   LEFT EDGE   = 0vw
-   CENTERLINE  = 50vw
-   RIGHT EDGE  = 100vw
+   BILINGUAL FIELD — EXACT 50 / 50
    ========================================================= */
 
 .bilingual-block{
@@ -831,13 +753,10 @@ main{
 /* =========================================================
    JAPANESE FOLIO — MOBILE
 
-   Entire left half of screen.
-
-   NO horizontal margin.
-   NO horizontal padding.
-
-   This maximizes usable width and should provide roughly
-   seven vertical Japanese lines on an iPhone-sized screen.
+   Full left half of viewport.
+   No left/right margin.
+   No left/right padding.
+   Tightened line-height for extra vertical columns.
    ========================================================= */
 
 .jp-folio{
@@ -927,10 +846,6 @@ main{
 
 /* =========================================================
    ENGLISH COLUMN — MOBILE
-
-   English receives internal padding.
-
-   The grid itself remains exactly 50/50.
    ========================================================= */
 
 .en-block{
@@ -972,11 +887,9 @@ main{
     1.38em;
 }
 
-
 .en-entry:last-child{
   margin-bottom:0;
 }
-
 
 .en-entry p{
   margin:0;
@@ -990,16 +903,9 @@ main{
   word-spacing:.06em;
 }
 
-
 .en-entry p:empty{
   display:none;
 }
-
-
-
-/* =========================================================
-   SPECIAL ENGLISH TEXT
-   ========================================================= */
 
 .en-entry .sequence{
   font-size:.92em;
@@ -1008,7 +914,6 @@ main{
 
   letter-spacing:.05em;
 }
-
 
 .en-entry .closing{
   font-size:1.28em;
@@ -1054,66 +959,45 @@ main{
     left center;
 }
 
-
-
-/* =========================================================
-   SEAL ORDER
-   ========================================================= */
-
 .aiki-seal[data-seal="KAMAE"]{
   --seal-order:0;
 }
-
 
 .aiki-seal[data-seal="MA-AI"]{
   --seal-order:1;
 }
 
-
 .aiki-seal[data-seal="SEN"]{
   --seal-order:2;
 }
-
 
 .aiki-seal[data-seal="TAI-SABAKI"]{
   --seal-order:3;
 }
 
-
 .aiki-seal[data-seal="IRIMI"]{
   --seal-order:4;
 }
-
 
 .aiki-seal[data-seal="SHIKAKU"]{
   --seal-order:5;
 }
 
-
 .aiki-seal[data-seal="ATEMI"]{
   --seal-order:6;
 }
-
 
 .aiki-seal[data-seal="KUZUSHI"]{
   --seal-order:7;
 }
 
-
 .aiki-seal[data-seal="WAZA"]{
   --seal-order:8;
 }
 
-
 .aiki-seal[data-seal="NAGE"]{
   --seal-order:9;
 }
-
-
-
-/* =========================================================
-   REVEALED SEALS
-   ========================================================= */
 
 body.aiki-imprint-revealed
 .aiki-seal{
@@ -1136,12 +1020,6 @@ body.aiki-imprint-revealed
       42ms
     );
 }
-
-
-
-/* =========================================================
-   SEAL JAPANESE
-   ========================================================= */
 
 .aiki-seal-jp{
   display:inline-block;
@@ -1183,12 +1061,6 @@ body.aiki-imprint-revealed
     upright;
 }
 
-
-
-/* =========================================================
-   SEAL ROMAJI
-   ========================================================= */
-
 .aiki-seal-romaji{
   display:block;
 
@@ -1204,12 +1076,6 @@ body.aiki-imprint-revealed
 
   white-space:nowrap;
 }
-
-
-
-/* =========================================================
-   SEAL GLOSS
-   ========================================================= */
 
 .aiki-seal-gloss{
   display:block;
@@ -1232,12 +1098,6 @@ body.aiki-imprint-revealed
   white-space:normal;
 }
 
-
-
-/* =========================================================
-   FIRST SEAL TARGET
-   ========================================================= */
-
 .aiki-seal-first{
   scroll-margin-top:
     calc(
@@ -1246,12 +1106,6 @@ body.aiki-imprint-revealed
       26px
     );
 }
-
-
-
-/* =========================================================
-   SEAL ANIMATION
-   ========================================================= */
 
 @keyframes aiki-seal-arrive{
 
@@ -1264,7 +1118,6 @@ body.aiki-imprint-revealed
       scale(.97);
 
   }
-
 
   to{
 
@@ -1287,7 +1140,6 @@ body.aiki-imprint-revealed
 
   text-align:left;
 }
-
 
 .aiki-reveal-button{
   appearance:none;
@@ -1312,7 +1164,6 @@ body.aiki-imprint-revealed
   cursor:pointer;
 }
 
-
 .aiki-reveal-button
 .aiki-seal-jp{
   font-size:2.2em;
@@ -1327,18 +1178,15 @@ body.aiki-imprint-revealed
   border-radius:.4em;
 }
 
-
 .aiki-reveal-button
 .aiki-seal-romaji{
   font-size:.82em;
 }
 
-
 .aiki-reveal-button
 .aiki-seal-gloss{
   font-size:.62em;
 }
-
 
 .aiki-reveal-button:hover
 .aiki-seal-jp,
@@ -1352,11 +1200,9 @@ body.aiki-imprint-revealed
     var(--shu);
 }
 
-
 .aiki-reveal-button:focus-visible{
   outline:none;
 }
-
 
 .aiki-reveal-button.is-revealed{
   cursor:default;
@@ -1369,7 +1215,8 @@ body.aiki-imprint-revealed
 /* =========================================================
    TABLET / DESKTOP
 
-   Restore contained book-style reader.
+   Desktop intentionally returns to more open Japanese
+   column spacing.
    ========================================================= */
 
 @media(min-width:760px){
@@ -1463,11 +1310,6 @@ body.aiki-imprint-revealed
   }
 
 
-
-  /* -------------------------------------------------------
-     DESKTOP BLOSSOM
-     ------------------------------------------------------- */
-
   .header-blossom{
     left:-16px;
 
@@ -1476,11 +1318,6 @@ body.aiki-imprint-revealed
     width:684px;
   }
 
-
-
-  /* -------------------------------------------------------
-     DESKTOP BRAND
-     ------------------------------------------------------- */
 
   .brand{
     margin-left:205px;
@@ -1524,11 +1361,6 @@ body.aiki-imprint-revealed
   }
 
 
-
-  /* -------------------------------------------------------
-     DESKTOP MENU
-     ------------------------------------------------------- */
-
   .menu{
     width:44px;
 
@@ -1540,11 +1372,6 @@ body.aiki-imprint-revealed
     width:22px;
   }
 
-
-
-  /* -------------------------------------------------------
-     DESKTOP SECTION
-     ------------------------------------------------------- */
 
   .section{
     width:
@@ -1599,11 +1426,6 @@ body.aiki-imprint-revealed
   }
 
 
-
-  /* -------------------------------------------------------
-     DESKTOP BILINGUAL FIELD
-     ------------------------------------------------------- */
-
   .bilingual-block{
     grid-template-columns:
       minmax(0,1fr)
@@ -1612,11 +1434,6 @@ body.aiki-imprint-revealed
     column-gap:34px;
   }
 
-
-
-  /* -------------------------------------------------------
-     DESKTOP JAPANESE FOLIO
-     ------------------------------------------------------- */
 
   .jp-folio{
     padding:
@@ -1653,11 +1470,6 @@ body.aiki-imprint-revealed
       rgba(74,45,25,.085);
   }
 
-
-
-  /* -------------------------------------------------------
-     DESKTOP ENGLISH
-     ------------------------------------------------------- */
 
   .en-block{
     padding:0;
@@ -1697,7 +1509,6 @@ body.aiki-imprint-revealed
     var(--muted);
 }
 
-
 .colophon .mon{
   width:82px;
 
@@ -1706,7 +1517,6 @@ body.aiki-imprint-revealed
     auto
     10px;
 }
-
 
 .colophon .jp{
   color:
@@ -1722,7 +1532,6 @@ body.aiki-imprint-revealed
   letter-spacing:.045em;
 }
 
-
 .colophon .romaji{
   color:
     var(--ink);
@@ -1733,7 +1542,6 @@ body.aiki-imprint-revealed
 
   letter-spacing:.11em;
 }
-
 
 .colophon .meta{
   margin-top:12px;
@@ -1752,7 +1560,6 @@ body.aiki-imprint-revealed
   html{
     scroll-behavior:auto;
   }
-
 
   body.aiki-imprint-revealed
   .aiki-seal{
