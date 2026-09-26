@@ -47,11 +47,10 @@
 --jp-size:16px;
 
 /*
-  Tighter column spacing on mobile.
+  Tight mobile column spacing.
 
-  This should allow roughly 8–9 vertical lines across
-  the full 50vw Japanese folio without shrinking the
-  Japanese characters themselves.
+  Keeps the Japanese characters at the same size while
+  allowing approximately 8–9 vertical lines across.
 */
 
 --jp-leading:1.38;
@@ -715,6 +714,11 @@ main{
 
 /* =========================================================
    BILINGUAL FIELD — EXACT 50 / 50
+
+   The Japanese grid column remains exactly the left
+   half of the screen.
+
+   The folio itself receives an 8px visual inset.
    ========================================================= */
 
 .bilingual-block{
@@ -733,7 +737,14 @@ main{
 
 
 /* =========================================================
-   JAPANESE COLUMN
+   JAPANESE COLUMN — MOBILE
+
+   The 8px left padding moves the folio slightly away
+   from the physical edge of the phone.
+
+   Because border-box sizing is global, the right side
+   of this container still lands exactly on the 50%
+   centerline.
    ========================================================= */
 
 .jp-block{
@@ -746,6 +757,8 @@ main{
   flex-direction:column;
 
   gap:28px;
+
+  padding-left:8px;
 }
 
 
@@ -753,10 +766,13 @@ main{
 /* =========================================================
    JAPANESE FOLIO — MOBILE
 
-   Full left half of viewport.
-   No left/right margin.
-   No left/right padding.
-   Tightened line-height for extra vertical columns.
+   Near-full half-screen width.
+
+   Left edge = 8px from viewport.
+   Right edge = exact 50% centerline.
+
+   No internal left/right padding, preserving maximum
+   width for Japanese vertical columns.
    ========================================================= */
 
 .jp-folio{
@@ -814,19 +830,18 @@ main{
 
     var(--folio);
 
-  border-top:
+  border:
     1px solid
     rgba(72,52,37,.13);
 
-  border-bottom:
-    1px solid
-    rgba(72,52,37,.13);
-
-  border-left:0;
+  /*
+    Right border disappears into the exact page centerline.
+  */
 
   border-right:0;
 
-  border-radius:0;
+  border-radius:
+    2px 0 0 2px;
 
   box-shadow:
 
@@ -1215,8 +1230,7 @@ body.aiki-imprint-revealed
 /* =========================================================
    TABLET / DESKTOP
 
-   Desktop intentionally returns to more open Japanese
-   column spacing.
+   Desktop restores the contained book-style layout.
    ========================================================= */
 
 @media(min-width:760px){
@@ -1432,6 +1446,16 @@ body.aiki-imprint-revealed
       minmax(0,1fr);
 
     column-gap:34px;
+  }
+
+
+  /*
+    Remove mobile inset once we're back inside
+    the contained desktop reader.
+  */
+
+  .jp-block{
+    padding-left:0;
   }
 
 
