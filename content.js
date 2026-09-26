@@ -367,7 +367,7 @@ const sections = [
     },
 
     {
-      text: "‘Yoshitsune had learned to operate from that way of seeing. Others operated with him. His direct students were called the (Japanese) Seventy Distinguished Warriors, from the size of their minimum formation, though there were doubtless more; his close inner circle consisted of the twelve Aishitagau Yakara (Japanese), the Minamoto commanders, his kin."
+      text: "‘Yoshitsune had learned to operate from that way of seeing. Others operated with him. His direct students were called the (Japanese) Seventy Distinguished Warriors, from the size of their minimum formation, though there were doubtless more; his close inner circle consisted of the twelve Aishitagau Yakara (Japanese), the Minamoto commanders."
     },
 
     {
