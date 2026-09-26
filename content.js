@@ -742,7 +742,7 @@ const sections = [
     },
 
     {
-      text: "‘You know, Ōsensei knew quite a bit about all this and he would love it arising in the Seito Seito school.’"
+      text: "‘You know, Ōsensei knew quite a bit about all this and he would love it arising from the Holy City school.’"
     }
   ]
 },
