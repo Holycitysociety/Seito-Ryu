@@ -44,13 +44,15 @@
 
 --reader-max:940px;
 
---jp-size:15px;
+/*
+  5% smaller than the former 16px mobile Japanese.
+*/
+
+--jp-size:15.2px;
+
 
 /*
-  Tight mobile column spacing.
-
-  Keeps the Japanese characters at the same size while
-  allowing approximately 8–9 vertical lines across.
+  Tight inter-column spacing.
 */
 
 --jp-leading:1.38;
@@ -125,9 +127,11 @@
   box-sizing:border-box;
 }
 
+
 html{
   scroll-behavior:smooth;
 }
+
 
 body{
   margin:0;
@@ -149,15 +153,18 @@ body{
   line-height:1.48;
 }
 
+
 img{
   display:block;
 
   max-width:100%;
 }
 
+
 button{
   font:inherit;
 }
+
 
 main{
   overflow-x:hidden;
@@ -267,6 +274,7 @@ main{
   text-decoration:none;
 }
 
+
 .brand .mon{
   width:64px;
 
@@ -279,11 +287,13 @@ main{
     translateX(7px);
 }
 
+
 .brand-stack{
   min-width:0;
 
   line-height:1;
 }
+
 
 .brand-stack .jp{
   display:block;
@@ -303,6 +313,7 @@ main{
 
   white-space:nowrap;
 }
+
 
 .brand-stack .romaji{
   display:block;
@@ -356,6 +367,7 @@ main{
   cursor:pointer;
 }
 
+
 .menu span{
   width:20px;
 
@@ -368,6 +380,7 @@ main{
 
   border-radius:1px;
 }
+
 
 .menu:focus-visible{
   outline:
@@ -391,6 +404,7 @@ main{
     gap:8px;
   }
 
+
   .brand .mon{
     width:58px;
 
@@ -398,15 +412,18 @@ main{
       translateX(6px);
   }
 
+
   .brand-stack .jp{
     font-size:18px;
   }
+
 
   .brand-stack .romaji{
     font-size:10.2px;
 
     letter-spacing:.045em;
   }
+
 
   .header-blossom{
     left:-18px;
@@ -446,6 +463,7 @@ main{
   text-align:center;
 }
 
+
 .hero-poster{
   width:
     min(
@@ -460,12 +478,14 @@ main{
   align-content:start;
 }
 
+
 .hero-mon{
   width:
     var(--hero-mon-w);
 
   margin:0;
 }
+
 
 .hero-wordmark{
   display:grid;
@@ -480,6 +500,7 @@ main{
     var(--hero-wordmark-lift);
 }
 
+
 .hero-title-block{
   width:max-content;
 
@@ -489,6 +510,7 @@ main{
 
   justify-items:center;
 }
+
 
 .hero h1{
   --match-extra:0px;
@@ -520,6 +542,7 @@ main{
   white-space:nowrap;
 }
 
+
 .hero-rule{
   width:
     var(--hero-rule-w);
@@ -536,6 +559,7 @@ main{
   background:
     rgba(176,42,32,.72);
 }
+
 
 .hero .romaji{
   --match-extra:0px;
@@ -560,6 +584,7 @@ main{
   white-space:nowrap;
 }
 
+
 .hero-mark{
   margin:
     var(--hero-mark-gap-top)
@@ -573,6 +598,7 @@ main{
   justify-content:center;
 }
 
+
 .hero-mark img{
   width:
     var(--hero-mark-size);
@@ -580,15 +606,18 @@ main{
   height:auto;
 }
 
+
 .soryuki{
   line-height:1.24;
 
   margin-bottom:20px;
 }
 
+
 .soryuki span{
   display:block;
 }
+
 
 .soryuki .jp{
   font-family:
@@ -602,11 +631,13 @@ main{
   letter-spacing:.04em;
 }
 
+
 .soryuki .rom,
 .soryuki .en{
   font-size:
     var(--hero-soryuki-sub);
 }
+
 
 .soryuki .place{
   margin-top:10px;
@@ -656,6 +687,7 @@ main{
   margin-bottom:30px;
 }
 
+
 .section-mark{
   margin:
     0
@@ -669,11 +701,13 @@ main{
   justify-content:center;
 }
 
+
 .section-mark img{
   width:24px;
 
   height:auto;
 }
+
 
 .section-title .kicker{
   font-family:
@@ -692,6 +726,7 @@ main{
 
   letter-spacing:.055em;
 }
+
 
 .section-title .sub{
   margin-top:8px;
@@ -714,11 +749,6 @@ main{
 
 /* =========================================================
    BILINGUAL FIELD — EXACT 50 / 50
-
-   The Japanese grid column remains exactly the left
-   half of the screen.
-
-   The folio itself receives an 8px visual inset.
    ========================================================= */
 
 .bilingual-block{
@@ -737,14 +767,9 @@ main{
 
 
 /* =========================================================
-   JAPANESE COLUMN — MOBILE
+   JAPANESE COLUMN
 
-   The 8px left padding moves the folio slightly away
-   from the physical edge of the phone.
-
-   Because border-box sizing is global, the right side
-   of this container still lands exactly on the 50%
-   centerline.
+   8px visual buffer from left edge.
    ========================================================= */
 
 .jp-block{
@@ -764,15 +789,12 @@ main{
 
 
 /* =========================================================
-   JAPANESE FOLIO — MOBILE
+   JAPANESE FOLIO
 
-   Near-full half-screen width.
+   The folio occupies the available left-half column.
 
-   Left edge = 8px from viewport.
-   Right edge = exact 50% centerline.
-
-   No internal left/right padding, preserving maximum
-   width for Japanese vertical columns.
+   The ACTUAL Japanese text is a separate centered child
+   capped at eight vertical columns.
    ========================================================= */
 
 .jp-folio{
@@ -788,27 +810,16 @@ main{
     16px
     0;
 
-  writing-mode:
-    vertical-rl;
+  display:flex;
 
-  text-orientation:
-    mixed;
+  justify-content:center;
 
-  white-space:
-    pre-wrap;
+  align-items:stretch;
 
   overflow:hidden;
 
-  font-family:
-    var(--jp-body);
-
   font-size:
     var(--jp-size);
-
-  line-height:
-    var(--jp-leading);
-
-  letter-spacing:.12em;
 
   background:
 
@@ -834,10 +845,6 @@ main{
     1px solid
     rgba(72,52,37,.13);
 
-  /*
-    Right border disappears into the exact page centerline.
-  */
-
   border-right:0;
 
   border-radius:
@@ -860,7 +867,52 @@ main{
 
 
 /* =========================================================
-   ENGLISH COLUMN — MOBILE
+   JAPANESE TEXT FIELD
+
+   max-width = 8 columns × 1.38em pitch
+             = 11.04em
+
+   Shorter passages shrink to their natural width and are
+   centered inside the folio.
+
+   Longer passages never exceed eight vertical columns.
+   ========================================================= */
+
+.jp-folio-text{
+  height:100%;
+
+  width:max-content;
+
+  max-width:11.04em;
+
+  min-width:0;
+
+  writing-mode:
+    vertical-rl;
+
+  text-orientation:
+    mixed;
+
+  white-space:
+    pre-wrap;
+
+  overflow:hidden;
+
+  font-family:
+    var(--jp-body);
+
+  font-size:inherit;
+
+  line-height:
+    1.38;
+
+  letter-spacing:.12em;
+}
+
+
+
+/* =========================================================
+   ENGLISH COLUMN
    ========================================================= */
 
 .en-block{
@@ -902,9 +954,11 @@ main{
     1.38em;
 }
 
+
 .en-entry:last-child{
   margin-bottom:0;
 }
+
 
 .en-entry p{
   margin:0;
@@ -918,9 +972,11 @@ main{
   word-spacing:.06em;
 }
 
+
 .en-entry p:empty{
   display:none;
 }
+
 
 .en-entry .sequence{
   font-size:.92em;
@@ -929,6 +985,7 @@ main{
 
   letter-spacing:.05em;
 }
+
 
 .en-entry .closing{
   font-size:1.28em;
@@ -974,45 +1031,56 @@ main{
     left center;
 }
 
+
 .aiki-seal[data-seal="KAMAE"]{
   --seal-order:0;
 }
+
 
 .aiki-seal[data-seal="MA-AI"]{
   --seal-order:1;
 }
 
+
 .aiki-seal[data-seal="SEN"]{
   --seal-order:2;
 }
+
 
 .aiki-seal[data-seal="TAI-SABAKI"]{
   --seal-order:3;
 }
 
+
 .aiki-seal[data-seal="IRIMI"]{
   --seal-order:4;
 }
+
 
 .aiki-seal[data-seal="SHIKAKU"]{
   --seal-order:5;
 }
 
+
 .aiki-seal[data-seal="ATEMI"]{
   --seal-order:6;
 }
+
 
 .aiki-seal[data-seal="KUZUSHI"]{
   --seal-order:7;
 }
 
+
 .aiki-seal[data-seal="WAZA"]{
   --seal-order:8;
 }
 
+
 .aiki-seal[data-seal="NAGE"]{
   --seal-order:9;
 }
+
 
 body.aiki-imprint-revealed
 .aiki-seal{
@@ -1035,6 +1103,12 @@ body.aiki-imprint-revealed
       42ms
     );
 }
+
+
+
+/* =========================================================
+   SEAL JAPANESE
+   ========================================================= */
 
 .aiki-seal-jp{
   display:inline-block;
@@ -1076,6 +1150,12 @@ body.aiki-imprint-revealed
     upright;
 }
 
+
+
+/* =========================================================
+   SEAL ROMAJI
+   ========================================================= */
+
 .aiki-seal-romaji{
   display:block;
 
@@ -1091,6 +1171,12 @@ body.aiki-imprint-revealed
 
   white-space:nowrap;
 }
+
+
+
+/* =========================================================
+   SEAL GLOSS
+   ========================================================= */
 
 .aiki-seal-gloss{
   display:block;
@@ -1113,6 +1199,7 @@ body.aiki-imprint-revealed
   white-space:normal;
 }
 
+
 .aiki-seal-first{
   scroll-margin-top:
     calc(
@@ -1121,6 +1208,12 @@ body.aiki-imprint-revealed
       26px
     );
 }
+
+
+
+/* =========================================================
+   SEAL ANIMATION
+   ========================================================= */
 
 @keyframes aiki-seal-arrive{
 
@@ -1133,6 +1226,7 @@ body.aiki-imprint-revealed
       scale(.97);
 
   }
+
 
   to{
 
@@ -1155,6 +1249,7 @@ body.aiki-imprint-revealed
 
   text-align:left;
 }
+
 
 .aiki-reveal-button{
   appearance:none;
@@ -1179,6 +1274,7 @@ body.aiki-imprint-revealed
   cursor:pointer;
 }
 
+
 .aiki-reveal-button
 .aiki-seal-jp{
   font-size:2.2em;
@@ -1193,15 +1289,18 @@ body.aiki-imprint-revealed
   border-radius:.4em;
 }
 
+
 .aiki-reveal-button
 .aiki-seal-romaji{
   font-size:.82em;
 }
 
+
 .aiki-reveal-button
 .aiki-seal-gloss{
   font-size:.62em;
 }
+
 
 .aiki-reveal-button:hover
 .aiki-seal-jp,
@@ -1215,9 +1314,11 @@ body.aiki-imprint-revealed
     var(--shu);
 }
 
+
 .aiki-reveal-button:focus-visible{
   outline:none;
 }
+
 
 .aiki-reveal-button.is-revealed{
   cursor:default;
@@ -1229,8 +1330,6 @@ body.aiki-imprint-revealed
 
 /* =========================================================
    TABLET / DESKTOP
-
-   Desktop restores the contained book-style layout.
    ========================================================= */
 
 @media(min-width:760px){
@@ -1449,11 +1548,6 @@ body.aiki-imprint-revealed
   }
 
 
-  /*
-    Remove mobile inset once we're back inside
-    the contained desktop reader.
-  */
-
   .jp-block{
     padding-left:0;
   }
@@ -1463,11 +1557,6 @@ body.aiki-imprint-revealed
     padding:
       20px
       18px;
-
-    line-height:
-      var(--jp-leading);
-
-    letter-spacing:.13em;
 
     border:
       1px solid
@@ -1492,6 +1581,21 @@ body.aiki-imprint-revealed
       8px
       20px
       rgba(74,45,25,.085);
+  }
+
+
+  /*
+    Desktop eight-column maximum.
+
+    8 × 1.72em = 13.76em
+  */
+
+  .jp-folio-text{
+    max-width:13.76em;
+
+    line-height:1.72;
+
+    letter-spacing:.13em;
   }
 
 
@@ -1533,6 +1637,7 @@ body.aiki-imprint-revealed
     var(--muted);
 }
 
+
 .colophon .mon{
   width:82px;
 
@@ -1541,6 +1646,7 @@ body.aiki-imprint-revealed
     auto
     10px;
 }
+
 
 .colophon .jp{
   color:
@@ -1556,6 +1662,7 @@ body.aiki-imprint-revealed
   letter-spacing:.045em;
 }
 
+
 .colophon .romaji{
   color:
     var(--ink);
@@ -1566,6 +1673,7 @@ body.aiki-imprint-revealed
 
   letter-spacing:.11em;
 }
+
 
 .colophon .meta{
   margin-top:12px;
@@ -1584,6 +1692,7 @@ body.aiki-imprint-revealed
   html{
     scroll-behavior:auto;
   }
+
 
   body.aiki-imprint-revealed
   .aiki-seal{
