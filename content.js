@@ -161,7 +161,7 @@ const sections = [
 
   en: [
     {
-      text: "It began for ordinary reasons. I wanted to train again, to regain things I had lost. Namely, full mobility, and renew what I knew of Aiki Budo. I got out the old books. Things began coming back to me, and before long I found myself contemplating how I want to train, how I need to train. where can I train like that? I had not expected to consider organizing a school."
+      text: "It began for ordinary reasons. I wanted to train again, to regain what I knew of Aiki Jujutsu. I got out the old books. Things began coming back to me, and before long I found myself contemplating how I want to train, how I need to train. where can I train like that? I had not expected to consider organizing a school."
     },
 
     {
