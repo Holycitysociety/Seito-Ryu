@@ -161,7 +161,7 @@ const sections = [
 
   en: [
     {
-      text: "It began about a week ago, for ordinary reasons. I wanted to practice again, to regain things I had lost. Namely, full mobility, and renew what I knew of Aiki. I also ride horses, so, if I come off, I want to remember how to fall. I got out the old books. Things began coming back to me, and before long I found myself contemplating how I want to train, how I need to train. where can I train like that? I had not expected to consider organizing a ryuha."
+      text: "It began about a week ago, for ordinary reasons. I wanted to practice again, to regain things I had lost. Namely, full mobility, and renew what I knew of Aiki. I also ride horses, so, if I come off, I want to remember how to fall. I got out the old books. Things began coming back to me, and before long I found myself contemplating how I want to train, how I need to train. where can I train like that? I had not expected to consider organizing a school."
     },
 
     {
