@@ -213,7 +213,7 @@ const sections = [
     },
 
     {
-      text: "‘Yes..., I remember.’"
+      text: ""
     }
   ]
 },
