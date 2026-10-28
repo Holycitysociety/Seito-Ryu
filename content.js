@@ -277,7 +277,7 @@ const sections = [
     },
 
     {
-      text: "‘There the boy came under the instruction of Sojobo, the Great Tengu, Kiichi Hōgen, the keeper of the 虎の巻, Tora no Maki Scroll…"
+      text: "‘There the boy came under the instruction the Great Tengu of Kurama, Kiichi Hōgen, the keeper of the 虎の巻, Tora no Maki Scroll…"
     },
 
     {
