@@ -1,568 +1,141 @@
 
-<!doctype html>
-<html lang="en">
+<!-- =========================================
+     PARALLEL TRAINING SPACES
+     ========================================= -->
 
-<head>
-<meta charset="utf-8">
-
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, viewport-fit=cover"
+<section
+  class="bk-section"
+  id="training-spaces"
+  aria-labelledby="bk-spaces-title"
 >
 
-<title>Seitō Budōkai | Holy City Budō Society</title>
-
-<meta
-  name="description"
-  content="Seitō Budōkai — Holy City Budō Society. Municipal martial arts programs and Charleston–Japan cultural exchange."
->
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-<link
-  href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap"
-  rel="stylesheet"
->
-
-<!-- Existing Seitō-ryū stylesheet -->
-<link rel="stylesheet" href="../styles.css">
-
-<!-- Budōkai page styling -->
-<style>
-
-.budokai-main{
-  width:100%;
-  overflow-x:hidden;
-}
-
-/* HERO */
-
-.budokai-hero{
-  max-width:920px;
-  margin:0 auto;
-  padding:64px 20px 58px;
-  text-align:center;
-}
-
-.budokai-hero-mon{
-  width:128px;
-  margin:0 auto 22px;
-}
-
-.budokai-hero h1{
-  margin:0;
-  font-family:var(--brush);
-  font-weight:400;
-  font-size:clamp(40px,8.5vw,70px);
-  letter-spacing:.04em;
-  line-height:1.15;
-}
-
-.budokai-rule{
-  width:88px;
-  height:2px;
-  margin:18px auto 15px;
-  background:var(--shu);
-}
-
-.budokai-name{
-  margin:0;
-  font-size:clamp(25px,5.5vw,39px);
-  line-height:1.2;
-  letter-spacing:.07em;
-}
-
-.budokai-english{
-  margin:7px 0 0;
-  font-size:19px;
-}
-
-.budokai-purpose{
-  margin:32px auto 0;
-  max-width:630px;
-  font-size:clamp(20px,3.2vw,25px);
-  line-height:1.3;
-}
-
-.budokai-topics{
-  margin:20px 0 0;
-  color:var(--muted);
-  font-size:13px;
-  letter-spacing:.09em;
-  text-transform:uppercase;
-}
-
-/* SECTIONS */
-
-.budokai-section{
-  max-width:940px;
-  margin:0 auto;
-  padding:46px 22px 58px;
-  scroll-margin-top:calc(var(--header-h) + 20px);
-}
-
-.budokai-section + .budokai-section{
-  border-top:1px solid rgba(72,52,37,.2);
-}
-
-.budokai-heading{
-  margin:0 0 29px;
-  text-align:center;
-}
-
-.budokai-heading .jp{
-  display:block;
-  font-family:var(--brush);
-  font-weight:400;
-  font-size:25px;
-  letter-spacing:.06em;
-}
-
-.budokai-heading h2{
-  margin:7px 0 0;
-  font-weight:400;
-  font-size:clamp(27px,4vw,38px);
-  line-height:1.2;
-}
-
-/* MUNICIPAL CLASSES */
-
-.budokai-grid{
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:15px;
-}
-
-.budokai-class{
-  padding:23px;
-  border:1px solid rgba(72,52,37,.17);
-  background:var(--folio);
-}
-
-.budokai-class h3{
-  margin:0 0 9px;
-  font-size:24px;
-  font-weight:500;
-}
-
-.budokai-class p{
-  margin:0;
-  font-size:18px;
-  line-height:1.45;
-}
-
-/* PARTNERSHIP AND EXCHANGE */
-
-.budokai-copy{
-  max-width:700px;
-  margin:0 auto;
-}
-
-.budokai-copy p{
-  margin:0 0 20px;
-  font-size:20px;
-  line-height:1.55;
-}
-
-.budokai-copy p:last-child{
-  margin-bottom:0;
-}
-
-.budokai-proposed{
-  display:block;
-  margin-bottom:15px;
-  color:var(--muted);
-  font-size:12px;
-  letter-spacing:.1em;
-  text-align:center;
-  text-transform:uppercase;
-}
-
-.budokai-back{
-  display:inline-block;
-  color:var(--shu);
-  text-decoration:none;
-  border-bottom:1px solid currentColor;
-}
-
-.budokai-back:focus-visible{
-  outline:2px solid var(--shu);
-  outline-offset:4px;
-}
-
-.budokai-footer-link{
-  margin-top:18px;
-}
-
-/* MOBILE */
-
-@media(max-width:600px){
-
-  .budokai-hero{
-    padding:45px 18px 42px;
-  }
-
-  .budokai-hero-mon{
-    width:104px;
-  }
-
-  .budokai-section{
-    padding:37px 18px 45px;
-  }
-
-  .budokai-grid{
-    grid-template-columns:1fr;
-  }
-
-  .budokai-class{
-    padding:19px;
-  }
-
-  .budokai-copy p{
-    font-size:18px;
-  }
-
-}
-
-</style>
-</head>
-
-<body>
-
-<!-- ===========================================
-     ORIGINAL SEITŌ-RYŪ HEADER
-     =========================================== -->
-
-<header class="site-header">
-
-  <img
-    class="header-blossom"
-    src="/assets/cherry_blossom_header.png"
-    alt=""
-    aria-hidden="true"
-  >
-
-  <a
-    class="brand"
-    href="/"
-    aria-label="Seitō-ryū homepage"
-  >
+  <div class="bk-heading">
 
     <img
-      class="mon"
+      class="bk-mark"
       src="/assets/seito-mon.png"
-      alt="Seitō-ryū mon"
+      alt=""
+      aria-hidden="true"
     >
 
-    <div class="brand-stack">
-
-      <span class="jp">
-        聖都流合気武道
-      </span>
-
-      <span class="romaji">
-        SEITO-RYŪ AIKI BUDŌ
-      </span>
-
-    </div>
-
-  </a>
-
-  <button
-    class="menu"
-    type="button"
-    aria-label="Go to municipal classes"
-  >
-
-    <span></span>
-    <span></span>
-    <span></span>
-
-  </button>
-
-</header>
-
-
-<main class="budokai-main" id="top">
-
-<!-- ===========================================
-     BUDŌKAI HERO
-     =========================================== -->
-
-<section class="budokai-hero">
-
-  <img
-    class="budokai-hero-mon"
-    src="/assets/seito-mon.png"
-    alt=""
-    aria-hidden="true"
-  >
-
-  <h1 lang="ja">
-    聖都武道会
-  </h1>
-
-  <div
-    class="budokai-rule"
-    aria-hidden="true"
-  ></div>
-
-  <p class="budokai-name">
-    Seitō Budōkai
-  </p>
-
-  <p class="budokai-english">
-    Holy City Budō Society
-  </p>
-
-  <p class="budokai-purpose">
-    A Traditional Japanese Martial Arts
-    Teachers’ Guild
-  </p>
-
-  <p class="budokai-topics">
-    Municipal Programs
-    |
-    Charleston–Japan Exchange
-  </p>
-
-</section>
-
-
-<!-- ===========================================
-     MUNICIPAL CLASSES
-     =========================================== -->
-
-<section
-  class="budokai-section"
-  id="municipal-classes"
->
-
-  <div class="budokai-heading">
-
-    <span class="jp" lang="ja">
-      市民講座
+    <span class="bk-heading-jp" lang="ja">
+      市民に開かれた場と門人の稽古場
     </span>
 
-    <h2>
-      Proposed Municipal Classes
+    <h2 class="bk-heading-en" id="bk-spaces-title">
+      Parallel Training Spaces
     </h2>
 
   </div>
 
-  <div class="budokai-grid">
+  <div class="bk-spaces-intro">
 
-    <article class="budokai-class">
-
-      <h3>Aiki Wellness</h3>
-
-      <p>
-        Flexibility, balance, mobility,
-        and learning to fall more safely.
-      </p>
-
-    </article>
-
-    <article class="budokai-class">
-
-      <h3>Aikidō — All Levels</h3>
-
-      <p>
-        Traditional Japanese martial arts
-        instruction for all levels.
-      </p>
-
-    </article>
-
-    <article class="budokai-class">
-
-      <h3>Bully-Proof</h3>
-
-      <p>
-        Youth self-defense, confidence,
-        and anti-bullying skills.
-      </p>
-
-    </article>
-
-    <article class="budokai-class">
-
-      <h3>Budō Etiquette</h3>
-
-      <p>
-        Traditional Japanese martial
-        etiquette and conduct.
-      </p>
-
-    </article>
-
-  </div>
-
-</section>
-
-
-<!-- ===========================================
-     MUNICIPAL PARTNERSHIP
-     =========================================== -->
-
-<section
-  class="budokai-section"
-  id="partnership"
->
-
-  <div class="budokai-heading">
-
-    <span class="jp" lang="ja">
-      協力
-    </span>
-
-    <h2>
-      Municipal Partnership
-    </h2>
-
-  </div>
-
-  <span class="budokai-proposed">
-    Proposed Arrangement
-  </span>
-
-  <div class="budokai-copy">
-
-    <p>
-      In exchange for municipal facility use,
-      the City would receive scholarship credits
-      to award toward advanced classes.
+    <p lang="ja">
+      一つの施設の中に、市民に開かれた講座と、
+      聖都武道会門人の専門的な稽古の場を
+      並行して設ける構想です。
     </p>
 
     <p>
-      Apprentice teachers would assist in
-      staffing municipal programs.
+      One facility, two complementary training
+      spaces: open municipal classes alongside
+      private Budōkai study.
     </p>
 
   </div>
 
-</section>
+  <figure class="bk-training-figure">
 
-
-<!-- ===========================================
-     CHARLESTON–JAPAN EXCHANGE
-     =========================================== -->
-
-<section
-  class="budokai-section"
-  id="exchange"
->
-
-  <div class="budokai-heading">
-
-    <span class="jp" lang="ja">
-      文化交流
-    </span>
-
-    <h2>
-      Charleston–Japan Cultural Exchange
-    </h2>
-
-  </div>
-
-  <div class="budokai-copy">
-
-    <p>
-      Proposed relationships and educational
-      exchange with Japanese teachers and
-      traditional schools, including living
-      martial traditions with more than
-      800 years of history.
-    </p>
-
-  </div>
-
-</section>
-
-
-<!-- ===========================================
-     FOOTER
-     =========================================== -->
-
-<footer class="colophon">
-
-  <img
-    class="mon"
-    src="/assets/seito-mon.png"
-    alt=""
-    aria-hidden="true"
-  >
-
-  <div class="jp" lang="ja">
-    聖都武道会
-  </div>
-
-  <div class="romaji">
-    SEITŌ BUDŌKAI
-  </div>
-
-  <div class="meta">
-    Holy City Budō Society
-  </div>
-
-  <div class="meta">
-    Charleston, South Carolina
-  </div>
-
-  <div class="meta">
-    Preliminary Municipal Concept
-  </div>
-
-  <div class="budokai-footer-link">
-
-    <a
-      class="budokai-back"
-      href="/"
+    <img
+      src="assets/training-spaces.jpg"
+      alt="Illustrative training hall with white and dark tatami areas and surrounding walkways."
+      loading="lazy"
+      width="1355"
+      height="914"
     >
-      Return to Seitō-ryū
-    </a>
+
+    <figcaption>
+      <span lang="ja">
+        二つの稽古区域を示す構想図。
+        市の承認を得た施設配置ではありません。
+      </span>
+
+      <span>
+        Illustrative proposal showing two
+        training zones; not an approved
+        municipal facility layout.
+      </span>
+    </figcaption>
+
+  </figure>
+
+  <div class="bk-spaces">
+
+    <article class="bk-space">
+
+      <h3>
+        <span lang="ja">
+          市民に開かれた講座
+        </span>
+        Open Municipal Classes
+      </h3>
+
+      <p class="bk-jp" lang="ja">
+        市民が参加できる合気ウェルネス、
+        合気道、子どもの護身、武道礼法の講座。
+        参加のために門人会への入会を必要としません。
+      </p>
+
+      <p class="bk-en">
+        Publicly accessible classes in Aiki
+        Wellness, Aikidō, youth self-defense,
+        and Budō Etiquette. Budōkai membership
+        is not required.
+      </p>
+
+    </article>
+
+    <article class="bk-space">
+
+      <h3>
+        <span lang="ja">
+          聖都武道会・門人の稽古
+        </span>
+        Private Budōkai Classes
+      </h3>
+
+      <p class="bk-jp" lang="ja">
+        門人のための専門的な稽古、上級講座、
+        指導者の育成。見習い指導者は、
+        その学びを生かして市民向け講座を補助します。
+      </p>
+
+      <p class="bk-en">
+        Dedicated member study, advanced
+        classes, and teacher apprenticeship.
+        Developing instructors bring that
+        experience into supervised municipal
+        programs.
+      </p>
+
+    </article>
 
   </div>
 
-</footer>
+  <p class="bk-spaces-note">
 
-</main>
+    <span lang="ja">
+      並行利用の時間割、区域の分離、
+      利用条件および安全対策は、
+      市と協議のうえ決定します。
+    </span>
 
+    <span>
+      Simultaneous use, boundaries, scheduling,
+      and safety arrangements would be agreed
+      with the City.
+    </span>
 
-<!-- ===========================================
-     HEADER MENU BEHAVIOR
-     =========================================== -->
+  </p>
 
-<script>
-
-const menuButton =
-  document.querySelector(".menu");
-
-menuButton?.addEventListener(
-  "click",
-  () => {
-
-    const reducedMotion =
-      window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches;
-
-    document
-      .getElementById("municipal-classes")
-      ?.scrollIntoView({
-
-        behavior:
-          reducedMotion ? "auto" : "smooth",
-
-        block:"start"
-
-      });
-
-  }
-);
-
-</script>
-
-</body>
-</html>
+</section>
