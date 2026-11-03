@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,61 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>聖都合気武道会 | Holy City Budō Society</title>
   <meta name="description" content="Seitō Aiki Budōkai — Charleston’s Japanese Martial Arts Teachers’ Guild and Budō Society. A bilingual municipal martial-education proposal.">
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap" rel="stylesheet">
 
   <style>
     /* INDEPENDENT BUDŌKAI PAGE — ALL CSS INLINE */
-
     :root {
-      /*
-       * JAPANESE INDIGO / CHARLESTON COLOR STUDY
-       * Indigo-dyed hakama, Charleston oyster,
-       * cherry blossoms, and seal vermilion.
-       */
-
+      /* Indigo-dyed hakama, Charleston oyster, vermilion seal */
       --paper:#e2eaee;
       --folio:#f8f6f0;
       --ink:#20354a;
       --muted:#556b7b;
       --shu:#b9564b;
-
       --indigo:#192f4a;
       --indigo-mid:#355b79;
       --sakura:#d8b2b9;
 
-      /*
-       * HERO OVERLAY CONTROLS
-       *
-       * 1.00 = completely opaque
-       * 0.80 = 80% overlay
-       * 0.50 = 50% overlay
-       * 0.00 = photograph unobscured
-       *
-       * These work on desktop AND mobile.
-       */
-
+      /* Hero wash controls: .88=88% opaque; lower=more photo */
       --hero-overlay-left:.88;
       --hero-overlay-middle:.78;
       --hero-overlay-right:.62;
-
       --header-h:58px;
       --reader-max:940px;
-
       --brush:"Yuji Syuku","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
       --jp-body:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
     }
 
-    *,*::before,*::after {
-      box-sizing:border-box;
-    }
-
-    html {
-      scroll-behavior:smooth;
-    }
-
+    *,*::before,*::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
     body {
       margin:0;
       background:var(--paper);
@@ -68,26 +41,12 @@
       font-family:"Bodoni 72",Baskerville,"Iowan Old Style","Times New Roman",serif;
       line-height:1.48;
     }
-
-    img {
-      display:block;
-      max-width:100%;
-    }
-
-    button {
-      font:inherit;
-    }
-
-    main {
-      overflow-x:clip;
-    }
-
-    a {
-      color:inherit;
-    }
+    img { display:block; max-width:100%; }
+    button { font:inherit; }
+    main { overflow-x:clip; }
+    a { color:inherit; }
 
     /* ORIGINAL SEITŌ-RYŪ HEADER */
-
     .site-header {
       position:sticky;
       top:0;
@@ -98,13 +57,22 @@
       justify-content:space-between;
       gap:10px;
       padding:0 14px 0 max(12px,env(safe-area-inset-left));
-      background:var(--indigo);
+      background-color:var(--indigo-mid);
       color:var(--folio);
       border-bottom:1px solid rgba(220,232,245,.22);
       box-shadow:0 4px 14px rgba(0,0,0,.045);
       isolation:isolate;
+      transition:background-color .65s ease, color .65s ease,
+                 border-color .65s ease, box-shadow .65s ease;
     }
-
+    /* Once the header sticks during scrolling, its surface disappears. */
+    .site-header.is-scrolled {
+      background-color:transparent;
+      color:var(--ink);
+      border-bottom-color:transparent;
+      box-shadow:none;
+      text-shadow:0 1px 3px rgba(248,246,240,.9);
+    }
     .header-blossom {
       position:absolute;
       z-index:4;
@@ -116,8 +84,9 @@
       pointer-events:none;
       user-select:none;
       opacity:1;
+      transition:opacity .65s ease;
     }
-
+    .site-header.is-scrolled .header-blossom { opacity:0; }
     .brand {
       position:relative;
       z-index:2;
@@ -128,18 +97,8 @@
       margin-left:56px;
       text-decoration:none;
     }
-
-    .brand .mon {
-      width:64px;
-      flex:0 0 auto;
-      transform:translateX(7px);
-    }
-
-    .brand-stack {
-      min-width:0;
-      line-height:1;
-    }
-
+    .brand .mon { width:64px; flex:0 0 auto; transform:translateX(7px); }
+    .brand-stack { min-width:0; line-height:1; }
     .brand-stack .jp {
       display:block;
       margin-bottom:5px;
@@ -149,14 +108,12 @@
       letter-spacing:.045em;
       white-space:nowrap;
     }
-
     .brand-stack .romaji {
       display:block;
       font-size:11.5px;
       letter-spacing:.065em;
       white-space:nowrap;
     }
-
     .menu {
       position:relative;
       z-index:3;
@@ -173,22 +130,13 @@
       gap:4px;
       cursor:pointer;
     }
-
-    .menu span {
-      width:20px;
-      height:3px;
-      background:var(--shu);
-    }
-
-    .menu:focus-visible,
-    .photo-tile:focus-visible,
-    .bk-back:focus-visible {
+    .menu span { width:20px; height:3px; background:var(--shu); }
+    .menu:focus-visible,.photo-tile:focus-visible,.bk-back:focus-visible {
       outline:2px solid var(--shu);
       outline-offset:3px;
     }
 
-    /* PHOTOGRAPHIC HERO */
-
+    /* PHOTOGRAPHIC HERO — TYPOGRAPHY REMAINS ORIGINAL */
     .bk-hero {
       position:relative;
       isolation:isolate;
@@ -200,7 +148,6 @@
       overflow:hidden;
       color:var(--ink);
     }
-
     .bk-hero-photo {
       position:absolute;
       z-index:-2;
@@ -210,35 +157,19 @@
       object-fit:cover;
       object-position:center 43%;
     }
-
-    /*
-     * REPAIRED HERO OVERLAY
-     * Valid linear-gradient syntax.
-     * Controlled by variables in :root.
-     */
-
     .bk-hero::before {
       content:"";
       position:absolute;
       z-index:-1;
       inset:0;
-      background:linear-gradient(
-        90deg,
+      /* Valid gradient: pale indigo over the original Charleston photo. */
+      background:linear-gradient(90deg,
         rgba(226,236,240,var(--hero-overlay-left)) 0%,
         rgba(220,232,239,var(--hero-overlay-middle)) 45%,
-        rgba(213,228,236,var(--hero-overlay-right)) 100%
-      );
+        rgba(213,228,236,var(--hero-overlay-right)) 100%);
     }
-
-    .bk-hero-inner {
-      width:min(100%,880px);
-    }
-
-    .bk-hero-mon {
-      width:126px;
-      margin:0 auto 18px;
-    }
-
+    .bk-hero-inner { width:min(100%,880px); }
+    .bk-hero-mon { width:126px; margin:0 auto 18px; }
     .bk-hero h1 {
       margin:0;
       font-family:var(--brush);
@@ -247,14 +178,7 @@
       line-height:1.16;
       letter-spacing:.04em;
     }
-
-    .bk-rule {
-      width:88px;
-      height:2px;
-      margin:17px auto;
-      background:var(--shu);
-    }
-
+    .bk-rule { width:88px; height:2px; margin:17px auto; background:var(--shu); }
     .bk-hero-en {
       margin:0 auto;
       max-width:100%;
@@ -265,7 +189,6 @@
       text-transform:uppercase;
       text-wrap:balance;
     }
-
     .bk-hero-subtitle {
       max-width:760px;
       margin:12px auto 0;
@@ -275,16 +198,14 @@
       text-wrap:balance;
     }
 
-    /* PHOTOGRAPHIC PATHWAYS */
-
+    /* PHOTO PATHWAYS — FROM THE ORIGINAL MOCKUP */
     .photo-pathways {
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
       gap:0;
       padding:0;
-      background:var(--indigo);
+      background:var(--ink);
     }
-
     .photo-tile {
       position:relative;
       display:block;
@@ -294,7 +215,6 @@
       color:#fffaf4;
       isolation:isolate;
     }
-
     .photo-tile img {
       position:absolute;
       inset:0;
@@ -304,23 +224,14 @@
       transition:transform .25s ease;
       z-index:-2;
     }
-
     .photo-tile::before {
       content:"";
       position:absolute;
       inset:0;
-      background:linear-gradient(
-        180deg,
-        transparent 30%,
-        rgba(17,40,64,.82) 100%
-      );
+      background:linear-gradient(180deg,transparent 30%,rgba(17,40,64,.82) 100%);
       z-index:-1;
     }
-
-    .photo-tile:hover img {
-      transform:scale(1.045);
-    }
-
+    .photo-tile:hover img { transform:scale(1.045); }
     .tile-copy {
       position:absolute;
       left:17px;
@@ -328,18 +239,8 @@
       bottom:15px;
       text-shadow:0 1px 8px rgba(0,0,0,.45);
     }
-
-    .tile-copy .jp {
-      display:block;
-      font:18px/1.35 var(--brush);
-    }
-
-    .tile-copy .en {
-      display:block;
-      font-size:24px;
-      line-height:1.1;
-    }
-
+    .tile-copy .jp { display:block; font:18px/1.35 var(--brush); }
+    .tile-copy .en { display:block; font-size:24px; line-height:1.1; }
     .photo-disclaimer {
       max-width:var(--reader-max);
       margin:10px auto 0;
@@ -350,28 +251,15 @@
     }
 
     /* CONTENT SECTIONS */
-
     .bk-section {
       width:min(100%,var(--reader-max));
       margin:0 auto;
       padding:48px 22px 55px;
       scroll-margin-top:calc(var(--header-h) + 20px);
     }
-
-    .bk-section + .bk-section {
-      border-top:1px solid rgba(40,79,104,.16);
-    }
-
-    .bk-heading {
-      margin:0 0 26px;
-      text-align:center;
-    }
-
-    .bk-mark {
-      width:25px;
-      margin:0 auto 22px;
-    }
-
+    .bk-section + .bk-section { border-top:1px solid rgba(40,79,104,.16); }
+    .bk-heading { margin:0 0 26px; text-align:center; }
+    .bk-mark { width:25px; margin:0 auto 22px; }
     .bk-heading-jp {
       display:block;
       color:var(--indigo-mid);
@@ -380,21 +268,18 @@
       font-weight:400;
       line-height:1.35;
     }
-
     .bk-heading-en {
       margin:5px 0 0;
       font-size:clamp(24px,4.6vw,34px);
       line-height:1.2;
       font-weight:400;
     }
-
     .bk-pair {
       display:grid;
       grid-template-columns:minmax(0,1fr) minmax(0,1fr);
       gap:24px;
       align-items:start;
     }
-
     .bk-jp {
       writing-mode:horizontal-tb;
       font-family:var(--jp-body);
@@ -404,79 +289,40 @@
       text-align:left;
       overflow-wrap:anywhere;
     }
-
-    .bk-jp p,
-    .bk-en p {
-      margin:0 0 14px;
-    }
-
-    .bk-jp p:last-child,
-    .bk-en p:last-child {
-      margin-bottom:0;
-    }
-
-    .bk-en {
-      font-size:20px;
-      line-height:1.57;
-    }
-
+    .bk-jp p,.bk-en p { margin:0 0 14px; }
+    .bk-jp p:last-child,.bk-en p:last-child { margin-bottom:0; }
+    .bk-en { font-size:20px; line-height:1.57; }
     .bk-jp-folio {
       padding:22px 23px;
       background:var(--folio);
       border:1px solid rgba(40,79,104,.13);
       box-shadow:0 4px 16px rgba(25,47,74,.055);
     }
-
-    .bk-ethic-lead {
-      font-size:23px;
-      line-height:1.4;
-    }
-
-    .bk-ethic-statement {
-      font-weight:600;
-    }
+    .bk-ethic-lead { font-size:23px; line-height:1.4; }
+    .bk-ethic-statement { font-weight:600; }
 
     /* MUNICIPAL CLASSES */
-
     .bk-cards {
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:15px;
     }
-
     .bk-card {
       padding:20px 22px 23px;
       background:var(--folio);
       border:1px solid rgba(40,79,104,.16);
     }
-
-    .bk-card h3 {
-      margin:0;
-      font-size:24px;
-      font-weight:500;
-      line-height:1.25;
-    }
-
+    .bk-card h3 { margin:0; font-size:24px; font-weight:500; line-height:1.25; }
     .bk-card-jp {
       display:block;
       color:var(--indigo-mid);
       margin-bottom:5px;
       font:24px/1.32 var(--brush);
     }
-
-    .bk-card .bk-jp {
-      margin:13px 0 8px;
-      font-size:16px;
-    }
-
-    .bk-card .bk-en {
-      margin:0;
-      font-size:18px;
-      line-height:1.5;
-    }
+    .bk-card .bk-jp { margin:13px 0 8px; font-size:16px; }
+    .bk-card .bk-en { margin:0; font-size:18px; line-height:1.5; }
 
     /* HERITAGE */
-
     .bk-heritage {
       margin-top:18px;
       padding:24px 26px;
@@ -484,51 +330,15 @@
       background:rgba(217,230,236,.75);
       scroll-margin-top:calc(var(--header-h) + 20px);
     }
-
-    .bk-heritage h3 {
-      margin:0 0 17px;
-      font-size:24px;
-      font-weight:400;
-    }
-
-    .bk-heritage h3 span {
-      display:block;
-      color:var(--indigo-mid);
-      margin-bottom:5px;
-      font:23px/1.3 var(--brush);
-    }
+    .bk-heritage h3 { margin:0 0 17px; font-size:24px; font-weight:400; }
+    .bk-heritage h3 span { display:block; color:var(--indigo-mid); margin-bottom:5px; font:23px/1.3 var(--brush); }
 
     /* PARALLEL TRAINING SPACES */
-
-    .bk-spaces-intro {
-      max-width:710px;
-      margin:0 auto 22px;
-      text-align:center;
-    }
-
-    .bk-spaces-intro .bk-jp {
-      font-size:16px;
-      line-height:1.7;
-      margin:0 0 9px;
-      text-align:center;
-    }
-
-    .bk-spaces-intro .bk-en {
-      margin:0;
-      font-size:19px;
-      line-height:1.5;
-    }
-
-    .bk-training-figure {
-      margin:0 0 23px;
-    }
-
-    .bk-training-figure img {
-      width:100%;
-      height:auto;
-      border:0;
-    }
-
+    .bk-spaces-intro { max-width:710px; margin:0 auto 22px; text-align:center; }
+    .bk-spaces-intro .bk-jp { font-size:16px; line-height:1.7; margin:0 0 9px; text-align:center; }
+    .bk-spaces-intro .bk-en { margin:0; font-size:19px; line-height:1.5; }
+    .bk-training-figure { margin:0 0 23px; }
+    .bk-training-figure img { width:100%; height:auto; border:0; }
     .bk-training-figure figcaption {
       margin-top:9px;
       color:var(--muted);
@@ -536,82 +346,20 @@
       text-align:center;
       line-height:1.55;
     }
-
-    .bk-training-figure figcaption span {
-      display:block;
-    }
-
-    .bk-spaces {
-      display:grid;
-      grid-template-columns:repeat(2,minmax(0,1fr));
-      gap:16px;
-    }
-
-    .bk-space {
-      padding:22px;
-      background:var(--folio);
-      border:1px solid rgba(40,79,104,.16);
-    }
-
-    .bk-space h3 {
-      margin:0 0 15px;
-      font-size:23px;
-      font-weight:400;
-      line-height:1.3;
-    }
-
-    .bk-space h3 span {
-      display:block;
-      color:var(--indigo-mid);
-      margin-bottom:5px;
-      font:23px/1.3 var(--brush);
-    }
-
-    .bk-space .bk-jp {
-      font-size:16px;
-      line-height:1.75;
-      margin:0 0 10px;
-    }
-
-    .bk-space .bk-en {
-      font-size:18px;
-      line-height:1.5;
-      margin:0;
-    }
-
-    .bk-spaces-note {
-      max-width:680px;
-      margin:17px auto 0;
-      color:var(--muted);
-      text-align:center;
-    }
-
-    .bk-spaces-note .bk-jp {
-      font-size:15px;
-      line-height:1.7;
-      text-align:center;
-      margin:0 0 12px;
-    }
-
-    .bk-spaces-note .bk-en {
-      font-size:14px;
-      line-height:1.6;
-      margin:0;
-    }
-
-    .bk-small-label {
-      margin:-2px 0 21px;
-      color:var(--muted);
-      font-size:13px;
-      text-align:center;
-    }
-
-    .bk-small-label span {
-      display:block;
-    }
+    .bk-training-figure figcaption span { display:block; }
+    .bk-spaces { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .bk-space { padding:22px; background:var(--folio); border:1px solid rgba(40,79,104,.16); }
+    .bk-space h3 { margin:0 0 15px; font-size:23px; font-weight:400; line-height:1.3; }
+    .bk-space h3 span { display:block; color:var(--indigo-mid); margin-bottom:5px; font:23px/1.3 var(--brush); }
+    .bk-space .bk-jp { font-size:16px; line-height:1.75; margin:0 0 10px; }
+    .bk-space .bk-en { font-size:18px; line-height:1.5; margin:0; }
+    .bk-spaces-note { max-width:680px; margin:17px auto 0; color:var(--muted); text-align:center; }
+    .bk-spaces-note .bk-jp { font-size:15px; line-height:1.7; text-align:center; margin:0 0 12px; }
+    .bk-spaces-note .bk-en { font-size:14px; line-height:1.6; margin:0; }
+    .bk-small-label { margin:-2px 0 21px; color:var(--muted); font-size:13px; text-align:center; }
+    .bk-small-label span { display:block; }
 
     /* CULTURAL-EXCHANGE PHOTOGRAPH */
-
     .bk-exchange-photo {
       width:100%;
       height:220px;
@@ -622,1445 +370,407 @@
     }
 
     /* FOOTER */
-
-    .colophon {
-      text-align:center;
-      padding:28px 16px 78px;
-      color:#d6e2e9;
-      background:var(--indigo);
-    }
-
-    .colophon .mon {
-      width:82px;
-      margin:0 auto 10px;
-    }
-
-    .colophon .jp {
-      color:var(--folio);
-      font:25px/1.2 var(--brush);
-    }
-
-    .colophon .romaji {
-      color:var(--folio);
-      margin-top:6px;
-      font-size:12px;
-      letter-spacing:.11em;
-    }
-
-    .colophon .meta {
-      margin-top:12px;
-      font-size:13px;
-    }
-
-    .bk-back {
-      color:#d8e5ec;
-      text-decoration:none;
-      border-bottom:1px solid currentColor;
-      text-underline-offset:4px;
-    }
+    .colophon { text-align:center; padding:28px 16px 78px; color:#d6e2e9; background:var(--indigo); }
+    .colophon .mon { width:82px; margin:0 auto 10px; }
+    .colophon .jp { color:var(--folio); font:25px/1.2 var(--brush); }
+    .colophon .romaji { color:var(--folio); margin-top:6px; font-size:12px; letter-spacing:.11em; }
+    .colophon .meta { margin-top:12px; font-size:13px; }
+    .bk-back { color:#d8e5ec; text-decoration:none; border-bottom:1px solid currentColor; text-underline-offset:4px; }
 
     /* RESPONSIVE */
-
     @media(max-width:650px) {
-
-      .bk-hero {
-        min-height:500px;
-        padding:47px 17px 52px;
-      }
-
+      .bk-hero { min-height:500px; padding:47px 17px 52px; }
       .bk-hero::before {
-        background:linear-gradient(
-          180deg,
+        background:linear-gradient(180deg,
           rgba(226,236,240,var(--hero-overlay-left)) 0%,
           rgba(220,232,239,var(--hero-overlay-middle)) 58%,
-          rgba(213,228,236,var(--hero-overlay-right)) 100%
-        );
+          rgba(213,228,236,var(--hero-overlay-right)) 100%);
       }
-
-      .bk-hero-mon {
-        width:104px;
-      }
-
-      .photo-pathways {
-        grid-template-columns:repeat(2,minmax(0,1fr));
-      }
-
-      .photo-tile {
-        min-height:175px;
-      }
-
-      .tile-copy {
-        left:12px;
-        right:10px;
-        bottom:12px;
-      }
-
-      .tile-copy .jp {
-        font-size:16px;
-      }
-
-      .tile-copy .en {
-        font-size:21px;
-      }
-
-      .bk-section {
-        padding:38px 17px 45px;
-      }
-
-      .bk-pair,
-      .bk-cards,
-      .bk-spaces {
-        grid-template-columns:1fr;
-      }
-
-      .bk-pair {
-        gap:15px;
-      }
-
-      .bk-jp,
-      .bk-pair .bk-jp {
-        font-size:16px;
-      }
-
-      .bk-en,
-      .bk-pair .bk-en {
-        font-size:19px;
-      }
-
-      .bk-jp-folio {
-        padding:17px 19px;
-      }
-
-      .bk-card {
-        padding:19px;
-      }
-
-      .bk-heritage {
-        padding:19px 18px;
-      }
-
-      .bk-exchange-photo {
-        height:175px;
-      }
+      .bk-hero-mon { width:104px; }
+      .photo-pathways { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .photo-tile { min-height:175px; }
+      .tile-copy { left:12px; right:10px; bottom:12px; }
+      .tile-copy .jp { font-size:16px; }
+      .tile-copy .en { font-size:21px; }
+      .bk-section { padding:38px 17px 45px; }
+      .bk-pair,.bk-cards,.bk-spaces { grid-template-columns:1fr; }
+      .bk-pair { gap:15px; }
+      .bk-jp,.bk-pair .bk-jp { font-size:16px; }
+      .bk-en,.bk-pair .bk-en { font-size:19px; }
+      .bk-jp-folio { padding:17px 19px; }
+      .bk-card { padding:19px; }
+      .bk-heritage { padding:19px 18px; }
+      .bk-exchange-photo { height:175px; }
     }
-
     @media(max-width:390px) {
-
-      .brand {
-        margin-left:48px;
-        gap:8px;
-      }
-
-      .brand .mon {
-        width:58px;
-        transform:translateX(6px);
-      }
-
-      .brand-stack .jp {
-        font-size:18px;
-      }
-
-      .brand-stack .romaji {
-        font-size:10.2px;
-        letter-spacing:.045em;
-      }
-
-      .header-blossom {
-        width:292px;
-      }
+      .brand { margin-left:48px; gap:8px; }
+      .brand .mon { width:58px; transform:translateX(6px); }
+      .brand-stack .jp { font-size:18px; }
+      .brand-stack .romaji { font-size:10.2px; letter-spacing:.045em; }
+      .header-blossom { width:292px; }
     }
-
     @media(min-width:760px) {
-
-      :root {
-        --header-h:82px;
-        --reader-max:68rem;
-      }
-
-      .header-blossom {
-        left:-16px;
-        top:-110px;
-        width:684px;
-      }
-
-      .brand {
-        margin-left:205px;
-        gap:14px;
-      }
-
-      .brand .mon {
-        width:88px;
-        transform:none;
-      }
-
-      .brand-stack .jp {
-        font-size:clamp(25px,2.35vw,38px);
-      }
-
-      .brand-stack .romaji {
-        font-size:clamp(14px,1.05vw,18px);
-      }
-
-      .menu {
-        width:44px;
-        height:44px;
-      }
-
-      .menu span {
-        width:22px;
-      }
+      :root { --header-h:82px; --reader-max:68rem; }
+      .header-blossom { left:-16px; top:-110px; width:684px; }
+      .brand { margin-left:205px; gap:14px; }
+      .brand .mon { width:88px; transform:none; }
+      .brand-stack .jp { font-size:clamp(25px,2.35vw,38px); }
+      .brand-stack .romaji { font-size:clamp(14px,1.05vw,18px); }
+      .menu { width:44px; height:44px; }
+      .menu span { width:22px; }
     }
-
     @media(prefers-reduced-motion:reduce) {
-
-      html {
-        scroll-behavior:auto;
-      }
-
-      .photo-tile img {
-        transition:none;
-      }
+      html { scroll-behavior:auto; }
+      .photo-tile img { transition:none; }
+      .site-header,.header-blossom { transition:none; }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- ORIGINAL SITE HEADER -->
-
+  <!-- ORIGINAL SITE HEADER: EXISTING /assets IMAGES -->
   <header class="site-header">
-
-    <img
-      class="header-blossom"
-      src="assets/cherry_blossom_header.png"
-      alt=""
-      aria-hidden="true"
-    >
-
-    <a
-      class="brand"
-      href="/"
-      aria-label="聖都流へ戻る / Return to Seitō-ryū"
-    >
-
-      <img
-        class="mon"
-        src="assets/seito-mon.png"
-        alt="Seitō-ryū mon"
-      >
-
+    <img class="header-blossom" src="assets/cherry_blossom_header.png" alt="" aria-hidden="true">
+    <a class="brand" href="/" aria-label="聖都流へ戻る / Return to Seitō-ryū">
+      <img class="mon" src="assets/seito-mon.png" alt="Seitō-ryū mon">
       <span class="brand-stack">
         <span class="jp" lang="ja">聖都合気武道会</span>
         <span class="romaji">SEITŌ AIKI BUDŌKAI</span>
       </span>
-
     </a>
-
-    <button
-      class="menu"
-      type="button"
-      aria-label="市民講座へ移動 / Go to municipal classes"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="menu" type="button" aria-label="市民講座へ移動 / Go to municipal classes">
+      <span></span><span></span><span></span>
     </button>
-
   </header>
 
   <main id="top">
-
-    <!-- HERO -->
-
-    <section
-      class="bk-hero"
-      aria-labelledby="hero-title"
-    >
-
-      <img
-        class="bk-hero-photo"
-        src="assets/charleston-hero.jpg"
-        alt=""
-        aria-hidden="true"
-        fetchpriority="high"
-      >
-
+    <!-- HERO: CLEAN CHARLESTON PHOTOGRAPH -->
+    <section class="bk-hero" aria-labelledby="hero-title">
+      <img class="bk-hero-photo" src="assets/charleston-hero.jpg"
+           alt="" aria-hidden="true" fetchpriority="high">
       <div class="bk-hero-inner">
-
-        <img
-          class="bk-hero-mon"
-          src="assets/seito-mon.png"
-          alt=""
-          aria-hidden="true"
-        >
-
-        <h1 id="hero-title" lang="ja">
-          聖都合気武道会
-        </h1>
-
+        <img class="bk-hero-mon" src="assets/seito-mon.png" alt="" aria-hidden="true">
+        <h1 id="hero-title" lang="ja">聖都合気武道会</h1>
         <div class="bk-rule" aria-hidden="true"></div>
-
-        <p class="bk-hero-en">
-          HOLY CITY BUDOKAI
-        </p>
-
+        <p class="bk-hero-en">HOLY CITY BUDOKAI</p>
         <p class="bk-hero-subtitle">
           Charleston’s Japanese Martial Arts Teachers’ Guild and Budō Society
         </p>
-
       </div>
-
     </section>
 
-    <!-- FOUR PHOTOGRAPHIC PATHWAYS -->
-
-    <nav
-      class="photo-pathways"
-      aria-label="Programs and partnerships / 講座と協力"
-    >
-
+    <!-- APPROVED FOUR CONCEPT PATHWAYS -->
+    <nav class="photo-pathways" aria-label="Programs and partnerships / 講座と協力">
       <a class="photo-tile" href="#municipal-classes">
-
-        <img
-          src="assets/train-dojo.jpg"
-          alt="An open training hall"
-          loading="lazy"
-        >
-
-        <span class="tile-copy">
-          <span class="jp" lang="ja">稽古</span>
-          <span class="en">Train</span>
-        </span>
-
+        <img src="assets/train-dojo.jpg" alt="An open training hall" loading="lazy">
+        <span class="tile-copy"><span class="jp" lang="ja">稽古</span><span class="en">Train</span></span>
       </a>
-
       <a class="photo-tile" href="#partnership">
-
-        <img
-          src="assets/serve-civic.jpg"
-          alt="Young martial artists helping their community"
-          loading="lazy"
-        >
-
-        <span class="tile-copy">
-          <span class="jp" lang="ja">地域奉仕</span>
-          <span class="en">Serve</span>
-        </span>
-
+        <img src="assets/serve-civic.jpg" alt="Young martial artists helping their community" loading="lazy">
+        <span class="tile-copy"><span class="jp" lang="ja">地域奉仕</span><span class="en">Serve</span></span>
       </a>
-
       <a class="photo-tile" href="#exchange">
-
-        <img
-          src="assets/exchange-japan.jpg"
-          alt="Japanese architecture with cherry blossoms"
-          loading="lazy"
-        >
-
-        <span class="tile-copy">
-          <span class="jp" lang="ja">文化交流</span>
-          <span class="en">Exchange</span>
-        </span>
-
+        <img src="assets/exchange-japan.jpg" alt="Japanese architecture with cherry blossoms" loading="lazy">
+        <span class="tile-copy"><span class="jp" lang="ja">文化交流</span><span class="en">Exchange</span></span>
       </a>
-
       <a class="photo-tile" href="#heritage">
-
-        <img
-          src="assets/preserve-tradition.jpg"
-          alt="Traditional Japanese castle artwork"
-          loading="lazy"
-        >
-
-        <span class="tile-copy">
-          <span class="jp" lang="ja">伝統継承</span>
-          <span class="en">Preserve</span>
-        </span>
-
+        <img src="assets/preserve-tradition.jpg" alt="Traditional Japanese castle artwork" loading="lazy">
+        <span class="tile-copy"><span class="jp" lang="ja">伝統継承</span><span class="en">Preserve</span></span>
       </a>
-
     </nav>
-
     <p class="photo-disclaimer">
-      <span lang="ja">
-        写真・図版は構想を示す参考イメージです。
-        市の承認や提携を示すものではありません。
-      </span>
+      <span lang="ja">写真・図版は構想を示す参考イメージです。市の承認や提携を示すものではありません。</span>
       Illustrative imagery; no municipal approval or partnership is implied.
     </p>
 
-    <!-- FOUNDING PRINCIPLE -->
-
-    <section
-      class="bk-section"
-      id="ethics"
-      aria-labelledby="ethics-title"
-    >
-
+    <!-- AIKI ETHICAL FOUNDATION: original section, expanded bilingual content -->
+    <section class="bk-section" id="ethics" aria-labelledby="ethics-title">
       <div class="bk-heading">
-
-        <img
-          class="bk-mark"
-          src="assets/seito-mon.png"
-          alt=""
-          aria-hidden="true"
-        >
-
-        <span class="bk-heading-jp" lang="ja">
-          創立理念 — 合気武道
-        </span>
-
-        <h2 class="bk-heading-en" id="ethics-title">
-          Our Founding Principle: Aiki Budō
-        </h2>
-
+        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
+        <span class="bk-heading-jp" lang="ja">創立理念 — 合気武道</span>
+        <h2 class="bk-heading-en" id="ethics-title">Our Founding Principle: Aiki Budō</h2>
       </div>
-
       <div class="bk-pair">
-
         <div class="bk-jp bk-jp-folio" lang="ja">
-
-          <p>
-            武道は、力をいかに用いるかを教えます。
-            合気は、争いに直面しても、
-            その争いに心を支配されない道を示します。
-          </p>
-
-          <p>
-            聖都合気武道会は、合気武道を創立理念とし、
-            生命の愛護、人格の錬成、
-            そして責任ある争いの解決のために武技を修めます。
-          </p>
-
-          <p>
-            日本武道の多様な伝統を尊重しながら、
-            すべての指導をこの共通の根本理念に基づいて行います。
-          </p>
-
-          <p>
-            <strong>
-              市民向けに教えるすべての武道において、
-              合気は技術に先立つ必須の武道倫理です。
-            </strong>
-            技の後に付け加える理念ではありません。
-          </p>
-
+          <p>武道は、力をいかに用いるかを教えます。合気は、争いに直面しても、その争いに心を支配されない道を示します。</p>
+          <p>聖都合気武道会は、合気武道を創立理念とし、生命の愛護、人格の錬成、そして責任ある争いの解決のために武技を修めます。</p>
+          <p>日本武道の多様な伝統を尊重しながら、すべての指導をこの共通の根本理念に基づいて行います。</p>
+          <p><strong>市民向けに教えるすべての武道において、合気は技術に先立つ必須の武道倫理です。</strong> 技の後に付け加える理念ではありません。</p>
         </div>
-
         <div class="bk-en">
-
-          <p class="bk-ethic-lead">
-            Martial arts teach us how to exercise force.
-            Aiki teaches us how to meet conflict
-            without becoming governed by it.
-          </p>
-
-          <p>
-            Holy City Budokai is founded upon
-            <strong>Aiki Budō</strong>:
-            the cultivation of martial skill for
-            the protection of life,
-            the development of character,
-            and the responsible resolution of conflict.
-          </p>
-
-          <p>
-            Our society preserves the diverse martial
-            traditions of Japan while placing their
-            instruction under this common governing principle.
-          </p>
-
-          <p class="bk-ethic-statement">
-            Aiki is the prerequisite budō ethic for all
-            martial arts instruction in our proposed
-            municipal programs—not an optional code
-            attached after technique.
-          </p>
-
+          <p class="bk-ethic-lead">Martial arts teach us how to exercise force. Aiki teaches us how to meet conflict without becoming governed by it.</p>
+          <p>Holy City Budokai is founded upon <strong>Aiki Budō</strong>: the cultivation of martial skill for the protection of life, the development of character, and the responsible resolution of conflict.</p>
+          <p>Our society preserves the diverse martial traditions of Japan while placing their instruction under this common governing principle.</p>
+          <p class="bk-ethic-statement">Aiki is the prerequisite budō ethic for all martial arts instruction in our proposed municipal programs—not an optional code attached after technique.</p>
         </div>
-
       </div>
-
-      <!-- THE IDEAL OF BUDŌ -->
 
       <div class="bk-heading" style="margin-top:50px">
-
-        <span class="bk-heading-jp" lang="ja">
-          武道の理想
-        </span>
-
-        <h3 class="bk-heading-en">
-          The Ideal of Budō
-        </h3>
-
+        <span class="bk-heading-jp" lang="ja">武道の理想</span>
+        <h3 class="bk-heading-en">The Ideal of Budō</h3>
       </div>
-
       <div class="bk-pair">
-
         <div class="bk-jp bk-jp-folio" lang="ja">
-
-          <p>
-            1882年、嘉納治五郎は講道館柔道を創始し、
-            伝統的な柔術を基礎として、
-            身体の鍛錬、人格の形成、
-            社会への貢献を目指す体系的な教育の道を開きました。
-          </p>
-
-          <p>
-            嘉納の掲げた精力善用と自他共栄は、
-            武道の修練を個人の成長と
-            社会全体の利益に結びつける理念です。
-          </p>
-
-          <p>
-            嘉納は1909年に日本人初の
-            国際オリンピック委員会委員となり、
-            日本の体育と国際スポーツの発展に貢献しました。
-          </p>
-
-          <p>
-            1930年、嘉納は植芝盛平の道場を訪れ、
-            その武技を見学しました。
-            後年の記録によれば、
-            嘉納は次のように述べたと伝えられています。
-          </p>
-
-          <p>
-            <strong>
-              「これこそ私が理想していた武道、
-              すなわち正真正銘の柔道である。」
-            </strong>
-          </p>
-
-          <p>
-            その後、嘉納は講道館の門弟を
-            植芝のもとへ送り、学ばせました。
-          </p>
-
-          <p>
-            この出会いが示すのは、
-            二人の優れた武道教育者に通じる理想です。
-            武道の最高の目的は、
-            単に相手を倒す力を超えたところにあります。
-          </p>
-
+          <p>1882年、嘉納治五郎は講道館柔道を創始し、伝統的な柔術を基礎として、身体の鍛錬、人格の形成、社会への貢献を目指す体系的な教育の道を開きました。</p>
+          <p>嘉納の掲げた精力善用と自他共栄は、武道の修練を個人の成長と社会全体の利益に結びつける理念です。</p>
+          <p>嘉納は1909年に日本人初の国際オリンピック委員会委員となり、日本の体育と国際スポーツの発展に貢献しました。</p>
+          <p>1930年、嘉納は植芝盛平の道場を訪れ、その武技を見学しました。後年の記録によれば、嘉納は次のように述べたと伝えられています。</p>
+          <p><strong>「これこそ私が理想していた武道、すなわち正真正銘の柔道である。」</strong></p>
+          <p>その後、嘉納は講道館の門弟を植芝のもとへ送り、学ばせました。</p>
+          <p>この出会いが示すのは、二人の優れた武道教育者に通じる理想です。武道の最高の目的は、単に相手を倒す力を超えたところにあります。</p>
         </div>
-
         <div class="bk-en">
-
-          <p>
-            In 1882, Kanō Jigorō founded Kōdōkan Jūdō,
-            transforming traditional jūjutsu into a systematic
-            method of physical education,
-            character development, and social responsibility.
-          </p>
-
-          <p>
-            His principles of
-            <strong>精力善用 (Seiryoku Zen’yō)</strong>,
-            the best use of one’s energy, and
-            <strong>自他共栄 (Jita Kyōei)</strong>,
-            mutual welfare and benefit,
-            established martial training as a means
-            of improving both the individual and society.
-          </p>
-
-          <p>
-            Kanō became Japan’s first member of
-            the International Olympic Committee in 1909,
-            contributing to the development of modern
-            physical education and international sport.
-          </p>
-
-          <p>
-            In 1930, Kanō visited the dōjō of Morihei Ueshiba,
-            whose teachings would later become known as Aikidō.
-            According to subsequent accounts,
-            after observing Ueshiba’s practice, Kanō declared:
-          </p>
-
-          <p>
-            <strong>
-              “This is the budō I had envisioned as ideal—
-              in other words, genuine jūdō.”
-            </strong>
-          </p>
-
-          <p>
-            Kanō subsequently sent Kōdōkan students
-            to study with Ueshiba.
-          </p>
-
-          <p>
-            This encounter illustrates a shared aspiration
-            between two influential Japanese martial educators:
-            the highest purpose of budō extends beyond
-            the ability to defeat another person.
-          </p>
-
+          <p>In 1882, Kanō Jigorō founded Kōdōkan Jūdō, transforming traditional jūjutsu into a systematic method of physical education, character development, and social responsibility.</p>
+          <p>His principles of <strong>精力善用 (Seiryoku Zen’yō)</strong>, the best use of one’s energy, and <strong>自他共栄 (Jita Kyōei)</strong>, mutual welfare and benefit, established martial training as a means of improving both the individual and society.</p>
+          <p>Kanō became Japan’s first member of the International Olympic Committee in 1909, contributing to the development of modern physical education and international sport.</p>
+          <p>In 1930, Kanō visited the dōjō of Morihei Ueshiba, whose teachings would later become known as Aikidō. According to subsequent accounts, after observing Ueshiba’s practice, Kanō declared:</p>
+          <p><strong>“This is the budō I had envisioned as ideal—in other words, genuine jūdō.”</strong></p>
+          <p>Kanō subsequently sent Kōdōkan students to study with Ueshiba.</p>
+          <p>This encounter illustrates a shared aspiration between two influential Japanese martial educators: the highest purpose of budō extends beyond the ability to defeat another person.</p>
         </div>
-
       </div>
-
-      <!-- THE SPIRIT OF AIKI -->
 
       <div class="bk-heading" style="margin-top:50px">
-
-        <span class="bk-heading-jp" lang="ja">
-          合気の精神
-        </span>
-
-        <h3 class="bk-heading-en">
-          The Spirit of Aiki
-        </h3>
-
+        <span class="bk-heading-jp" lang="ja">合気の精神</span>
+        <h3 class="bk-heading-en">The Spirit of Aiki</h3>
       </div>
-
       <div class="bk-pair">
-
         <div class="bk-jp bk-jp-folio" lang="ja">
-
-          <p>
-            植芝盛平開祖は、真の武道を、
-            敵意や相手の破壊を目的とするものではなく、
-            愛、自己への勝利、
-            そして争う心の克服を通じて説きました。
-          </p>
-
-          <p>
-            <strong>
-              「合気とは自己に打ち克ちて、
-              敵をして戦う心を無からしむ。」
-            </strong>
-          </p>
-
+          <p>植芝盛平開祖は、真の武道を、敵意や相手の破壊を目的とするものではなく、愛、自己への勝利、そして争う心の克服を通じて説きました。</p>
+          <p><strong>「合気とは自己に打ち克ちて、敵をして戦う心を無からしむ。」</strong></p>
           <p>— 植芝盛平開祖</p>
-
-          <p>
-            これは、暴力に対して無力であることを
-            求める教えではありません。
-            恐れ、怒り、報復の心に判断を奪われることなく、
-            攻撃に向き合う力を養うことです。
-          </p>
-
-          <p>
-            目指すのは、単に相手を制することではなく、
-            争いの状況そのものを変え、
-            暴力を終わらせることにあります。
-          </p>
-
+          <p>これは、暴力に対して無力であることを求める教えではありません。恐れ、怒り、報復の心に判断を奪われることなく、攻撃に向き合う力を養うことです。</p>
+          <p>目指すのは、単に相手を制することではなく、争いの状況そのものを変え、暴力を終わらせることにあります。</p>
         </div>
-
         <div class="bk-en">
-
-          <p>
-            Morihei Ueshiba Ō-Sensei taught that true budō
-            is not founded upon hostility or the destruction
-            of an adversary.
-            He described aiki through love,
-            victory over oneself,
-            and the transformation of the fighting spirit.
-          </p>
-
-          <p>
-            <strong>
-              “Aiki means overcoming oneself and causing
-              the adversary to lose the will to fight.”
-            </strong>
-            — Morihei Ueshiba Ō-Sensei
-          </p>
-
-          <p>
-            This is a demanding martial ideal.
-            It does not require helplessness in the face of violence.
-            Rather, it calls for the ability to meet an attack
-            without surrendering judgment to fear,
-            anger, or retaliation.
-          </p>
-
-          <p>
-            The objective is not simply to overcome another person,
-            but to transform the conditions of the encounter
-            so that violence can end.
-          </p>
-
+          <p>Morihei Ueshiba Ō-Sensei taught that true budō is not founded upon hostility or the destruction of an adversary. He described aiki through love, victory over oneself, and the transformation of the fighting spirit.</p>
+          <p><strong>“Aiki means overcoming oneself and causing the adversary to lose the will to fight.”</strong> — Morihei Ueshiba Ō-Sensei</p>
+          <p>This is a demanding martial ideal. It does not require helplessness in the face of violence. Rather, it calls for the ability to meet an attack without surrendering judgment to fear, anger, or retaliation.</p>
+          <p>The objective is not simply to overcome another person, but to transform the conditions of the encounter so that violence can end.</p>
         </div>
-
       </div>
-
-      <!-- AIKI IN PRACTICE -->
 
       <div class="bk-heading" style="margin-top:50px">
-
-        <span class="bk-heading-jp" lang="ja">
-          合気の実践
-        </span>
-
-        <h3 class="bk-heading-en">
-          Aiki in Practice
-        </h3>
-
+        <span class="bk-heading-jp" lang="ja">合気の実践</span>
+        <h3 class="bk-heading-en">Aiki in Practice</h3>
       </div>
-
       <div class="bk-pair">
-
         <div class="bk-jp bk-jp-folio" lang="ja">
-
-          <p>
-            相手の力に正面から力で対抗するのではなく、
-            その力を避け、立ち位置を変え、
-            異なる角度から応じることを学びます。
-            間合い、時機、体捌きを通じて、
-            正面からの衝突では見えなかった可能性を見いだします。
-          </p>
-
-          <p>
-            こうした身体の稽古は、心のあり方にも通じます。
-            激しくなる対立から一歩身を引き、
-            異なる視点から状況を見つめ、
-            相手を力で圧倒することに頼らない
-            解決の道を探る力を養います。
-          </p>
-
-          <p>
-            合気の理念は、稽古の前に言葉で
-            説くだけのものではありません。
-            日々の動きと相手との関わりを通じて、
-            身につけていくものです。
-          </p>
-
+          <p>相手の力に正面から力で対抗するのではなく、その力を避け、立ち位置を変え、異なる角度から応じることを学びます。間合い、時機、体捌きを通じて、正面からの衝突では見えなかった可能性を見いだします。</p>
+          <p>こうした身体の稽古は、心のあり方にも通じます。激しくなる対立から一歩身を引き、異なる視点から状況を見つめ、相手を力で圧倒することに頼らない解決の道を探る力を養います。</p>
+          <p>合気の理念は、稽古の前に言葉で説くだけのものではありません。日々の動きと相手との関わりを通じて、身につけていくものです。</p>
         </div>
-
         <div class="bk-en">
-
-          <p>
-            Rather than meeting force directly with opposing force,
-            we learn to step aside, change our position,
-            and respond from a different angle.
-            Through distance, timing, and movement,
-            we discover possibilities that direct confrontation
-            would conceal.
-          </p>
-
-          <p>
-            This physical practice cultivates a corresponding
-            habit of mind: the ability to step outside
-            an escalating conflict, consider another perspective,
-            and find a resolution that does not depend
-            upon overpowering another person.
-          </p>
-
-          <p>
-            The principles of aiki are not merely
-            discussed before training.
-            They are cultivated through the movements
-            and relationships of practice itself.
-          </p>
-
+          <p>Rather than meeting force directly with opposing force, we learn to step aside, change our position, and respond from a different angle. Through distance, timing, and movement, we discover possibilities that direct confrontation would conceal.</p>
+          <p>This physical practice cultivates a corresponding habit of mind: the ability to step outside an escalating conflict, consider another perspective, and find a resolution that does not depend upon overpowering another person.</p>
+          <p>The principles of aiki are not merely discussed before training. They are cultivated through the movements and relationships of practice itself.</p>
         </div>
-
       </div>
-
-      <!-- ONE FOUNDATION, MANY TRADITIONS -->
 
       <div class="bk-heading" style="margin-top:50px">
-
-        <span class="bk-heading-jp" lang="ja">
-          多様な武道を導く一つの理念
-        </span>
-
-        <h3 class="bk-heading-en">
-          One Foundation, Many Martial Traditions
-        </h3>
-
+        <span class="bk-heading-jp" lang="ja">多様な武道を導く一つの理念</span>
+        <h3 class="bk-heading-en">One Foundation, Many Martial Traditions</h3>
       </div>
-
       <div class="bk-pair">
-
         <div class="bk-jp bk-jp-folio" lang="ja">
-
-          <p>
-            聖都合気武道会は、打撃、投げ、組討、抑えなど、
-            受け継がれてきた武道の技法と特色を尊重します。
-          </p>
-
-          <p>
-            打撃は打撃として、投げは投げとして、
-            その技術的な実効性を損なうことなく稽古します。
-          </p>
-
-          <p>
-            異なるのは、その力を何のために用いるかという
-            根本の目的です。
-          </p>
-
-          <p>
-            不要な争いを避け、圧力のもとでも冷静さを保ち、
-            守るべきときには的確に行動し、
-            敵意を長引かせることなく争いを収める力を養います。
-          </p>
-
-          <p>
-            実際の抵抗や一定の競い合いを伴う稽古も、
-            技量、判断力、相互の責任を育むために行います。
-            他者に勝つこと自体を稽古の目的とはしません。
-          </p>
-
-          <p>
-            私たちは、技を教えた後に倫理を
-            付け加えるのではありません。
-            まず武道の目的を明らかにし、
-            すべての技をその目的に従って修めます。
-          </p>
-
+          <p>聖都合気武道会は、打撃、投げ、組討、抑えなど、受け継がれてきた武道の技法と特色を尊重します。</p>
+          <p>打撃は打撃として、投げは投げとして、その技術的な実効性を損なうことなく稽古します。</p>
+          <p>異なるのは、その力を何のために用いるかという根本の目的です。</p>
+          <p>不要な争いを避け、圧力のもとでも冷静さを保ち、守るべきときには的確に行動し、敵意を長引かせることなく争いを収める力を養います。</p>
+          <p>実際の抵抗や一定の競い合いを伴う稽古も、技量、判断力、相互の責任を育むために行います。他者に勝つこと自体を稽古の目的とはしません。</p>
+          <p>私たちは、技を教えた後に倫理を付け加えるのではありません。まず武道の目的を明らかにし、すべての技をその目的に従って修めます。</p>
         </div>
-
         <div class="bk-en">
-
-          <p>
-            Holy City Budokai preserves the technical integrity
-            of the martial traditions within its heritage,
-            including striking, throwing, grappling, and restraint.
-          </p>
-
-          <p>
-            A strike remains a strike.
-            A throw remains a throw.
-            Their effectiveness is neither denied nor diminished.
-          </p>
-
-          <p>
-            What changes is the purpose governing their application.
-          </p>
-
-          <p>
-            Students learn to recognize and avoid unnecessary conflict,
-            maintain composure under pressure,
-            respond effectively when protection is required,
-            and bring an encounter to an end
-            without perpetuating hostility.
-          </p>
-
-          <p>
-            Training may include genuine resistance
-            and structured challenges.
-            Such practice serves the development of skill,
-            judgment, and mutual responsibility—not
-            the pursuit of victory at another’s expense.
-          </p>
-
-          <p>
-            We do not teach martial techniques
-            and subsequently attach an ethical code.
-            We begin with the purpose of budō
-            and cultivate every martial skill
-            in service of that purpose.
-          </p>
-
+          <p>Holy City Budokai preserves the technical integrity of the martial traditions within its heritage, including striking, throwing, grappling, and restraint.</p>
+          <p>A strike remains a strike. A throw remains a throw. Their effectiveness is neither denied nor diminished.</p>
+          <p>What changes is the purpose governing their application.</p>
+          <p>Students learn to recognize and avoid unnecessary conflict, maintain composure under pressure, respond effectively when protection is required, and bring an encounter to an end without perpetuating hostility.</p>
+          <p>Training may include genuine resistance and structured challenges. Such practice serves the development of skill, judgment, and mutual responsibility—not the pursuit of victory at another’s expense.</p>
+          <p>We do not teach martial techniques and subsequently attach an ethical code. We begin with the purpose of budō and cultivate every martial skill in service of that purpose.</p>
         </div>
-
       </div>
-
-      <!-- MARTIAL EDUCATION FOR THE COMMUNITY -->
 
       <div class="bk-heading" style="margin-top:50px">
-
-        <span class="bk-heading-jp" lang="ja">
-          地域社会のための武道教育
-        </span>
-
-        <h3 class="bk-heading-en">
-          Martial Education for the Community
-        </h3>
-
+        <span class="bk-heading-jp" lang="ja">地域社会のための武道教育</span>
+        <h3 class="bk-heading-en">Martial Education for the Community</h3>
       </div>
-
       <div class="bk-pair">
-
         <div class="bk-jp bk-jp-folio" lang="ja">
-
-          <p>
-            チャールストン市に対し、
-            私たちは単なる護身技術の指導を超えた
-            武道教育を提案します。
-          </p>
-
-          <p>
-            合気ウェルネス、合気道、青少年の護身教育、
-            伝統的な武道礼法を通じて、
-            身体への自信、状況を見極める力、
-            自己を治める力、相互尊重、
-            責任ある行動を育みます。
-          </p>
-
-          <p>
-            各講座は対象や方法を異にしながらも、
-            一つの根本理念を共有します。
-          </p>
-
-          <p>
-            <strong>
-              武道教育の最高の成果は、
-              単に争いに勝つ力ではなく、
-              生命を守り、争いを終わらせる力にあります。
-            </strong>
-          </p>
-
+          <p>チャールストン市に対し、私たちは単なる護身技術の指導を超えた武道教育を提案します。</p>
+          <p>合気ウェルネス、合気道、青少年の護身教育、伝統的な武道礼法を通じて、身体への自信、状況を見極める力、自己を治める力、相互尊重、責任ある行動を育みます。</p>
+          <p>各講座は対象や方法を異にしながらも、一つの根本理念を共有します。</p>
+          <p><strong>武道教育の最高の成果は、単に争いに勝つ力ではなく、生命を守り、争いを終わらせる力にあります。</strong></p>
         </div>
-
         <div class="bk-en">
-
-          <p>
-            For the City of Charleston,
-            this philosophy offers a foundation for martial
-            education that extends beyond conventional
-            self-defense instruction.
-          </p>
-
-          <p>
-            Through Aiki Wellness, Aikidō,
-            youth self-protection, and traditional budō etiquette,
-            we propose to cultivate physical confidence,
-            awareness, self-command, mutual respect,
-            and responsible action.
-          </p>
-
-          <p>
-            These programs differ in method and audience,
-            but share one governing principle:
-          </p>
-
-          <p>
-            <strong>
-              The highest achievement of martial education
-              is not simply the ability to prevail in conflict,
-              but the ability to protect life
-              and bring conflict to an end.
-            </strong>
-          </p>
-
+          <p>For the City of Charleston, this philosophy offers a foundation for martial education that extends beyond conventional self-defense instruction.</p>
+          <p>Through Aiki Wellness, Aikidō, youth self-protection, and traditional budō etiquette, we propose to cultivate physical confidence, awareness, self-command, mutual respect, and responsible action.</p>
+          <p>These programs differ in method and audience, but share one governing principle:</p>
+          <p><strong>The highest achievement of martial education is not simply the ability to prevail in conflict, but the ability to protect life and bring conflict to an end.</strong></p>
         </div>
-
       </div>
-
-      <p class="photo-disclaimer">
-        Historical quotations are attributed to later accounts.
-        Their precise Japanese wording and source editions
-        should be checked before formal publication.
-      </p>
-
+      <p class="photo-disclaimer">Historical quotations are attributed to later accounts. Their precise Japanese wording and source editions should be checked before formal publication.</p>
     </section>
 
     <!-- MUNICIPAL CLASSES -->
-
-    <section
-      class="bk-section"
-      id="municipal-classes"
-      aria-labelledby="classes-title"
-    >
-
+    <section class="bk-section" id="municipal-classes" aria-labelledby="classes-title">
       <div class="bk-heading">
-
-        <img
-          class="bk-mark"
-          src="assets/seito-mon.png"
-          alt=""
-          aria-hidden="true"
-        >
-
-        <span class="bk-heading-jp" lang="ja">
-          市民向け講座案
-        </span>
-
-        <h2 class="bk-heading-en" id="classes-title">
-          Proposed Municipal Classes
-        </h2>
-
+        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
+        <span class="bk-heading-jp" lang="ja">市民向け講座案</span>
+        <h2 class="bk-heading-en" id="classes-title">Proposed Municipal Classes</h2>
       </div>
-
       <div class="bk-cards">
-
         <article class="bk-card">
-
-          <h3>
-            <span class="bk-card-jp" lang="ja">
-              合気ウェルネス
-            </span>
-            Aiki Wellness
-          </h3>
-
-          <p class="bk-jp" lang="ja">
-            柔軟性、可動性、バランス感覚を養い、
-            けがの危険を減らすための安全な転び方を学びます。
-          </p>
-
-          <p class="bk-en">
-            Flexibility, mobility, balance,
-            and falling skills aimed at reducing injury.
-          </p>
-
+          <h3><span class="bk-card-jp" lang="ja">合気ウェルネス</span>Aiki Wellness</h3>
+          <p class="bk-jp" lang="ja">柔軟性、可動性、バランス感覚を養い、けがの危険を減らすための安全な転び方を学びます。</p>
+          <p class="bk-en">Flexibility, mobility, balance, and falling skills aimed at reducing injury.</p>
         </article>
-
         <article class="bk-card">
-
-          <h3>
-            <span class="bk-card-jp" lang="ja">
-              合気道・経験不問
-            </span>
-            Aikidō — All Levels
-          </h3>
-
-          <p class="bk-jp" lang="ja">
-            初心者から経験者まで、
-            合気の倫理を基礎とし、
-            相手への配慮と節度を大切にする合気道の稽古。
-          </p>
-
-          <p class="bk-en">
-            Aikidō for beginners and experienced students,
-            grounded in aiki, restraint, and mutual safety.
-          </p>
-
+          <h3><span class="bk-card-jp" lang="ja">合気道・経験不問</span>Aikidō — All Levels</h3>
+          <p class="bk-jp" lang="ja">初心者から経験者まで、合気の倫理を基礎とし、相手への配慮と節度を大切にする合気道の稽古。</p>
+          <p class="bk-en">Aikidō for beginners and experienced students, grounded in aiki, restraint, and mutual safety.</p>
         </article>
-
         <article class="bk-card">
-
-          <h3>
-            <span class="bk-card-jp" lang="ja">
-              いじめに負けない力
-            </span>
-            Bully-Proof
-          </h3>
-
-          <p class="bk-jp" lang="ja">
-            子どもの自信、護身、自制心を育み、
-            攻撃性に頼らずいじめに対応する力を学びます。
-          </p>
-
-          <p class="bk-en">
-            Youth confidence, self-defense,
-            and responses to bullying without
-            cultivating aggression.
-          </p>
-
+          <h3><span class="bk-card-jp" lang="ja">いじめに負けない力</span>Bully-Proof</h3>
+          <p class="bk-jp" lang="ja">子どもの自信、護身、自制心を育み、攻撃性に頼らずいじめに対応する力を学びます。</p>
+          <p class="bk-en">Youth confidence, self-defense, and responses to bullying without cultivating aggression.</p>
         </article>
-
         <article class="bk-card">
-
-          <h3>
-            <span class="bk-card-jp" lang="ja">
-              武道礼法
-            </span>
-            Budō Etiquette
-          </h3>
-
-          <p class="bk-jp" lang="ja">
-            立つ、座る、歩く、礼をする。
-            礼節と無駄のない所作を、
-            日常生活にも生かす学び。
-          </p>
-
-          <p class="bk-en">
-            Courtesy, posture, movement,
-            and responsible conduct grounded
-            in traditional warrior etiquette.
-          </p>
-
+          <h3><span class="bk-card-jp" lang="ja">武道礼法</span>Budō Etiquette</h3>
+          <p class="bk-jp" lang="ja">立つ、座る、歩く、礼をする。礼節と無駄のない所作を、日常生活にも生かす学び。</p>
+          <p class="bk-en">Courtesy, posture, movement, and responsible conduct grounded in traditional warrior etiquette.</p>
         </article>
-
       </div>
 
-      <!-- ETIQUETTE AND ARCHERY -->
-
+      <!-- PERSONAL DISCIPLESHIP / LONG HERITAGE PATH -->
       <div class="bk-heritage" id="heritage">
-
-        <h3>
-          <span lang="ja">
-            礼法から弓馬術へ
-          </span>
-          From Etiquette to Archery
-        </h3>
-
+        <h3><span lang="ja">礼法から弓馬術へ</span>From Etiquette to Archery</h3>
         <div class="bk-pair">
-
           <div class="bk-jp" lang="ja">
-
-            <p>
-              この礼法の道は、約850年の歴史を持ち、
-              歴代の将軍家に礼法と弓の教えを伝えた
-              武家の伝統につながるものです。
-            </p>
-
-            <p>
-              聖都流門人会は、師と門人の個人的な
-              師弟関係を通じて学ぶ道を構想しています。
-              礼法を入口に、内省を重んじる弓の稽古、
-              さらに弓馬術へと進む展望です。
-            </p>
-
+            <p>この礼法の道は、約850年の歴史を持ち、歴代の将軍家に礼法と弓の教えを伝えた武家の伝統につながるものです。</p>
+            <p>聖都流門人会は、師と門人の個人的な師弟関係を通じて学ぶ道を構想しています。礼法を入口に、内省を重んじる弓の稽古、さらに弓馬術へと進む展望です。</p>
           </div>
-
           <div class="bk-en">
-
-            <p>
-              The etiquette pathway looks toward a living
-              tradition more than 850 years old,
-              whose teachers historically instructed
-              generations of Japan’s shoguns.
-            </p>
-
-            <p>
-              Through the Seitō-ryū Monjinkai,
-              we propose a personal teacher–disciple
-              relationship as the basis for study.
-              From reihō (etiquette), this path leads
-              toward contemplative archery and
-              kyūbajutsu (mounted archery).
-            </p>
-
+            <p>The etiquette pathway looks toward a living tradition more than 850 years old, whose teachers historically instructed generations of Japan’s shoguns.</p>
+            <p>Through the Seitō-ryū Monjinkai, we propose a personal teacher–disciple relationship as the basis for study. From reihō (etiquette), this path leads toward contemplative archery and kyūbajutsu (mounted archery).</p>
           </div>
-
         </div>
-
       </div>
-
     </section>
 
-    <!-- PARALLEL TRAINING SPACES -->
-
-    <section
-      class="bk-section"
-      id="training-spaces"
-      aria-labelledby="spaces-title"
-    >
-
+    <!-- OPEN MUNICIPAL AND PRIVATE BUDŌKAI SPACES -->
+    <section class="bk-section" id="training-spaces" aria-labelledby="spaces-title">
       <div class="bk-heading">
-
-        <img
-          class="bk-mark"
-          src="assets/seito-mon.png"
-          alt=""
-          aria-hidden="true"
-        >
-
-        <span class="bk-heading-jp" lang="ja">
-          市民に開かれた場と門人の稽古場
-        </span>
-
-        <h2 class="bk-heading-en" id="spaces-title">
-          Parallel Training Spaces
-        </h2>
-
+        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
+        <span class="bk-heading-jp" lang="ja">市民に開かれた場と門人の稽古場</span>
+        <h2 class="bk-heading-en" id="spaces-title">Parallel Training Spaces</h2>
       </div>
-
       <div class="bk-spaces-intro">
-
-        <p class="bk-jp" lang="ja">
-          一つの施設の中に、市民に開かれた講座と、
-          聖都合気武道会門人の専門的な稽古の場を
-          並行して設ける構想です。
-        </p>
-
-        <p class="bk-en">
-          One facility, two complementary training spaces:
-          open municipal classes alongside private Budōkai study.
-        </p>
-
+        <p class="bk-jp" lang="ja">一つの施設の中に、市民に開かれた講座と、聖都合気武道会門人の専門的な稽古の場を並行して設ける構想です。</p>
+        <p class="bk-en">One facility, two complementary training spaces: open municipal classes alongside private Budōkai study.</p>
       </div>
-
       <figure class="bk-training-figure">
-
-        <img
-          src="assets/training-spaces.jpg"
-          width="1355"
-          height="914"
-          loading="lazy"
-          alt="Concept illustration of a hall with parallel white and dark tatami training areas."
-        >
-
+        <img src="assets/training-spaces.jpg" width="1355" height="914" loading="lazy"
+             alt="Concept illustration of a hall with parallel white and dark tatami training areas.">
         <figcaption>
-
-          <span lang="ja">
-            二つの稽古区域を示す構想図。
-            市の承認を得た施設配置ではありません。
-          </span>
-
-          <span>
-            Illustrative two-zone layout;
-            not an approved municipal facility arrangement.
-          </span>
-
+          <span lang="ja">二つの稽古区域を示す構想図。市の承認を得た施設配置ではありません。</span>
+          <span>Illustrative two-zone layout; not an approved municipal facility arrangement.</span>
         </figcaption>
-
       </figure>
-
       <div class="bk-spaces">
-
         <article class="bk-space">
-
-          <h3>
-            <span lang="ja">
-              市民に開かれた講座
-            </span>
-            Open Municipal Classes
-          </h3>
-
-          <p class="bk-jp" lang="ja">
-            市民が参加できる合気ウェルネス、
-            合気道、子どもの護身、武道礼法の講座。
-            参加のために門人会への入会を必要としません。
-          </p>
-
-          <p class="bk-en">
-            Publicly accessible classes in Aiki Wellness,
-            Aikidō, youth self-defense, and Budō Etiquette.
-            Budōkai membership is not required.
-          </p>
-
+          <h3><span lang="ja">市民に開かれた講座</span>Open Municipal Classes</h3>
+          <p class="bk-jp" lang="ja">市民が参加できる合気ウェルネス、合気道、子どもの護身、武道礼法の講座。参加のために門人会への入会を必要としません。</p>
+          <p class="bk-en">Publicly accessible classes in Aiki Wellness, Aikidō, youth self-defense, and Budō Etiquette. Budōkai membership is not required.</p>
         </article>
-
         <article class="bk-space">
-
-          <h3>
-            <span lang="ja">
-              聖都合気武道会・門人の稽古
-            </span>
-            Private Budōkai Classes
-          </h3>
-
-          <p class="bk-jp" lang="ja">
-            門人のための専門的な稽古、上級講座、
-            指導者の育成。見習い指導者は、
-            その学びを生かして市民向け講座を補助します。
-          </p>
-
-          <p class="bk-en">
-            Dedicated member study, advanced classes,
-            and teacher apprenticeship.
-            Developing instructors bring that experience
-            into supervised municipal programs.
-          </p>
-
+          <h3><span lang="ja">聖都合気武道会・門人の稽古</span>Private Budōkai Classes</h3>
+          <p class="bk-jp" lang="ja">門人のための専門的な稽古、上級講座、指導者の育成。見習い指導者は、その学びを生かして市民向け講座を補助します。</p>
+          <p class="bk-en">Dedicated member study, advanced classes, and teacher apprenticeship. Developing instructors bring that experience into supervised municipal programs.</p>
         </article>
-
       </div>
-
       <div class="bk-spaces-note">
-
-        <p class="bk-jp" lang="ja">
-          並行利用の時間割、区域の分離、
-          利用条件および安全対策は、
-          市と協議のうえ決定します。
-        </p>
-
-        <p class="bk-en">
-          Simultaneous use, boundaries, scheduling,
-          and safety arrangements would be agreed with the City.
-        </p>
-
+        <p class="bk-jp" lang="ja">並行利用の時間割、区域の分離、利用条件および安全対策は、市と協議のうえ決定します。</p>
+        <p class="bk-en">Simultaneous use, boundaries, scheduling, and safety arrangements would be agreed with the City.</p>
       </div>
-
     </section>
 
     <!-- MUNICIPAL PARTNERSHIP -->
-
-    <section
-      class="bk-section"
-      id="partnership"
-      aria-labelledby="partnership-title"
-    >
-
+    <section class="bk-section" id="partnership" aria-labelledby="partnership-title">
       <div class="bk-heading">
-
-        <img
-          class="bk-mark"
-          src="assets/seito-mon.png"
-          alt=""
-          aria-hidden="true"
-        >
-
-        <span class="bk-heading-jp" lang="ja">
-          市との協力案
-        </span>
-
-        <h2 class="bk-heading-en" id="partnership-title">
-          Municipal Partnership
-        </h2>
-
+        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
+        <span class="bk-heading-jp" lang="ja">市との協力案</span>
+        <h2 class="bk-heading-en" id="partnership-title">Municipal Partnership</h2>
       </div>
-
-      <p class="bk-small-label">
-        <span lang="ja">協議のための提案</span>
-        <span>Proposed Arrangement</span>
-      </p>
-
+      <p class="bk-small-label"><span lang="ja">協議のための提案</span><span>Proposed Arrangement</span></p>
       <div class="bk-pair">
-
         <div class="bk-jp bk-jp-folio" lang="ja">
-
-          <p>
-            市の施設を利用できることへの対価として、
-            市が上級講座の受講に充てられる
-            奨学クレジットを市民に提供できる
-            仕組みを提案します。
-          </p>
-
-          <p>
-            また、指導者見習いが監督のもとで
-            市民向け講座の運営・指導補助に参加します。
-          </p>
-
+          <p>市の施設を利用できることへの対価として、市が上級講座の受講に充てられる奨学クレジットを市民に提供できる仕組みを提案します。</p>
+          <p>また、指導者見習いが監督のもとで市民向け講座の運営・指導補助に参加します。</p>
         </div>
-
         <div class="bk-en">
-
-          <p>
-            In exchange for municipal facility use,
-            the City would receive scholarship credits
-            to award toward advanced classes.
-          </p>
-
-          <p>
-            Apprentice teachers would assist with staffing
-            and supervised instruction in municipal programs.
-          </p>
-
+          <p>In exchange for municipal facility use, the City would receive scholarship credits to award toward advanced classes.</p>
+          <p>Apprentice teachers would assist with staffing and supervised instruction in municipal programs.</p>
         </div>
-
       </div>
-
     </section>
 
     <!-- CHARLESTON–JAPAN CULTURAL EXCHANGE -->
-
-    <section
-      class="bk-section"
-      id="exchange"
-      aria-labelledby="exchange-title"
-    >
-
+    <section class="bk-section" id="exchange" aria-labelledby="exchange-title">
       <div class="bk-heading">
-
-        <img
-          class="bk-mark"
-          src="assets/seito-mon.png"
-          alt=""
-          aria-hidden="true"
-        >
-
-        <span class="bk-heading-jp" lang="ja">
-          チャールストンと日本の文化交流
-        </span>
-
-        <h2 class="bk-heading-en" id="exchange-title">
-          Charleston–Japan Cultural Exchange
-        </h2>
-
+        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
+        <span class="bk-heading-jp" lang="ja">チャールストンと日本の文化交流</span>
+        <h2 class="bk-heading-en" id="exchange-title">Charleston–Japan Cultural Exchange</h2>
       </div>
-
-      <img
-        class="bk-exchange-photo"
-        src="assets/exchange-japan.jpg"
-        alt="Illustrative Japanese castle framed by cherry blossoms"
-        loading="lazy"
-      >
-
+      <img class="bk-exchange-photo" src="assets/exchange-japan.jpg"
+           alt="Illustrative Japanese castle framed by cherry blossoms" loading="lazy">
       <div class="bk-pair">
-
         <div class="bk-jp bk-jp-folio" lang="ja">
-
-          <p>
-            日本の武道指導者や伝統流派との
-            学びと交流の機会を育み、
-            チャールストンの市民に
-            生きた文化への接点を開くことを目指します。
-          </p>
-
+          <p>日本の武道指導者や伝統流派との学びと交流の機会を育み、チャールストンの市民に生きた文化への接点を開くことを目指します。</p>
         </div>
-
         <div class="bk-en">
-
-          <p>
-            We seek to develop educational and cultural
-            exchange with Japanese teachers and
-            living martial traditions,
-            creating opportunities for Charleston residents
-            to encounter these disciplines directly.
-          </p>
-
+          <p>We seek to develop educational and cultural exchange with Japanese teachers and living martial traditions, creating opportunities for Charleston residents to encounter these disciplines directly.</p>
         </div>
-
       </div>
-
     </section>
 
     <!-- FOOTER -->
-
     <footer class="colophon">
-
-      <img
-        class="mon"
-        src="assets/seito-mon.png"
-        alt=""
-        aria-hidden="true"
-      >
-
-      <div class="jp" lang="ja">
-        聖都合気武道会
-      </div>
-
-      <div class="romaji">
-        SEITŌ AIKI BUDŌKAI
-      </div>
-
-      <div class="meta">
-        Holy City Budō Society
-      </div>
-
-      <div class="meta" lang="ja">
-        サウスカロライナ州チャールストン
-      </div>
-
-      <div class="meta">
-        Charleston, South Carolina
-      </div>
-
-      <div class="meta" lang="ja">
-        市との協議に向けた構想案
-      </div>
-
-      <div class="meta">
-        Preliminary Municipal Concept
-      </div>
-
+      <img class="mon" src="assets/seito-mon.png" alt="" aria-hidden="true">
+      <div class="jp" lang="ja">聖都合気武道会</div>
+      <div class="romaji">SEITŌ AIKI BUDŌKAI</div>
+      <div class="meta">Holy City Budō Society</div>
+      <div class="meta" lang="ja">サウスカロライナ州チャールストン</div>
+      <div class="meta">Charleston, South Carolina</div>
+      <div class="meta" lang="ja">市との協議に向けた構想案</div>
+      <div class="meta">Preliminary Municipal Concept</div>
       <div class="meta" style="margin-top:20px">
-
-        <a class="bk-back" href="/">
-          <span lang="ja">聖都流へ戻る</span>
-          /
-          Return to Seitō-ryū
-        </a>
-
+        <a class="bk-back" href="/"><span lang="ja">聖都流へ戻る</span> / Return to Seitō-ryū</a>
       </div>
-
     </footer>
-
   </main>
 
-  <!-- ORIGINAL MENU BEHAVIOR -->
-
+  <!-- NO EXTERNAL JS REQUIRED -->
   <script>
+    // Retain the original menu behavior.
     document.querySelector('.menu')?.addEventListener('click', () => {
-      const reducedMotion = window.matchMedia(
-        '(prefers-reduced-motion: reduce)'
-      ).matches;
-
+      const reducedMotion=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       document.getElementById('municipal-classes')?.scrollIntoView({
-        behavior: reducedMotion ? 'auto' : 'smooth',
-        block: 'start'
+        behavior:reducedMotion?'auto':'smooth',
+        block:'start'
       });
     });
-  </script>
 
+    // Dyed-indigo header at the top; transparent when sticky on scroll.
+    const header=document.querySelector('.site-header');
+    if(header) {
+      const updateStickyHeader=() => {
+        const threshold=header.offsetHeight/2;
+        header.classList.toggle('is-scrolled',window.scrollY>threshold);
+      };
+      window.addEventListener('scroll',updateStickyHeader,{passive:true});
+      window.addEventListener('resize',updateStickyHeader);
+      updateStickyHeader();
+    }
+  </script>
 </body>
 </html>
