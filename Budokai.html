@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -11,8 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap" rel="stylesheet">
 
   <style>
-    /* INDEPENDENT BUDŌKAI PAGE — ALL CSS INLINE */
-
     :root {
       --paper:#e4ebf2;
       --folio:#f3f6fa;
@@ -58,8 +55,6 @@
       color:inherit;
     }
 
-    /* ORIGINAL SEITŌ-RYŪ HEADER */
-
     .site-header {
       position:sticky;
       top:0;
@@ -79,7 +74,7 @@
 
     .header-blossom {
       position:absolute;
-      z-index:0;
+      z-index:5;
       left:-18px;
       top:-50px;
       width:314px;
@@ -87,7 +82,6 @@
       height:auto;
       pointer-events:none;
       user-select:none;
-      opacity:.32;
     }
 
     .brand {
@@ -105,7 +99,6 @@
       width:64px;
       flex:0 0 auto;
       transform:translateX(7px);
-      filter:brightness(0) invert(1);
     }
 
     .brand-stack {
@@ -160,8 +153,6 @@
       outline-offset:3px;
     }
 
-    /* ORIGINAL PHOTOGRAPHIC HERO */
-
     .bk-hero {
       position:relative;
       isolation:isolate;
@@ -191,10 +182,10 @@
       inset:0;
       background:linear-gradient(
         90deg,
-        rgba(12,30,53,.96) 0%,
-        rgba(20,42,68,.87) 35%,
-        rgba(20,42,68,.72) 67%,
-        rgba(20,42,68,.56) 100%
+        rgba(12,30,53,.24) 0%,
+        rgba(20,42,68,.22) 35%,
+        rgba(20,42,68,.18) 67%,
+        rgba(20,42,68,.14) 100%
       );
     }
 
@@ -205,7 +196,6 @@
     .bk-hero-mon {
       width:126px;
       margin:0 auto 18px;
-      filter:brightness(0) invert(1);
     }
 
     .bk-hero h1 {
@@ -243,8 +233,6 @@
       letter-spacing:.035em;
       text-wrap:balance;
     }
-
-    /* ORIGINAL FOUR PHOTOGRAPHIC PATHWAYS */
 
     .photo-pathways {
       display:grid;
@@ -317,8 +305,6 @@
       font-size:12px;
       text-align:center;
     }
-
-    /* ORIGINAL CONTENT LAYOUT */
 
     .bk-section {
       width:min(100%,var(--reader-max));
@@ -404,8 +390,6 @@
       font-weight:600;
     }
 
-    /* MUNICIPAL CLASS CARDS */
-
     .bk-cards {
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
@@ -442,8 +426,6 @@
       line-height:1.5;
     }
 
-    /* HERITAGE */
-
     .bk-heritage {
       margin-top:18px;
       padding:24px 26px;
@@ -463,8 +445,6 @@
       margin-bottom:5px;
       font:23px/1.3 var(--brush);
     }
-
-    /* PARALLEL TRAINING SPACES */
 
     .bk-spaces-intro {
       max-width:710px;
@@ -575,8 +555,6 @@
       display:block;
     }
 
-    /* CULTURAL-EXCHANGE PHOTOGRAPH */
-
     .bk-exchange-photo {
       width:100%;
       height:220px;
@@ -585,8 +563,6 @@
       margin:0 0 22px;
       border:1px solid rgba(42,66,99,.13);
     }
-
-    /* FOOTER */
 
     .colophon {
       text-align:center;
@@ -598,7 +574,6 @@
     .colophon .mon {
       width:82px;
       margin:0 auto 10px;
-      filter:brightness(0) invert(1);
     }
 
     .colophon .jp {
@@ -625,10 +600,7 @@
       text-underline-offset:4px;
     }
 
-    /* ORIGINAL RESPONSIVE BEHAVIOR */
-
     @media(max-width:650px) {
-
       .bk-hero {
         min-height:500px;
         padding:47px 17px 52px;
@@ -637,9 +609,9 @@
       .bk-hero::before {
         background:linear-gradient(
           180deg,
-          rgba(12,30,53,.92) 0%,
-          rgba(20,42,68,.85) 58%,
-          rgba(20,42,68,.76) 100%
+          rgba(12,30,53,.23) 0%,
+          rgba(20,42,68,.21) 58%,
+          rgba(20,42,68,.19) 100%
         );
       }
 
@@ -711,7 +683,6 @@
     }
 
     @media(max-width:390px) {
-
       .brand {
         margin-left:48px;
         gap:8px;
@@ -737,7 +708,6 @@
     }
 
     @media(min-width:760px) {
-
       :root {
         --header-h:82px;
         --reader-max:68rem;
@@ -791,8 +761,6 @@
 
 <body>
 
-  <!-- ORIGINAL HEADER -->
-
   <header class="site-header">
 
     <img
@@ -835,8 +803,6 @@
 
   <main id="top">
 
-    <!-- ORIGINAL PHOTOGRAPHIC HERO -->
-
     <section class="bk-hero" aria-labelledby="hero-title">
 
       <img
@@ -869,8 +835,6 @@
       </div>
 
     </section>
-
-    <!-- FOUR PHOTOGRAPHIC PATHWAYS -->
 
     <nav
       class="photo-pathways"
@@ -934,9 +898,6 @@
       </span>
       Illustrative imagery; no municipal approval or partnership is implied.
     </p>
-
-    <!-- EXPANDED FOUNDING PRINCIPLE -->
-    <!-- SAME ORIGINAL ETHICS SECTION -->
 
     <section
       class="bk-section"
@@ -1015,8 +976,6 @@
         </div>
 
       </div>
-
-      <!-- THE IDEAL OF BUDŌ -->
 
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">武道の理想</span>
@@ -1114,8 +1073,6 @@
 
       </div>
 
-      <!-- THE SPIRIT OF AIKI -->
-
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">合気の精神</span>
         <h3 class="bk-heading-en">The Spirit of Aiki</h3>
@@ -1182,8 +1139,6 @@
 
       </div>
 
-      <!-- AIKI IN PRACTICE -->
-
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">合気の実践</span>
         <h3 class="bk-heading-en">Aiki in Practice</h3>
@@ -1237,8 +1192,6 @@
         </div>
 
       </div>
-
-      <!-- ONE FOUNDATION, MANY TRADITIONS -->
 
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">
@@ -1320,8 +1273,6 @@
 
       </div>
 
-      <!-- MARTIAL EDUCATION FOR THE COMMUNITY -->
-
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">
           地域社会のための武道教育
@@ -1394,8 +1345,6 @@
       </p>
 
     </section>
-
-    <!-- ORIGINAL MUNICIPAL CLASSES -->
 
     <section
       class="bk-section"
@@ -1482,8 +1431,6 @@
 
       </div>
 
-      <!-- ORIGINAL ETIQUETTE HERITAGE -->
-
       <div class="bk-heritage" id="heritage">
 
         <h3>
@@ -1527,8 +1474,6 @@
       </div>
 
     </section>
-
-    <!-- ORIGINAL PARALLEL TRAINING SPACES -->
 
     <section
       class="bk-section"
@@ -1638,8 +1583,6 @@
 
     </section>
 
-    <!-- ORIGINAL MUNICIPAL PARTNERSHIP -->
-
     <section
       class="bk-section"
       id="partnership"
@@ -1697,8 +1640,6 @@
 
     </section>
 
-    <!-- ORIGINAL CULTURAL EXCHANGE -->
-
     <section
       class="bk-section"
       id="exchange"
@@ -1751,8 +1692,6 @@
 
     </section>
 
-    <!-- ORIGINAL FOOTER -->
-
     <footer class="colophon">
 
       <img
@@ -1787,8 +1726,6 @@
     </footer>
 
   </main>
-
-  <!-- ORIGINAL MENU BEHAVIOR -->
 
   <script>
     document.querySelector('.menu')?.addEventListener('click', () => {
