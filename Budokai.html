@@ -1,18 +1,21 @@
+
 <!doctype html>
-<html lang="en">
+<html lang="en" translate="no" class="notranslate">
 <head>
   <meta charset="utf-8">
+  <meta name="google" content="notranslate">
+  <meta name="googlebot" content="notranslate">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <title>聖都合気武道会 | Holy City Budō Society</title>
-  <meta name="description" content="Seitō Aiki Budōkai — Charleston’s Japanese Martial Arts Teachers’ Guild and Budō Society. A bilingual municipal martial-education proposal.">
+  <meta name="description" content="HOLY CITY Budōkai — Charleston’s Japanese Martial Arts Teachers’ Guild and Budō Society. A bilingual municipal martial-education proposal.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap" rel="stylesheet">
 
   <style>
     /* INDEPENDENT BUDŌKAI PAGE — ALL CSS INLINE */
+
     :root {
-      /* Indigo-dyed hakama, Charleston oyster, vermilion seal */
       --paper:#e2eaee;
       --folio:#f8f6f0;
       --ink:#20354a;
@@ -22,18 +25,28 @@
       --indigo-mid:#355b79;
       --sakura:#d8b2b9;
 
-      /* Hero wash controls: .88=88% opaque; lower=more photo */
-      --hero-overlay-left:.88;
-      --hero-overlay-middle:.78;
-      --hero-overlay-right:.62;
+      --silver:#dbe3ec;
+      --silver-bright:#f2f5f8;
+      --silver-muted:#c8d3df;
+
+      /*
+       * HERO DARK INDIGO OVERLAY
+       * 40% on each side, 48% behind central text.
+       * Reduce these numbers to reveal more photograph.
+       */
+      --hero-overlay-left:.40;
+      --hero-overlay-middle:.48;
+      --hero-overlay-right:.40;
+
       --header-h:58px;
       --reader-max:940px;
+
       --brush:"Yuji Syuku","Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
       --jp-body:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;
     }
 
-    *,*::before,*::after { box-sizing:border-box; }
-    html { scroll-behavior:smooth; }
+    *,*::before,*::after {box-sizing:border-box}
+    html {scroll-behavior:smooth}
     body {
       margin:0;
       background:var(--paper);
@@ -41,12 +54,13 @@
       font-family:"Bodoni 72",Baskerville,"Iowan Old Style","Times New Roman",serif;
       line-height:1.48;
     }
-    img { display:block; max-width:100%; }
-    button { font:inherit; }
-    main { overflow-x:clip; }
-    a { color:inherit; }
+    img {display:block;max-width:100%}
+    button {font:inherit}
+    main {overflow-x:clip}
+    a {color:inherit}
 
-    /* ORIGINAL SEITŌ-RYŪ HEADER */
+    /* HEADER */
+
     .site-header {
       position:sticky;
       top:0;
@@ -58,16 +72,17 @@
       gap:10px;
       padding:0 14px 0 max(12px,env(safe-area-inset-left));
       background:var(--indigo);
-      color:var(--folio);
+      color:var(--silver);
       border-bottom:1px solid rgba(220,232,245,.22);
       box-shadow:0 4px 14px rgba(0,0,0,.045);
       isolation:isolate;
       transition:background-color .5s ease;
     }
-    /* Sticky header becomes translucent after scrolling. */
+
     .site-header.is-scrolled {
       background-color:rgba(25,47,74,.50);
     }
+
     .header-blossom {
       position:absolute;
       z-index:4;
@@ -81,9 +96,11 @@
       opacity:1;
       transition:opacity .5s ease;
     }
+
     .site-header.is-scrolled .header-blossom {
       opacity:.50;
     }
+
     .brand {
       position:relative;
       z-index:2;
@@ -94,13 +111,15 @@
       margin-left:56px;
       text-decoration:none;
     }
+
     .brand .mon {
       width:64px;
       flex:0 0 auto;
       transform:translateX(7px);
-      filter:brightness(0) invert(1); /* White header mon; original PNG unchanged */
+      filter:brightness(0) invert(1);
     }
-    .brand-stack { min-width:0; line-height:1; }
+
+    .brand-stack {min-width:0;line-height:1}
     .brand-stack .jp {
       display:block;
       margin-bottom:5px;
@@ -116,6 +135,7 @@
       letter-spacing:.065em;
       white-space:nowrap;
     }
+
     .menu {
       position:relative;
       z-index:3;
@@ -132,13 +152,20 @@
       gap:4px;
       cursor:pointer;
     }
-    .menu span { width:20px; height:3px; background:var(--folio); }
-    .menu:focus-visible,.photo-tile:focus-visible,.bk-back:focus-visible {
+    .menu span {
+      width:20px;
+      height:3px;
+      background:var(--folio);
+    }
+    .menu:focus-visible,
+    .photo-tile:focus-visible,
+    .bk-back:focus-visible {
       outline:2px solid var(--shu);
       outline-offset:3px;
     }
 
-    /* PHOTOGRAPHIC HERO — TYPOGRAPHY REMAINS ORIGINAL */
+    /* DARK INDIGO HERO WITH SILVER LETTERING */
+
     .bk-hero {
       position:relative;
       isolation:isolate;
@@ -148,9 +175,11 @@
       padding:66px 20px 65px;
       text-align:center;
       overflow:hidden;
-      color:var(--ink);
+      color:var(--silver);
+      background:var(--indigo);
       --hero-parallax-y:0px;
     }
+
     .bk-hero-photo {
       position:absolute;
       z-index:-2;
@@ -163,18 +192,22 @@
       transform-origin:center center;
       will-change:transform;
     }
+
     .bk-hero::before {
       content:"";
       position:absolute;
       z-index:-1;
       inset:0;
-      /* Valid gradient: pale indigo over the original Charleston photo. */
-      background:linear-gradient(90deg,
-        rgba(226,236,240,var(--hero-overlay-left)) 0%,
-        rgba(220,232,239,var(--hero-overlay-middle)) 45%,
-        rgba(213,228,236,var(--hero-overlay-right)) 100%);
+      background:linear-gradient(
+        90deg,
+        rgba(10,27,49,var(--hero-overlay-left)) 0%,
+        rgba(16,37,64,var(--hero-overlay-middle)) 45%,
+        rgba(9,26,47,var(--hero-overlay-right)) 100%
+      );
     }
-    .bk-hero-inner { width:min(100%,880px); }
+
+    .bk-hero-inner {width:min(100%,880px)}
+
     .bk-hero h1 {
       margin:0;
       font-family:var(--brush);
@@ -182,8 +215,17 @@
       font-size:clamp(39px,8.5vw,72px);
       line-height:1.16;
       letter-spacing:.04em;
+      color:var(--silver-bright);
+      text-shadow:0 2px 14px rgba(5,13,26,.55);
     }
-    .bk-rule { width:88px; height:2px; margin:17px auto; background:var(--shu); }
+
+    .bk-rule {
+      width:88px;
+      height:2px;
+      margin:17px auto;
+      background:var(--shu);
+    }
+
     .bk-hero-en {
       margin:0 auto;
       max-width:100%;
@@ -193,7 +235,10 @@
       letter-spacing:.045em;
       text-transform:uppercase;
       text-wrap:balance;
+      color:var(--silver);
+      text-shadow:0 2px 14px rgba(5,13,26,.5);
     }
+
     .bk-hero-subtitle {
       max-width:760px;
       margin:12px auto 0;
@@ -201,9 +246,12 @@
       line-height:1.38;
       letter-spacing:.035em;
       text-wrap:balance;
+      color:var(--silver-muted);
+      text-shadow:0 2px 12px rgba(5,13,26,.65);
     }
 
-    /* PHOTO PATHWAYS — FROM THE ORIGINAL MOCKUP */
+    /* FOUR PHOTOGRAPHIC PATHWAYS */
+
     .photo-pathways {
       display:grid;
       grid-template-columns:repeat(4,minmax(0,1fr));
@@ -211,6 +259,7 @@
       padding:0;
       background:var(--ink);
     }
+
     .photo-tile {
       position:relative;
       display:block;
@@ -220,6 +269,7 @@
       color:#fffaf4;
       isolation:isolate;
     }
+
     .photo-tile img {
       position:absolute;
       inset:0;
@@ -229,6 +279,7 @@
       transition:transform .25s ease;
       z-index:-2;
     }
+
     .photo-tile::before {
       content:"";
       position:absolute;
@@ -236,7 +287,9 @@
       background:linear-gradient(180deg,transparent 30%,rgba(17,40,64,.82) 100%);
       z-index:-1;
     }
-    .photo-tile:hover img { transform:scale(1.045); }
+
+    .photo-tile:hover img {transform:scale(1.045)}
+
     .tile-copy {
       position:absolute;
       left:17px;
@@ -244,8 +297,10 @@
       bottom:15px;
       text-shadow:0 1px 8px rgba(0,0,0,.45);
     }
-    .tile-copy .jp { display:block; font:18px/1.35 var(--brush); }
-    .tile-copy .en { display:block; font-size:24px; line-height:1.1; }
+
+    .tile-copy .jp {display:block;font:18px/1.35 var(--brush)}
+    .tile-copy .en {display:block;font-size:24px;line-height:1.1}
+
     .photo-disclaimer {
       max-width:var(--reader-max);
       margin:10px auto 0;
@@ -256,15 +311,21 @@
     }
 
     /* CONTENT SECTIONS */
+
     .bk-section {
       width:min(100%,var(--reader-max));
       margin:0 auto;
       padding:48px 22px 55px;
       scroll-margin-top:calc(var(--header-h) + 20px);
     }
-    .bk-section + .bk-section { border-top:1px solid rgba(40,79,104,.16); }
-    .bk-heading { margin:0 0 26px; text-align:center; }
-    .bk-mark { width:25px; margin:0 auto 22px; }
+
+    .bk-section + .bk-section {
+      border-top:1px solid rgba(40,79,104,.16);
+    }
+
+    .bk-heading {margin:0 0 26px;text-align:center}
+    .bk-mark {width:25px;margin:0 auto 22px}
+
     .bk-heading-jp {
       display:block;
       color:var(--indigo-mid);
@@ -273,18 +334,21 @@
       font-weight:400;
       line-height:1.35;
     }
+
     .bk-heading-en {
       margin:5px 0 0;
       font-size:clamp(24px,4.6vw,34px);
       line-height:1.2;
       font-weight:400;
     }
+
     .bk-pair {
       display:grid;
       grid-template-columns:minmax(0,1fr) minmax(0,1fr);
       gap:24px;
       align-items:start;
     }
+
     .bk-jp {
       writing-mode:horizontal-tb;
       font-family:var(--jp-body);
@@ -294,20 +358,23 @@
       text-align:left;
       overflow-wrap:anywhere;
     }
-    .bk-jp p,.bk-en p { margin:0 0 14px; }
-    .bk-jp p:last-child,.bk-en p:last-child { margin-bottom:0; }
-    .bk-en { font-size:20px; line-height:1.57; }
+
+    .bk-jp p,.bk-en p {margin:0 0 14px}
+    .bk-jp p:last-child,.bk-en p:last-child {margin-bottom:0}
+    .bk-en {font-size:20px;line-height:1.57}
+
     .bk-jp-folio {
       padding:22px 23px;
       background:var(--folio);
       border:1px solid rgba(40,79,104,.13);
       box-shadow:0 4px 16px rgba(25,47,74,.055);
     }
-    .bk-ethic-lead { font-size:23px; line-height:1.4; }
-    .bk-ethic-statement { font-weight:600; }
 
-    /* Compact historical portrait slots. Images are optional: initials show
-       automatically until the matching JPG is added to assets/. */
+    .bk-ethic-lead {font-size:23px;line-height:1.4}
+    .bk-ethic-statement {font-weight:600}
+
+    /* HISTORICAL PORTRAITS */
+
     .bk-profile {
       display:flex;
       flex-direction:column;
@@ -317,6 +384,7 @@
       text-align:center;
       width:150px;
     }
+
     .bk-profile-frame {
       position:relative;
       display:grid;
@@ -330,6 +398,7 @@
       color:var(--indigo-mid);
       font:28px/1 var(--brush);
     }
+
     .bk-profile-frame img {
       position:absolute;
       inset:0;
@@ -337,14 +406,16 @@
       height:100%;
       object-fit:cover;
       object-position:center 27%;
-      filter:grayscale(1);
+      filter:none;
     }
+
     .bk-profile figcaption {
       font-family:var(--jp-body);
       font-size:13px;
       line-height:1.35;
       color:var(--muted);
     }
+
     .bk-profile figcaption span {
       display:block;
       font-family:Georgia,serif;
@@ -353,27 +424,38 @@
     }
 
     /* MUNICIPAL CLASSES */
+
     .bk-cards {
       display:grid;
       grid-template-columns:repeat(2,minmax(0,1fr));
       gap:15px;
     }
+
     .bk-card {
       padding:20px 22px 23px;
       background:var(--folio);
       border:1px solid rgba(40,79,104,.16);
     }
-    .bk-card h3 { margin:0; font-size:24px; font-weight:500; line-height:1.25; }
+
+    .bk-card h3 {
+      margin:0;
+      font-size:24px;
+      font-weight:500;
+      line-height:1.25;
+    }
+
     .bk-card-jp {
       display:block;
       color:var(--indigo-mid);
       margin-bottom:5px;
       font:24px/1.32 var(--brush);
     }
-    .bk-card .bk-jp { margin:13px 0 8px; font-size:16px; }
-    .bk-card .bk-en { margin:0; font-size:18px; line-height:1.5; }
+
+    .bk-card .bk-jp {margin:13px 0 8px;font-size:16px}
+    .bk-card .bk-en {margin:0;font-size:18px;line-height:1.5}
 
     /* HERITAGE */
+
     .bk-heritage {
       margin-top:18px;
       padding:24px 26px;
@@ -381,15 +463,39 @@
       background:rgba(217,230,236,.75);
       scroll-margin-top:calc(var(--header-h) + 20px);
     }
-    .bk-heritage h3 { margin:0 0 17px; font-size:24px; font-weight:400; }
-    .bk-heritage h3 span { display:block; color:var(--indigo-mid); margin-bottom:5px; font:23px/1.3 var(--brush); }
+
+    .bk-heritage h3 {margin:0 0 17px;font-size:24px;font-weight:400}
+    .bk-heritage h3 span {
+      display:block;
+      color:var(--indigo-mid);
+      margin-bottom:5px;
+      font:23px/1.3 var(--brush);
+    }
 
     /* PARALLEL TRAINING SPACES */
-    .bk-spaces-intro { max-width:710px; margin:0 auto 22px; text-align:center; }
-    .bk-spaces-intro .bk-jp { font-size:16px; line-height:1.7; margin:0 0 9px; text-align:center; }
-    .bk-spaces-intro .bk-en { margin:0; font-size:19px; line-height:1.5; }
-    .bk-training-figure { margin:0 0 23px; }
-    .bk-training-figure img { width:100%; height:auto; border:0; }
+
+    .bk-spaces-intro {
+      max-width:710px;
+      margin:0 auto 22px;
+      text-align:center;
+    }
+
+    .bk-spaces-intro .bk-jp {
+      font-size:16px;
+      line-height:1.7;
+      margin:0 0 9px;
+      text-align:center;
+    }
+
+    .bk-spaces-intro .bk-en {
+      margin:0;
+      font-size:19px;
+      line-height:1.5;
+    }
+
+    .bk-training-figure {margin:0 0 23px}
+    .bk-training-figure img {width:100%;height:auto;border:0}
+
     .bk-training-figure figcaption {
       margin-top:9px;
       color:var(--muted);
@@ -397,20 +503,69 @@
       text-align:center;
       line-height:1.55;
     }
-    .bk-training-figure figcaption span { display:block; }
-    .bk-spaces { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
-    .bk-space { padding:22px; background:var(--folio); border:1px solid rgba(40,79,104,.16); }
-    .bk-space h3 { margin:0 0 15px; font-size:23px; font-weight:400; line-height:1.3; }
-    .bk-space h3 span { display:block; color:var(--indigo-mid); margin-bottom:5px; font:23px/1.3 var(--brush); }
-    .bk-space .bk-jp { font-size:16px; line-height:1.75; margin:0 0 10px; }
-    .bk-space .bk-en { font-size:18px; line-height:1.5; margin:0; }
-    .bk-spaces-note { max-width:680px; margin:17px auto 0; color:var(--muted); text-align:center; }
-    .bk-spaces-note .bk-jp { font-size:15px; line-height:1.7; text-align:center; margin:0 0 12px; }
-    .bk-spaces-note .bk-en { font-size:14px; line-height:1.6; margin:0; }
-    .bk-small-label { margin:-2px 0 21px; color:var(--muted); font-size:13px; text-align:center; }
-    .bk-small-label span { display:block; }
 
-    /* CULTURAL-EXCHANGE PHOTOGRAPH */
+    .bk-training-figure figcaption span {display:block}
+
+    .bk-spaces {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:16px;
+    }
+
+    .bk-space {
+      padding:22px;
+      background:var(--folio);
+      border:1px solid rgba(40,79,104,.16);
+    }
+
+    .bk-space h3 {
+      margin:0 0 15px;
+      font-size:23px;
+      font-weight:400;
+      line-height:1.3;
+    }
+
+    .bk-space h3 span {
+      display:block;
+      color:var(--indigo-mid);
+      margin-bottom:5px;
+      font:23px/1.3 var(--brush);
+    }
+
+    .bk-space .bk-jp {font-size:16px;line-height:1.75;margin:0 0 10px}
+    .bk-space .bk-en {font-size:18px;line-height:1.5;margin:0}
+
+    .bk-spaces-note {
+      max-width:680px;
+      margin:17px auto 0;
+      color:var(--muted);
+      text-align:center;
+    }
+
+    .bk-spaces-note .bk-jp {
+      font-size:15px;
+      line-height:1.7;
+      text-align:center;
+      margin:0 0 12px;
+    }
+
+    .bk-spaces-note .bk-en {
+      font-size:14px;
+      line-height:1.6;
+      margin:0;
+    }
+
+    .bk-small-label {
+      margin:-2px 0 21px;
+      color:var(--muted);
+      font-size:13px;
+      text-align:center;
+    }
+
+    .bk-small-label span {display:block}
+
+    /* CULTURAL EXCHANGE PHOTO */
+
     .bk-exchange-photo {
       width:100%;
       height:220px;
@@ -421,84 +576,121 @@
     }
 
     /* FOOTER */
-    .colophon { text-align:center; padding:28px 16px 78px; color:#d6e2e9; background:var(--indigo); }
-    .colophon .mon { width:82px; margin:0 auto 10px; }
-    .colophon .jp { color:var(--folio); font:25px/1.2 var(--brush); }
-    .colophon .romaji { color:var(--folio); margin-top:6px; font-size:12px; letter-spacing:.11em; }
-    .colophon .meta { margin-top:12px; font-size:13px; }
-    .bk-back { color:#d8e5ec; text-decoration:none; border-bottom:1px solid currentColor; text-underline-offset:4px; }
+
+    .colophon {
+      text-align:center;
+      padding:28px 16px 78px;
+      color:#d6e2e9;
+      background:var(--indigo);
+    }
+
+    .colophon .mon {width:82px;margin:0 auto 10px}
+    .colophon .jp {color:var(--folio);font:25px/1.2 var(--brush)}
+    .colophon .romaji {
+      color:var(--folio);
+      margin-top:6px;
+      font-size:12px;
+      letter-spacing:.11em;
+    }
+    .colophon .meta {margin-top:12px;font-size:13px}
+    .bk-back {
+      color:#d8e5ec;
+      text-decoration:none;
+      border-bottom:1px solid currentColor;
+      text-underline-offset:4px;
+    }
 
     /* RESPONSIVE */
+
     @media(max-width:650px) {
-      .bk-hero { min-height:500px; padding:47px 17px 52px; }
+      .bk-hero {min-height:500px;padding:47px 17px 52px}
       .bk-hero::before {
-        background:linear-gradient(180deg,
-          rgba(226,236,240,var(--hero-overlay-left)) 0%,
-          rgba(220,232,239,var(--hero-overlay-middle)) 58%,
-          rgba(213,228,236,var(--hero-overlay-right)) 100%);
+        background:linear-gradient(
+          180deg,
+          rgba(10,27,49,var(--hero-overlay-left)) 0%,
+          rgba(16,37,64,var(--hero-overlay-middle)) 58%,
+          rgba(9,26,47,var(--hero-overlay-right)) 100%
+        );
       }
-      .photo-pathways { grid-template-columns:repeat(2,minmax(0,1fr)); }
-      .photo-tile { min-height:175px; }
-      .tile-copy { left:12px; right:10px; bottom:12px; }
-      .tile-copy .jp { font-size:16px; }
-      .tile-copy .en { font-size:21px; }
-      .bk-section { padding:38px 17px 45px; }
-      .bk-pair,.bk-cards,.bk-spaces { grid-template-columns:1fr; }
-      .bk-pair { gap:15px; }
-      .bk-jp,.bk-pair .bk-jp { font-size:16px; }
-      .bk-en,.bk-pair .bk-en { font-size:19px; }
-      .bk-jp-folio { padding:17px 19px; }
-      .bk-card { padding:19px; }
-      .bk-heritage { padding:19px 18px; }
-      .bk-exchange-photo { height:175px; }
+      .photo-pathways {grid-template-columns:repeat(2,minmax(0,1fr))}
+      .photo-tile {min-height:175px}
+      .tile-copy {left:12px;right:10px;bottom:12px}
+      .tile-copy .jp {font-size:16px}
+      .tile-copy .en {font-size:21px}
+      .bk-section {padding:38px 17px 45px}
+      .bk-pair,.bk-cards,.bk-spaces {grid-template-columns:1fr}
+      .bk-pair {gap:15px}
+      .bk-jp,.bk-pair .bk-jp {font-size:16px}
+      .bk-en,.bk-pair .bk-en {font-size:19px}
+      .bk-jp-folio {padding:17px 19px}
+      .bk-card {padding:19px}
+      .bk-heritage {padding:19px 18px}
+      .bk-exchange-photo {height:175px}
     }
+
     @media(max-width:390px) {
-      .brand { margin-left:48px; gap:8px; }
-      .brand .mon { width:58px; transform:translateX(6px); }
-      .brand-stack .jp { font-size:18px; }
-      .brand-stack .romaji { font-size:10.2px; letter-spacing:.045em; }
-      .header-blossom { width:292px; }
+      .brand {margin-left:48px;gap:8px}
+      .brand .mon {width:58px;transform:translateX(6px)}
+      .brand-stack .jp {font-size:18px}
+      .brand-stack .romaji {font-size:10.2px;letter-spacing:.045em}
+      .header-blossom {width:292px}
     }
+
     @media(min-width:760px) {
-      :root { --header-h:82px; --reader-max:68rem; }
-      .header-blossom { left:-16px; top:-110px; width:684px; }
-      .brand { margin-left:205px; gap:14px; }
-      .brand .mon { width:88px; transform:none; }
-      .brand-stack .jp { font-size:clamp(25px,2.35vw,38px); }
-      .brand-stack .romaji { font-size:clamp(14px,1.05vw,18px); }
-      .menu { width:44px; height:44px; }
-      .menu span { width:22px; }
+      :root {--header-h:82px;--reader-max:68rem}
+      .header-blossom {left:-16px;top:-110px;width:684px}
+      .brand {margin-left:205px;gap:14px}
+      .brand .mon {width:88px;transform:none}
+      .brand-stack .jp {font-size:clamp(25px,2.35vw,38px)}
+      .brand-stack .romaji {font-size:clamp(14px,1.05vw,18px)}
+      .menu {width:44px;height:44px}
+      .menu span {width:22px}
     }
+
     @media(prefers-reduced-motion:reduce) {
-      html { scroll-behavior:auto; }
-      .photo-tile img { transition:none; }
-      .site-header,.header-blossom { transition:none; }
-      .bk-hero-photo { will-change:auto; }
+      html {scroll-behavior:auto}
+      .photo-tile img {transition:none}
+      .site-header,.header-blossom {transition:none}
+      .bk-hero-photo {will-change:auto}
     }
   </style>
 </head>
 
 <body>
-  <!-- ORIGINAL SITE HEADER: EXISTING /assets IMAGES -->
+  <!-- HEADER -->
+
   <header class="site-header">
-    <img class="header-blossom" src="assets/cherry_blossom_header.png" alt="" aria-hidden="true">
-    <a class="brand" href="/" aria-label="聖都流へ戻る / Return to Seitō-ryū">
-      <img class="mon" src="assets/seito-mon.png" alt="Seitō-ryū mon">
+    <img class="header-blossom"
+         src="assets/cherry_blossom_header.png"
+         alt="" aria-hidden="true">
+
+    <a class="brand" href="/"
+       aria-label="聖都流へ戻る / Return to Seitō-ryū">
+      <img class="mon" src="assets/seito-mon.png"
+           alt="Seitō-ryū mon">
+
       <span class="brand-stack">
         <span class="jp" lang="ja">聖都合気武道会</span>
-        <span class="romaji">SEITŌ AIKI BUDŌKAI</span>
+        <span class="romaji">HOLY CITY BUDŌKAI</span>
       </span>
     </a>
-    <button class="menu" type="button" aria-label="市民講座へ移動 / Go to municipal classes">
+
+    <button class="menu" type="button"
+            aria-label="市民講座へ移動 / Go to municipal classes">
       <span></span><span></span><span></span>
     </button>
   </header>
 
   <main id="top">
-    <!-- HERO: CLEAN CHARLESTON PHOTOGRAPH -->
+
+    <!-- HERO -->
+
     <section class="bk-hero" aria-labelledby="hero-title">
-      <img class="bk-hero-photo" src="assets/charleston-hero.jpg"
-           alt="" aria-hidden="true" fetchpriority="high">
+      <img class="bk-hero-photo"
+           src="assets/charleston-hero.jpg"
+           alt="" aria-hidden="true"
+           fetchpriority="high">
+
       <div class="bk-hero-inner">
         <h1 id="hero-title" lang="ja">聖都合気武道会</h1>
         <div class="bk-rule" aria-hidden="true"></div>
@@ -509,37 +701,67 @@
       </div>
     </section>
 
-    <!-- APPROVED FOUR CONCEPT PATHWAYS -->
-    <nav class="photo-pathways" aria-label="Programs and partnerships / 講座と協力">
+    <!-- PHOTOGRAPHIC PATHWAYS -->
+
+    <nav class="photo-pathways"
+         aria-label="Programs and partnerships / 講座と協力">
+
       <a class="photo-tile" href="#municipal-classes">
-        <img src="assets/train-dojo.jpg" alt="An open training hall" loading="lazy">
-        <span class="tile-copy"><span class="jp" lang="ja">稽古</span><span class="en">Train</span></span>
+        <img src="assets/train-dojo.jpg"
+             alt="An open training hall" loading="lazy">
+        <span class="tile-copy">
+          <span class="jp" lang="ja">稽古</span>
+          <span class="en">Train</span>
+        </span>
       </a>
+
       <a class="photo-tile" href="#partnership">
-        <img src="assets/serve-civic.jpg" alt="Young martial artists helping their community" loading="lazy">
-        <span class="tile-copy"><span class="jp" lang="ja">地域奉仕</span><span class="en">Serve</span></span>
+        <img src="assets/serve-civic.jpg"
+             alt="Young martial artists helping their community"
+             loading="lazy">
+        <span class="tile-copy">
+          <span class="jp" lang="ja">地域奉仕</span>
+          <span class="en">Serve</span>
+        </span>
       </a>
+
       <a class="photo-tile" href="#exchange">
-        <img src="assets/exchange-japan.jpg" alt="Japanese architecture with cherry blossoms" loading="lazy">
-        <span class="tile-copy"><span class="jp" lang="ja">文化交流</span><span class="en">Exchange</span></span>
+        <img src="assets/exchange-japan.jpg"
+             alt="Japanese architecture with cherry blossoms"
+             loading="lazy">
+        <span class="tile-copy">
+          <span class="jp" lang="ja">文化交流</span>
+          <span class="en">Exchange</span>
+        </span>
       </a>
+
       <a class="photo-tile" href="#heritage">
-        <img src="assets/preserve-tradition.jpg" alt="Traditional Japanese castle artwork" loading="lazy">
-        <span class="tile-copy"><span class="jp" lang="ja">伝統継承</span><span class="en">Preserve</span></span>
+        <img src="assets/preserve-tradition.jpg"
+             alt="Traditional Japanese castle artwork"
+             loading="lazy">
+        <span class="tile-copy">
+          <span class="jp" lang="ja">伝統継承</span>
+          <span class="en">Preserve</span>
+        </span>
       </a>
     </nav>
-    <p class="photo-disclaimer">
-      <span lang="ja">写真・図版は構想を示す参考イメージです。市の承認や提携を示すものではありません。</span>
-      Illustrative imagery; no municipal approval or partnership is implied.
-    </p>
 
-    <!-- AIKI ETHICAL FOUNDATION: original section, expanded bilingual content -->
-    <section class="bk-section" id="ethics" aria-labelledby="ethics-title">
+    <!-- FOUNDING PRINCIPLE -->
+
+    <section class="bk-section" id="ethics"
+             aria-labelledby="ethics-title">
+
       <div class="bk-heading">
-        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
-        <span class="bk-heading-jp" lang="ja">創立理念 — 合気武道</span>
-        <h2 class="bk-heading-en" id="ethics-title">Our Founding Principle: Aiki Budō</h2>
+        <img class="bk-mark" src="assets/seito-mon.png"
+             alt="" aria-hidden="true">
+        <span class="bk-heading-jp" lang="ja">
+          創立理念 — 合気武道
+        </span>
+        <h2 class="bk-heading-en" id="ethics-title">
+          Our Founding Principle: Aiki Budō
+        </h2>
       </div>
+
       <div class="bk-pair">
         <div class="bk-jp bk-jp-folio" lang="ja">
           <p>武道は、力をいかに用いるかを教えます。合気は、争いに直面しても、その争いに心を支配されない道を示します。</p>
@@ -554,19 +776,85 @@
           <p class="bk-ethic-statement">Aiki is the prerequisite budō ethic for all martial arts instruction in our proposed municipal programs—not an optional code attached after technique.</p>
         </div>
       </div>
+    </section>
+
+    <!-- PARALLEL TRAINING SPACES -->
+
+    <section class="bk-section" id="training-spaces"
+             aria-labelledby="spaces-title">
+
+      <div class="bk-heading">
+        <img class="bk-mark" src="assets/seito-mon.png"
+             alt="" aria-hidden="true">
+        <span class="bk-heading-jp" lang="ja">
+          市民に開かれた場と門人の稽古場
+        </span>
+        <h2 class="bk-heading-en" id="spaces-title">
+          Parallel Training Spaces
+        </h2>
+      </div>
+
+      <div class="bk-spaces-intro">
+        <p class="bk-jp" lang="ja">One facility, embedded training spaces:</p>
+        <p class="bk-en">Open municipal class program supported by Budōkai member classes.</p>
+      </div>
+
+      <figure class="bk-training-figure">
+        <img src="assets/training-spaces.jpg"
+             width="1355" height="914" loading="lazy"
+             alt="Concept illustration of a hall with parallel white and dark tatami training areas.">
+        <figcaption>
+          <span lang="ja"></span>
+          <span> </span>
+        </figcaption>
+      </figure>
+
+      <div class="bk-spaces">
+        <article class="bk-space">
+          <h3>
+            <span lang="ja">市民に開かれた講座</span>
+            Open Municipal Classes
+          </h3>
+          <p class="bk-jp" lang="ja">市民が参加できる合気ウェルネス、合気道、子どもの護身、武道礼法の講座。参加のために門人会への入会を必要としません。</p>
+          <p class="bk-en">Publicly accessible classes in Aiki Wellness, Aikidō, youth self-defense, and Budō Etiquette. Budōkai membership is not required.</p>
+        </article>
+
+        <article class="bk-space">
+          <h3>
+            <span lang="ja">聖都合気武道会・門人の稽古</span>
+            Private Budōkai Classes
+          </h3>
+          <p class="bk-jp" lang="ja">門人のための専門的な稽古、上級講座、指導者の育成。見習い指導者は、その学びを生かして市民向け講座を補助します。</p>
+          <p class="bk-en">Dedicated member study, advanced classes, and teacher apprenticeship. Developing instructors bring that experience into supervised municipal programs.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- HISTORICAL AND PRACTICAL FOUNDATIONS -->
+
+    <section class="bk-section" id="ethics-history"
+             aria-label="Historical and practical foundations of Aiki Budō">
+
+      <!-- KANŌ JIGORŌ -->
 
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">武道の理想</span>
-        <h3 class="bk-heading-en">The Ideal of Budō</h3>
+        <h3 class="bk-heading-en">The Ideal Budō</h3>
       </div>
+
       <figure class="bk-profile">
         <div class="bk-profile-frame">
           <span aria-hidden="true" lang="ja">嘉納</span>
-          <img src="assets/kano-jigoro.jpg" alt="Portrait of Kanō Jigorō"
+          <img src="assets/kano-jigoro.jpg"
+               alt="Portrait of Kanō Jigorō"
                loading="lazy" onerror="this.remove()">
         </div>
-        <figcaption lang="ja">嘉納治五郎<span lang="en">Kanō Jigorō</span></figcaption>
+        <figcaption lang="ja">
+          嘉納治五郎
+          <span lang="en">Kanō Jigorō</span>
+        </figcaption>
       </figure>
+
       <div class="bk-pair">
         <div class="bk-jp bk-jp-folio" lang="ja">
           <p>1882年、嘉納治五郎は講道館柔道を創始し、伝統的な柔術を基礎として、身体の鍛錬、人格の形成、社会への貢献を目指す体系的な教育の道を開きました。</p>
@@ -588,18 +876,26 @@
         </div>
       </div>
 
+      <!-- MORIHEI UESHIBA -->
+
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">合気の精神</span>
         <h3 class="bk-heading-en">The Spirit of Aiki</h3>
       </div>
+
       <figure class="bk-profile">
         <div class="bk-profile-frame">
           <span aria-hidden="true" lang="ja">植芝</span>
-          <img src="assets/morihei-ueshiba.jpg" alt="Portrait of Morihei Ueshiba"
+          <img src="assets/morihei-ueshiba.jpg"
+               alt="Portrait of Morihei Ueshiba"
                loading="lazy" onerror="this.remove()">
         </div>
-        <figcaption lang="ja">植芝盛平<span lang="en">Morihei Ueshiba Ō-Sensei</span></figcaption>
+        <figcaption lang="ja">
+          植芝盛平
+          <span lang="en">Morihei Ueshiba Ō-Sensei</span>
+        </figcaption>
       </figure>
+
       <div class="bk-pair">
         <div class="bk-jp bk-jp-folio" lang="ja">
           <p>植芝盛平開祖は、真の武道を、敵意や相手の破壊を目的とするものではなく、愛、自己への勝利、そして争う心の克服を通じて説きました。</p>
@@ -616,10 +912,13 @@
         </div>
       </div>
 
+      <!-- AIKI IN PRACTICE -->
+
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">合気の実践</span>
         <h3 class="bk-heading-en">Aiki in Practice</h3>
       </div>
+
       <div class="bk-pair">
         <div class="bk-jp bk-jp-folio" lang="ja">
           <p>相手の力に正面から力で対抗するのではなく、その力を避け、立ち位置を変え、異なる角度から応じることを学びます。間合い、時機、体捌きを通じて、正面からの衝突では見えなかった可能性を見いだします。</p>
@@ -633,10 +932,13 @@
         </div>
       </div>
 
+      <!-- ONE FOUNDATION, MANY TRADITIONS -->
+
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">多様な武道を導く一つの理念</span>
         <h3 class="bk-heading-en">One Foundation, Many Martial Traditions</h3>
       </div>
+
       <div class="bk-pair">
         <div class="bk-jp bk-jp-folio" lang="ja">
           <p>聖都合気武道会は、打撃、投げ、組討、抑えなど、受け継がれてきた武道の技法と特色を尊重します。</p>
@@ -656,10 +958,13 @@
         </div>
       </div>
 
+      <!-- COMMUNITY EDUCATION -->
+
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">地域社会のための武道教育</span>
         <h3 class="bk-heading-en">Martial Education for the Community</h3>
       </div>
+
       <div class="bk-pair">
         <div class="bk-jp bk-jp-folio" lang="ja">
           <p>チャールストン市に対し、私たちは単なる護身技術の指導を超えた武道教育を提案します。</p>
@@ -674,42 +979,67 @@
           <p><strong>The highest achievement of martial education is not simply the ability to prevail in conflict, but the ability to protect life and bring conflict to an end.</strong></p>
         </div>
       </div>
-      <p class="photo-disclaimer">Historical quotations are attributed to later accounts. Their precise Japanese wording and source editions should be checked before formal publication.</p>
     </section>
 
     <!-- MUNICIPAL CLASSES -->
-    <section class="bk-section" id="municipal-classes" aria-labelledby="classes-title">
+
+    <section class="bk-section" id="municipal-classes"
+             aria-labelledby="classes-title">
+
       <div class="bk-heading">
-        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
+        <img class="bk-mark" src="assets/seito-mon.png"
+             alt="" aria-hidden="true">
         <span class="bk-heading-jp" lang="ja">市民向け講座案</span>
-        <h2 class="bk-heading-en" id="classes-title">Proposed Municipal Classes</h2>
+        <h2 class="bk-heading-en" id="classes-title">
+          Proposed Municipal Classes
+        </h2>
       </div>
+
       <div class="bk-cards">
         <article class="bk-card">
-          <h3><span class="bk-card-jp" lang="ja">合気ウェルネス</span>Aiki Wellness</h3>
+          <h3>
+            <span class="bk-card-jp" lang="ja">合気ウェルネス</span>
+            Aiki Wellness
+          </h3>
           <p class="bk-jp" lang="ja">柔軟性、可動性、バランス感覚を養い、けがの危険を減らすための安全な転び方を学びます。</p>
           <p class="bk-en">Flexibility, mobility, balance, and falling skills aimed at reducing injury.</p>
         </article>
+
         <article class="bk-card">
-          <h3><span class="bk-card-jp" lang="ja">合気道・経験不問</span>Aikidō — All Levels</h3>
+          <h3>
+            <span class="bk-card-jp" lang="ja">合気道・経験不問</span>
+            Aikidō — All Levels
+          </h3>
           <p class="bk-jp" lang="ja">初心者から経験者まで、合気の倫理を基礎とし、相手への配慮と節度を大切にする合気道の稽古。</p>
           <p class="bk-en">Aikidō for beginners and experienced students, grounded in aiki, restraint, and mutual safety.</p>
         </article>
+
         <article class="bk-card">
-          <h3><span class="bk-card-jp" lang="ja">いじめに負けない力</span>Bully-Proof</h3>
+          <h3>
+            <span class="bk-card-jp" lang="ja">いじめに負けない力</span>
+            Bully-Proof
+          </h3>
           <p class="bk-jp" lang="ja">子どもの自信、護身、自制心を育み、攻撃性に頼らずいじめに対応する力を学びます。</p>
           <p class="bk-en">Youth confidence, self-defense, and responses to bullying without cultivating aggression.</p>
         </article>
+
         <article class="bk-card">
-          <h3><span class="bk-card-jp" lang="ja">武道礼法</span>Budō Etiquette</h3>
+          <h3>
+            <span class="bk-card-jp" lang="ja">武道礼法</span>
+            Budō Etiquette
+          </h3>
           <p class="bk-jp" lang="ja">立つ、座る、歩く、礼をする。礼節と無駄のない所作を、日常生活にも生かす学び。</p>
           <p class="bk-en">Courtesy, posture, movement, and responsible conduct grounded in traditional warrior etiquette.</p>
         </article>
       </div>
 
-      <!-- PERSONAL DISCIPLESHIP / LONG HERITAGE PATH -->
+      <!-- HERITAGE PATHWAY -->
+
       <div class="bk-heritage" id="heritage">
-        <h3><span lang="ja">礼法から弓馬術へ</span>From Etiquette to Archery</h3>
+        <h3>
+          <span lang="ja">礼法から弓馬術へ</span>
+          From Etiquette to Archery
+        </h3>
         <div class="bk-pair">
           <div class="bk-jp" lang="ja">
             <p>この礼法の道は、約850年の歴史を持ち、歴代の将軍家に礼法と弓の教えを伝えた武家の伝統につながるものです。</p>
@@ -723,51 +1053,19 @@
       </div>
     </section>
 
-    <!-- OPEN MUNICIPAL AND PRIVATE BUDŌKAI SPACES -->
-    <section class="bk-section" id="training-spaces" aria-labelledby="spaces-title">
-      <div class="bk-heading">
-        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
-        <span class="bk-heading-jp" lang="ja">市民に開かれた場と門人の稽古場</span>
-        <h2 class="bk-heading-en" id="spaces-title">Parallel Training Spaces</h2>
-      </div>
-      <div class="bk-spaces-intro">
-        <p class="bk-jp" lang="ja">一つの施設の中に、市民に開かれた講座と、聖都合気武道会門人の専門的な稽古の場を並行して設ける構想です。</p>
-        <p class="bk-en">One facility, two complementary training spaces: open municipal classes alongside private Budōkai study.</p>
-      </div>
-      <figure class="bk-training-figure">
-        <img src="assets/training-spaces.jpg" width="1355" height="914" loading="lazy"
-             alt="Concept illustration of a hall with parallel white and dark tatami training areas.">
-        <figcaption>
-          <span lang="ja">二つの稽古区域を示す構想図。市の承認を得た施設配置ではありません。</span>
-          <span>Illustrative two-zone layout; not an approved municipal facility arrangement.</span>
-        </figcaption>
-      </figure>
-      <div class="bk-spaces">
-        <article class="bk-space">
-          <h3><span lang="ja">市民に開かれた講座</span>Open Municipal Classes</h3>
-          <p class="bk-jp" lang="ja">市民が参加できる合気ウェルネス、合気道、子どもの護身、武道礼法の講座。参加のために門人会への入会を必要としません。</p>
-          <p class="bk-en">Publicly accessible classes in Aiki Wellness, Aikidō, youth self-defense, and Budō Etiquette. Budōkai membership is not required.</p>
-        </article>
-        <article class="bk-space">
-          <h3><span lang="ja">聖都合気武道会・門人の稽古</span>Private Budōkai Classes</h3>
-          <p class="bk-jp" lang="ja">門人のための専門的な稽古、上級講座、指導者の育成。見習い指導者は、その学びを生かして市民向け講座を補助します。</p>
-          <p class="bk-en">Dedicated member study, advanced classes, and teacher apprenticeship. Developing instructors bring that experience into supervised municipal programs.</p>
-        </article>
-      </div>
-      <div class="bk-spaces-note">
-        <p class="bk-jp" lang="ja">並行利用の時間割、区域の分離、利用条件および安全対策は、市と協議のうえ決定します。</p>
-        <p class="bk-en">Simultaneous use, boundaries, scheduling, and safety arrangements would be agreed with the City.</p>
-      </div>
-    </section>
-
     <!-- MUNICIPAL PARTNERSHIP -->
-    <section class="bk-section" id="partnership" aria-labelledby="partnership-title">
+
+    <section class="bk-section" id="partnership"
+             aria-labelledby="partnership-title">
       <div class="bk-heading">
-        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
+        <img class="bk-mark" src="assets/seito-mon.png"
+             alt="" aria-hidden="true">
         <span class="bk-heading-jp" lang="ja">市との協力案</span>
-        <h2 class="bk-heading-en" id="partnership-title">Municipal Partnership</h2>
+        <h2 class="bk-heading-en" id="partnership-title">
+          Municipal Partnership
+        </h2>
       </div>
-      <p class="bk-small-label"><span lang="ja">協議のための提案</span><span>Proposed Arrangement</span></p>
+
       <div class="bk-pair">
         <div class="bk-jp bk-jp-folio" lang="ja">
           <p>市の施設を利用できることへの対価として、市が上級講座の受講に充てられる奨学クレジットを市民に提供できる仕組みを提案します。</p>
@@ -780,15 +1078,27 @@
       </div>
     </section>
 
-    <!-- CHARLESTON–JAPAN CULTURAL EXCHANGE -->
-    <section class="bk-section" id="exchange" aria-labelledby="exchange-title">
+    <!-- CULTURAL EXCHANGE -->
+
+    <section class="bk-section" id="exchange"
+             aria-labelledby="exchange-title">
+
       <div class="bk-heading">
-        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
-        <span class="bk-heading-jp" lang="ja">チャールストンと日本の文化交流</span>
-        <h2 class="bk-heading-en" id="exchange-title">Charleston–Japan Cultural Exchange</h2>
+        <img class="bk-mark" src="assets/seito-mon.png"
+             alt="" aria-hidden="true">
+        <span class="bk-heading-jp" lang="ja">
+          チャールストンと日本の文化交流
+        </span>
+        <h2 class="bk-heading-en" id="exchange-title">
+          Charleston–Japan Cultural Exchange
+        </h2>
       </div>
-      <img class="bk-exchange-photo" src="assets/exchange-japan.jpg"
-           alt="Illustrative Japanese castle framed by cherry blossoms" loading="lazy">
+
+      <img class="bk-exchange-photo"
+           src="assets/exchange-japan.jpg"
+           alt="Illustrative Japanese castle framed by cherry blossoms"
+           loading="lazy">
+
       <div class="bk-pair">
         <div class="bk-jp bk-jp-folio" lang="ja">
           <p>日本の武道指導者や伝統流派との学びと交流の機会を育み、チャールストンの市民に生きた文化への接点を開くことを目指します。</p>
@@ -800,34 +1110,44 @@
     </section>
 
     <!-- FOOTER -->
+
     <footer class="colophon">
-      <img class="mon" src="assets/seito-mon.png" alt="" aria-hidden="true">
+      <img class="mon" src="assets/seito-mon.png"
+           alt="" aria-hidden="true">
+
       <div class="jp" lang="ja">聖都合気武道会</div>
-      <div class="romaji">SEITŌ AIKI BUDŌKAI</div>
+      <div class="romaji">HOLY CITY BUDŌKAI</div>
       <div class="meta">Holy City Budō Society</div>
       <div class="meta" lang="ja">サウスカロライナ州チャールストン</div>
       <div class="meta">Charleston, South Carolina</div>
       <div class="meta" lang="ja">市との協議に向けた構想案</div>
       <div class="meta">Preliminary Municipal Concept</div>
+
       <div class="meta" style="margin-top:20px">
-        <a class="bk-back" href="/"><span lang="ja">聖都流へ戻る</span> / Return to Seitō-ryū</a>
+        <a class="bk-back" href="/">
+          <span lang="ja">聖都流へ戻る</span>
+          / Return to Seitō-ryū
+        </a>
       </div>
     </footer>
   </main>
 
-  <!-- MENU, STICKY HEADER FADE & FIXED-ZOOM PARALLAX -->
+  <!-- MENU, HEADER FADE & PARALLAX -->
+
   <script>
-    const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const reducedMotionQuery =
+      window.matchMedia('(prefers-reduced-motion: reduce)');
 
     document.querySelector('.menu')?.addEventListener('click', () => {
       document.getElementById('municipal-classes')?.scrollIntoView({
-        behavior:reducedMotionQuery.matches?'auto':'smooth',
+        behavior:reducedMotionQuery.matches ? 'auto' : 'smooth',
         block:'start'
       });
     });
 
     const stickyHeader = document.querySelector('.site-header');
     const hero = document.querySelector('.bk-hero');
+
     let scrollFramePending = false;
 
     function updateScrollEffects() {
@@ -835,18 +1155,23 @@
 
       if (stickyHeader) {
         stickyHeader.classList.toggle(
-          'is-scrolled', window.scrollY >= stickyHeader.offsetHeight
+          'is-scrolled',
+          window.scrollY >= stickyHeader.offsetHeight
         );
       }
 
       if (hero) {
-        // The photo stays at exactly 120% scale. Translation is capped
-        // within its 10% overscan so no empty edges appear.
+        /* Preserve 120% image scale and capped parallax */
         const maxShift = hero.offsetHeight * 0.08;
+
         const offset = reducedMotionQuery.matches
           ? 0
           : Math.min(maxShift, Math.max(0, window.scrollY * 0.12));
-        hero.style.setProperty('--hero-parallax-y', offset.toFixed(1) + 'px');
+
+        hero.style.setProperty(
+          '--hero-parallax-y',
+          offset.toFixed(1) + 'px'
+        );
       }
     }
 
@@ -856,9 +1181,19 @@
       requestAnimationFrame(updateScrollEffects);
     }
 
-    window.addEventListener('scroll', scheduleScrollEffects, { passive:true });
+    window.addEventListener(
+      'scroll',
+      scheduleScrollEffects,
+      {passive:true}
+    );
+
     window.addEventListener('resize', scheduleScrollEffects);
-    reducedMotionQuery.addEventListener?.('change', scheduleScrollEffects);
+
+    reducedMotionQuery.addEventListener?.(
+      'change',
+      scheduleScrollEffects
+    );
+
     updateScrollEffects();
   </script>
 </body>
