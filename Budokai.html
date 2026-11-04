@@ -80,6 +80,7 @@
       background-color:rgba(25,47,74,.50);
     }
 
+    /* Cherry branch remains fully opaque at every scroll position. */
     .header-blossom {
       position:absolute;
       z-index:4;
@@ -91,11 +92,10 @@
       pointer-events:none;
       user-select:none;
       opacity:1;
-      transition:opacity .5s ease;
     }
 
     .site-header.is-scrolled .header-blossom {
-      opacity:.50;
+      opacity:1;
     }
 
     .brand {
@@ -116,7 +116,10 @@
       filter:brightness(0) invert(1);
     }
 
-    .brand-stack { min-width:0; line-height:1; }
+    .brand-stack {
+      min-width:0;
+      line-height:1;
+    }
 
     .brand-stack .jp {
       display:block;
@@ -165,7 +168,7 @@
       outline-offset:3px;
     }
 
-    /* HERO */
+    /* HERO — DIVIDER REMOVED */
 
     .bk-hero {
       position:relative;
@@ -231,15 +234,8 @@
         0 8px 24px rgba(10,24,45,.38);
     }
 
-    .bk-rule {
-      width:88px;
-      height:2px;
-      margin:17px auto;
-      background:var(--shu);
-    }
-
     .bk-hero-en {
-      margin:0 auto;
+      margin:8px auto 0;
       max-width:100%;
       font-size:clamp(30px,6.2vw,50px);
       font-weight:500;
@@ -350,16 +346,7 @@
       line-height:1.1;
     }
 
-    .photo-disclaimer {
-      max-width:var(--reader-max);
-      margin:10px auto 0;
-      padding:0 18px;
-      color:var(--muted);
-      font-size:12px;
-      text-align:center;
-    }
-
-    /* CONTENT */
+    /* CONTENT SECTIONS */
 
     .bk-section {
       width:min(100%,var(--reader-max));
@@ -405,6 +392,7 @@
       align-items:start;
     }
 
+    /* Default Japanese text remains horizontal. */
     .bk-jp {
       writing-mode:horizontal-tb;
       font-family:var(--jp-body);
@@ -415,11 +403,13 @@
       overflow-wrap:anywhere;
     }
 
-    .bk-jp p,.bk-en p {
+    .bk-jp p,
+    .bk-en p {
       margin:0 0 14px;
     }
 
-    .bk-jp p:last-child,.bk-en p:last-child {
+    .bk-jp p:last-child,
+    .bk-en p:last-child {
       margin-bottom:0;
     }
 
@@ -428,11 +418,41 @@
       line-height:1.57;
     }
 
+    /*
+     * VERTICAL JAPANESE FOLIOS
+     *
+     * Writing runs downward; columns move right to left.
+     * On narrow screens, longer passages can scroll horizontally.
+     * This applies ONLY to the pale-blue Japanese reading folios.
+     */
+
     .bk-jp-folio {
-      padding:22px 23px;
+      writing-mode:vertical-rl;
+      text-orientation:mixed;
+      line-break:strict;
+      word-break:normal;
+      overflow-wrap:normal;
+      text-align:start;
+      height:clamp(470px,68svh,675px);
+      min-width:0;
+      overflow-x:auto;
+      overflow-y:hidden;
+      overscroll-behavior-x:contain;
+      padding:24px 25px;
       background:var(--folio);
       border:1px solid rgba(40,79,104,.13);
       box-shadow:0 4px 16px rgba(25,47,74,.055);
+      scrollbar-width:thin;
+      scrollbar-color:rgba(53,91,121,.45) transparent;
+    }
+
+    .bk-jp-folio p {
+      margin:0;
+      margin-block-end:1.2em;
+    }
+
+    .bk-jp-folio p:last-child {
+      margin-block-end:0;
     }
 
     .bk-ethic-lead {
@@ -444,7 +464,7 @@
       font-weight:600;
     }
 
-    /* PORTRAITS */
+    /* HISTORICAL PORTRAITS */
 
     .bk-profile {
       display:flex;
@@ -556,7 +576,7 @@
       font:23px/1.3 var(--brush);
     }
 
-    /* TRAINING SPACES */
+    /* PARALLEL TRAINING SPACES */
 
     .bk-spaces-intro {
       max-width:710px;
@@ -637,37 +657,6 @@
       margin:0;
     }
 
-    .bk-spaces-note {
-      max-width:680px;
-      margin:17px auto 0;
-      color:var(--muted);
-      text-align:center;
-    }
-
-    .bk-spaces-note .bk-jp {
-      font-size:15px;
-      line-height:1.7;
-      text-align:center;
-      margin:0 0 12px;
-    }
-
-    .bk-spaces-note .bk-en {
-      font-size:14px;
-      line-height:1.6;
-      margin:0;
-    }
-
-    .bk-small-label {
-      margin:-2px 0 21px;
-      color:var(--muted);
-      font-size:13px;
-      text-align:center;
-    }
-
-    .bk-small-label span {
-      display:block;
-    }
-
     /* CULTURAL EXCHANGE */
 
     .bk-exchange-photo {
@@ -679,10 +668,8 @@
       border:0;
     }
 
-    /*
-     * On desktop this wrapper has no effect.
-     * On mobile it becomes an exact first-screen grid.
-     */
+    /* Landing composition */
+
     .landing-fold {
       display:contents;
     }
@@ -725,17 +712,9 @@
       text-underline-offset:4px;
     }
 
-    /*
-     * MOBILE FIRST SCREEN
-     *
-     * The tiles determine their own natural height.
-     * The hero automatically fills the remaining space.
-     *
-     * Hero + both tile rows = 100svh.
-     */
+    /* MOBILE */
 
     @media(max-width:650px) {
-
       .landing-fold {
         display:grid;
         grid-template-rows:minmax(0,1fr) auto;
@@ -823,7 +802,9 @@
       }
 
       .bk-jp-folio {
-        padding:17px 19px;
+        height:clamp(430px,73svh,695px);
+        padding:19px 18px;
+        font-size:16px;
       }
 
       .bk-card {
@@ -838,8 +819,6 @@
         height:175px;
       }
     }
-
-    /* Exceptional short viewports retain legibility. */
 
     @media(max-width:650px) and (max-height:530px) {
       .landing-fold {
@@ -934,8 +913,7 @@
       }
 
       .photo-tile img,
-      .site-header,
-      .header-blossom {
+      .site-header {
         transition:none;
       }
 
@@ -968,29 +946,32 @@
 </head>
 
 <body>
-
   <!-- HEADER -->
 
   <header class="site-header">
-    <img class="header-blossom" src="assets/cherry_blossom_header.png" alt="" aria-hidden="true">
+    <img class="header-blossom"
+         src="assets/cherry_blossom_header.png"
+         alt="" aria-hidden="true">
 
-    <a class="brand" href="/" aria-label="聖都流へ戻る / Return to Seitō-ryū">
-      <img class="mon" src="assets/seito-mon.png" alt="Seitō-ryū mon">
+    <a class="brand" href="/"
+       aria-label="聖都流へ戻る / Return to Seitō-ryū">
+      <img class="mon"
+           src="assets/seito-mon.png"
+           alt="Seitō-ryū mon">
+
       <span class="brand-stack">
         <span class="jp" lang="ja">聖都合気武道会</span>
         <span class="romaji">HOLY CITY BUDŌKAI</span>
       </span>
     </a>
 
-    <button class="menu" type="button" aria-label="市民講座へ移動 / Go to municipal classes">
+    <button class="menu" type="button"
+            aria-label="市民講座へ移動 / Go to municipal classes">
       <span></span><span></span><span></span>
     </button>
   </header>
 
   <main id="top">
-
-    <!-- MOBILE FIRST-SCREEN COMPOSITION -->
-
     <div class="landing-fold">
 
       <!-- HERO -->
@@ -998,11 +979,11 @@
       <section class="bk-hero" aria-labelledby="hero-title">
         <img class="bk-hero-photo"
              src="assets/charleston-hero.jpg"
-             alt="" aria-hidden="true" fetchpriority="high">
+             alt="" aria-hidden="true"
+             fetchpriority="high">
 
         <div class="bk-hero-inner">
           <h1 id="hero-title" lang="ja">聖都合気武道会</h1>
-          <div class="bk-rule" aria-hidden="true"></div>
           <p class="bk-hero-en">HOLY CITY BUDOKAI</p>
           <p class="bk-hero-subtitle">
             Charleston’s Japanese Martial Arts Teachers’ Guild and Budō Society
@@ -1010,11 +991,13 @@
         </div>
       </section>
 
-      <!-- FOUR PHOTO PATHWAYS -->
+      <!-- PHOTO PATHWAYS -->
 
-      <nav class="photo-pathways" aria-label="Programs and partnerships / 講座と協力">
+      <nav class="photo-pathways"
+           aria-label="Programs and partnerships / 講座と協力">
         <a class="photo-tile" href="#municipal-classes">
-          <img src="assets/train-dojo.jpg" alt="An open training hall" loading="lazy">
+          <img src="assets/train-dojo.jpg"
+               alt="An open training hall" loading="lazy">
           <span class="tile-copy">
             <span class="jp" lang="ja">稽古</span>
             <span class="en">Train</span>
@@ -1022,7 +1005,9 @@
         </a>
 
         <a class="photo-tile" href="#partnership">
-          <img src="assets/serve-civic.jpg" alt="Young martial artists helping their community" loading="lazy">
+          <img src="assets/serve-civic.jpg"
+               alt="Young martial artists helping their community"
+               loading="lazy">
           <span class="tile-copy">
             <span class="jp" lang="ja">地域奉仕</span>
             <span class="en">Serve</span>
@@ -1030,7 +1015,9 @@
         </a>
 
         <a class="photo-tile" href="#exchange">
-          <img src="assets/exchange-japan.jpg" alt="Japanese architecture with cherry blossoms" loading="lazy">
+          <img src="assets/exchange-japan.jpg"
+               alt="Japanese architecture with cherry blossoms"
+               loading="lazy">
           <span class="tile-copy">
             <span class="jp" lang="ja">文化交流</span>
             <span class="en">Exchange</span>
@@ -1038,23 +1025,28 @@
         </a>
 
         <a class="photo-tile" href="#heritage">
-          <img src="assets/preserve-tradition.jpg" alt="Traditional Japanese castle artwork" loading="lazy">
+          <img src="assets/preserve-tradition.jpg"
+               alt="Traditional Japanese castle artwork"
+               loading="lazy">
           <span class="tile-copy">
             <span class="jp" lang="ja">伝統継承</span>
             <span class="en">Preserve</span>
           </span>
         </a>
       </nav>
-
     </div>
 
     <!-- FOUNDING PRINCIPLE -->
 
-    <section class="bk-section" id="ethics" aria-labelledby="ethics-title">
+    <section class="bk-section" id="ethics"
+             aria-labelledby="ethics-title">
       <div class="bk-heading">
-        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
+        <img class="bk-mark" src="assets/seito-mon.png"
+             alt="" aria-hidden="true">
         <span class="bk-heading-jp" lang="ja">創立理念 — 合気武道</span>
-        <h2 class="bk-heading-en" id="ethics-title">Our Founding Principle: Aiki Budō</h2>
+        <h2 class="bk-heading-en" id="ethics-title">
+          Our Founding Principle: Aiki Budō
+        </h2>
       </div>
 
       <div class="bk-pair">
@@ -1076,11 +1068,17 @@
 
     <!-- PARALLEL TRAINING SPACES -->
 
-    <section class="bk-section" id="training-spaces" aria-labelledby="spaces-title">
+    <section class="bk-section" id="training-spaces"
+             aria-labelledby="spaces-title">
       <div class="bk-heading">
-        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
-        <span class="bk-heading-jp" lang="ja">市民に開かれた場と門人の稽古場</span>
-        <h2 class="bk-heading-en" id="spaces-title">Parallel Training Spaces</h2>
+        <img class="bk-mark" src="assets/seito-mon.png"
+             alt="" aria-hidden="true">
+        <span class="bk-heading-jp" lang="ja">
+          市民に開かれた場と門人の稽古場
+        </span>
+        <h2 class="bk-heading-en" id="spaces-title">
+          Parallel Training Spaces
+        </h2>
       </div>
 
       <div class="bk-spaces-intro">
@@ -1092,10 +1090,7 @@
         <img src="assets/training-spaces.jpg"
              width="1355" height="914" loading="lazy"
              alt="Concept illustration of a hall with parallel white and dark tatami training areas.">
-        <figcaption>
-          <span lang="ja"></span>
-          <span> </span>
-        </figcaption>
+        <figcaption></figcaption>
       </figure>
 
       <div class="bk-spaces">
@@ -1119,9 +1114,10 @@
       </div>
     </section>
 
-    <!-- HISTORICAL AND PRACTICAL FOUNDATIONS -->
+    <!-- HISTORICAL FOUNDATIONS -->
 
-    <section class="bk-section" id="ethics-history" aria-label="Historical and practical foundations of Aiki Budō">
+    <section class="bk-section" id="ethics-history"
+             aria-label="Historical and practical foundations of Aiki Budō">
 
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">武道の理想</span>
@@ -1131,7 +1127,8 @@
       <figure class="bk-profile">
         <div class="bk-profile-frame">
           <span aria-hidden="true" lang="ja">嘉納</span>
-          <img src="assets/kano-jigoro.jpg" alt="Portrait of Kanō Jigorō"
+          <img src="assets/kano-jigoro.jpg"
+               alt="Portrait of Kanō Jigorō"
                loading="lazy" onerror="this.remove()">
         </div>
         <figcaption lang="ja">嘉納治五郎<span lang="en">Kanō Jigorō</span></figcaption>
@@ -1159,6 +1156,8 @@
         </div>
       </div>
 
+      <!-- UESHIBA -->
+
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">合気の精神</span>
         <h3 class="bk-heading-en">The Spirit of Aiki</h3>
@@ -1167,7 +1166,8 @@
       <figure class="bk-profile">
         <div class="bk-profile-frame">
           <span aria-hidden="true" lang="ja">植芝</span>
-          <img src="assets/morihei-ueshiba.jpg" alt="Portrait of Morihei Ueshiba"
+          <img src="assets/morihei-ueshiba.jpg"
+               alt="Portrait of Morihei Ueshiba"
                loading="lazy" onerror="this.remove()">
         </div>
         <figcaption lang="ja">植芝盛平<span lang="en">Morihei Ueshiba Ō-Sensei</span></figcaption>
@@ -1190,6 +1190,8 @@
         </div>
       </div>
 
+      <!-- AIKI IN PRACTICE -->
+
       <div class="bk-heading" style="margin-top:50px">
         <span class="bk-heading-jp" lang="ja">合気の実践</span>
         <h3 class="bk-heading-en">Aiki in Practice</h3>
@@ -1209,9 +1211,15 @@
         </div>
       </div>
 
+      <!-- ONE FOUNDATION -->
+
       <div class="bk-heading" style="margin-top:50px">
-        <span class="bk-heading-jp" lang="ja">多様な武道を導く一つの理念</span>
-        <h3 class="bk-heading-en">One Foundation, Many Martial Traditions</h3>
+        <span class="bk-heading-jp" lang="ja">
+          多様な武道を導く一つの理念
+        </span>
+        <h3 class="bk-heading-en">
+          One Foundation, Many Martial Traditions
+        </h3>
       </div>
 
       <div class="bk-pair">
@@ -1234,9 +1242,15 @@
         </div>
       </div>
 
+      <!-- COMMUNITY EDUCATION -->
+
       <div class="bk-heading" style="margin-top:50px">
-        <span class="bk-heading-jp" lang="ja">地域社会のための武道教育</span>
-        <h3 class="bk-heading-en">Martial Education for the Community</h3>
+        <span class="bk-heading-jp" lang="ja">
+          地域社会のための武道教育
+        </span>
+        <h3 class="bk-heading-en">
+          Martial Education for the Community
+        </h3>
       </div>
 
       <div class="bk-pair">
@@ -1258,11 +1272,15 @@
 
     <!-- MUNICIPAL CLASSES -->
 
-    <section class="bk-section" id="municipal-classes" aria-labelledby="classes-title">
+    <section class="bk-section" id="municipal-classes"
+             aria-labelledby="classes-title">
       <div class="bk-heading">
-        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
+        <img class="bk-mark" src="assets/seito-mon.png"
+             alt="" aria-hidden="true">
         <span class="bk-heading-jp" lang="ja">市民向け講座案</span>
-        <h2 class="bk-heading-en" id="classes-title">Proposed Municipal Classes</h2>
+        <h2 class="bk-heading-en" id="classes-title">
+          Proposed Municipal Classes
+        </h2>
       </div>
 
       <div class="bk-cards">
@@ -1303,7 +1321,7 @@
         </article>
       </div>
 
-      <!-- HERITAGE -->
+      <!-- HERITAGE PATH -->
 
       <div class="bk-heritage" id="heritage">
         <h3>
@@ -1327,11 +1345,15 @@
 
     <!-- MUNICIPAL PARTNERSHIP -->
 
-    <section class="bk-section" id="partnership" aria-labelledby="partnership-title">
+    <section class="bk-section" id="partnership"
+             aria-labelledby="partnership-title">
       <div class="bk-heading">
-        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
+        <img class="bk-mark" src="assets/seito-mon.png"
+             alt="" aria-hidden="true">
         <span class="bk-heading-jp" lang="ja">市との協力案</span>
-        <h2 class="bk-heading-en" id="partnership-title">Municipal Partnership</h2>
+        <h2 class="bk-heading-en" id="partnership-title">
+          Municipal Partnership
+        </h2>
       </div>
 
       <div class="bk-pair">
@@ -1349,14 +1371,21 @@
 
     <!-- CULTURAL EXCHANGE -->
 
-    <section class="bk-section" id="exchange" aria-labelledby="exchange-title">
+    <section class="bk-section" id="exchange"
+             aria-labelledby="exchange-title">
       <div class="bk-heading">
-        <img class="bk-mark" src="assets/seito-mon.png" alt="" aria-hidden="true">
-        <span class="bk-heading-jp" lang="ja">チャールストンと日本の文化交流</span>
-        <h2 class="bk-heading-en" id="exchange-title">Charleston–Japan Cultural Exchange</h2>
+        <img class="bk-mark" src="assets/seito-mon.png"
+             alt="" aria-hidden="true">
+        <span class="bk-heading-jp" lang="ja">
+          チャールストンと日本の文化交流
+        </span>
+        <h2 class="bk-heading-en" id="exchange-title">
+          Charleston–Japan Cultural Exchange
+        </h2>
       </div>
 
-      <img class="bk-exchange-photo" src="assets/exchange-japan.jpg"
+      <img class="bk-exchange-photo"
+           src="assets/exchange-japan.jpg"
            alt="Illustrative Japanese castle framed by cherry blossoms"
            loading="lazy">
 
@@ -1374,7 +1403,10 @@
     <!-- FOOTER -->
 
     <footer class="colophon">
-      <img class="mon" src="assets/seito-mon.png" alt="" aria-hidden="true">
+      <img class="mon"
+           src="assets/seito-mon.png"
+           alt="" aria-hidden="true">
+
       <div class="jp" lang="ja">聖都合気武道会</div>
       <div class="romaji">HOLY CITY BUDŌKAI</div>
       <div class="meta">Holy City Budō Society</div>
@@ -1390,10 +1422,9 @@
         </a>
       </div>
     </footer>
-
   </main>
 
-  <!-- HEADER FADE, MENU AND PARALLAX -->
+  <!-- MENU, HEADER FADE AND PARALLAX -->
 
   <script>
     const reducedMotionQuery =
@@ -1462,6 +1493,5 @@
 
     updateScrollEffects();
   </script>
-
 </body>
 </html>
