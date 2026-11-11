@@ -39,59 +39,6 @@
   href="styles.css"
 >
 
-<style>
-
-/* =========================================================
-   FOLIO PRESERVATION
-
-   Folio height remains controlled entirely by styles.css.
-
-   No dynamic height changes are made.
-   ========================================================= */
-
-.jp-folio{
-  height:var(--jp-field-height) !important;
-  max-height:60svh;
-}
-
-
-/* =========================================================
-   JAPANESE TEXT MEASUREMENT
-
-   The actual folio keeps its original appearance.
-   ========================================================= */
-
-.jp-folio-text{
-  overflow:hidden;
-}
-
-
-/* =========================================================
-   DECORATIVE BLOSSOM LAYER
-
-   Keep the branch visible without covering the story.
-   ========================================================= */
-
-.site-header{
-  isolation:auto;
-}
-
-.header-blossom{
-  z-index:0;
-}
-
-.brand,
-.menu{
-  z-index:2;
-}
-
-#sections{
-  position:relative;
-  z-index:1;
-}
-
-</style>
-
 </head>
 
 
@@ -136,6 +83,7 @@
 
   </a>
 
+
   <button
     class="menu"
     type="button"
@@ -149,6 +97,7 @@
   </button>
 
 </header>
+
 
 
 <!-- =======================================================
@@ -172,6 +121,7 @@
       alt="Seito-ryū mon"
     >
 
+
     <div class="hero-wordmark">
 
       <div
@@ -183,10 +133,12 @@
           聖都流合気武道
         </h1>
 
+
         <div
           class="hero-rule"
           aria-hidden="true"
         ></div>
+
 
         <div
           class="romaji"
@@ -196,6 +148,7 @@
         </div>
 
       </div>
+
 
       <div class="hero-mark">
 
@@ -208,6 +161,7 @@
       </div>
 
     </div>
+
 
     <div class="soryuki">
 
@@ -234,11 +188,13 @@
 </section>
 
 
+
 <!-- =======================================================
      STORY
      ======================================================= -->
 
 <div id="sections"></div>
+
 
 
 <!-- =======================================================
@@ -276,6 +232,7 @@
 </main>
 
 
+
 <!-- =======================================================
      CONTENT
      ======================================================= -->
@@ -292,8 +249,10 @@
 const root =
   document.getElementById("sections");
 
+
 const menuButton =
   document.querySelector(".menu");
+
 
 
 /* =========================================================
@@ -305,23 +264,29 @@ function createAikiSeal(key){
   const data =
     aikiSeals[key];
 
+
   if(!data){
     return null;
   }
 
+
   const seal =
     document.createElement("div");
+
 
   seal.className =
     "aiki-seal";
 
+
   seal.dataset.seal =
     key;
+
 
   seal.setAttribute(
     "aria-label",
     `${data.romaji}: ${data.gloss}`
   );
+
 
   seal.innerHTML = `
 
@@ -339,9 +304,11 @@ function createAikiSeal(key){
 
   `;
 
+
   return seal;
 
 }
+
 
 
 /* =========================================================
@@ -353,8 +320,10 @@ function createEnglishEntry(paragraph){
   const entry =
     document.createElement("div");
 
+
   entry.className =
     "en-entry";
+
 
   if(paragraph.seal){
 
@@ -362,6 +331,7 @@ function createEnglishEntry(paragraph){
       createAikiSeal(
         paragraph.seal
       );
+
 
     if(seal){
 
@@ -376,6 +346,7 @@ function createEnglishEntry(paragraph){
 
       }
 
+
       entry.appendChild(
         seal
       );
@@ -384,8 +355,10 @@ function createEnglishEntry(paragraph){
 
   }
 
+
   const p =
     document.createElement("p");
+
 
   if(paragraph.class){
 
@@ -394,22 +367,26 @@ function createEnglishEntry(paragraph){
 
   }
 
+
   p.textContent =
     paragraph.text;
+
 
   entry.appendChild(
     p
   );
+
 
   return entry;
 
 }
 
 
+
 /* =========================================================
    NORMALIZE JAPANESE TEXT
 
-   Preserve narrative line breaks.
+   Preserve paragraph breaks without forcing folios.
    ========================================================= */
 
 function normalizeJapaneseText(text){
@@ -441,8 +418,15 @@ function normalizeJapaneseText(text){
 }
 
 
+
 /* =========================================================
    JAPANESE BLOCK
+
+   No pagination.
+   No folios.
+   No JavaScript text measurement.
+
+   Browser-native vertical text flow.
    ========================================================= */
 
 function createJapaneseBlock(text){
@@ -450,490 +434,25 @@ function createJapaneseBlock(text){
   const block =
     document.createElement("div");
 
+
   block.className =
     "jp-block";
+
 
   block.lang =
     "ja";
 
-  block._sourceText =
-    normalizeJapaneseText(text);
+
+  block.textContent =
+    normalizeJapaneseText(
+      text
+    );
+
 
   return block;
 
 }
 
-
-/* =========================================================
-   CREATE JAPANESE FOLIO
-
-   Fixed height is supplied by styles.css.
-   ========================================================= */
-
-function createJapaneseFolio(){
-
-  const folio =
-    document.createElement("div");
-
-  folio.className =
-    "jp-folio";
-
-  const textNode =
-    document.createElement("div");
-
-  textNode.className =
-    "jp-folio-text";
-
-  folio.appendChild(
-    textNode
-  );
-
-  return {
-    folio,
-    textNode
-  };
-
-}
-
-
-/* =========================================================
-   JAPANESE MEASUREMENT PROBE
-
-   The probe is positioned offscreen.
-
-   It uses the same font, vertical writing mode,
-   column width, letter spacing, and available height
-   as the actual folio.
-
-   Crucially, the probe uses overflow:visible, allowing
-   measurement of the full text instead of clipped text.
-   ========================================================= */
-
-function createJapaneseProbe(folio){
-
-  const sourceText =
-    folio.querySelector(
-      ".jp-folio-text"
-    );
-
-  const sourceStyle =
-    getComputedStyle(sourceText);
-
-  const probe =
-    document.createElement("div");
-
-  probe.className =
-    "jp-measure-probe";
-
-  probe.lang =
-    "ja";
-
-  const rect =
-    sourceText.getBoundingClientRect();
-
-  Object.assign(
-    probe.style,
-    {
-      position:"fixed",
-      left:"-100000px",
-      top:"0",
-      visibility:"hidden",
-      pointerEvents:"none",
-      zIndex:"-1",
-
-      boxSizing:"border-box",
-
-      writingMode:"vertical-rl",
-      textOrientation:"mixed",
-
-      whiteSpace:"pre-wrap",
-
-      fontFamily:
-        sourceStyle.fontFamily,
-
-      fontSize:
-        sourceStyle.fontSize,
-
-      fontWeight:
-        sourceStyle.fontWeight,
-
-      fontStyle:
-        sourceStyle.fontStyle,
-
-      lineHeight:
-        sourceStyle.lineHeight,
-
-      letterSpacing:
-        sourceStyle.letterSpacing,
-
-      wordSpacing:
-        sourceStyle.wordSpacing,
-
-      overflow:"visible",
-
-      height:
-        `${rect.height}px`,
-
-      width:
-        `${rect.width}px`,
-
-      maxWidth:"none",
-
-      minWidth:"0",
-
-      padding:"0",
-
-      margin:"0",
-
-      border:"0"
-    }
-  );
-
-  document.body.appendChild(
-    probe
-  );
-
-  return probe;
-
-}
-
-
-/* =========================================================
-   MEASURE JAPANESE TEXT
-
-   In vertical-rl, additional columns extend
-   horizontally toward the left.
-
-   The probe's scrollWidth detects text requiring
-   more columns than the folio permits.
-   ========================================================= */
-
-function japaneseTextFits(
-  probe,
-  text
-){
-
-  probe.textContent =
-    text;
-
-  const tolerance =
-    1.5;
-
-  return (
-    probe.scrollWidth <=
-      probe.clientWidth + tolerance
-    &&
-    probe.scrollHeight <=
-      probe.clientHeight + tolerance
-  );
-
-}
-
-
-/* =========================================================
-   FIND MAXIMUM FITTING LENGTH
-
-   Binary search finds the largest prefix that
-   fits inside the fixed-height, eight-column folio.
-   ========================================================= */
-
-function findFittingLength(
-  probe,
-  text
-){
-
-  let low =
-    0;
-
-  let high =
-    text.length;
-
-  let best =
-    0;
-
-  while(low <= high){
-
-    const middle =
-      Math.floor(
-        (low + high) / 2
-      );
-
-    const candidate =
-      text.slice(
-        0,
-        middle
-      );
-
-    if(
-      japaneseTextFits(
-        probe,
-        candidate
-      )
-    ){
-
-      best =
-        middle;
-
-      low =
-        middle + 1;
-
-    }
-
-    else{
-
-      high =
-        middle - 1;
-
-    }
-
-  }
-
-  return best;
-
-}
-
-
-/* =========================================================
-   NATURAL BREAK
-
-   Prefer a nearby paragraph or sentence ending,
-   but only when doing so does not waste substantial
-   folio capacity.
-
-   The maximum search distance is deliberately small.
-   ========================================================= */
-
-function naturalJapaneseBreak(
-  text,
-  maximum
-){
-
-  if(
-    maximum >= text.length
-  ){
-    return text.length;
-  }
-
-  const searchDepth =
-    12;
-
-  const minimum =
-    Math.max(
-      1,
-      maximum - searchDepth
-    );
-
-  for(
-    let i = maximum - 1;
-    i >= minimum;
-    i--
-  ){
-
-    if(
-      text[i] === "\n"
-    ){
-      return i + 1;
-    }
-
-  }
-
-  const punctuation =
-    new Set([
-      "。",
-      "！",
-      "？",
-      "』",
-      "」"
-    ]);
-
-  for(
-    let i = maximum - 1;
-    i >= minimum;
-    i--
-  ){
-
-    if(
-      punctuation.has(
-        text[i]
-      )
-    ){
-      return i + 1;
-    }
-
-  }
-
-  return maximum;
-
-}
-
-
-/* =========================================================
-   PAGINATE JAPANESE BLOCK
-
-   Every folio retains the original fixed height.
-
-   No folio is contracted.
-
-   Text is measured against the actual available
-   column width and vertical height.
-
-   The next folio is created only when necessary.
-   ========================================================= */
-
-function paginateJapaneseBlock(block){
-
-  const source =
-    block._sourceText;
-
-  if(
-    typeof source !== "string"
-    ||
-    !source.length
-  ){
-    block.replaceChildren();
-    return;
-  }
-
-  block.replaceChildren();
-
-  let remaining =
-    source;
-
-  let pageCount =
-    0;
-
-  while(
-    remaining.length
-  ){
-
-    pageCount++;
-
-    if(
-      pageCount > 1000
-    ){
-
-      console.warn(
-        "Japanese pagination stopped after 1000 folios."
-      );
-
-      break;
-
-    }
-
-    const {
-      folio,
-      textNode
-    } =
-      createJapaneseFolio();
-
-    block.appendChild(
-      folio
-    );
-
-    const probe =
-      createJapaneseProbe(
-        folio
-      );
-
-    try{
-
-      if(
-        japaneseTextFits(
-          probe,
-          remaining
-        )
-      ){
-
-        textNode.textContent =
-          remaining;
-
-        remaining =
-          "";
-
-        continue;
-
-      }
-
-      const maximum =
-        findFittingLength(
-          probe,
-          remaining
-        );
-
-      if(
-        maximum < 1
-      ){
-
-        console.warn(
-          "Japanese folio has insufficient capacity.",
-          block
-        );
-
-        textNode.textContent =
-          remaining;
-
-        break;
-
-      }
-
-      const fittingLength =
-        naturalJapaneseBreak(
-          remaining,
-          maximum
-        );
-
-      const pageText =
-        remaining
-          .slice(
-            0,
-            fittingLength
-          )
-          .trim();
-
-      textNode.textContent =
-        pageText;
-
-      remaining =
-        remaining
-          .slice(
-            fittingLength
-          )
-          .trimStart();
-
-    }
-
-    finally{
-
-      probe.remove();
-
-    }
-
-  }
-
-}
-
-
-/* =========================================================
-   PAGINATE ALL JAPANESE
-   ========================================================= */
-
-function paginateJapanese(){
-
-  document
-    .querySelectorAll(
-      ".jp-block"
-    )
-    .forEach(
-      block => {
-
-        paginateJapaneseBlock(
-          block
-        );
-
-      }
-    );
-
-}
 
 
 /* =========================================================
@@ -947,24 +466,30 @@ function createRevealControl(){
       "div"
     );
 
+
   wrap.className =
     "aiki-reveal-wrap";
+
 
   const button =
     document.createElement(
       "button"
     );
 
+
   button.type =
     "button";
 
+
   button.className =
     "aiki-reveal-button";
+
 
   button.setAttribute(
     "aria-expanded",
     "false"
   );
+
 
   button.innerHTML = `
 
@@ -982,6 +507,7 @@ function createRevealControl(){
 
   `;
 
+
   button.addEventListener(
     "click",
     () => {
@@ -994,32 +520,39 @@ function createRevealControl(){
         return;
       }
 
+
       document.body.classList.add(
         "aiki-imprint-revealed"
       );
 
+
       button.classList.add(
         "is-revealed"
       );
+
 
       button.setAttribute(
         "aria-expanded",
         "true"
       );
 
+
       const firstSeal =
         document.querySelector(
           ".aiki-seal-first"
         );
 
+
       if(!firstSeal){
         return;
       }
+
 
       const reducedMotion =
         window.matchMedia(
           "(prefers-reduced-motion: reduce)"
         ).matches;
+
 
       requestAnimationFrame(
         () => {
@@ -1042,13 +575,16 @@ function createRevealControl(){
     }
   );
 
+
   wrap.appendChild(
     button
   );
 
+
   return wrap;
 
 }
+
 
 
 /* =========================================================
@@ -1065,8 +601,10 @@ function renderSections(){
     return;
   }
 
+
   const fragment =
     document.createDocumentFragment();
+
 
   sections.forEach(
     (section,index) => {
@@ -1076,8 +614,10 @@ function renderSections(){
           "section"
         );
 
+
       sectionElement.className =
         "section";
+
 
       if(index === 0){
 
@@ -1085,6 +625,7 @@ function renderSections(){
           "about";
 
       }
+
 
       /* ---------------------------------------------------
          SECTION TITLE
@@ -1095,8 +636,10 @@ function renderSections(){
           "header"
         );
 
+
       title.className =
         "section-title";
+
 
       title.innerHTML = `
 
@@ -1120,6 +663,7 @@ function renderSections(){
 
       `;
 
+
       /* ---------------------------------------------------
          BILINGUAL FIELD
          --------------------------------------------------- */
@@ -1129,8 +673,10 @@ function renderSections(){
           "div"
         );
 
+
       bilingual.className =
         "bilingual-block";
+
 
       /* ---------------------------------------------------
          JAPANESE
@@ -1141,6 +687,7 @@ function renderSections(){
           section.jp
         );
 
+
       /* ---------------------------------------------------
          ENGLISH
          --------------------------------------------------- */
@@ -1150,8 +697,10 @@ function renderSections(){
           "div"
         );
 
+
       english.className =
         "en-block";
+
 
       section.en.forEach(
         paragraph => {
@@ -1164,6 +713,7 @@ function renderSections(){
 
         }
       );
+
 
       /* ---------------------------------------------------
          FINAL REVEAL
@@ -1179,15 +729,18 @@ function renderSections(){
 
       }
 
+
       bilingual.append(
         japanese,
         english
       );
 
+
       sectionElement.append(
         title,
         bilingual
       );
+
 
       fragment.appendChild(
         sectionElement
@@ -1196,11 +749,13 @@ function renderSections(){
     }
   );
 
+
   root.replaceChildren(
     fragment
   );
 
 }
+
 
 
 /* =========================================================
@@ -1231,6 +786,7 @@ menuButton?.addEventListener(
 );
 
 
+
 /* =========================================================
    HERO TITLE WIDTH EQUALIZER
    ========================================================= */
@@ -1249,10 +805,12 @@ function equalizeHeroTitle(){
             "[data-title-jp]"
           );
 
+
         const romaji =
           group.querySelector(
             "[data-title-romaji]"
           );
+
 
         if(
           !japanese
@@ -1262,11 +820,13 @@ function equalizeHeroTitle(){
           return;
         }
 
+
         japanese.style
           .setProperty(
             "--match-extra",
             "0px"
           );
+
 
         romaji.style
           .setProperty(
@@ -1274,21 +834,25 @@ function equalizeHeroTitle(){
             "0px"
           );
 
+
         const jpWidth =
           japanese
             .getBoundingClientRect()
             .width;
+
 
         const romajiWidth =
           romaji
             .getBoundingClientRect()
             .width;
 
+
         const targetWidth =
           Math.max(
             jpWidth,
             romajiWidth
           );
+
 
         function expandLine(
           element,
@@ -1302,6 +866,7 @@ function equalizeHeroTitle(){
             return;
           }
 
+
           const characters =
             Array.from(
               element
@@ -1309,11 +874,13 @@ function equalizeHeroTitle(){
                 .trim()
             ).length;
 
+
           if(
             characters < 2
           ){
             return;
           }
+
 
           const extra =
             (
@@ -1326,6 +893,7 @@ function equalizeHeroTitle(){
               1
             );
 
+
           element.style
             .setProperty(
               "--match-extra",
@@ -1334,10 +902,12 @@ function equalizeHeroTitle(){
 
         }
 
+
         expandLine(
           japanese,
           jpWidth
         );
+
 
         expandLine(
           romaji,
@@ -1350,48 +920,12 @@ function equalizeHeroTitle(){
 }
 
 
-/* =========================================================
-   DEBOUNCE
-   ========================================================= */
-
-function debounce(
-  callback,
-  delay
-){
-
-  let timer;
-
-  return function(){
-
-    clearTimeout(
-      timer
-    );
-
-    timer =
-      setTimeout(
-        callback,
-        delay
-      );
-
-  };
-
-}
-
 
 /* =========================================================
    INITIALIZE
    ========================================================= */
 
 renderSections();
-
-
-function completeLayout(){
-
-  equalizeHeroTitle();
-
-  paginateJapanese();
-
-}
 
 
 if(
@@ -1404,13 +938,7 @@ if(
     () => {
 
       requestAnimationFrame(
-        () => {
-
-          requestAnimationFrame(
-            completeLayout
-          );
-
-        }
+        equalizeHeroTitle
       );
 
     }
@@ -1422,43 +950,20 @@ else{
 
   window.addEventListener(
     "load",
-    completeLayout,
+    equalizeHeroTitle,
     { once:true }
   );
 
 }
 
 
-/* =========================================================
-   RESPONSIVE REPAGINATION
-   ========================================================= */
-
-const repaginate =
-  debounce(
-    completeLayout,
-    150
-  );
-
-
 window.addEventListener(
   "resize",
-  repaginate
-);
-
-
-window.addEventListener(
-  "orientationchange",
-  () => {
-
-    setTimeout(
-      completeLayout,
-      250
-    );
-
-  }
+  equalizeHeroTitle
 );
 
 </script>
+
 
 </body>
 
