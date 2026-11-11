@@ -190,7 +190,7 @@ const sections = [
     },
 
     {
-      text: "'The Holy City, he nodded. ‘A lot of people say it all begins with Shinra Saburō Minamoto no Yoshimitsu.’"
+      text: "'The Holy City,yes. I've seen it, and it's silver bridge called Grace... ‘Well a lot of people say it all begins with Shinra Saburō Minamoto no Yoshimitsu.’"
     },
 
     {
