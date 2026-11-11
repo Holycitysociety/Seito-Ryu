@@ -186,7 +186,7 @@ const sections = [
     },
 
     {
-      text: "‘Charleston, SC. Uh, lineage,’ I said. ‘Do you know Aikidō? I’m thinking about where to train.’"
+      text: "‘Charleston, SC. Ah, lineage,’ I said. ‘Do you know Aikidō? I’m thinking about where to train.’"
     },
 
     {
