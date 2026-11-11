@@ -189,15 +189,12 @@ const sections = [
     },
 
     {
-      text: "'The Holy City, he nodded. ‘A lot of people begin with Shinra Saburō Minamoto no Yoshimitsu.’"
+      text: "'The Holy City, he nodded. ‘A lot of people say it all begins with Shinra Saburō Minamoto no Yoshimitsu.’"
     },
 
-    {
-      text: "‘!?’"
-    },
 
     {
-      text: "‘I know the name,’ I said. ‘Not much more than that.’"
+      text: "'!, I know the name,’ I said. ‘Not much more than that.’"
     },
 
     {
