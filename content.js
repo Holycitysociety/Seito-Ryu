@@ -1,3 +1,4 @@
+
 /* =========================================================
    SEITO-RYŪ CONTENT
 
@@ -192,7 +193,6 @@ const sections = [
       text: "'The Holy City, he nodded. ‘A lot of people say it all begins with Shinra Saburō Minamoto no Yoshimitsu.’"
     },
 
-
     {
       text: "'!, I know the name,’ I said. ‘Not much more than that.’"
     },
@@ -259,6 +259,8 @@ const sections = [
 
 「そこにあったのは、技の目録よりも深い秘法だった。法とは、現実そのものに内在する秩序だ」
 
+「その秩序の内には、結びつけ、そして生み出す力がある。産び、Musubi だ」
+
 「そこには、こういう言葉があった。『法に従って見よ。そうすれば、ふさわしい働きは自ら現れる』」
 
 「少年は十六歳頃に鞍馬を離れ、北の平泉へ向かった。そこで藤原秀衡が彼を保護した。彼はそこに六年間いた。それは重要だ。聖なる山で教えを受けることと、それを日々の暮らし、稽古、退屈、誇り、そして歳を重ねることの中で運び続けることは別のことだ。少年は比類なき武人へと成長した」
@@ -279,6 +281,10 @@ const sections = [
 
     {
       text: "‘It taught a secret law deeper than a catalogue of techniques. The Law is the order inherent in reality."
+    },
+
+    {
+      text: "‘Within that order is the power of joining and bringing forth, Musubi, 産び."
     },
 
     {
@@ -312,7 +318,7 @@ const sections = [
   jp: `
 「義経が伝説になるのは、他の者には見えない可能性を見るからだ。地形は機会になる。敵の予測は弱点になる。不可能だと思われていた道こそ、まさに進む価値のある道となる。そして関係そのものを変えられるなら、力に必ずしも正面から対抗する必要はない」
 
-「これは単なる戦略ではなかった。鞍馬で出会った法の、生成的な表現だった。義経は、あらかじめ決められた答えの中から一つを選ぶだけではない。彼は場全体を見る。地形、時機、予測、力、動き、心理、関係、そして機会。法に従って見よ。そうすれば、ふさわしい働きは自ら現れる」
+「これは単なる戦略ではなかった。鞍馬で出会った、生成する合気産び、Aiki Musubi だった。そこでは、関係の中から自ずと新たな可能性が生まれ得る。義経は、あらかじめ決められた答えの中から一つを選ぶだけではない。彼は場全体を見る。地形、時機、予測、力、動き、心理、関係、そして機会。法に従って見よ。そうすれば、ふさわしい働きは自ら現れる」
 
 「後世の人々は、義経を単なる剣士としてではなく、完全な武人の像として記憶することになる。馬と弓、刃と組討、戦略と指揮、地形、欺き、時機、そして人を治めること。無数の家と流派が、その継承の一部を運ぶことになる。残ったものもあれば、他の伝統へ溶け込んだものもあり、完全に消えたものもある」
   `,
@@ -323,7 +329,7 @@ const sections = [
     },
 
     {
-      text: "‘This was not merely strategy. It was the generative expression of the Law he encountered at Kurama. Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity. See according to the Law, and the appropriate action will reveal itself."
+      text: "‘This was not merely strategy. It was the generative Aiki Musubi, 合気産び, he encountered at Kurama: a relationship from which spontaneous possibilities could arise. Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity. See according to the Law, and the appropriate action will reveal itself."
     },
 
     {
