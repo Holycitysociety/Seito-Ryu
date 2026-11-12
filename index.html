@@ -1,18 +1,26 @@
 
 <!doctype html>
-<html lang="en">
+<html lang="en" class="notranslate" translate="no">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <!-- Discourage automatic browser and Google translation -->
+  <meta name="google" content="notranslate">
+  <meta name="googlebot" content="notranslate">
+  <meta name="robots" content="notranslate">
+  <meta http-equiv="Content-Language" content="en, ja">
+
   <title>Seitō-ryū Aiki Budō</title>
   <meta name="description" content="Seitō-ryū Aiki Budō">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="notranslate" translate="no">
   <header class="site-header">
     <img
       class="header-blossom"
@@ -28,7 +36,7 @@
         alt="Seitō-ryū mon"
       >
       <div class="brand-stack">
-        <span class="jp">聖都流合気武道</span>
+        <span class="jp" lang="ja">聖都流合気武道</span>
         <span class="romaji">SEITŌ-RYŪ AIKI BUDŌ</span>
       </div>
     </a>
@@ -55,7 +63,7 @@
 
         <div class="hero-wordmark">
           <div class="hero-title-block" data-title-equalizer>
-            <h1 data-title-jp>聖都流合気武道</h1>
+            <h1 data-title-jp lang="ja">聖都流合気武道</h1>
             <div class="hero-rule" aria-hidden="true"></div>
             <div class="romaji" data-title-romaji>
               SEITŌ-RYŪ AIKI BUDŌ
@@ -72,7 +80,7 @@
         </div>
 
         <div class="soryuki">
-          <span class="jp">創流期</span>
+          <span class="jp" lang="ja">創流期</span>
           <span class="rom">Sōryū-ki</span>
           <span class="en">Formative Period</span>
           <span class="place">
@@ -91,7 +99,7 @@
         alt=""
         aria-hidden="true"
       >
-      <div class="jp">聖都流合気武道</div>
+      <div class="jp" lang="ja">聖都流合気武道</div>
       <div class="romaji">SEITŌ-RYŪ AIKI BUDŌ</div>
       <div class="meta">
         創流期 — Sōryū-ki — Formative Period
@@ -110,21 +118,8 @@
     const root = document.getElementById("sections");
     const menuButton = document.querySelector(".menu");
 
-    /*
-     * Japanese pagination
-     *
-     * Each vertical text panel:
-     * - uses the existing 60svh height limit;
-     * - stays inside the Japanese half of the grid;
-     * - contains as many columns as actually fit;
-     * - sends remaining text into another panel below.
-     *
-     * Panels have no folio backgrounds, borders or frames.
-     */
-
-    const JAPANESE_PANEL_GAP = 24;
     let paginationFrame = null;
-    let lastPaginationWidth = 0;
+    let resizeTimeout = null;
 
     function normalizeJapaneseText(text) {
       return String(text || "")
@@ -149,6 +144,7 @@
 
       const jp = document.createElement("span");
       jp.className = "aiki-seal-jp";
+      jp.lang = "ja";
       jp.textContent = data.jp;
 
       const romaji = document.createElement("span");
@@ -179,12 +175,14 @@
       }
 
       const p = document.createElement("p");
+
       if (paragraph.class) {
         p.className = paragraph.class;
       }
-      p.textContent = paragraph.text;
 
+      p.textContent = paragraph.text;
       entry.appendChild(p);
+
       return entry;
     }
 
@@ -192,6 +190,7 @@
       const block = document.createElement("div");
       block.className = "jp-block";
       block.lang = "ja";
+      block.translate = false;
       block.dataset.fullText = normalizeJapaneseText(text);
       block.setAttribute("aria-label", "Japanese text");
 
@@ -208,7 +207,7 @@
       button.setAttribute("aria-expanded", "false");
 
       button.innerHTML = `
-        <span class="aiki-seal-jp">合気</span>
+        <span class="aiki-seal-jp" lang="ja">合気</span>
         <span class="aiki-seal-romaji">AIKI</span>
         <span class="aiki-seal-gloss">TAP TO SEE</span>
       `;
@@ -274,11 +273,11 @@
         markImage.src = "/assets/seito-mon.png";
         markImage.alt = "";
         markImage.setAttribute("aria-hidden", "true");
-
         mark.appendChild(markImage);
 
         const kicker = document.createElement("div");
         kicker.className = "kicker";
+        kicker.lang = "ja";
         kicker.textContent = section.jpTitle;
 
         const sub = document.createElement("div");
@@ -294,6 +293,7 @@
 
         const english = document.createElement("div");
         english.className = "en-block";
+        english.lang = "en";
 
         section.en.forEach(paragraph => {
           english.appendChild(
@@ -314,45 +314,96 @@
     }
 
     /*
-     * Pagination measurement
+     * Vertical Japanese pagination.
      *
-     * A hidden probe uses exactly the same text styling,
-     * height and width as a real Japanese panel.
+     * IMPORTANT:
      *
-     * We test whether the text fits horizontally.
-     * The binary search finds the longest prefix that fits.
+     * The previous version relied on scrollWidth.
+     * On some mobile browsers, that can fail to detect
+     * columns extending beyond the LEFT boundary.
+     *
+     * This version measures the actual rendered glyph
+     * rectangles using DOM Range.getClientRects().
+     *
+     * Text is accepted only when every measured rectangle
+     * fits inside the probe's boundaries.
      */
 
-    function makeMeasurementProbe(width, height) {
-      const probe = document.createElement("div");
+    function createJapanesePage(text) {
+      const page = document.createElement("div");
+      page.className = "jp-page";
+      page.lang = "ja";
+      page.textContent = text;
+      return page;
+    }
 
-      probe.className = "jp-page jp-measure";
+    function createMeasurementProbe(width, height) {
+      const probe = createJapanesePage("");
+
+      probe.classList.add("jp-measure");
+
+      probe.style.position = "fixed";
+      probe.style.left = "0";
+      probe.style.top = "0";
       probe.style.width = `${width}px`;
       probe.style.height = `${height}px`;
       probe.style.maxHeight = "none";
-      probe.style.position = "fixed";
-      probe.style.left = "-10000px";
-      probe.style.top = "0";
+
+      /*
+       * Visible overflow is required for accurate
+       * measurement of out-of-bounds text.
+       * Visibility:hidden still allows layout.
+       */
+      probe.style.overflow = "visible";
       probe.style.visibility = "hidden";
       probe.style.pointerEvents = "none";
-      probe.style.overflow = "hidden";
-      probe.style.contain = "none";
 
       document.body.appendChild(probe);
       return probe;
     }
 
-    function fitsInProbe(probe, text) {
+    function textFits(probe, text) {
       probe.textContent = text;
 
+      const node = probe.firstChild;
+
+      if (!node) return true;
+
+      const range = document.createRange();
+      range.selectNodeContents(probe);
+
+      const panel = probe.getBoundingClientRect();
+      const rectangles = range.getClientRects();
+
       /*
-       * scrollWidth detects additional vertical-rl columns
-       * extending beyond the panel's available width.
+       * Small safety margin for font rendering,
+       * subpixel rounding and Safari.
        */
-      return (
-        probe.scrollWidth <= probe.clientWidth + 1 &&
-        probe.scrollHeight <= probe.clientHeight + 1
-      );
+      const tolerance = 2;
+
+      for (const rect of rectangles) {
+        if (rect.width === 0 && rect.height === 0) {
+          continue;
+        }
+
+        if (rect.left < panel.left - tolerance) {
+          return false;
+        }
+
+        if (rect.right > panel.right + tolerance) {
+          return false;
+        }
+
+        if (rect.top < panel.top - tolerance) {
+          return false;
+        }
+
+        if (rect.bottom > panel.bottom + tolerance) {
+          return false;
+        }
+      }
+
+      return true;
     }
 
     function findFittingLength(probe, characters) {
@@ -360,13 +411,15 @@
       let high = characters.length;
 
       while (low < high) {
-        const middle = Math.ceil((low + high) / 2);
+        const middle = Math.ceil(
+          (low + high) / 2
+        );
 
         const candidate = characters
           .slice(0, middle)
           .join("");
 
-        if (fitsInProbe(probe, candidate)) {
+        if (textFits(probe, candidate)) {
           low = middle;
         } else {
           high = middle - 1;
@@ -376,15 +429,9 @@
       return low;
     }
 
-    function createJapanesePage(text) {
-      const page = document.createElement("div");
-      page.className = "jp-page";
-      page.textContent = text;
-      return page;
-    }
-
     function paginateJapaneseBlock(block) {
       const source = block.dataset.fullText || "";
+
       block.replaceChildren();
 
       if (!source) return;
@@ -397,12 +444,14 @@
       block.appendChild(sizingPage);
 
       const height = sizingPage.clientHeight;
-
       sizingPage.remove();
 
       if (height <= 0) return;
 
-      const probe = makeMeasurementProbe(width, height);
+      const probe = createMeasurementProbe(
+        width,
+        height
+      );
 
       try {
         let remaining = Array.from(source);
@@ -412,12 +461,12 @@
           safety++;
 
           /*
-           * Remove only whitespace at the boundary between
-           * pages. Do not change the canonical source text.
+           * Strip whitespace only at the start
+           * of a continuation block.
            */
           while (
             remaining.length &&
-            /^[\s]$/.test(remaining[0])
+            /^\s$/.test(remaining[0])
           ) {
             remaining.shift();
           }
@@ -429,19 +478,19 @@
             remaining
           );
 
-          /*
-           * Always make progress, even if a device has an
-           * unusually narrow viewport.
-           */
           count = Math.max(1, count);
 
           /*
-           * Prefer a natural Japanese punctuation boundary
-           * near the end of a page, when doing so does not
-           * waste too much available space.
+           * Prefer a punctuation boundary near
+           * the end of the current block.
            */
-          if (count < remaining.length && count > 16) {
-            const lowerLimit = Math.floor(count * 0.82);
+          if (
+            count < remaining.length &&
+            count > 16
+          ) {
+            const lowerLimit = Math.floor(
+              count * 0.88
+            );
 
             for (
               let i = count - 1;
@@ -449,7 +498,9 @@
               i--
             ) {
               if (
-                /[。！？!?」』）)]/.test(remaining[i])
+                /[。！？!?」』）)]/.test(
+                  remaining[i]
+                )
               ) {
                 count = i + 1;
                 break;
@@ -461,9 +512,11 @@
             .slice(0, count)
             .join("");
 
-          block.appendChild(
-            createJapanesePage(pageText)
+          const page = createJapanesePage(
+            pageText
           );
+
+          block.appendChild(page);
 
           remaining = remaining.slice(count);
         }
@@ -490,7 +543,7 @@
     }
 
     /*
-     * Hero title width equalization.
+     * Hero title equalization.
      */
 
     function equalizeHeroTitle() {
@@ -564,7 +617,8 @@
         "(prefers-reduced-motion: reduce)"
       ).matches;
 
-      document.getElementById("about")
+      document
+        .getElementById("about")
         ?.scrollIntoView({
           behavior: reducedMotion ? "auto" : "smooth",
           block: "start"
@@ -573,10 +627,6 @@
 
     renderSections();
 
-    /*
-     * Initial pagination, then remeasure after web fonts
-     * become available.
-     */
     requestAnimationFrame(updateLayout);
 
     if (document.fonts && document.fonts.ready) {
@@ -589,24 +639,15 @@
       { once: true }
     );
 
-    /*
-     * A viewport resize can change both panel width
-     * and the 60svh height. Repaginate accordingly.
-     */
-    let resizeTimeout = null;
-
     window.addEventListener("resize", () => {
       clearTimeout(resizeTimeout);
 
-      resizeTimeout = setTimeout(() => {
-        updateLayout();
-      }, 120);
+      resizeTimeout = setTimeout(
+        updateLayout,
+        120
+      );
     });
 
-    /*
-     * Font-loading events can occur after the first
-     * rendering pass on some devices.
-     */
     if (document.fonts) {
       document.fonts.addEventListener?.(
         "loadingdone",
