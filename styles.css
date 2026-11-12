@@ -31,11 +31,16 @@
   --en-leading: 1.46;
 
   /*
-   * Japanese columns are now 25% taller:
-   * 60svh -> 75svh
-   * 640px -> 800px
+   * 25% taller Japanese columns retained.
    */
   --jp-field-height: min(75svh, 800px);
+
+  /*
+   * Dedicated Japanese text gutters.
+   * Mobile gets generous outer and inner spacing.
+   */
+  --jp-gutter-left: 18px;
+  --jp-gutter-right: 12px;
 
   --hero-pad-top: 28px;
   --hero-pad-bottom: 28px;
@@ -70,13 +75,19 @@
 }
 
 html {
+  width: 100%;
+  max-width: 100%;
   scroll-behavior: smooth;
 }
 
 body {
+  width: 100%;
+  max-width: 100%;
   margin: 0;
+
   color: var(--ink);
   background: var(--paper);
+
   font-family:
     "Bodoni 72",
     "Bodoni 72 Smallcaps",
@@ -84,6 +95,7 @@ body {
     "Iowan Old Style",
     "Times New Roman",
     serif;
+
   line-height: 1.48;
 }
 
@@ -401,6 +413,8 @@ main {
 #sections {
   position: relative;
   z-index: 1;
+  width: 100%;
+  min-width: 0;
 }
 
 .section {
@@ -451,7 +465,7 @@ main {
 }
 
 /* ---------------------------------------
-   Bilingual layout
+   Bilingual grid
 --------------------------------------- */
 
 .bilingual-block {
@@ -469,8 +483,14 @@ main {
 }
 
 /*
- * Japanese wrapper stacks successive
- * vertical text blocks downward.
+ * Japanese wrapper.
+ *
+ * The padding is INSIDE the left grid cell.
+ * The page itself is measured only after
+ * that padding has been applied.
+ *
+ * This prevents Japanese text from touching
+ * the left edge of the mobile viewport.
  */
 
 .jp-block {
@@ -480,18 +500,31 @@ main {
 
   width: 100%;
   min-width: 0;
+  max-width: 100%;
+
   height: auto;
 
-  padding: 0 10px 0 8px;
+  padding:
+    0
+    var(--jp-gutter-right)
+    0
+    var(--jp-gutter-left);
+
   gap: 24px;
 
   writing-mode: horizontal-tb;
+
   overflow: visible;
 }
 
 /*
- * Unboxed Japanese vertical text blocks.
- * Increased from 60svh to 75svh.
+ * Japanese text panels.
+ *
+ * The width is always the available content
+ * width of .jp-block, not the viewport width.
+ *
+ * JavaScript now checks the actual rendered
+ * glyph positions before splitting.
  */
 
 .jp-page {
@@ -500,6 +533,7 @@ main {
 
   width: 100%;
   min-width: 0;
+  max-width: 100%;
 
   height: var(--jp-field-height);
   max-height: 75svh;
@@ -526,6 +560,10 @@ main {
   overflow-wrap: anywhere;
   word-break: normal;
 
+  /*
+   * Safety boundary only.
+   * Text is split before reaching this edge.
+   */
   overflow: hidden;
 }
 
@@ -533,11 +571,14 @@ main {
   z-index: -9999;
 }
 
-/* English */
+/* ---------------------------------------
+   English
+--------------------------------------- */
 
 .en-block {
   width: 100%;
   min-width: 0;
+  max-width: 100%;
 
   padding: 0 18px 0 14px;
 
@@ -792,12 +833,10 @@ body.aiki-imprint-revealed .aiki-seal {
     --en-size: 20px;
     --en-leading: 1.62;
 
-    /*
-     * Desktop 25% increase:
-     * 60svh -> 75svh
-     * 680px -> 850px
-     */
     --jp-field-height: min(75svh, 850px);
+
+    --jp-gutter-left: 8px;
+    --jp-gutter-right: 8px;
 
     --hero-pad-top: 48px;
     --hero-pad-bottom: 44px;
@@ -910,7 +949,11 @@ body.aiki-imprint-revealed .aiki-seal {
   }
 
   .jp-block {
-    padding: 0 8px;
+    padding:
+      0
+      var(--jp-gutter-right)
+      0
+      var(--jp-gutter-left);
   }
 
   .en-block {
