@@ -54,13 +54,17 @@
 
 /* =========================================================
    MAXIMUM VERTICAL LINE HEIGHT
-
-   The Japanese flows into successive vertical columns
-   automatically when it reaches this height.
    ========================================================= */
 
 --jp-field-height:
   min(60svh,640px);
+
+
+/* =========================================================
+   JAPANESE SEGMENT GAP
+   ========================================================= */
+
+--jp-segment-gap:30px;
 
 
 /* =========================================================
@@ -755,21 +759,50 @@ main{
 
 
 /* =========================================================
-   JAPANESE — CONTINUOUS VERTICAL TEXT
+   JAPANESE COLUMN
 
-   No folios.
-   No pagination.
-   No artificial column breaks.
+   Segments stack vertically.
 
-   Each vertical line is limited to 60svh.
+   The section's full Japanese text is distributed
+   across successive segments by index.html.
 
-   The browser creates additional columns to the left
-   as the text continues.
-
-   Overflow remains visible, rather than clipped.
+   No folio styling is applied.
    ========================================================= */
 
 .jp-block{
+  width:100%;
+
+  min-width:0;
+
+  display:flex;
+
+  flex-direction:column;
+
+  gap:
+    var(--jp-segment-gap);
+
+  padding:
+    0
+    10px
+    0
+    8px;
+}
+
+
+
+/* =========================================================
+   JAPANESE VERTICAL SEGMENT
+
+   Each segment is exactly as tall as the allowed
+   maximum vertical line height.
+
+   The width is limited to the Japanese column.
+
+   Overflow is hidden only as a safety boundary;
+   JavaScript must paginate before overflow occurs.
+   ========================================================= */
+
+.jp-segment{
   width:100%;
 
   min-width:0;
@@ -779,11 +812,31 @@ main{
 
   max-height:60svh;
 
-  padding:
-    0
-    10px
-    0
-    8px;
+  display:block;
+
+  position:relative;
+
+  overflow:hidden;
+}
+
+
+
+/* =========================================================
+   JAPANESE SEGMENT TEXT
+
+   Native vertical-rl typography.
+
+   The writing field occupies the full segment.
+
+   Successive vertical columns run right to left.
+   ========================================================= */
+
+.jp-segment-text{
+  width:100%;
+
+  height:100%;
+
+  min-width:0;
 
   writing-mode:
     vertical-rl;
@@ -794,8 +847,9 @@ main{
   white-space:
     pre-wrap;
 
-  overflow:
-    visible;
+  overflow:hidden;
+
+  overflow-wrap:anywhere;
 
   font-family:
     var(--jp-body);
@@ -809,8 +863,6 @@ main{
     var(--jp-leading);
 
   letter-spacing:.12em;
-
-  overflow-wrap:anywhere;
 }
 
 
@@ -1241,6 +1293,8 @@ body.aiki-imprint-revealed
     --jp-field-height:
       min(60svh,680px);
 
+    --jp-segment-gap:38px;
+
     --hero-pad-top:48px;
     --hero-pad-bottom:44px;
 
@@ -1501,7 +1555,6 @@ body.aiki-imprint-revealed
   margin-top:6px;
 
   font-size:12px;
-
   letter-spacing:.11em;
 }
 
