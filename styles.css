@@ -31,10 +31,11 @@
   --en-leading: 1.46;
 
   /*
-   * Preserve the established maximum Japanese
-   * vertical line height.
+   * Japanese columns are now 25% taller:
+   * 60svh -> 75svh
+   * 640px -> 800px
    */
-  --jp-field-height: min(60svh, 640px);
+  --jp-field-height: min(75svh, 800px);
 
   --hero-pad-top: 28px;
   --hero-pad-bottom: 28px;
@@ -468,13 +469,8 @@ main {
 }
 
 /*
- * Japanese column wrapper:
- *
- * Normal horizontal writing mode is essential here.
- * The individual child pages are vertical.
- *
- * This allows pages to stack DOWN the document
- * instead of overflowing LEFT offscreen.
+ * Japanese wrapper stacks successive
+ * vertical text blocks downward.
  */
 
 .jp-block {
@@ -490,16 +486,12 @@ main {
   gap: 24px;
 
   writing-mode: horizontal-tb;
-
   overflow: visible;
 }
 
 /*
- * Each unboxed vertical page.
- *
- * Height is fixed at the established maximum.
- * Width is restricted to its grid column.
- * Japanese flows top-to-bottom and right-to-left.
+ * Unboxed Japanese vertical text blocks.
+ * Increased from 60svh to 75svh.
  */
 
 .jp-page {
@@ -510,7 +502,7 @@ main {
   min-width: 0;
 
   height: var(--jp-field-height);
-  max-height: 60svh;
+  max-height: 75svh;
 
   margin: 0;
   padding: 0;
@@ -523,7 +515,6 @@ main {
   -webkit-writing-mode: vertical-rl;
 
   text-orientation: mixed;
-
   white-space: pre-wrap;
 
   font-family: var(--jp-body);
@@ -535,10 +526,6 @@ main {
   overflow-wrap: anywhere;
   word-break: normal;
 
-  /*
-   * No scrollbars, no horizontal extension.
-   * Pagination is handled by JavaScript.
-   */
   overflow: hidden;
 }
 
@@ -546,7 +533,7 @@ main {
   z-index: -9999;
 }
 
-/* English remains in the right half. */
+/* English */
 
 .en-block {
   width: 100%;
@@ -805,7 +792,12 @@ body.aiki-imprint-revealed .aiki-seal {
     --en-size: 20px;
     --en-leading: 1.62;
 
-    --jp-field-height: min(60svh, 680px);
+    /*
+     * Desktop 25% increase:
+     * 60svh -> 75svh
+     * 680px -> 850px
+     */
+    --jp-field-height: min(75svh, 850px);
 
     --hero-pad-top: 48px;
     --hero-pad-bottom: 44px;
