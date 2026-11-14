@@ -112,7 +112,10 @@ const sections = [
 
   en: [
     {
-      text: "Seitō-ryū is a martial school in formation, established in Charleston, South Carolina, in 2026. Its founding field of inquiry is Takemusu Aiki, investigated through the inherited technical bodies of Jūjutsu and Aikidō. It was established under the patronage of the Holy City Society, from which the name Seitō, 聖都, meaning “Holy City,” is taken."
+      text: 
+      
+      "Seitō-ryū is a martial school in formation, established in Charleston, South Carolina, in 2026. Its founding field of inquiry is Aiki Musubi, 合気産び, and its martial expression, Aiki Bu Musubi, 合気武産び, investigated through the inherited technical bodies of Jūjutsu and Aikidō. Both terms were coined by Seitō-ryū in 2026 to articulate its founding thesis. It was established under the patronage of the Holy City Society, from which the name Seitō, 聖都, meaning “Holy City,” is taken."
+      
     }
   ]
 },
