@@ -241,7 +241,7 @@ const sections = [
       text: "It taught a secret law deeper than a catalogue of techniques. The Law is the order inherent in reality."
     },
     {
-      text: "Within that order lies the knowledge of the relationship between 結び (musubi), the joining of things, and 産び (musubi), the generation of what arises through their union."
+      text: "Within that order lies the knowledge of the relationship between 結び (musubi), the joining of things, and 産び (musubi), the spontaneous generation of what arises through their ordered union."
     },
     {
       text: "There was a saying: ‘See according to the Law, and the appropriate action will reveal itself.’"
@@ -278,7 +278,7 @@ const sections = [
       text: "Yoshitsune becomes legendary because he sees possibilities others do not. Terrain becomes opportunity. Enemy expectation becomes vulnerability. The route believed impossible becomes precisely the route worth taking, and force need not always be opposed if the relationship itself can be changed."
     },
     {
-      text: "This was not merely strategy. It was the generative Aiki Musubi, 合気産び, he encountered at Kurama: a relationship from which spontaneous possibilities could arise. Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity. See according to the Law, and the appropriate action will reveal itself."
+      text: "This was not merely strategy. It was generative Musubi no bu, 産びnobu,a perspective from which spontaneous possibilities could arise. Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity. See according to the Law, and the appropriate action will reveal itself."
     },
     {
       text: "Later generations would remember Yoshitsune not merely as a swordsman, but as an image of the complete warrior: horse and bow, blade and grappling, strategy and command, terrain, deception, timing, and the governance of men. Countless houses and ryūha would carry pieces of that inheritance. Some endured. Some merged into other traditions. Some disappeared entirely."
