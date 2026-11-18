@@ -217,7 +217,7 @@ const sections = [
 
 {
   jpTitle: "鞍馬と法",
-  enTitle: "Kurama and the Law",
+  enTitle: "Kurama",
 
   jp: `
 　牛若丸という高貴な少年がいた。父は殺され、家は没落し、まだ幼いうちに都の北にある鞍馬山へ送られた。
@@ -238,7 +238,7 @@ const sections = [
       text: "There the boy came under the instruction of the Great Tengu of Kurama, Kiichi Hōgen, keeper of the 虎の巻, the Tora no Maki scroll…"
     },
     {
-      text: "It taught a secret law deeper than a catalogue of techniques. The Law is the order inherent in reality."
+      text: "It taught something deeper than a catalogue of martial techniques. The Law of the order inherent in reality."
     },
     {
       text: "Within that order lies the knowledge of the relationship between 結び (musubi), the joining of things, and 産び (musubi), the spontaneous generation of what arises through their ordered union."
