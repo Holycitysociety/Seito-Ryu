@@ -222,8 +222,8 @@ const sections = [
   jp: `
 　牛若丸という高貴な少年がいた。父は殺され、家は没落し、まだ幼いうちに都の北にある鞍馬山へ送られた。
 　そこで少年は、鞍馬の大天狗であり、虎の巻の守り手である鬼一法眼の教えを受けた……。
-　そこでは、技の目録よりも深い秘法が教えられた。法とは、現実そのものに内在する秩序だ。
-　その秩序の内には、結びの「むすび」、すなわち物事を結びつける働きと、産びの「むすび」、すなわちその結びつきから新たなものを生み出す働きとの関係を知る理がある。
+　そこでは、武術の技の目録よりも深いものが教えられた。現実そのものに内在する秩序の法である。
+　その秩序の内には、結び（むすび）、すなわち物事を結びつける働きと、産び（むすび）、すなわちそれらが秩序に従って結びつくことから自ずと新たなものが生み出される働きとの関係を知る理がある。
 　そこには、こんな言葉があった。『法に従って見よ。そうすれば、ふさわしい働きは自ら現れる』
 　少年は十六歳頃に鞍馬を離れ、北の平泉へ向かった。そこで藤原秀衡が彼を保護した。彼はそこに六年間いた。それは重要だ。聖なる山で教えを受けることと、それを日々の暮らし、稽古、退屈、誇り、そして歳を重ねることの中で保ち続けることは別のことだ。少年は比類なき武人へと成長した。
 　そして一一八〇年、分かれていた源氏の諸家は戦によって結集していった……。若者は平泉から南へ向かい、兄の頼朝に加わった。その頃には、もう別の名を持っていた……。
@@ -238,7 +238,7 @@ const sections = [
       text: "There the boy came under the instruction of the Great Tengu of Kurama, Kiichi Hōgen, keeper of the 虎の巻, the Tora no Maki scroll…"
     },
     {
-      text: "It taught something deeper than a catalogue of martial techniques. The Law of the order inherent in reality."
+      text: "It taught something deeper than a catalogue of martial techniques: the Law of the order inherent in reality."
     },
     {
       text: "Within that order lies the knowledge of the relationship between 結び (musubi), the joining of things, and 産び (musubi), the spontaneous generation of what arises through their ordered union."
@@ -269,7 +269,7 @@ const sections = [
 
   jp: `
 　義経が伝説になるのは、他の者には見えない可能性を見るからだ。地形は機会になる。敵の予測は弱点になる。不可能だと思われていた道こそ、まさに進む価値のある道となる。そして関係そのものを変えられるなら、力に必ずしも正面から対抗する必要はない。
-　これは単なる戦略ではなかった。鞍馬で出会った、生成する合気産びだった。そこでは、関係の中から自発的に新たな可能性が生まれ得る。義経は、あらかじめ決められた答えの中から一つを選ぶだけではない。彼は場全体を見ていた。地形、時機、予測、力、動き、心理、関係、そして機会。法に従って見よ。そうすれば、ふさわしい働きは自ら現れる。
+　これは単なる戦略ではなかった。鞍馬で出会った産びの武、すなわち新たな可能性が自ずと生まれ得る見方だった。義経は、あらかじめ決められた答えの中から一つを選ぶだけではない。彼は場全体を見ていた。地形、時機、予測、力、動き、心理、関係、そして機会。法に従って見よ。そうすれば、ふさわしい働きは自ら現れる。
 　後世の人々は、義経を単なる剣士としてではなく、完全な武人の像として記憶することになる。馬と弓、刃と組討、戦略と指揮、地形、欺き、時機、そして人を治めること。無数の家と流派が、その継承の一部を運ぶことになる。残ったものもあれば、他の伝統へ溶け込んだものもあり、完全に消えたものもある。
   `,
 
@@ -278,7 +278,7 @@ const sections = [
       text: "Yoshitsune becomes legendary because he sees possibilities others do not. Terrain becomes opportunity. Enemy expectation becomes vulnerability. The route believed impossible becomes precisely the route worth taking, and force need not always be opposed if the relationship itself can be changed."
     },
     {
-      text: "This was not merely strategy. It was Musubi no bu, 産びnobu,a perspective from which spontaneous possibilities could arise. Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity. See according to the Law, and the appropriate action will reveal itself."
+      text: "This was not merely strategy. It was Musubi no Bu, 産びの武, a perspective from which spontaneous possibilities could arise. Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity. See according to the Law, and the appropriate action will reveal itself."
     },
     {
       text: "Later generations would remember Yoshitsune not merely as a swordsman, but as an image of the complete warrior: horse and bow, blade and grappling, strategy and command, terrain, deception, timing, and the governance of men. Countless houses and ryūha would carry pieces of that inheritance. Some endured. Some merged into other traditions. Some disappeared entirely."
@@ -541,7 +541,7 @@ const sections = [
 
   jp: `
 　惣角の最も重要な弟子の一人が植芝盛平だった。一九二二年、惣角が植芝の住んでいた綾部で教えた頃には、その区別は現存する呼称に現れるほど明確になっていた。大東流合気柔術。
-　植芝は合気をさらに先へ運んだ。彼は、合気を単に技をより優れて行う方法として満足しなかった。成熟した理解の中で、彼はこれを武産合気、すなわち技を生み出す合気と呼んだ。
+　植芝は合気をさらに先へ運んだ。彼は、合気を単に技をより優れて行う方法として満足しなかった。成熟した理解の中で、彼はこれを武産合気、すなわち武において技を生み出す合気と呼んだ。
 　合気は技を磨くだけではない。その最高の働きにおいて、合気は技を生む。
   `,
 
