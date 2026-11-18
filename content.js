@@ -278,7 +278,7 @@ const sections = [
       text: "Yoshitsune becomes legendary because he sees possibilities others do not. Terrain becomes opportunity. Enemy expectation becomes vulnerability. The route believed impossible becomes precisely the route worth taking, and force need not always be opposed if the relationship itself can be changed."
     },
     {
-      text: "This was not merely strategy. It was generative Musubi no bu, 産びnobu,a perspective from which spontaneous possibilities could arise. Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity. See according to the Law, and the appropriate action will reveal itself."
+      text: "This was not merely strategy. It was Musubi no bu, 産びnobu,a perspective from which spontaneous possibilities could arise. Yoshitsune did not simply select from predetermined answers. He perceived the whole field: terrain, timing, expectation, force, movement, psychology, relationship, and opportunity. See according to the Law, and the appropriate action will reveal itself."
     },
     {
       text: "Later generations would remember Yoshitsune not merely as a swordsman, but as an image of the complete warrior: horse and bow, blade and grappling, strategy and command, terrain, deception, timing, and the governance of men. Countless houses and ryūha would carry pieces of that inheritance. Some endured. Some merged into other traditions. Some disappeared entirely."
@@ -550,7 +550,7 @@ const sections = [
       text: "Among Sōkaku’s most important students was Morihei Ueshiba. By the time Sōkaku taught at Ayabe in 1922, where Ueshiba was living, the distinction was explicit enough to appear in surviving terminology: Daitō-ryū Aiki-jūjutsu."
     },
     {
-      text: "Ueshiba carried Aiki farther. He did not remain satisfied with Aiki as merely a superior way to perform a technique. In his mature understanding, he called this 武産合気, Takemusu Aiki, generative Aiki."
+      text: "Ueshiba carried Aiki farther. He did not remain satisfied with Aiki as merely a superior way to perform a technique. In his mature understanding, he called this 武産合気, Takemusu Aiki, generative martial Aiki."
     },
     {
       class: "closing",
