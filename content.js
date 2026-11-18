@@ -1,6 +1,6 @@
 
 /* =========================================================
-   SEITŌ-RYŪ CONTENT
+   SEITO-RYŪ CONTENT
 
    CANONICAL MODEL
 
@@ -104,7 +104,7 @@ const sections = [
 
 {
   jpTitle: "聖都流縁起",
-  enTitle: "Seitō-ryū Engi — The Founding Lore",
+  enTitle: "Seito-ryū Engi — The Founding Lore",
 
   jp: `
 　聖都流は、二〇二六年、サウスカロライナ州チャールストンに創設された、創流期にある武道流派である。その創流における探究の主題は合気産び†と、その武の表現である合気産びの武†であり、柔術と合気道の継承された技術体系を通してこれらを探究する。本流はホーリー・シティ・ソサエティの庇護のもとに創設され、その名「聖都」は同会に由来する。
@@ -113,11 +113,11 @@ const sections = [
 
   en: [
     {
-      text: "Seitō-ryū is a martial school in formation, established in Charleston, South Carolina, in 2026. Its founding field of inquiry is Aiki Musubi, 合気産び†, and its martial expression, Aiki Musubi no Bu, 合気産びの武†, investigated through the inherited technical bodies of Jūjutsu and Aikidō. It was established under the patronage of the Holy City Society, from which the name Seitō, 聖都, meaning “Holy City,” is taken."
+      text: "Seito-ryū is a martial school in formation, established in Charleston, South Carolina, in 2026. Its founding field of inquiry is Aiki Musubi, 合気産び†, and its martial expression, Aiki Musubi no Bu, 合気産びの武†, investigated through the inherited technical bodies of Jūjutsu and Aikidō. It was established under the patronage of the Holy City Society, from which the name Seito, 聖都, meaning “Holy City,” is taken."
     },
     {
       class: "attribution",
-      text: "† Coined by Seitō-ryū · Charleston · 2026"
+      text: "† Coined by Seito-ryū · Charleston · 2026"
     }
   ]
 },
@@ -223,7 +223,7 @@ const sections = [
 　牛若丸という高貴な少年がいた。父は殺され、家は没落し、まだ幼いうちに都の北にある鞍馬山へ送られた。
 　そこで少年は、鞍馬の大天狗であり、虎の巻の守り手である鬼一法眼の教えを受けた……。
 　そこでは、技の目録よりも深い秘法が教えられた。法とは、現実そのものに内在する秩序だ。
-　その秩序の内には、結びつけ、そして生み出す力がある。産び、ムスビだ。
+　その秩序の内には、結びの「むすび」、すなわち物事を結びつける働きと、産びの「むすび」、すなわちその結びつきから新たなものを生み出す働きとの関係を知る理がある。
 　そこには、こんな言葉があった。『法に従って見よ。そうすれば、ふさわしい働きは自ら現れる』
 　少年は十六歳頃に鞍馬を離れ、北の平泉へ向かった。そこで藤原秀衡が彼を保護した。彼はそこに六年間いた。それは重要だ。聖なる山で教えを受けることと、それを日々の暮らし、稽古、退屈、誇り、そして歳を重ねることの中で保ち続けることは別のことだ。少年は比類なき武人へと成長した。
 　そして一一八〇年、分かれていた源氏の諸家は戦によって結集していった……。若者は平泉から南へ向かい、兄の頼朝に加わった。その頃には、もう別の名を持っていた……。
@@ -241,7 +241,7 @@ const sections = [
       text: "It taught a secret law deeper than a catalogue of techniques. The Law is the order inherent in reality."
     },
     {
-      text: "Within that order is the power of joining and bringing forth: Musubi, 産び."
+      text: "Within that order lies the knowledge of the relationship between 結び (musubi), the joining of things, and 産び (musubi), the generation of what arises through their union."
     },
     {
       text: "There was a saying: ‘See according to the Law, and the appropriate action will reveal itself.’"
