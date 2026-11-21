@@ -17,8 +17,8 @@
 
     /* =====================================
        SUENAKA-KEI TETSUGAKU-HŌ AIKIDŌ
-       VERSION 1.1
-       All CSS embedded
+       VERSION 1.2
+       Self-contained HTML / CSS
        ===================================== */
 
     :root {
@@ -150,7 +150,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 12px 22px;
+      gap: 10px 19px;
     }
 
     .main-nav a {
@@ -159,6 +159,7 @@
       font-size: 12px;
       font-weight: 600;
       letter-spacing: .04em;
+      white-space: nowrap;
     }
 
     .main-nav a:hover {
@@ -428,6 +429,128 @@
       padding-left: 25px;
     }
 
+    /* RANK & TRANSMISSION */
+
+    .credentials {
+      background: var(--ivory);
+    }
+
+    .credentials-intro {
+      max-width: 800px;
+      margin-bottom: 38px;
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .credential-card {
+      background: var(--white);
+      border: 1px solid var(--line);
+      padding: 34px;
+      min-width: 0;
+    }
+
+    .credential-type {
+      display: block;
+      margin-bottom: 15px;
+      color: var(--red);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-transform: uppercase;
+    }
+
+    .credential-card h3 {
+      font-size: 29px;
+      margin-bottom: 9px;
+    }
+
+    .credential-jp {
+      display: block;
+      margin-bottom: 23px;
+      font-family: var(--jp);
+      color: var(--indigo-soft);
+      font-size: 21px;
+      letter-spacing: .08em;
+    }
+
+    .credential-card p {
+      margin: 0 0 18px;
+    }
+
+    .credential-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .credential-divider {
+      height: 1px;
+      background: var(--line);
+      margin-block: 25px;
+    }
+
+    .credential-term {
+      display: block;
+      color: var(--indigo);
+      font-family: var(--serif);
+      font-size: 21px;
+      margin-bottom: 4px;
+    }
+
+    .credential-definition {
+      display: block;
+      margin-bottom: 16px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .transmission-depths {
+      margin-top: 32px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      padding-block: 22px;
+    }
+
+    .transmission-depths h3 {
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .depth-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 22px;
+    }
+
+    .depth-item {
+      padding: 0 8px 0 0;
+    }
+
+    .depth-item strong {
+      display: block;
+      color: var(--indigo);
+      font-family: var(--serif);
+      font-size: 19px;
+      font-weight: 500;
+    }
+
+    .depth-item span {
+      display: block;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .credentials-note {
+      max-width: 850px;
+      margin: 27px 0 0;
+      color: var(--indigo-soft);
+      font-size: 14px;
+      line-height: 1.8;
+    }
+
     /* GOVERNANCE */
 
     .association {
@@ -556,6 +679,23 @@
 
     /* RESPONSIVE */
 
+    @media (max-width: 950px) {
+      .header-inner {
+        flex-direction: column;
+        justify-content: center;
+        gap: 12px;
+        padding-block: 16px;
+      }
+
+      .brand {
+        text-align: center;
+      }
+
+      .main-nav {
+        justify-content: center;
+      }
+    }
+
     @media (max-width: 850px) {
       .hero-inner {
         grid-template-columns: 1fr 180px;
@@ -575,6 +715,10 @@
         grid-template-columns: 175px 1fr;
         gap: 35px;
       }
+
+      .credential-card {
+        padding: 26px;
+      }
     }
 
     @media (max-width: 650px) {
@@ -585,24 +729,12 @@
         );
       }
 
-      .header-inner {
-        flex-direction: column;
-        justify-content: center;
-        gap: 13px;
-        padding-block: 17px;
-      }
-
-      .brand {
-        text-align: center;
-      }
-
       .brand-jp {
         font-size: 21px;
       }
 
       .main-nav {
-        justify-content: center;
-        gap: 8px 15px;
+        gap: 8px 13px;
       }
 
       .main-nav a {
@@ -640,7 +772,9 @@
 
       .founder-layout,
       .aikido-layout,
-      .information-grid {
+      .information-grid,
+      .credentials-grid,
+      .depth-grid {
         display: block;
       }
 
@@ -652,6 +786,14 @@
         margin-top: 30px;
       }
 
+      .credential-card + .credential-card {
+        margin-top: 20px;
+      }
+
+      .depth-item + .depth-item {
+        margin-top: 18px;
+      }
+
       .information-card + .information-card {
         margin-top: 35px;
       }
@@ -661,7 +803,7 @@
       }
 
       html {
-        scroll-padding-top: 155px;
+        scroll-padding-top: 175px;
       }
     }
 
@@ -706,6 +848,7 @@
         <a href="#about">About</a>
         <a href="#founder">Founder</a>
         <a href="#aikido">Aikidō</a>
+        <a href="#credentials">Rank &amp; Transmission</a>
         <a href="#association">Association</a>
         <a href="#dojo">Dōjō</a>
         <a href="#contact">Contact</a>
@@ -994,6 +1137,280 @@
       </div>
     </section>
 
+    <!-- RANK & TRANSMISSION -->
+
+    <section class="content-section credentials"
+             id="credentials"
+             aria-labelledby="credentials-title">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <p class="section-kicker">
+            Recognition &amp; Certification
+          </p>
+
+          <h2 id="credentials-title">
+            Rank &amp; Transmission
+          </h2>
+
+          <div class="jp-subtitle" lang="ja">
+            段位と伝承
+          </div>
+
+        </div>
+
+        <div class="credentials-intro">
+
+          <p class="lead">
+            Suenaka-kei Tetsugaku-hō Aikidō
+            distinguishes recognized aikidō
+            rank from proficiency and
+            transmission within its own
+            martial tradition.
+          </p>
+
+          <p>
+            The intended system provides
+            two complementary forms of
+            recognition: Aikikai rank
+            and Suenaka-kei certificates
+            and licenses administered
+            through its governing Yūdanshakai.
+          </p>
+
+        </div>
+
+        <div class="credentials-grid">
+
+          <!-- AIKIKAI RANK -->
+
+          <article class="credential-card">
+
+            <span class="credential-type">
+              External Rank Recognition
+            </span>
+
+            <h3>
+              Aikikai Kyū / Dan
+            </h3>
+
+            <span class="credential-jp" lang="ja">
+              合気会・級位／段位
+            </span>
+
+            <p>
+              The intended rank pathway follows
+              the Aikikai system of kyū and
+              dan grades.
+            </p>
+
+            <p>
+              Dan grades are examined,
+              recognized, and registered
+              with Aikikai Hombu through
+              appropriately authorized
+              Aikikai examination and
+              registration channels.
+            </p>
+
+            <p>
+              Advancement remains subject
+              to Aikikai requirements,
+              qualifying practice,
+              examination, and approval
+              by authorized examiners.
+            </p>
+
+            <div class="credential-divider"></div>
+
+            <span class="credential-term">
+              Kyū (級)
+            </span>
+
+            <span class="credential-definition">
+              Student grades preceding
+              black belt rank.
+            </span>
+
+            <span class="credential-term">
+              Dan (段)
+            </span>
+
+            <span class="credential-definition">
+              Recognized black belt
+              and higher grades.
+            </span>
+
+            <p>
+              The Yūdanshakai does not
+              independently award
+              Aikikai dan grades.
+            </p>
+
+          </article>
+
+          <!-- SUENAKA-KEI TRANSMISSION -->
+
+          <article class="credential-card">
+
+            <span class="credential-type">
+              Internal Proficiency &amp; Transmission
+            </span>
+
+            <h3>
+              Suenaka-kei
+            </h3>
+
+            <span class="credential-jp" lang="ja">
+              末中系・目録／免許
+            </span>
+
+            <p>
+              Proficiency in Suenaka-kei
+              Tetsugaku-hō Aikidō is
+              to be evaluated and documented
+              independently by the
+              Suenaka-kei Yūdanshakai.
+            </p>
+
+            <p>
+              Its proposed certification
+              system distinguishes the
+              knowledge and technical
+              proficiency a practitioner
+              has demonstrated from the
+              authority entrusted to teach.
+            </p>
+
+            <div class="credential-divider"></div>
+
+            <span class="credential-term">
+              Mokuroku (目録)
+            </span>
+
+            <span class="credential-definition">
+              Certificate or register
+              of transmission.
+            </span>
+
+            <p>
+              Documents a defined body
+              of techniques, principles,
+              and proficiency received
+              and demonstrated by the
+              practitioner.
+            </p>
+
+            <span class="credential-term">
+              Menkyo (免許)
+            </span>
+
+            <span class="credential-definition">
+              License of teaching authorization.
+            </span>
+
+            <p>
+              Grants permission to teach
+              the particular body of
+              material specified in
+              the license.
+            </p>
+
+            <p>
+              These credentials will be
+              issued under standards
+              established by the
+              Yūdanshakai as its governance
+              and examination procedures
+              are formally adopted.
+            </p>
+
+          </article>
+
+        </div>
+
+        <!-- TRANSMISSION DEPTHS -->
+
+        <div class="transmission-depths">
+
+          <h3>
+            Levels of Transmission
+          </h3>
+
+          <div class="depth-grid">
+
+            <div class="depth-item">
+
+              <strong>
+                Shoden (初伝)
+              </strong>
+
+              <span>
+                Initial Transmission
+              </span>
+
+              <span>
+                Mokuroku / Menkyo
+              </span>
+
+            </div>
+
+            <div class="depth-item">
+
+              <strong>
+                Chūden (中伝)
+              </strong>
+
+              <span>
+                Intermediate Transmission
+              </span>
+
+              <span>
+                Mokuroku / Menkyo
+              </span>
+
+            </div>
+
+            <div class="depth-item">
+
+              <strong>
+                Okuden (奥伝)
+              </strong>
+
+              <span>
+                Deep Transmission
+              </span>
+
+              <span>
+                Mokuroku / Menkyo
+              </span>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <p class="credentials-note">
+          Aikikai rank and Suenaka-kei
+          transmission credentials are
+          separate qualifications.
+          Neither automatically grants
+          the other. A teaching license
+          does not, by itself, authorize
+          the holder to issue further
+          certificates or licenses.
+          The Suenaka-kei certification
+          framework is under development
+          and does not represent historical
+          licenses issued by Roy Suenaka.
+        </p>
+
+      </div>
+    </section>
+
     <!-- GOVERNING ASSOCIATION -->
 
     <section class="content-section association"
@@ -1047,17 +1464,29 @@
           </p>
 
           <p>
-            Its responsibilities will include
-            supporting technical instruction,
-            maintaining standards of practice,
-            and preserving the continuity
-            of the tradition.
+            Its proposed responsibilities
+            include maintaining the technical
+            curriculum, evaluating
+            Suenaka-kei proficiency,
+            administering certificates
+            of transmission and teaching
+            licenses, and preserving
+            the continuity of the tradition.
           </p>
 
           <p>
-            Founding membership and formal
-            governing authority are currently
-            being established.
+            Aikikai rank recognition
+            and registration will remain
+            under the authority of
+            appropriately authorized
+            Aikikai organizations.
+          </p>
+
+          <p>
+            Founding membership,
+            examination standards,
+            and formal governing authority
+            are currently being established.
           </p>
 
         </div>
@@ -1076,11 +1505,11 @@
         <div class="section-header">
 
           <p class="section-kicker">
-            Instruction & Training
+            Instruction &amp; Training
           </p>
 
           <h2 id="dojo-title">
-            Dōjō & Events
+            Dōjō &amp; Events
           </h2>
 
         </div>
@@ -1089,7 +1518,9 @@
 
           <div class="information-card">
 
-            <h3>Dōjō & Instructors</h3>
+            <h3>
+              Dōjō &amp; Instructors
+            </h3>
 
             <p>
               Roy Suenaka's teachings
@@ -1110,7 +1541,9 @@
 
           <div class="information-card">
 
-            <h3>Seminars & Events</h3>
+            <h3>
+              Seminars &amp; Events
+            </h3>
 
             <p>
               Traditional training
