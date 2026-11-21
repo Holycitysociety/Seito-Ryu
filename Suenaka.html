@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Suenaka-kei Tetsugaku-hō Aikidō continues the study of Roy Yukio Suenaka's aikidō teachings. The Suenaka-kei Yūdanshakai is its governing association in formation. Charleston, South Carolina.">
+  <meta name="description"
+        content="Suenaka-kei Tetsugaku-hō Aikidō continues the study of Roy Yukio Suenaka's aikidō teachings. The Suenaka-kei Yūdanshakai is its governing association in formation in Charleston, South Carolina.">
+
   <title>Suenaka-kei Tetsugaku-hō Aikidō</title>
 
   <style>
@@ -15,39 +17,46 @@
       --paper: #f0ede5;
       --white: #fffefa;
       --ink: #252b32;
-      --muted: #68717a;
+      --muted: #626c75;
       --red: #ad4439;
       --line: #dcd8ce;
       --serif: Georgia, "Times New Roman", serif;
       --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-      --jp: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP", "MS PMincho", serif;
+      --jp: "Hiragino Mincho ProN", "Yu Mincho", "Noto Serif CJK JP",
+            "MS PMincho", serif;
       --page-width: 1080px;
     }
 
-    *, *::before, *::after { box-sizing: border-box; }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 110px;
+      scroll-padding-top: 115px;
     }
 
     body {
       margin: 0;
       background: var(--ivory);
       color: var(--ink);
-      font-family: var(--sans);
-      font-size: 16px;
-      line-height: 1.8;
+      font: 16px/1.8 var(--sans);
       -webkit-font-smoothing: antialiased;
     }
 
-    a { color: inherit; }
+    a {
+      color: var(--indigo);
+      text-underline-offset: .18em;
+    }
+
+    a:hover {
+      color: var(--red);
+    }
+
     a:focus-visible {
       outline: 2px solid var(--red);
       outline-offset: 4px;
     }
-
-    img { max-width: 100%; }
 
     .container {
       width: min(calc(100% - 48px), var(--page-width));
@@ -55,23 +64,26 @@
     }
 
     .skip-link {
-      position: absolute;
-      top: -100px;
-      left: 16px;
+      position: fixed;
       z-index: 100;
-      background: white;
-      padding: 10px 16px;
+      top: 10px;
+      left: 10px;
+      padding: 8px 15px;
+      transform: translateY(-160%);
+      background: var(--white);
     }
 
-    .skip-link:focus { top: 12px; }
+    .skip-link:focus {
+      transform: translateY(0);
+    }
 
     /* Header */
 
     .site-header {
       position: sticky;
-      top: 0;
       z-index: 20;
-      background: rgba(248, 246, 240, .97);
+      top: 0;
+      background: rgba(248, 246, 240, .98);
       border-bottom: 1px solid var(--line);
     }
 
@@ -81,21 +93,21 @@
       justify-content: space-between;
       gap: 28px;
       min-height: 90px;
+      padding-block: 12px;
     }
 
     .brand {
-      display: flex;
-      flex-direction: column;
-      flex-shrink: 0;
+      flex: none;
       text-decoration: none;
       line-height: 1.35;
     }
 
+    .brand-jp, .brand-en {
+      display: block;
+    }
+
     .brand-jp {
-      color: var(--indigo);
-      font-family: var(--jp);
-      font-size: 23px;
-      font-weight: 600;
+      font: 600 23px/1.35 var(--jp);
       letter-spacing: .07em;
     }
 
@@ -112,78 +124,63 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: flex-end;
-      gap: 9px 16px;
+      gap: 7px 16px;
     }
 
     .main-nav a {
-      color: var(--indigo);
-      text-decoration: none;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
-      letter-spacing: .035em;
       white-space: nowrap;
+      text-decoration: none;
     }
-
-    .main-nav a:hover { color: var(--red); }
 
     /* Hero */
 
     .hero {
-      position: relative;
-      display: flex;
+      display: grid;
       align-items: center;
       min-height: 540px;
-      overflow: hidden;
-      background: var(--indigo-dark);
       color: var(--ivory);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
       background:
         radial-gradient(circle at 78% 50%, rgba(115, 138, 161, .15), transparent 45%),
         linear-gradient(125deg, #15283d, #0e1a2a);
     }
 
     .hero-inner {
-      position: relative;
       display: grid;
-      grid-template-columns: 1fr 240px;
+      grid-template-columns: minmax(0, 1fr) 240px;
       align-items: center;
       gap: 50px;
-      padding-block: 100px;
+      padding-block: 95px;
+    }
+
+    .eyebrow, .section-kicker, .label {
+      margin: 0 0 12px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .17em;
+      text-transform: uppercase;
     }
 
     .eyebrow {
-      margin: 0 0 22px;
-      color: #c6bdaf;
-      font-size: 11px;
-      font-weight: 600;
-      letter-spacing: .22em;
-      text-transform: uppercase;
+      margin-bottom: 22px;
+      color: #c8c0b4;
     }
 
     .hero h1 {
       margin: 0;
       color: var(--white);
-      font-family: var(--jp);
-      font-size: clamp(34px, 5vw, 58px);
-      font-weight: 500;
+      font: 500 clamp(34px, 5vw, 58px)/1.4 var(--jp);
       letter-spacing: .06em;
-      line-height: 1.4;
     }
 
     .hero-roman {
-      margin-top: 16px;
-      font-family: var(--serif);
-      font-size: clamp(23px, 3vw, 34px);
-      line-height: 1.35;
+      margin: 16px 0 0;
+      font: clamp(23px, 3vw, 34px)/1.35 var(--serif);
     }
 
     .hero-translation {
-      margin-top: 12px;
+      margin: 12px 0 0;
       color: #bbc7d0;
       font-size: 11px;
       letter-spacing: .13em;
@@ -193,7 +190,7 @@
     .hero-line {
       width: 65px;
       height: 2px;
-      margin-block: 35px 25px;
+      margin: 35px 0 25px;
       background: var(--red);
     }
 
@@ -201,721 +198,483 @@
       max-width: 570px;
       margin: 0;
       color: #d6dbe0;
-      font-family: var(--serif);
-      font-size: 20px;
-      line-height: 1.7;
+      font: 20px/1.7 var(--serif);
     }
 
     .hero-governance {
-      margin-top: 34px;
+      margin: 30px 0 0;
       color: #c2cbd3;
-      font-size: 12px;
-      line-height: 1.8;
-      letter-spacing: .03em;
+      font-size: 13px;
     }
 
-    .hero-governance strong { color: var(--white); }
-
-    .hero-art {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .hero-governance strong {
+      color: var(--white);
     }
 
     .hero-ring {
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      display: grid;
+      place-items: center;
+      justify-self: center;
       width: 220px;
-      height: 220px;
+      aspect-ratio: 1;
       border: 3px solid var(--red);
       border-radius: 50%;
-      transform: rotate(-10deg);
-      opacity: .9;
     }
 
     .hero-kanji {
-      color: rgba(255, 254, 250, .85);
-      font-family: var(--jp);
-      font-size: 53px;
-      line-height: 1.5;
+      color: #e0e3e4;
+      font: 53px/1.4 var(--jp);
       writing-mode: vertical-rl;
-      transform: rotate(10deg);
     }
 
-    /* Sections */
+    /* Sections and typography */
 
     .content-section {
       padding-block: 88px;
       border-bottom: 1px solid var(--line);
     }
 
-    .section-header { margin-bottom: 34px; }
+    .about, .association, .sources {
+      background: var(--white);
+    }
 
-    .section-kicker {
-      margin: 0 0 12px;
+    .aikido, .precedent, .contact {
+      background: var(--paper);
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    .section-kicker, .label {
       color: var(--red);
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: .19em;
-      text-transform: uppercase;
+    }
+
+    h2, h3, h4 {
+      margin: 0;
+      color: var(--indigo);
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: 1.35;
     }
 
     h2 {
-      margin: 0;
-      color: var(--indigo);
-      font-family: var(--serif);
       font-size: clamp(30px, 4vw, 43px);
-      font-weight: 400;
-      line-height: 1.3;
     }
 
     h3 {
-      margin: 0 0 15px;
-      color: var(--indigo);
-      font-family: var(--serif);
-      font-size: 25px;
-      font-weight: 400;
-      line-height: 1.4;
+      margin-bottom: 15px;
+      font-size: 26px;
+    }
+
+    h4 {
+      margin-bottom: 5px;
+      font-size: 20px;
+    }
+
+    p {
+      margin: 0 0 18px;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
     }
 
     .jp-subtitle {
-      margin-top: 11px;
+      margin-top: 10px;
       color: var(--indigo-soft);
-      font-family: var(--jp);
-      font-size: 21px;
+      font: 21px/1.5 var(--jp);
       letter-spacing: .07em;
     }
 
-    .text-content { max-width: 810px; }
+    .text-content, .intro {
+      max-width: 810px;
+    }
 
-    .text-content p { margin: 0 0 22px; }
-    .text-content p:last-child { margin-bottom: 0; }
+    .intro {
+      margin-bottom: 32px;
+    }
 
     .lead {
       color: var(--indigo);
-      font-family: var(--serif);
-      font-size: 21px;
-      line-height: 1.7;
+      font: 21px/1.7 var(--serif);
     }
 
-    .about { background: var(--white); }
-    .founder { background: var(--ivory); }
-    .aikido { background: var(--paper); }
-    .credentials { background: var(--ivory); }
-    .association { background: var(--white); }
-    .precedent { background: var(--paper); }
-    .dojo { background: var(--ivory); }
-    .sources { background: var(--white); }
-    .contact { background: var(--paper); text-align: center; }
-
-    /* Founder */
-
-    .founder-layout {
-      display: grid;
-      grid-template-columns: 240px 1fr;
-      gap: 54px;
-      align-items: start;
-    }
-
-    .founder-sidebar {
-      border-top: 2px solid var(--red);
-      padding-top: 20px;
-    }
-
-    .founder-photo {
-      display: block;
-      width: 100%;
-      margin: 0 0 20px;
-      padding: 7px;
-      border: 1px solid var(--line);
-      background: var(--white);
-    }
-
-    .founder-photo img {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
-
-    .founder-sidebar .jp-name {
-      color: var(--indigo);
-      font-family: var(--jp);
-      font-size: 28px;
-      letter-spacing: .08em;
-    }
-
-    .founder-sidebar .dates {
-      margin-top: 10px;
-      color: var(--muted);
-      font-family: var(--serif);
-      font-size: 18px;
-    }
-
-    .founder-sidebar .location {
-      margin-top: 15px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    .founder-caption {
-      color: var(--muted);
-      font-size: 11px;
-      line-height: 1.6;
-    }
-
-    .book-title { font-style: italic; }
-
-    .source-note {
-      margin-top: 28px;
-      padding: 18px 20px;
-      border-left: 3px solid var(--red);
-      background: var(--white);
+    .note, figcaption, .definition {
       color: var(--muted);
       font-size: 13px;
-      line-height: 1.7;
-    }
-
-    .source-note a { color: var(--indigo); }
-
-    /* Aikido */
-
-    .aikido-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-    }
-
-    .aikido-layout p { margin-top: 0; }
-
-    .aikido-principles {
-      border-left: 2px solid var(--red);
-      padding-left: 25px;
-    }
-
-    /* Lists and chronology */
-
-    .content-intro {
-      max-width: 830px;
-      margin-bottom: 35px;
-    }
-
-    .record-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 26px;
-      align-items: start;
-    }
-
-    .record-card {
-      min-width: 0;
-      padding: 30px;
-      border: 1px solid var(--line);
-      background: var(--white);
-    }
-
-    .record-card h3 { margin-bottom: 18px; }
-
-    .record-card p { margin: 0 0 16px; }
-    .record-card p:last-child { margin-bottom: 0; }
-
-    .record-list {
-      margin: 0;
-      padding-left: 21px;
-    }
-
-    .record-list li {
-      margin-bottom: 9px;
       line-height: 1.65;
     }
 
-    .record-list li:last-child { margin-bottom: 0; }
-
-    .training-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
+    .note {
+      max-width: 850px;
+      margin-top: 24px;
     }
 
-    .training-list li {
-      display: grid;
-      grid-template-columns: 112px 1fr;
-      gap: 13px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--line);
-      line-height: 1.55;
-    }
-
-    .training-list li:first-child { padding-top: 0; }
-    .training-list li:last-child {
-      padding-bottom: 0;
-      border-bottom: 0;
-    }
-
-    .training-years {
-      color: var(--indigo);
-      font-family: var(--serif);
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .training-detail { font-size: 14px; }
-
-    .record-label {
-      display: block;
-      margin-bottom: 8px;
-      color: var(--red);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .16em;
-      text-transform: uppercase;
-    }
-
-    .record-footnote {
-      margin-top: 26px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    /* Credentials */
-
-    .credentials-intro {
-      max-width: 830px;
-      margin-bottom: 35px;
-    }
-
-    .credentials-grid {
+    .two-column, .timeline-grid, .depth-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 26px;
-      align-items: stretch;
     }
 
-    .credential-card {
+    .card {
       min-width: 0;
       padding: 32px;
       border: 1px solid var(--line);
       background: var(--white);
     }
 
-    .credential-type {
+    .label {
       display: block;
-      margin-bottom: 15px;
-      color: var(--red);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .17em;
-      text-transform: uppercase;
     }
 
-    .credential-card h3 {
-      margin-bottom: 9px;
-      font-size: 28px;
+    .callout {
+      margin-top: 24px;
+      padding-left: 22px;
+      border-left: 3px solid var(--red);
     }
 
-    .credential-jp {
+    /* Inline photographs */
+
+    figure {
+      margin: 0;
+    }
+
+    .photo-frame {
+      overflow: hidden;
+      padding: 6px;
+      border: 1px solid #c6cdd1;
+      background: #f5f6f6;
+    }
+
+    .photo-frame img {
       display: block;
-      margin-bottom: 22px;
-      color: var(--indigo-soft);
-      font-family: var(--jp);
-      font-size: 20px;
-      letter-spacing: .08em;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
     }
 
-    .credential-card p { margin: 0 0 17px; }
-    .credential-card p:last-child { margin-bottom: 0; }
-
-    .credential-divider {
-      height: 1px;
-      margin-block: 23px;
-      background: var(--line);
+    figcaption {
+      margin-top: 10px;
     }
 
-    .credential-term {
-      display: block;
-      margin-bottom: 4px;
+    .founder-layout {
+      display: grid;
+      grid-template-columns: minmax(170px, 240px) minmax(0, 1fr);
+      align-items: start;
+      gap: 54px;
+    }
+
+    .founder-sidebar {
+      padding-top: 18px;
+      border-top: 2px solid var(--red);
+    }
+
+    .founder-sidebar .jp-name {
+      margin: 20px 0 4px;
       color: var(--indigo);
-      font-family: var(--serif);
-      font-size: 20px;
+      font: 28px/1.45 var(--jp);
     }
 
-    .credential-definition {
-      display: block;
-      margin-bottom: 15px;
+    .dates {
+      margin-bottom: 10px;
+      color: var(--indigo-soft);
+      font: 18px/1.5 var(--serif);
+    }
+
+    .location {
       color: var(--muted);
       font-size: 13px;
+    }
+
+    .training-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(215px, 1fr);
+      align-items: start;
+      gap: 28px;
+    }
+
+    .training-photo {
+      max-width: 350px;
+      width: 100%;
+      justify-self: center;
+    }
+
+    /* Historical records */
+
+    .training-list {
+      margin: 0;
+    }
+
+    .training-list > div {
+      display: grid;
+      grid-template-columns: 102px minmax(0, 1fr);
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .training-list > div:last-child {
+      border-bottom: 0;
+    }
+
+    .training-list dt {
+      color: var(--indigo);
+      font: 600 15px/1.6 var(--serif);
+    }
+
+    .training-list dd {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.65;
+    }
+
+    .record-list, .source-links {
+      margin: 0;
+      padding-left: 21px;
+    }
+
+    .record-list li + li, .source-links li + li {
+      margin-top: 10px;
+    }
+
+    .principles {
+      padding-left: 24px;
+      border-left: 2px solid var(--red);
+    }
+
+    /* Credentials */
+
+    .credential-terms {
+      padding-top: 20px;
+      border-top: 1px solid var(--line);
+    }
+
+    .credential-terms dt {
+      color: var(--indigo);
+      font: 20px/1.5 var(--serif);
+    }
+
+    .credential-terms dd {
+      margin: 4px 0 16px;
     }
 
     .transmission-depths {
       margin-top: 32px;
       padding-block: 22px;
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
-    }
-
-    .transmission-depths h3 {
-      margin-bottom: 16px;
-      font-size: 22px;
+      border-block: 1px solid var(--line);
     }
 
     .depth-grid {
-      display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 22px;
     }
 
-    .depth-item strong {
-      display: block;
+    .association-name {
+      margin-bottom: 26px;
       color: var(--indigo);
-      font-family: var(--serif);
-      font-size: 19px;
-      font-weight: 500;
+      font: 24px/1.5 var(--serif);
     }
 
-    .depth-item span {
-      display: block;
-      color: var(--muted);
-      font-size: 13px;
+    .association-name [lang="ja"] {
+      font: 30px/1.5 var(--jp);
     }
 
-    .credentials-note {
-      max-width: 860px;
-      margin: 26px 0 0;
-      color: var(--indigo-soft);
-      font-size: 13px;
-      line-height: 1.8;
-    }
-
-    /* Association */
-
-    .association-heading { margin-bottom: 25px; }
-
-    .association-heading .jp-name {
-      display: block;
-      margin-bottom: 10px;
-      color: var(--indigo);
-      font-family: var(--jp);
-      font-size: 30px;
-      letter-spacing: .08em;
-    }
-
-    .association-heading .roman-name {
-      display: block;
-      color: var(--indigo);
-      font-family: var(--serif);
-      font-size: 23px;
-    }
-
-    .association-heading .translation {
-      display: block;
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 11px;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-    }
-
-    /* Historical precedent */
-
-    .precedent-intro {
-      max-width: 830px;
-      margin-bottom: 36px;
-    }
-
-    .timeline-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 26px;
-      align-items: stretch;
-    }
-
-    .timeline-card {
-      min-width: 0;
-      padding: 32px;
-      border: 1px solid var(--line);
-      background: var(--white);
-    }
-
-    .timeline-label {
-      color: var(--red);
-      font-size: 10px;
-      font-weight: 700;
-      letter-spacing: .17em;
-      text-transform: uppercase;
-    }
-
-    .timeline-card h3 {
-      margin: 12px 0 7px;
-      font-size: 26px;
-    }
+    /* Timelines */
 
     .timeline-period {
-      margin: 0 0 27px;
       color: var(--muted);
       font-family: var(--serif);
-      font-size: 17px;
     }
 
     .timeline {
-      position: relative;
-      margin: 0;
-      padding: 0 0 0 30px;
+      margin: 24px 0 0 5px;
+      padding: 0 0 0 24px;
+      border-left: 1px solid #aab3ba;
       list-style: none;
-      border-left: 1px solid rgba(82, 101, 121, .38);
     }
 
     .timeline li {
       position: relative;
-      padding: 0 0 27px 10px;
+      padding: 0 0 24px 8px;
+      font-size: 15px;
     }
 
-    .timeline li:last-child { padding-bottom: 0; }
+    .timeline li:last-child {
+      padding-bottom: 0;
+    }
 
     .timeline li::before {
-      content: "";
       position: absolute;
-      top: 8px;
-      left: -36px;
-      width: 11px;
-      height: 11px;
+      top: 9px;
+      left: -30px;
+      width: 10px;
+      height: 10px;
       border: 2px solid var(--indigo);
       border-radius: 50%;
       background: var(--white);
+      content: "";
     }
 
     .timeline li:last-child::before {
-      border-color: var(--red);
       background: var(--red);
+      border-color: var(--red);
     }
 
-    .timeline-year {
+    .year {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       color: var(--indigo);
-      font-family: var(--serif);
-      font-size: 22px;
-      line-height: 1.25;
+      font: 23px/1.3 var(--serif);
     }
 
-    .timeline-event {
-      display: block;
-      font-size: 14px;
-      line-height: 1.7;
+    .reflection {
+      max-width: 850px;
+      margin-top: 38px;
     }
 
-    .timeline-event strong { color: var(--indigo); }
-
-    .precedent-reflection {
-      max-width: 860px;
-      margin-top: 40px;
-      padding: 25px 0 0 24px;
-      border-left: 3px solid var(--red);
-    }
-
-    .precedent-reflection p { margin: 0 0 16px; }
-    .precedent-reflection p:last-child { margin-bottom: 0; }
-
-    .precedent-principle {
-      color: var(--indigo);
-      font-family: var(--serif);
+    .reflection .lead {
       font-size: clamp(21px, 3vw, 28px);
-      line-height: 1.5;
-    }
-
-    .precedent-note {
-      max-width: 860px;
-      margin-top: 22px;
-      color: var(--muted);
-      font-size: 12px;
-      line-height: 1.7;
-    }
-
-    /* Dojo, sources, contact */
-
-    .information-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      margin-top: 32px;
     }
 
     .information-card {
-      padding-top: 22px;
+      padding-top: 20px;
       border-top: 1px solid var(--line);
     }
 
-    .information-card p { margin: 0 0 15px; }
-
-    .source-links {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 14px 30px;
-      margin: 0;
-      padding-left: 20px;
-    }
-
-    .source-links li { padding-left: 3px; }
-
-    .source-links a {
-      color: var(--indigo);
-      text-underline-offset: 3px;
-    }
-
-    .source-links a:hover { color: var(--red); }
-
-    .contact-details {
-      max-width: 640px;
-      margin-inline: auto;
-    }
-
-    .contact-details p { margin: 0 0 20px; }
-
-    .contact-status {
-      display: inline-block;
-      margin-top: 12px;
-      padding: 9px 18px;
-      border: 1px solid #c9c3b8;
-      color: var(--indigo-soft);
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: .1em;
-      text-transform: uppercase;
-    }
-
-    /* Footer */
-
-    .site-footer {
-      padding-block: 45px;
-      background: var(--indigo-dark);
-      color: #b5c0ca;
+    .contact, .site-footer {
       text-align: center;
     }
 
-    .footer-jp {
-      color: var(--white);
-      font-family: var(--jp);
-      font-size: 24px;
-      letter-spacing: .09em;
+    .contact-details {
+      max-width: 630px;
+      margin-inline: auto;
     }
 
-    .footer-en {
-      margin-top: 9px;
-      color: var(--white);
-      font-family: var(--serif);
-      font-size: 19px;
-    }
-
-    .footer-association {
-      margin-top: 16px;
-      font-size: 12px;
-    }
-
-    .footer-location {
-      margin-top: 15px;
+    .contact-status {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 8px 16px;
+      border: 1px solid #c9c3b8;
+      color: var(--indigo-soft);
       font-size: 11px;
-      letter-spacing: .12em;
+      letter-spacing: .08em;
       text-transform: uppercase;
     }
 
-    .footer-small {
-      margin-top: 24px;
-      color: #9daab5;
-      font-size: 11px;
+    .site-footer {
+      padding-block: 44px;
+      background: var(--indigo-dark);
+      color: #bdc8d1;
+      font-size: 13px;
     }
 
-    /* Responsive */
+    .footer-jp, .footer-en {
+      color: var(--white);
+    }
+
+    .footer-jp {
+      margin-bottom: 5px;
+      font: 24px/1.5 var(--jp);
+    }
+
+    .footer-en {
+      font: 19px/1.5 var(--serif);
+    }
 
     @media (max-width: 1000px) {
       .header-inner {
         flex-direction: column;
         justify-content: center;
-        gap: 12px;
-        padding-block: 15px;
-      }
-
-      .brand { text-align: center; }
-      .main-nav { justify-content: center; }
-    }
-
-    @media (max-width: 850px) {
-      .hero-inner {
-        grid-template-columns: 1fr 180px;
-        gap: 20px;
-      }
-
-      .hero-ring { width: 170px; height: 170px; }
-      .hero-kanji { font-size: 38px; }
-
-      .founder-layout {
-        grid-template-columns: 200px 1fr;
-        gap: 35px;
-      }
-
-      .record-card, .credential-card, .timeline-card { padding: 25px; }
-    }
-
-    @media (max-width: 650px) {
-      .container { width: min(calc(100% - 34px), var(--page-width)); }
-
-      .brand-jp { font-size: 21px; }
-      .main-nav { gap: 8px 12px; }
-      .main-nav a { font-size: 10px; }
-
-      .hero { min-height: unset; }
-      .hero-inner { display: block; padding-block: 68px 74px; }
-      .hero-art { display: none; }
-      .hero h1 { font-size: clamp(30px, 7vw, 44px); }
-      .hero-roman { font-size: 24px; }
-      .hero-description { font-size: 18px; }
-
-      .content-section { padding-block: 62px; }
-
-      .founder-layout,
-      .aikido-layout,
-      .record-grid,
-      .credentials-grid,
-      .depth-grid,
-      .timeline-grid,
-      .information-grid,
-      .source-links {
-        display: block;
-      }
-
-      .founder-sidebar { margin-bottom: 30px; }
-      .founder-photo { max-width: 230px; }
-
-      .aikido-principles {
-        margin-top: 28px;
-        padding-left: 20px;
-      }
-
-      .record-card + .record-card,
-      .credential-card + .credential-card,
-      .timeline-card + .timeline-card {
-        margin-top: 18px;
-      }
-
-      .depth-item + .depth-item { margin-top: 17px; }
-
-      .information-card + .information-card { margin-top: 30px; }
-
-      .source-links li { margin-bottom: 12px; }
-
-      .lead { font-size: 19px; }
-
-      .training-list li {
-        grid-template-columns: 92px 1fr;
         gap: 10px;
       }
 
-      .precedent-reflection { padding-left: 18px; }
-      html { scroll-padding-top: 190px; }
+      .brand {
+        text-align: center;
+      }
+
+      .main-nav {
+        justify-content: center;
+      }
+
+      html {
+        scroll-padding-top: 155px;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(calc(100% - 34px), var(--page-width));
+      }
+
+      .site-header {
+        position: static;
+      }
+
+      html {
+        scroll-padding-top: 16px;
+      }
+
+      .header-inner {
+        padding-block: 15px;
+      }
+
+      .main-nav {
+        gap: 5px 13px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      .hero-inner {
+        display: block;
+        padding-block: 68px 76px;
+      }
+
+      .hero-ring {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: clamp(29px, 7vw, 44px);
+      }
+
+      .content-section {
+        padding-block: 60px;
+      }
+
+      .founder-layout, .training-layout, .two-column,
+      .timeline-grid, .depth-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 26px;
+      }
+
+      .founder-sidebar {
+        width: min(100%, 240px);
+      }
+
+      .training-photo {
+        width: min(100%, 320px);
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .training-list > div {
+        grid-template-columns: 82px minmax(0, 1fr);
+        gap: 8px;
+      }
+
+      .lead {
+        font-size: 19px;
+      }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
@@ -950,102 +709,79 @@
   <main id="main">
     <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="container hero-inner">
-        <div class="hero-copy">
+        <div>
           <p class="eyebrow">Charleston, South Carolina</p>
-
           <h1 id="hero-title" lang="ja">末中系哲学法合気道</h1>
-
-          <div class="hero-roman">Suenaka-kei Tetsugaku-hō Aikidō</div>
-
-          <div class="hero-translation">
-            Suenaka-Lineage Philosophical-Method Aikidō
-          </div>
-
-          <div class="hero-line"></div>
-
+          <p class="hero-roman">Suenaka-kei Tetsugaku-hō Aikidō</p>
+          <p class="hero-translation">Suenaka-Lineage Philosophical-Method Aikidō</p>
+          <div class="hero-line" aria-hidden="true"></div>
           <p class="hero-description">
             Continuing the martial teachings and philosophical tradition
             of Roy Yukio Suenaka.
           </p>
-
-          <div class="hero-governance">
-            Governing association in formation:<br>
+          <p class="hero-governance">
+            Governing association in formation<br>
             <strong>Suenaka-kei Yūdanshakai</strong>
             <span lang="ja">(末中系有段者会)</span>
-          </div>
+          </p>
         </div>
-
-        <div class="hero-art" aria-hidden="true">
-          <div class="hero-ring">
-            <span class="hero-kanji" lang="ja">合気道</span>
-          </div>
+        <div class="hero-ring" aria-hidden="true">
+          <span class="hero-kanji" lang="ja">合気道</span>
         </div>
       </div>
     </section>
 
     <section class="content-section about" id="about" aria-labelledby="about-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">The Tradition</p>
           <h2 id="about-title">About</h2>
-        </div>
-
+        </header>
         <div class="text-content">
           <p class="lead">
             Suenaka-kei Tetsugaku-hō Aikidō continues the study and practice
             of the aikidō transmitted by Roy Yukio Suenaka.
           </p>
-
           <p>
             Rooted in Charleston, South Carolina, the tradition emphasizes
             practical martial effectiveness, disciplined training, and the
             philosophical principles of aikidō.
           </p>
-
           <p>
             Its governing association, the Suenaka-kei Yūdanshakai, is being
             formed to bring together qualified practitioners and support
             continued transmission of the art.
           </p>
-
-          <p>
-            The historical material on this page summarizes the biographical
-            record published by Suenaka.com. It describes Roy Suenaka's own
-            teachers, ranks, and work; it does not imply that the new
-            association has inherited or issued those credentials.
-          </p>
         </div>
       </div>
     </section>
 
-    <section class="content-section founder" id="founder" aria-labelledby="founder-title">
+    <section class="content-section" id="founder" aria-labelledby="founder-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">The Lineage Founder</p>
           <h2 id="founder-title">Roy Yukio Suenaka</h2>
           <div class="jp-subtitle" lang="ja">末中 幸男</div>
-        </div>
+        </header>
 
         <div class="founder-layout">
-          <aside class="founder-sidebar" aria-label="Founder details">
-            <figure class="founder-photo">
-              <img
-                src="https://www.suenaka.com/images/suenaka_portrait.jpg"
-                alt="Roy Yukio Suenaka in a white keikogi"
-                loading="lazy">
+          <aside class="founder-sidebar" aria-label="Roy Suenaka's portrait and dates">
+            <figure>
+              <div class="photo-frame">
+                <!-- Inline image 1: the finished cool monochrome portrait. -->
+                <img src="./roy-suenaka-portrait.png"
+                     width="1101" height="1429"
+                     alt="Roy Yukio Suenaka facing the camera in a white training jacket"
+                     loading="lazy" decoding="async">
+              </div>
+              <figcaption>
+                Roy Yukio Suenaka. AI-enhanced monochrome edition of the
+                portrait published on Suenaka.com.
+              </figcaption>
             </figure>
-
-            <div class="jp-name" lang="ja">末中 幸男</div>
-            <div class="dates">1940–2020</div>
-
-            <div class="location">
-              Born in Honolulu, Hawaii<br>
-              Charleston, South Carolina
-            </div>
-
-            <p class="founder-caption">
-              Portrait image linked from Suenaka.com.
-            </p>
+            <p class="jp-name" lang="ja">末中 幸男</p>
+            <p class="dates">1940–2020</p>
+            <p class="location">Honolulu, Hawaii<br>Charleston, South Carolina</p>
           </aside>
 
           <div class="text-content">
@@ -1057,16 +793,13 @@
               Henry Seishiro Okazaki, James Masayoshi Mitose, Yukiso
               Yamamoto, and kendō instructor Shūji Mikami.
             </p>
-
             <p>
               Suenaka began aikidō study during Kōichi Tōhei's 1953 visit to
               Hawaii. According to the published biography, he later studied
-              at Aikikai Hombu under Morihei Ueshiba beginning in 1961, and
+              at Aikikai Hombu under Morihei Ueshiba beginning in 1961 and
               received a menkyo kaiden certificate from Ueshiba that year.
-              The source describes his direct study there as lasting eight
-              years.
+              The source describes his direct study there as lasting eight years.
             </p>
-
             <p>
               His training also included extended study of Matsumura Seito
               and Hakutsuru Shorin-ryū karate and kobudō with Hohan Sōken,
@@ -1074,32 +807,26 @@
               The biography also records training in kendō, boxing, lua,
               kung fu, and several karate traditions.
             </p>
-
             <p>
               Suenaka moved to Charleston in 1972 and served as the
               Southeastern U.S. director for Kōichi Tōhei's International
               Ki Society until 1975. Suenaka.com records that he then
               resigned and formed the American International Ki Development
-              and Philosophical Society (AIKDPS). His tradition was named
-              Suenaka-ha Tetsugaku-hō Wadōkai Aikidō.
+              and Philosophical Society (AIKDPS).
             </p>
-
             <p>
-              He authored <span class="book-title">Complete Aikido:
-              Aikido Kyohan</span>, published in 1998.
+              He authored <cite>Complete Aikido: Aikido Kyohan</cite>,
+              published in 1998.
             </p>
-
-            <div class="source-note">
-              <strong>Historical naming:</strong> Suenaka-ha
-              Tetsugaku-hō Wadōkai Aikidō is Roy Suenaka's historically
-              named tradition. <em>Suenaka-kei Tetsugaku-hō Aikidō</em>
-              is the name adopted for this present lineage initiative.
-              The names are related, but they refer to distinct
-              institutional stages.
-              <br><br>
-              <a href="https://www.suenaka.com/biography.html"
-                 target="_blank" rel="noopener noreferrer">
-                Read the published Suenaka.com biography
+            <div class="callout">
+              <p>
+                <strong>Suenaka-ha Tetsugaku-hō Wadōkai Aikidō</strong>
+                is the historical name of Roy Suenaka's tradition.
+                <strong>Suenaka-kei Tetsugaku-hō Aikidō</strong> is the
+                name adopted for the present lineage initiative in 2026.
+              </p>
+              <a href="https://www.suenaka.com/biography.html">
+                Read the published biography
               </a>
             </div>
           </div>
@@ -1107,241 +834,121 @@
       </div>
     </section>
 
-    <section class="content-section training" id="training" aria-labelledby="training-title">
+    <section class="content-section" id="training" aria-labelledby="training-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">Martial Education</p>
           <h2 id="training-title">Training &amp; Instructors</h2>
-        </div>
+        </header>
 
-        <div class="content-intro">
+        <div class="intro">
           <p class="lead">
-            Suenaka's published instructor chronology describes a broad
-            education across aikidō, jūdō, jūjutsu, kendō, karate, kobudō,
-            boxing, and other arts.
+            Suenaka's published instructor chronology records an education
+            spanning aikidō, jūdō, jūjutsu, kendō, karate, kobudō, boxing,
+            and other arts.
           </p>
           <p>
-            The dates and instructor names below follow the chronology
-            published on Suenaka.com. Some entries overlap because the
-            biography records concurrent study.
+            The dates follow the chronology published on Suenaka.com.
+            Overlapping entries reflect periods of concurrent study.
           </p>
         </div>
 
-        <div class="record-grid">
-          <article class="record-card">
-            <span class="record-label">Published training chronology</span>
+        <div class="training-layout">
+          <article class="card">
             <h3>Teachers &amp; Arts</h3>
-
-            <ul class="training-list">
-              <li><span class="training-years">1944–1958</span><span class="training-detail">Warren Suenaka, his father — jūdō, jūjutsu, kenjutsu, kempo, and boxing</span></li>
-              <li><span class="training-years">1948–1952</span><span class="training-detail">Henry Seishiro Okazaki — Kodenkan jūjutsu and jūdō</span></li>
-              <li><span class="training-years">1949–1953</span><span class="training-detail">James Masayoshi Mitose — Kosho-ryū kempo</span></li>
-              <li><span class="training-years">1950–1953</span><span class="training-detail">Higami, Matsumoto, and Yukiso Yamamoto — Kōdōkan jūdō</span></li>
-              <li><span class="training-years">1951–1952</span><span class="training-detail">Kalama — lua</span></li>
-              <li><span class="training-years">1951</span><span class="training-detail">Leong — kung fu</span></li>
-              <li><span class="training-years">1953–1976</span><span class="training-detail">Kōichi Tōhei — aikidō</span></li>
-              <li><span class="training-years">1954–1958</span><span class="training-detail">Amateur boxing</span></li>
-              <li><span class="training-years">1955–1958</span><span class="training-detail">Shūji Mikami — kendō</span></li>
-              <li><span class="training-years">1957–1958</span><span class="training-detail">Nishioka — Shōtōkan karate</span></li>
-              <li><span class="training-years">1961–1969</span><span class="training-detail">Morihei Ueshiba — aikidō</span></li>
-              <li><span class="training-years">1961–1972</span><span class="training-detail">Hohan Sōken — Matsumura Seito Hakutsuru Shorin-ryū karate and kobudō</span></li>
-              <li><span class="training-years">1961–1970</span><span class="training-detail">Kazuo Itō and Kyūzō Mifune — Kōdōkan jūdō</span></li>
-              <li><span class="training-years">1961–1963</span><span class="training-detail">Masutatsu Ōyama — Kyokushinkai karate</span></li>
-              <li><span class="training-years">1962</span><span class="training-detail">Chōshin Chibana — Kobayashi karate</span></li>
-              <li><span class="training-years">1963</span><span class="training-detail">Kanei Uechi — Uechi-ryū karate</span></li>
-              <li><span class="training-years">1964</span><span class="training-detail">Ubon-Sing Chub — kung fu</span></li>
-              <li><span class="training-years">1964–1965</span><span class="training-detail">Masanobu Shinjō and Masanobu Kinjo — Gōjū-ryū karate</span></li>
-              <li><span class="training-years">1967–1972</span><span class="training-detail">Eiichi Miyazato — Gōjū-ryū karate</span></li>
-              <li><span class="training-years">1972 onward</span><span class="training-detail">Taught Suenaka-ha Tetsugaku-hō Wadōkai Aikidō and Matsumura Seito Hakutsuru Shorin-ryū karate and kobudō in Charleston</span></li>
-            </ul>
+            <dl class="training-list">
+              <div><dt>1944–1958</dt><dd>Warren Suenaka, his father — jūdō, jūjutsu, kenjutsu, kempo, and boxing</dd></div>
+              <div><dt>1948–1952</dt><dd>Henry Seishiro Okazaki — Kodenkan jūjutsu and jūdō</dd></div>
+              <div><dt>1949–1953</dt><dd>James Masayoshi Mitose — Kosho-ryū kempo</dd></div>
+              <div><dt>1950–1953</dt><dd>Higami, Matsumoto, and Yukiso Yamamoto — Kōdōkan jūdō</dd></div>
+              <div><dt>1951–1952</dt><dd>Kalama — lua</dd></div>
+              <div><dt>1951</dt><dd>Leong — kung fu</dd></div>
+              <div><dt>1953–1976</dt><dd>Kōichi Tōhei — aikidō</dd></div>
+              <div><dt>1954–1958</dt><dd>Amateur boxing</dd></div>
+              <div><dt>1955–1958</dt><dd>Shūji Mikami — kendō</dd></div>
+              <div><dt>1957–1958</dt><dd>Nishioka — Shōtōkan karate</dd></div>
+              <div><dt>1961–1969</dt><dd>Morihei Ueshiba — aikidō</dd></div>
+              <div><dt>1961–1972</dt><dd>Hohan Sōken — Matsumura Seito Hakutsuru Shorin-ryū karate and kobudō</dd></div>
+              <div><dt>1961–1970</dt><dd>Kazuo Itō and Kyūzō Mifune — Kōdōkan jūdō</dd></div>
+              <div><dt>1961–1963</dt><dd>Masutatsu Ōyama — Kyokushinkai karate</dd></div>
+              <div><dt>1962</dt><dd>Chōshin Chibana — Kobayashi karate</dd></div>
+              <div><dt>1963</dt><dd>Kanei Uechi — Uechi-ryū karate</dd></div>
+              <div><dt>1964</dt><dd>Ubon-Sing Chub — kung fu</dd></div>
+              <div><dt>1964–1965</dt><dd>Masanobu Shinjō and Masanobu Kinjo — Gōjū-ryū karate</dd></div>
+              <div><dt>1967–1972</dt><dd>Eiichi Miyazato — Gōjū-ryū karate</dd></div>
+              <div><dt>1972 onward</dt><dd>Taught aikidō, Matsumura Seito Hakutsuru Shorin-ryū karate, and kobudō in Charleston.</dd></div>
+            </dl>
           </article>
 
-          <figure class="record-card">
-            <span class="record-label">Historical photograph</span>
-            <h3>Roy Suenaka with Morihei Ueshiba</h3>
-            <img
-              src="https://www.suenaka.com/images/OSenseiSuenakaSensei.jpg"
-              alt="Roy Suenaka standing beside Morihei Ueshiba"
-              loading="lazy">
-            <figcaption class="founder-caption">
-              Photograph linked from Suenaka.com. The source identifies
-              the people shown as Roy Suenaka and Morihei Ueshiba.
+          <figure class="training-photo">
+            <div class="photo-frame">
+              <!-- Inline image 2: the finished cool monochrome photograph. -->
+              <img src="./roy-suenaka-and-morihei-ueshiba.png"
+                   width="1007" height="1562"
+                   alt="Roy Suenaka on the left, standing beside Morihei Ueshiba"
+                   loading="lazy" decoding="async">
+            </div>
+            <figcaption>
+              Roy Suenaka with Morihei Ueshiba. AI-enhanced monochrome
+              edition of the photograph published on Suenaka.com.
             </figcaption>
           </figure>
         </div>
-
-        <p class="record-footnote">
-          Names, romanization, and date ranges are presented as they appear
-          in the published source, with macrons added to common Japanese
-          names and terms for readability.
-        </p>
       </div>
     </section>
 
-    <section class="content-section ranks" id="ranks" aria-labelledby="ranks-title">
+    <section class="content-section" id="ranks" aria-labelledby="ranks-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">Historical Record</p>
           <h2 id="ranks-title">Ranks &amp; Awards</h2>
-        </div>
-
-        <div class="content-intro">
-          <p class="lead">
-            The following qualifications and awards are reported in
-            Suenaka.com's published biography.
-          </p>
-          <p>
-            They belong to Roy Suenaka's personal history. They are not
-            credentials awarded by the Suenaka-kei Yūdanshakai, which is
-            currently in formation.
-          </p>
-        </div>
-
-        <div class="record-card">
+        </header>
+        <p class="lead intro">
+          Suenaka.com's biography records the following qualifications and
+          awards in Roy Suenaka's personal training history.
+        </p>
+        <div class="card">
           <ul class="record-list">
-            <li>
-              <strong>Menkyo kaiden in aikidō (1961):</strong>
-              a teaching certificate awarded by Morihei Ueshiba, as
-              reported in the biography.
-            </li>
-            <li>
-              <strong>Hachidan in aikidō (1977):</strong>
-              eighth-degree black belt, as reported by Suenaka.com.
-            </li>
-            <li>
-              <strong>Hachidan in Matsumura Seito Hakutsuru Shorin-ryū
-              karate and kobudō (1977):</strong>
-              as reported by the biography.
-            </li>
-            <li>
-              <strong>Rokudan in Matsumura Seito Hakutsuru Shorin-ryū
-              karate and kobudō (1972):</strong>
-              awarded by Hohan Sōken, according to the source.
-            </li>
-            <li>
-              <strong>Sandan in Kōdōkan jūdō and jūjutsu (1970):</strong>
-              dual certificates attributed to Kazuo Itō and Risei Kanō in
-              the published biography.
-            </li>
-            <li>
-              <strong>Nidan in kendō (1958):</strong>
-              awarded by Shūji Mikami, according to the source.
-            </li>
-            <li>
-              <strong>Hawaiian State Golden Gloves boxing:</strong>
-              participation during 1954–1958, as listed in the biography.
-            </li>
+            <li><strong>1961 · Menkyo kaiden in aikidō.</strong> The biography attributes this teaching certificate of complete transmission to Morihei Ueshiba.</li>
+            <li><strong>1977 · Hachidan in aikidō.</strong> Eighth-degree black belt. The entry leaves the awarding organization unspecified.</li>
+            <li><strong>1977 · Hachidan in karate and kobudō.</strong> Eighth-degree black belt in Matsumura Seito Hakutsuru Shorin-ryū karate and kobudō.</li>
+            <li><strong>1972 · Rokudan in karate and kobudō.</strong> Sixth-degree black belt in the same tradition, attributed to Hohan Sōken.</li>
+            <li><strong>1970 · Sandan in Kōdōkan jūdō and jūjutsu.</strong> The biography attributes a dual third-degree certificate to Kazuo Itō and Risei Kanō.</li>
+            <li><strong>1958 · Nidan in kendō.</strong> Second-degree black belt, attributed to Shūji Mikami.</li>
+            <li><strong>1954–1958 · Hawaiian State Golden Gloves.</strong> The biography records participation in boxing during these years.</li>
           </ul>
         </div>
-
-        <p class="record-footnote">
-          The source lists an eighth dan in aikidō but does not identify
-          the awarding organization in that entry. The site therefore
-          records the rank as a biographical claim rather than assigning
-          it to Aikikai or another organization.
-        </p>
       </div>
     </section>
 
-    <section class="content-section teaching" id="teaching" aria-labelledby="teaching-title">
+    <section class="content-section" id="teaching" aria-labelledby="teaching-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">Instruction &amp; Service</p>
           <h2 id="teaching-title">Teaching Experience</h2>
-        </div>
-
-        <div class="content-intro">
-          <p class="lead">
-            Suenaka.com's biography describes instruction spanning dōjō,
-            schools, military programs, police organizations, seminars,
-            and specialist training.
-          </p>
-          <p>
-            The entries below summarize that source's account; they are
-            not independently verified by this page.
-          </p>
-        </div>
-
-        <div class="record-card">
+        </header>
+        <p class="lead intro">
+          Suenaka.com's biography describes instruction spanning dōjō,
+          schools, military programs, police organizations, and regional seminars.
+        </p>
+        <div class="card">
           <ul class="record-list">
-            <li>
-              Assisted with aikidō instruction at Hawaii Aikikai after
-              receiving his first aikidō black belt in 1956; the biography
-              places this work through his 1958 entry into the U.S. Air Force.
-            </li>
-            <li>
-              Opened an aikidō school in Sacramento, California, in 1958,
-              which the biography describes as the first recognized aikidō
-              school in the continental United States; taught there until
-              his 1961 assignment to Japan.
-            </li>
-            <li>
-              Taught the California Highway Patrol and Military Police at
-              Mather Air Force Base from 1958 to 1961.
-            </li>
-            <li>
-              Taught jūdō and aikidō at Encino High School in 1960.
-            </li>
-            <li>
-              Taught young people and counselors at Boys Town in Placerville,
-              California, between 1958 and 1960.
-            </li>
-            <li>
-              Served as a guest instructor in the U.S. Air Force Strategic
-              Air Command Survival Training Course at Stead Air Force Base,
-              Nevada, from 1958 to 1961.
-            </li>
-            <li>
-              During assignments in Japan, Okinawa, and Vietnam from
-              1961 to 1972, taught hand-to-hand combat to military and
-              police groups, including Military Police, Marines, Army
-              Green Berets, Navy SEALs, the Air Commando program, and
-              the Ryukyu Police Department in Naha.
-            </li>
-            <li>
-              Opened an aikidō dōjō in Okinawa in 1961. The biography
-              describes challenges from local karate practitioners as
-              part of that school's early experience.
-            </li>
-            <li>
-              Opened an aikidō and karate dōjō in Charleston in 1973.
-              The biography described it as still operating when that
-              page was published.
-            </li>
-            <li>
-              Taught Air Force Tactical Recovery Teams in Charleston
-              from 1973 to 1974 and instructed Air Force Security Police
-              in a special program initiated by General Sadler.
-            </li>
-            <li>
-              Instructed at the South Carolina Police Academy in Columbia
-              in 1988–1989, including State Police, FBI, city and county
-              SWAT teams, SLED, and correctional officers.
-            </li>
-            <li>
-              Taught Costa Rican special task forces and Presidential
-              Secret Service personnel in 1991 in a program sponsored by
-              the Charleston City Police Department.
-            </li>
-            <li>
-              Taught a 1994 course for female and smaller-framed officers
-              serving in the Charleston City Police Department.
-            </li>
-            <li>
-              The biography also lists instruction for law-enforcement
-              employees, jailers, bodyguards, State Department officials,
-              Border Patrol, SWAT, bounty hunters, bail bondsmen, DEA,
-              U.S. Marshals, and Foreign Dignitary Protection Service agents.
-            </li>
-            <li>
-              Conducted annual seminars in South Carolina, Georgia, Florida,
-              North Carolina, Virginia, and New York, with special seminars
-              in California, Washington, and Colorado.
-            </li>
-            <li>
-              Authored <em>Complete Aikido: Aikido Kyohan</em>, published
-              by Tuttle in Boston in 1998, according to the source.
-            </li>
+            <li>Assisted with aikidō instruction at Hawaii Aikikai after receiving his first aikidō black belt in 1956, until he entered the U.S. Air Force in 1958.</li>
+            <li>Opened an aikidō school in Sacramento in 1958. His biography describes it as the first recognized aikidō school in the continental United States. He taught there until his 1961 assignment to Japan.</li>
+            <li>Taught the California Highway Patrol and Military Police at Mather Air Force Base from 1958 to 1961.</li>
+            <li>Taught jūdō and aikidō at Encino High School in 1960.</li>
+            <li>Taught young people and counselors at Boys Town in Placerville, California, between 1958 and 1960.</li>
+            <li>Served as a guest instructor at the Strategic Air Command survival training course at Stead Air Force Base, Nevada, from 1958 to 1961.</li>
+            <li>During assignments in Japan, Okinawa, and Vietnam from 1961 to 1972, taught military and police groups including Military Police, Marines, Army Green Berets, Navy SEALs, the Air Commando program, and the Ryukyu Police Department in Naha.</li>
+            <li>Opened an aikidō dōjō in Okinawa in 1961. His biography recounts challenges from local karate practitioners during its early years.</li>
+            <li>Opened an aikidō and karate dōjō in Charleston in 1973, the year after he moved to the city.</li>
+            <li>Taught Air Force Tactical Recovery Teams in Charleston from 1973 to 1974 and instructed Air Force Security Police in a program initiated by General Sadler.</li>
+            <li>Instructed at the police academy in Columbia in 1988–1989. His biography lists State Police, FBI, city and county SWAT teams, South Carolina Law Enforcement Division personnel, and correctional officers.</li>
+            <li>Taught Costa Rican special task forces and Presidential Secret Service personnel in 1991 through a program sponsored by the Charleston City Police Department.</li>
+            <li>Taught a 1994 course for women and smaller-framed officers serving in the Charleston City Police Department.</li>
+            <li>Other students listed in the biography include jailers, bodyguards, State Department officials, Border Patrol personnel, bounty hunters, bail bondsmen, DEA personnel, U.S. Marshals, and Foreign Dignitary Protection Service agents.</li>
+            <li>Conducted recurring seminars in South Carolina, Georgia, Florida, North Carolina, Virginia, and New York, with additional seminars in California, Washington, and Colorado.</li>
+            <li>Authored <cite>Complete Aikido: Aikido Kyohan</cite>, published by Tuttle in 1998.</li>
           </ul>
         </div>
       </div>
@@ -1349,15 +956,13 @@
 
     <section class="content-section aikido" id="aikido" aria-labelledby="aikido-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">The Martial Art</p>
           <h2 id="aikido-title">Aikidō</h2>
           <div class="jp-subtitle" lang="ja">合気道</div>
-        </div>
-
+        </header>
         <h3>The Aikidō of Roy Suenaka</h3>
-
-        <div class="aikido-layout">
+        <div class="two-column">
           <div>
             <p>
               Suenaka's aikidō drew on instruction from Morihei Ueshiba and
@@ -1365,152 +970,107 @@
               His published biography identifies his independent tradition
               as Suenaka-ha Tetsugaku-hō Wadōkai Aikidō.
             </p>
-
             <p>
               Training emphasized effective self-defense, balance,
               coordinated body movement, blending with attacks, throws,
               joint controls, and development of mind and body.
             </p>
           </div>
-
-          <div class="aikido-principles">
-            <p>
-              Equal attention was given to physical ability and personal
-              development.
-            </p>
-
-            <p>
-              The practice encouraged self-discipline, moderation,
-              compassion, and respect for others.
-            </p>
-
-            <p>
-              Suenaka-kei studies this inheritance while developing its own
-              documented curriculum and governance.
-            </p>
+          <div class="principles">
+            <p>Equal attention was given to physical ability and personal development.</p>
+            <p>The practice encouraged self-discipline, moderation, compassion, and respect for others.</p>
+            <p>Suenaka-kei studies this inheritance while developing its own documented curriculum and governance.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="content-section credentials" id="credentials" aria-labelledby="credentials-title">
+    <section class="content-section" id="credentials" aria-labelledby="credentials-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">Recognition &amp; Certification</p>
           <h2 id="credentials-title">Rank &amp; Transmission</h2>
           <div class="jp-subtitle" lang="ja">段位と伝承</div>
-        </div>
-
-        <div class="credentials-intro">
+        </header>
+        <div class="intro">
           <p class="lead">
-            Suenaka-kei Tetsugaku-hō Aikidō distinguishes recognized
-            aikidō rank from proficiency and transmission within its
-            own developing tradition.
+            Suenaka-kei Tetsugaku-hō Aikidō distinguishes recognized aikidō
+            rank from proficiency and transmission within its own developing tradition.
           </p>
           <p>
-            The intended system provides two complementary forms of
-            recognition: Aikikai rank and Suenaka-kei certificates and
-            licenses administered through its governing Yūdanshakai.
+            The intended system provides two complementary forms of recognition.
+            Practitioners may pursue Aikikai rank through authorized channels.
+            The governing Yūdanshakai is developing the standards for
+            Suenaka-kei certificates and teaching licenses.
           </p>
         </div>
 
-        <div class="credentials-grid">
-          <article class="credential-card">
-            <span class="credential-type">External Rank Recognition</span>
+        <div class="two-column">
+          <article class="card">
+            <span class="label">External Rank Recognition</span>
             <h3>Aikikai Kyū / Dan</h3>
-            <span class="credential-jp" lang="ja">合気会・級位／段位</span>
-
+            <p class="jp-subtitle" lang="ja">合気会・級位／段位</p>
+            <p>The intended rank pathway follows the Aikikai system of kyū and dan grades.</p>
             <p>
-              The intended rank pathway follows the Aikikai system of kyū
-              and dan grades.
+              Aikikai dan recognition and registration with Hombu proceed
+              through authorized Aikikai channels. Advancement remains
+              subject to the applicable practice, examination, recommendation,
+              and approval requirements.
             </p>
-            <p>
-              Dan grades are examined, recognized, and registered with
-              Aikikai Hombu through appropriately authorized Aikikai
-              examination and registration channels.
-            </p>
-            <p>
-              Advancement remains subject to Aikikai requirements,
-              qualifying practice, examination, and approval by
-              authorized examiners.
-            </p>
-
-            <div class="credential-divider"></div>
-
-            <span class="credential-term">Kyū (級)</span>
-            <span class="credential-definition">
-              Student grades preceding black belt rank.
-            </span>
-
-            <span class="credential-term">Dan (段)</span>
-            <span class="credential-definition">
-              Recognized black belt and higher grades.
-            </span>
-
-            <p>
-              The Yūdanshakai does not independently award Aikikai dan grades.
-            </p>
+            <dl class="credential-terms">
+              <dt>Kyū <span lang="ja">(級)</span></dt>
+              <dd class="definition">Student grades preceding black belt rank.</dd>
+              <dt>Dan <span lang="ja">(段)</span></dt>
+              <dd class="definition">Black belt grades, beginning with first dan.</dd>
+            </dl>
+            <p>The Yūdanshakai does not independently award Aikikai dan grades.</p>
           </article>
 
-          <article class="credential-card">
-            <span class="credential-type">Internal Proficiency &amp; Transmission</span>
+          <article class="card">
+            <span class="label">Internal Proficiency &amp; Transmission</span>
             <h3>Suenaka-kei</h3>
-            <span class="credential-jp" lang="ja">末中系・目録／免許</span>
-
+            <p class="jp-subtitle" lang="ja">末中系・目録／免許</p>
             <p>
-              Proficiency in Suenaka-kei Tetsugaku-hō Aikidō is to be
-              evaluated and documented independently by the
-              Suenaka-kei Yūdanshakai.
+              The Suenaka-kei Yūdanshakai proposes to evaluate and document
+              proficiency in Suenaka-kei Tetsugaku-hō Aikidō. Its framework
+              distinguishes demonstrated technical knowledge from the authority
+              entrusted to teach.
             </p>
-            <p>
-              The proposed certification system distinguishes demonstrated
-              technical knowledge from the authority entrusted to teach.
-            </p>
-
-            <div class="credential-divider"></div>
-
-            <span class="credential-term">Mokuroku (目録)</span>
-            <span class="credential-definition">
-              Certificate or register of transmission.
-            </span>
-            <p>
-              Documents a defined body of techniques, principles, and
-              proficiency received and demonstrated by the practitioner.
-            </p>
-
-            <span class="credential-term">Menkyo (免許)</span>
-            <span class="credential-definition">
-              License of teaching authorization.
-            </span>
-            <p>
-              Grants permission to teach the particular body of material
-              specified in the license.
-            </p>
+            <dl class="credential-terms">
+              <dt>Mokuroku <span lang="ja">(目録)</span></dt>
+              <dd>
+                A certificate or register of transmission documenting the
+                techniques, principles, and proficiency a practitioner
+                has received and demonstrated.
+              </dd>
+              <dt>Menkyo <span lang="ja">(免許)</span></dt>
+              <dd>
+                A teaching license granting permission to teach the
+                particular body of material specified in the license.
+              </dd>
+            </dl>
           </article>
         </div>
 
         <div class="transmission-depths">
           <h3>Levels of Transmission</h3>
           <div class="depth-grid">
-            <div class="depth-item">
-              <strong>Shoden (初伝)</strong>
-              <span>Initial Transmission</span>
-              <span>Mokuroku / Menkyo</span>
+            <div>
+              <h4>Shoden <span lang="ja">(初伝)</span></h4>
+              <p class="definition">Initial Transmission<br>Mokuroku / Menkyo</p>
             </div>
-            <div class="depth-item">
-              <strong>Chūden (中伝)</strong>
-              <span>Intermediate Transmission</span>
-              <span>Mokuroku / Menkyo</span>
+            <div>
+              <h4>Chūden <span lang="ja">(中伝)</span></h4>
+              <p class="definition">Intermediate Transmission<br>Mokuroku / Menkyo</p>
             </div>
-            <div class="depth-item">
-              <strong>Okuden (奥伝)</strong>
-              <span>Deep Transmission</span>
-              <span>Mokuroku / Menkyo</span>
+            <div>
+              <h4>Okuden <span lang="ja">(奥伝)</span></h4>
+              <p class="definition">Deep Transmission<br>Mokuroku / Menkyo</p>
             </div>
           </div>
         </div>
 
-        <p class="credentials-note">
+        <p class="note">
           Aikikai rank and Suenaka-kei transmission credentials are separate
           qualifications. Neither automatically grants the other. A teaching
           license does not, by itself, authorize its holder to issue further
@@ -1522,142 +1082,100 @@
 
     <section class="content-section association" id="association" aria-labelledby="association-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">Governance</p>
           <h2 id="association-title">The Yūdanshakai</h2>
+        </header>
+        <div class="association-name">
+          <span lang="ja">末中系有段者会</span><br>
+          Suenaka-kei Yūdanshakai<br>
+          <span class="definition">Suenaka-Lineage Dan-Ranked Practitioners Association</span>
         </div>
-
-        <div class="association-heading">
-          <span class="jp-name" lang="ja">末中系有段者会</span>
-          <span class="roman-name">Suenaka-kei Yūdanshakai</span>
-          <span class="translation">Suenaka-Lineage Dan-Ranked Practitioners Association</span>
-        </div>
-
         <div class="text-content">
           <p class="lead">
             The Suenaka-kei Yūdanshakai is being established as the
             governing association of Suenaka-kei Tetsugaku-hō Aikidō.
           </p>
-
+          <p>The association is intended to unite qualified dan-ranked practitioners connected through Roy Suenaka's teachings.</p>
           <p>
-            The association is intended to unite qualified dan-ranked
-            practitioners connected through Roy Suenaka's teachings.
+            Its proposed responsibilities include maintaining the technical
+            curriculum, evaluating Suenaka-kei proficiency, administering
+            certificates of transmission and teaching licenses, and
+            preserving the continuity of the tradition.
           </p>
-
-          <p>
-            Its proposed responsibilities include maintaining the
-            technical curriculum, evaluating Suenaka-kei proficiency,
-            administering certificates of transmission and teaching
-            licenses, and preserving the continuity of the tradition.
-          </p>
-
-          <p>
-            Aikikai rank recognition and registration will remain under the
-            authority of appropriately authorized Aikikai organizations.
-          </p>
-
-          <p>
-            Founding membership, examination standards, and formal governing
-            authority are currently being established.
-          </p>
+          <p>Aikikai rank recognition and registration remain under the authority of appropriately authorized Aikikai organizations.</p>
+          <p>Founding membership, examination standards, and formal governing authority are currently being established.</p>
         </div>
       </div>
     </section>
 
     <section class="content-section precedent" id="precedent" aria-labelledby="precedent-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">Continuity Across Generations</p>
           <h2 id="precedent-title">Historical Precedent</h2>
           <div class="jp-subtitle" lang="ja">伝承と継続</div>
-        </div>
-
-        <div class="precedent-intro">
-          <p class="lead">
-            A martial tradition must be capable of continuing beyond the
-            lifetime of the teacher who holds it together.
-          </p>
-          <p>
-            Roy Suenaka's own independent founding provides an important
-            precedent for the work now undertaken by Suenaka-kei.
-          </p>
+        </header>
+        <div class="intro">
+          <p class="lead">A martial tradition must be capable of continuing beyond the lifetime of the teacher who holds it together.</p>
+          <p>Roy Suenaka's own independent founding provides an important precedent for the work now undertaken by Suenaka-kei.</p>
           <p>
             Approximately six years separate Morihei Ueshiba's death from
             Suenaka's independent founding. A comparable interval separates
             Suenaka's death from the beginning of this present initiative.
           </p>
         </div>
-
         <div class="timeline-grid">
-          <article class="timeline-card">
-            <span class="timeline-label">First Generation</span>
+          <article class="card">
+            <span class="label">First Generation</span>
             <h3>From Ō-Sensei to Suenaka</h3>
             <p class="timeline-period">1969–1975</p>
-
             <ol class="timeline">
               <li>
-                <time class="timeline-year" datetime="1969">1969</time>
-                <span class="timeline-event">
-                  <strong>Morihei Ueshiba dies.</strong>
-                  The founder of aikidō passes away on April 26.
-                </span>
+                <time class="year" datetime="1969">1969</time>
+                <strong>Morihei Ueshiba dies.</strong>
+                The founder of aikidō passes away on April 26.
               </li>
               <li>
-                <time class="timeline-year" datetime="1974">1974</time>
-                <span class="timeline-event">
-                  <strong>Kōichi Tōhei leaves Aikikai.</strong>
-                  A major division follows differences within aikidō leadership.
-                </span>
+                <time class="year" datetime="1974">1974</time>
+                <strong>Kōichi Tōhei leaves Aikikai.</strong>
+                A major division follows differences within aikidō leadership.
               </li>
               <li>
-                <time class="timeline-year" datetime="1975">1975</time>
-                <span class="timeline-event">
-                  <strong>Roy Suenaka establishes an independent organization.</strong>
-                  He resigns from the International Ki Society and forms AIKDPS,
-                  according to his published biography.
-                </span>
+                <time class="year" datetime="1975">1975</time>
+                <strong>Roy Suenaka establishes an independent organization.</strong>
+                His biography records his resignation from the International
+                Ki Society and the founding of AIKDPS.
               </li>
             </ol>
           </article>
-
-          <article class="timeline-card">
-            <span class="timeline-label">Present Generation</span>
+          <article class="card">
+            <span class="label">Present Generation</span>
             <h3>From Suenaka to Suenaka-kei</h3>
             <p class="timeline-period">2020–2026</p>
-
             <ol class="timeline">
               <li>
-                <time class="timeline-year" datetime="2020">2020</time>
-                <span class="timeline-event">
-                  <strong>Roy Yukio Suenaka dies.</strong>
-                  Suenaka passes away on February 8.
-                </span>
+                <time class="year" datetime="2020">2020</time>
+                <strong>Roy Yukio Suenaka dies.</strong>
+                Suenaka passes away on February 8.
               </li>
               <li>
-                <span class="timeline-year">2020–2026</span>
-                <span class="timeline-event">
-                  <strong>The transmission continues.</strong>
-                  Suenaka's students and their successors continue studying
-                  and teaching in different settings.
-                </span>
+                <span class="year">2020–2026</span>
+                <strong>The transmission continues.</strong>
+                Suenaka's students and their successors continue studying
+                and teaching in different settings.
               </li>
               <li>
-                <time class="timeline-year" datetime="2026">2026</time>
-                <span class="timeline-event">
-                  <strong>Suenaka-kei Tetsugaku-hō Aikidō is named.</strong>
-                  Formation of the Suenaka-kei Yūdanshakai begins as a
-                  proposed framework for preserving and transmitting the
-                  tradition.
-                </span>
+                <time class="year" datetime="2026">2026</time>
+                <strong>Suenaka-kei Tetsugaku-hō Aikidō is named.</strong>
+                Formation of the Suenaka-kei Yūdanshakai begins as a proposed
+                framework for preserving and transmitting the tradition.
               </li>
             </ol>
           </article>
         </div>
-
-        <div class="precedent-reflection">
-          <p class="precedent-principle">
-            Fidelity to the source must outlast allegiance to an intermediary.
-          </p>
+        <div class="callout reflection">
+          <p class="lead">Fidelity to the source must outlast allegiance to an intermediary.</p>
           <p>
             Roy Suenaka's example demonstrates that institutional
             independence and continuing fidelity to one's teachers need
@@ -1671,171 +1189,81 @@
             organizational membership.
           </p>
         </div>
-
-        <p class="precedent-note">
-          This is a historical parallel, not a claim that the circumstances
-          or causes of the two organizational transitions were identical.
-          The first sequence is historical; the second records the founding
-          direction of an association in formation.
+        <p class="note">
+          The parallel concerns the interval between a teacher's death and
+          an independent founding. The circumstances of each transition
+          belong to its own history. The second timeline records an
+          association currently in formation.
         </p>
       </div>
     </section>
 
-    <section class="content-section dojo" id="dojo" aria-labelledby="dojo-title">
+    <section class="content-section" id="dojo" aria-labelledby="dojo-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">Instruction &amp; Training</p>
           <h2 id="dojo-title">Dōjō &amp; Events</h2>
-        </div>
-
-        <div class="information-grid">
-          <div class="information-card">
+        </header>
+        <div class="two-column">
+          <article class="information-card">
             <h3>Dōjō &amp; Instructors</h3>
-            <p>
-              Roy Suenaka's teachings were transmitted through students
-              and instructors throughout the United States and
-              internationally.
-            </p>
-            <p>
-              A directory of participating Suenaka-kei instructors and
-              dōjō will be published as membership is established.
-            </p>
-          </div>
-
-          <div class="information-card">
+            <p>Roy Suenaka's teachings were transmitted through students and instructors throughout the United States and internationally.</p>
+            <p>A directory of participating Suenaka-kei instructors and dōjō will be published as membership is established.</p>
+          </article>
+          <article class="information-card">
             <h3>Seminars &amp; Events</h3>
             <p>
-              Traditional training activities have included
-              <em>kangeiko</em> (寒稽古 — winter intensive training) and
-              <em>gasshuku</em> (合宿 — extended training camps).
+              Traditional training activities have included <em>kangeiko</em>
+              (<span lang="ja">寒稽古</span> — winter intensive training) and
+              <em>gasshuku</em> (<span lang="ja">合宿</span> — extended training camps).
             </p>
-            <p>
-              Regional seminars and technical workshops offer additional
-              opportunities for training and instruction.
-            </p>
+            <p>Regional seminars and technical workshops offer additional opportunities for training and instruction.</p>
             <p>Future association events will be announced as scheduled.</p>
-          </div>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="content-section sources" id="sources" aria-labelledby="sources-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">Further Reading</p>
           <h2 id="sources-title">Articles &amp; References</h2>
-        </div>
-
-        <p class="lead">
-          These links are listed as references for readers who want to
-          explore Suenaka's biography, aikidō, and martial-arts background.
-        </p>
-
+        </header>
         <ul class="source-links">
-          <li>
-            <a href="https://www.suenaka.com/biography.html"
-               target="_blank" rel="noopener noreferrer">
-              Roy Y. Suenaka biography, training, ranks, and teaching record
-            </a>
-          </li>
-          <li>
-            <a href="https://aikikai.or.jp/eng/aikido/history/"
-               target="_blank" rel="noopener noreferrer">
-              Aikikai: History of Aikidō
-            </a>
-          </li>
-          <li>
-            <a href="https://aikidojournal.com/2012/11/14/koichi-toheis-1974-letter-of-resignation-from-the-aikikai-hombu-dojo-3/"
-               target="_blank" rel="noopener noreferrer">
-              Aikido Journal: Kōichi Tōhei's 1974 departure
-            </a>
-          </li>
-          <li>
-            <a href="https://www.fightingarts.com/reading/article.php?id=434"
-               target="_blank" rel="noopener noreferrer">
-              FightingArts: Effective Aikido — defense and wrist technique
-            </a>
-          </li>
-          <li>
-            <a href="https://www.fightingarts.com/reading/article.php?id=189"
-               target="_blank" rel="noopener noreferrer">
-              FightingArts: Complete Aikido — Aikido Kyohan
-            </a>
-          </li>
-          <li>
-            <a href="https://aikidojournal.com/encyclopedia-of-aikido/?entryID=633"
-               target="_blank" rel="noopener noreferrer">
-              Aikido Journal: Encyclopedia of Aikido
-            </a>
-          </li>
-          <li>
-            <a href="https://www.fightingarts.com/reading/article.php?id=606"
-               target="_blank" rel="noopener noreferrer">
-              FightingArts: A Glimpse of Old Karate from Hohan Soken
-            </a>
-          </li>
-          <li>
-            <a href="https://www.fightingarts.com/reading/article.php?id=639"
-               target="_blank" rel="noopener noreferrer">
-              FightingArts: A Half Century of Budo
-            </a>
-          </li>
-          <li>
-            <a href="https://www.fightingarts.com/reading/article.php?id=646"
-               target="_blank" rel="noopener noreferrer">
-              FightingArts: The Man Who Brought Karate to Finland
-            </a>
-          </li>
-          <li>
-            <a href="https://www.fightingarts.com/reading/article.php?id=438"
-               target="_blank" rel="noopener noreferrer">
-              FightingArts: Leading an overhead strike into a head control
-            </a>
-          </li>
-          <li>
-            <a href="https://www.fightingarts.com/reading/article.php?id=424"
-               target="_blank" rel="noopener noreferrer">
-              FightingArts: The Old Okinawan Karate Toe Kick
-            </a>
-          </li>
+          <li><a href="https://www.suenaka.com/biography.html">Roy Y. Suenaka biography, instructor chronology, ranks, and teaching record</a></li>
+          <li><a href="https://aikikai.or.jp/eng/aikido/history/">Aikikai — History of Aikidō</a></li>
+          <li><a href="https://aikidojournal.com/2012/11/14/koichi-toheis-1974-letter-of-resignation-from-the-aikikai-hombu-dojo-3/">Aikido Journal — Kōichi Tōhei's 1974 letter of resignation</a></li>
+          <li><a href="https://www.legacy.com/us/obituaries/name/roy-suenaka-obituary?id=544206">Roy Suenaka memorial record</a></li>
+          <li><a href="https://www.fightingarts.com/reading/article.php?id=434">FightingArts — Effective Aikido: Defense and Wrist Technique</a></li>
+          <li><a href="https://www.fightingarts.com/reading/article.php?id=189">FightingArts — Complete Aikido: Aikido Kyohan</a></li>
+          <li><a href="https://aikidojournal.com/encyclopedia-of-aikido/?entryID=633">Aikido Journal — Encyclopedia of Aikido</a></li>
+          <li><a href="https://www.fightingarts.com/reading/article.php?id=606">FightingArts — A Glimpse of Old Karate from Hohan Soken</a></li>
+          <li><a href="https://www.fightingarts.com/reading/article.php?id=639">FightingArts — A Half Century of Budo</a></li>
+          <li><a href="https://www.fightingarts.com/reading/article.php?id=646">FightingArts — The Man Who Brought Karate to Finland</a></li>
+          <li><a href="https://www.fightingarts.com/reading/article.php?id=438">FightingArts — Leading an Overhead Strike into a Head Control</a></li>
+          <li><a href="https://www.fightingarts.com/reading/article.php?id=424">FightingArts — The Old Okinawan Karate Toe Kick</a></li>
         </ul>
-
-        <p class="record-footnote">
-          The Suenaka.com biography states that its contents are copyrighted
-          by Roy Y. Suenaka Kaiso. Historical details on this page are
-          summarized in new wording and linked to that source.
+        <p class="note">
+          Suenaka.com credits its site contents to Roy Y. Suenaka Kaiso.
+          Its biography is the source for the instructor chronology, historical
+          credentials, teaching record, and original photographs.
         </p>
       </div>
     </section>
 
     <section class="content-section contact" id="contact" aria-labelledby="contact-title">
       <div class="container">
-        <div class="section-header">
+        <header class="section-header">
           <p class="section-kicker">Inquiries</p>
           <h2 id="contact-title">Contact</h2>
-        </div>
-
+        </header>
         <div class="contact-details">
-          <p>
-            <strong>Suenaka-kei Tetsugaku-hō Aikidō</strong><br>
-            <span lang="ja">末中系哲学法合気道</span>
-          </p>
-
-          <p>
-            Suenaka-kei Yūdanshakai<br>
-            <span lang="ja">末中系有段者会</span>
-          </p>
-
+          <p><strong>Suenaka-kei Tetsugaku-hō Aikidō</strong><br><span lang="ja">末中系哲学法合気道</span></p>
+          <p>Suenaka-kei Yūdanshakai<br><span lang="ja">末中系有段者会</span></p>
           <p>Charleston, South Carolina, USA</p>
-
-          <p>
-            Contact information and participating dōjō details will be
-            published as they become available.
-          </p>
-
-          <span class="contact-status">
-            Governing Association in Formation
-          </span>
+          <p>Contact information and participating dōjō details will be published as they become available.</p>
+          <span class="contact-status">Governing Association in Formation</span>
         </div>
       </div>
     </section>
@@ -1843,20 +1271,15 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-jp" lang="ja">末中系哲学法合気道</div>
-      <div class="footer-en">Suenaka-kei Tetsugaku-hō Aikidō</div>
-
-      <div class="footer-association">
-        Governing Association:<br>
-        末中系有段者会<br>
+      <p class="footer-jp" lang="ja">末中系哲学法合気道</p>
+      <p class="footer-en">Suenaka-kei Tetsugaku-hō Aikidō</p>
+      <p>
+        Governing Association<br>
+        <span lang="ja">末中系有段者会</span><br>
         Suenaka-kei Yūdanshakai (in formation)
-      </div>
-
-      <div class="footer-location">Charleston · South Carolina</div>
-
-      <div class="footer-small">
-        Independent aikidō tradition and governing association in formation.
-      </div>
+      </p>
+      <p>Charleston · South Carolina</p>
+      <p>Independent aikidō tradition and governing association in formation.</p>
     </div>
   </footer>
 </body>
