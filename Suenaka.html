@@ -6,17 +6,20 @@
   <meta name="viewport"
         content="width=device-width, initial-scale=1">
 
-  <title>Suenaka-kei Yūdanshakai | 末中系有段者会</title>
+  <title>
+    Suenaka-kei Tetsugaku-hō Aikidō
+  </title>
 
   <meta name="description"
-        content="Suenaka-kei Yūdanshakai — an independent association dedicated to the continued study and transmission of the aikidō of Roy Yukio Suenaka, Charleston, South Carolina.">
+        content="Suenaka-kei Tetsugaku-hō Aikidō. Continuing the aikidō teachings of Roy Yukio Suenaka, with the Suenaka-kei Yūdanshakai as its governing association in formation. Charleston, South Carolina.">
 
   <style>
-    /* ========================================
-       SUENAKA-KEI YŪDANSHAKAI
-       VERSION 1.0
-       Self-contained HTML and CSS
-       ======================================== */
+
+    /* =====================================
+       SUENAKA-KEI TETSUGAKU-HŌ AIKIDŌ
+       VERSION 1.1
+       All CSS embedded
+       ===================================== */
 
     :root {
       --indigo: #192d43;
@@ -29,28 +32,41 @@
       --muted: #68717a;
       --red: #ad4439;
       --line: #dcd8ce;
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: -apple-system, BlinkMacSystemFont,
-              "Segoe UI", Arial, sans-serif;
+
+      --serif: Georgia,
+               "Times New Roman",
+               serif;
+
+      --sans: -apple-system,
+              BlinkMacSystemFont,
+              "Segoe UI",
+              Arial,
+              sans-serif;
+
       --jp: "Hiragino Mincho ProN",
-            "Yu Mincho", "Noto Serif CJK JP",
-            "MS PMincho", serif;
+            "Yu Mincho",
+            "Noto Serif CJK JP",
+            "MS PMincho",
+            serif;
+
       --page-width: 1060px;
     }
 
-    *, *::before, *::after {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
     }
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 100px;
+      scroll-padding-top: 110px;
     }
 
     body {
       margin: 0;
-      color: var(--ink);
       background: var(--ivory);
+      color: var(--ink);
       font-family: var(--sans);
       font-size: 16px;
       line-height: 1.8;
@@ -63,7 +79,7 @@
 
     a:focus-visible {
       outline: 2px solid var(--red);
-      outline-offset: 5px;
+      outline-offset: 4px;
     }
 
     .container {
@@ -79,8 +95,8 @@
       top: -100px;
       left: 16px;
       z-index: 100;
+      background: white;
       padding: 10px 16px;
-      background: var(--white);
     }
 
     .skip-link:focus {
@@ -109,16 +125,16 @@
       display: flex;
       flex-direction: column;
       text-decoration: none;
-      line-height: 1.3;
+      line-height: 1.35;
       flex-shrink: 0;
     }
 
     .brand-jp {
-      font-family: var(--jp);
-      font-size: 25px;
-      font-weight: 600;
-      letter-spacing: .09em;
       color: var(--indigo);
+      font-family: var(--jp);
+      font-size: 23px;
+      font-weight: 600;
+      letter-spacing: .07em;
     }
 
     .brand-en {
@@ -126,25 +142,23 @@
       color: var(--muted);
       font-size: 10px;
       font-weight: 600;
-      letter-spacing: .18em;
+      letter-spacing: .12em;
       text-transform: uppercase;
     }
 
     .main-nav {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
       justify-content: flex-end;
-      gap: 12px 25px;
+      gap: 12px 22px;
     }
 
     .main-nav a {
-      text-decoration: none;
       color: var(--indigo);
+      text-decoration: none;
       font-size: 12px;
       font-weight: 600;
-      letter-spacing: .065em;
-      transition: color .2s;
+      letter-spacing: .04em;
     }
 
     .main-nav a:hover {
@@ -156,9 +170,9 @@
     .hero {
       position: relative;
       overflow: hidden;
-      color: var(--ivory);
       background: var(--indigo-dark);
-      min-height: 520px;
+      color: var(--ivory);
+      min-height: 540px;
       display: flex;
       align-items: center;
     }
@@ -169,8 +183,8 @@
       inset: 0;
       background:
         radial-gradient(
-          circle at 75% 50%,
-          rgba(115,138,161,.14),
+          circle at 78% 50%,
+          rgba(115,138,161,.15),
           transparent 45%
         ),
         linear-gradient(
@@ -183,46 +197,43 @@
     .hero-inner {
       position: relative;
       display: grid;
-      grid-template-columns: 1fr 270px;
+      grid-template-columns: 1fr 240px;
       align-items: center;
-      gap: 60px;
+      gap: 50px;
       padding-block: 100px;
     }
 
     .eyebrow {
-      margin: 0 0 20px;
+      margin: 0 0 22px;
+      color: #c6bdaf;
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: .23em;
+      letter-spacing: .22em;
       text-transform: uppercase;
-    }
-
-    .hero .eyebrow {
-      color: #c6bdaf;
     }
 
     .hero h1 {
       margin: 0;
       color: var(--white);
       font-family: var(--jp);
-      font-size: clamp(38px, 6vw, 70px);
+      font-size: clamp(34px, 5vw, 58px);
       font-weight: 500;
-      letter-spacing: .09em;
-      line-height: 1.35;
+      letter-spacing: .06em;
+      line-height: 1.4;
     }
 
     .hero-roman {
-      margin-top: 14px;
+      margin-top: 16px;
       font-family: var(--serif);
-      font-size: clamp(21px, 3vw, 34px);
-      letter-spacing: .025em;
+      font-size: clamp(23px, 3vw, 34px);
+      line-height: 1.35;
     }
 
     .hero-translation {
-      margin-top: 9px;
+      margin-top: 12px;
       color: #bbc7d0;
-      font-size: 12px;
-      letter-spacing: .14em;
+      font-size: 11px;
+      letter-spacing: .13em;
       text-transform: uppercase;
     }
 
@@ -234,47 +245,57 @@
     }
 
     .hero-description {
-      max-width: 525px;
+      max-width: 550px;
       margin: 0;
       color: #d6dbe0;
       font-family: var(--serif);
-      font-size: clamp(18px, 2vw, 21px);
+      font-size: 20px;
       line-height: 1.7;
+    }
+
+    .hero-governance {
+      margin-top: 34px;
+      color: #c2cbd3;
+      font-size: 12px;
+      line-height: 1.8;
+      letter-spacing: .03em;
+    }
+
+    .hero-governance strong {
+      color: var(--white);
+      font-weight: 600;
     }
 
     .hero-art {
       display: flex;
-      align-items: center;
       justify-content: center;
-      min-height: 285px;
-      position: relative;
+      align-items: center;
     }
 
     .hero-ring {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 225px;
-      height: 225px;
+      width: 220px;
+      height: 220px;
       border: 3px solid var(--red);
       border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       transform: rotate(-10deg);
       opacity: .9;
     }
 
     .hero-kanji {
       font-family: var(--jp);
+      writing-mode: vertical-rl;
       font-size: 53px;
       line-height: 1.5;
-      letter-spacing: .03em;
-      writing-mode: vertical-rl;
-      color: rgba(255,254,250,.82);
+      color: rgba(255,254,250,.85);
       transform: rotate(10deg);
     }
 
-    /* SECTIONS */
+    /* COMMON SECTIONS */
 
-    section.content-section {
+    .content-section {
       padding-block: 94px;
       border-bottom: 1px solid var(--line);
     }
@@ -311,11 +332,11 @@
     }
 
     .jp-subtitle {
-      margin-top: 10px;
+      margin-top: 11px;
       color: var(--indigo-soft);
       font-family: var(--jp);
-      font-size: 20px;
-      letter-spacing: .08em;
+      font-size: 21px;
+      letter-spacing: .07em;
     }
 
     .text-content {
@@ -331,10 +352,10 @@
     }
 
     .lead {
+      color: var(--indigo);
       font-family: var(--serif);
       font-size: 21px;
       line-height: 1.7;
-      color: var(--indigo);
     }
 
     /* ABOUT */
@@ -362,16 +383,16 @@
     }
 
     .founder-sidebar .jp-name {
-      font-family: var(--jp);
       color: var(--indigo);
+      font-family: var(--jp);
       font-size: 31px;
-      letter-spacing: .09em;
+      letter-spacing: .08em;
     }
 
     .founder-sidebar .dates {
       margin-top: 12px;
-      font-family: var(--serif);
       color: var(--muted);
+      font-family: var(--serif);
       font-size: 18px;
     }
 
@@ -380,7 +401,6 @@
       color: var(--muted);
       font-size: 12px;
       line-height: 1.7;
-      letter-spacing: .04em;
     }
 
     .book-title {
@@ -408,14 +428,45 @@
       padding-left: 25px;
     }
 
-    .aikido-principles p {
-      margin-bottom: 17px;
+    /* GOVERNANCE */
+
+    .association {
+      background: var(--white);
+    }
+
+    .association-heading {
+      margin-bottom: 25px;
+    }
+
+    .association-heading .jp-name {
+      display: block;
+      margin-bottom: 10px;
+      color: var(--indigo);
+      font-family: var(--jp);
+      font-size: 31px;
+      letter-spacing: .08em;
+    }
+
+    .association-heading .roman-name {
+      display: block;
+      font-family: var(--serif);
+      font-size: 24px;
+      color: var(--indigo);
+    }
+
+    .association-heading .translation {
+      display: block;
+      margin-top: 8px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: .08em;
+      text-transform: uppercase;
     }
 
     /* DOJO */
 
     .dojo {
-      background: var(--white);
+      background: var(--ivory);
     }
 
     .information-grid {
@@ -430,44 +481,24 @@
       padding-top: 24px;
     }
 
-    .information-card h3 {
-      font-size: 24px;
-    }
-
     .information-card p {
       margin: 0 0 15px;
-    }
-
-    .information-card p:last-child {
-      margin-bottom: 0;
     }
 
     /* CONTACT */
 
     .contact {
-      text-align: center;
       background: var(--paper);
-    }
-
-    .contact .section-header {
-      margin-bottom: 25px;
-    }
-
-    .contact .section-kicker {
-      text-align: center;
-    }
-
-    .contact h2 {
       text-align: center;
     }
 
     .contact-details {
-      max-width: 600px;
+      max-width: 620px;
       margin-inline: auto;
     }
 
     .contact-details p {
-      margin: 0 0 18px;
+      margin: 0 0 20px;
     }
 
     .contact-status {
@@ -478,31 +509,36 @@
       color: var(--indigo-soft);
       font-size: 11px;
       font-weight: 600;
-      letter-spacing: .12em;
+      letter-spacing: .1em;
       text-transform: uppercase;
     }
 
     /* FOOTER */
 
     .site-footer {
-      padding-block: 42px;
+      padding-block: 48px;
       color: #b5c0ca;
       background: var(--indigo-dark);
       text-align: center;
     }
 
     .footer-jp {
-      font-family: var(--jp);
-      font-size: 22px;
-      letter-spacing: .12em;
       color: var(--white);
+      font-family: var(--jp);
+      font-size: 24px;
+      letter-spacing: .09em;
     }
 
     .footer-en {
-      margin-top: 8px;
-      font-family: var(--serif);
-      font-size: 17px;
+      margin-top: 9px;
       color: var(--white);
+      font-family: var(--serif);
+      font-size: 19px;
+    }
+
+    .footer-association {
+      margin-top: 16px;
+      font-size: 12px;
     }
 
     .footer-location {
@@ -514,8 +550,8 @@
 
     .footer-small {
       margin-top: 24px;
-      font-size: 11px;
       color: #9daab5;
+      font-size: 11px;
     }
 
     /* RESPONSIVE */
@@ -543,7 +579,10 @@
 
     @media (max-width: 650px) {
       .container {
-        width: min(calc(100% - 34px), var(--page-width));
+        width: min(
+          calc(100% - 34px),
+          var(--page-width)
+        );
       }
 
       .header-inner {
@@ -558,12 +597,12 @@
       }
 
       .brand-jp {
-        font-size: 22px;
+        font-size: 21px;
       }
 
       .main-nav {
         justify-content: center;
-        gap: 8px 16px;
+        gap: 8px 15px;
       }
 
       .main-nav a {
@@ -576,7 +615,7 @@
 
       .hero-inner {
         display: block;
-        padding-block: 75px 80px;
+        padding-block: 72px 80px;
       }
 
       .hero-art {
@@ -584,14 +623,18 @@
       }
 
       .hero h1 {
-        font-size: clamp(32px, 8vw, 46px);
+        font-size: clamp(30px, 7vw, 44px);
       }
 
       .hero-roman {
-        font-size: 25px;
+        font-size: 24px;
       }
 
-      section.content-section {
+      .hero-description {
+        font-size: 18px;
+      }
+
+      .content-section {
         padding-block: 65px;
       }
 
@@ -610,7 +653,7 @@
       }
 
       .information-card + .information-card {
-        margin-top: 36px;
+        margin-top: 35px;
       }
 
       .lead {
@@ -626,10 +669,6 @@
       html {
         scroll-behavior: auto;
       }
-
-      * {
-        transition: none !important;
-      }
     }
 
   </style>
@@ -644,17 +683,19 @@
   <!-- HEADER -->
 
   <header class="site-header">
+
     <div class="container header-inner">
 
-      <a class="brand" href="#home"
-         aria-label="Suenaka-kei Yūdanshakai home">
+      <a class="brand"
+         href="#home"
+         aria-label="Suenaka-kei Aikidō home">
 
         <span class="brand-jp" lang="ja">
-          末中系有段者会
+          末中系哲学法合気道
         </span>
 
         <span class="brand-en">
-          Suenaka-kei Yūdanshakai
+          Suenaka-kei Tetsugaku-hō Aikidō
         </span>
 
       </a>
@@ -665,18 +706,21 @@
         <a href="#about">About</a>
         <a href="#founder">Founder</a>
         <a href="#aikido">Aikidō</a>
+        <a href="#association">Association</a>
         <a href="#dojo">Dōjō</a>
         <a href="#contact">Contact</a>
 
       </nav>
+
     </div>
   </header>
 
   <main id="main">
 
-    <!-- HOME / HERO -->
+    <!-- HERO -->
 
-    <section class="hero" id="home"
+    <section class="hero"
+             id="home"
              aria-labelledby="hero-title">
 
       <div class="container hero-inner">
@@ -688,24 +732,36 @@
           </p>
 
           <h1 id="hero-title" lang="ja">
-            末中系有段者会
+            末中系哲学法合気道
           </h1>
 
           <div class="hero-roman">
-            Suenaka-kei Yūdanshakai
+            Suenaka-kei Tetsugaku-hō Aikidō
           </div>
 
           <div class="hero-translation">
-            Suenaka-Lineage Black Belt Association
+            Suenaka-Lineage
+            Philosophical-Method Aikidō
           </div>
 
           <div class="hero-line"></div>
 
           <p class="hero-description">
-            Dedicated to the continued study,
-            practice, and transmission of the
-            aikidō of Roy Yukio Suenaka.
+            Continuing the martial teachings
+            and philosophical tradition
+            of Roy Yukio Suenaka.
           </p>
+
+          <div class="hero-governance">
+            Governing association in formation:
+            <br>
+            <strong>
+              Suenaka-kei Yūdanshakai
+            </strong>
+            <span lang="ja">
+              (末中系有段者会)
+            </span>
+          </div>
 
         </div>
 
@@ -729,32 +785,46 @@
       <div class="container">
 
         <div class="section-header">
+
           <p class="section-kicker">
-            The Association
+            The Tradition
           </p>
 
-          <h2 id="about-title">About</h2>
+          <h2 id="about-title">
+            About
+          </h2>
+
         </div>
 
         <div class="text-content">
 
           <p class="lead">
-            The Suenaka-kei Yūdanshakai is an
-            independent association in formation,
-            bringing together black belt
-            practitioners connected through
-            the martial teachings of
+            Suenaka-kei Tetsugaku-hō Aikidō
+            continues the study and practice
+            of the aikidō transmitted by
             Roy Yukio Suenaka.
           </p>
 
           <p>
-            Based in Charleston, South Carolina,
-            the association is dedicated to the
-            continued study, practice, and
-            transmission of his aikidō.
+            Rooted in Charleston,
+            South Carolina, the tradition
+            emphasizes practical martial
+            effectiveness, disciplined
+            training, and the philosophical
+            principles of aikidō.
+          </p>
+
+          <p>
+            Its governing association,
+            the Suenaka-kei Yūdanshakai,
+            is being formed to bring together
+            qualified practitioners and
+            support the continued transmission
+            of the art.
           </p>
 
         </div>
+
       </div>
     </section>
 
@@ -767,8 +837,9 @@
       <div class="container">
 
         <div class="section-header">
+
           <p class="section-kicker">
-            The Lineage
+            The Lineage Founder
           </p>
 
           <h2 id="founder-title">
@@ -778,12 +849,12 @@
           <div class="jp-subtitle" lang="ja">
             末中 幸男
           </div>
+
         </div>
 
         <div class="founder-layout">
 
-          <aside class="founder-sidebar"
-                 aria-label="Founder details">
+          <aside class="founder-sidebar">
 
             <div class="jp-name" lang="ja">
               末中 幸男
@@ -814,25 +885,27 @@
 
             <p>
               He began studying aikidō with
-              Kōichi Tōhei in 1953 and subsequently
-              trained under Morihei Ueshiba,
-              the founder of aikidō, at the
-              Aikikai Hombu in Japan beginning
+              Kōichi Tōhei in 1953 and
+              subsequently trained under
+              Morihei Ueshiba, the founder
+              of aikidō, at the Aikikai
+              Hombu in Japan beginning
               in 1961.
             </p>
 
             <p>
-              His martial education also included
-              extensive study of jūdō and
-              jūjutsu under Kazuo Itō.
+              His martial education also
+              included extensive study of
+              jūdō and jūjutsu under
+              Kazuo Itō.
             </p>
 
             <p>
               Suenaka moved to Charleston,
               South Carolina, in 1972,
-              establishing a lasting tradition
-              of aikidō instruction in the
-              American Southeast.
+              establishing a lasting
+              tradition of aikidō instruction
+              in the American Southeast.
             </p>
 
             <p>
@@ -845,6 +918,7 @@
 
           </div>
         </div>
+
       </div>
     </section>
 
@@ -862,7 +936,9 @@
             The Martial Art
           </p>
 
-          <h2 id="aikido-title">Aikidō</h2>
+          <h2 id="aikido-title">
+            Aikidō
+          </h2>
 
           <div class="jp-subtitle" lang="ja">
             合気道
@@ -889,9 +965,10 @@
             <p>
               Training emphasizes effective
               self-defense, balance, coordinated
-              body movement, blending with attacks,
-              throws, joint controls, and the
-              development of mind and body.
+              body movement, blending with
+              attacks, throws, joint controls,
+              and the development of mind
+              and body.
             </p>
 
           </div>
@@ -899,20 +976,92 @@
           <div class="aikido-principles">
 
             <p>
-              Equal emphasis is placed on
-              physical ability and personal
-              development.
+              Equal emphasis is placed
+              on physical ability and
+              personal development.
             </p>
 
             <p>
               The practice encourages
               self-discipline, moderation,
-              compassion, and respect for others.
+              compassion, and respect
+              for others.
             </p>
 
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- GOVERNING ASSOCIATION -->
+
+    <section class="content-section association"
+             id="association"
+             aria-labelledby="association-title">
+
+      <div class="container">
+
+        <div class="section-header">
+
+          <p class="section-kicker">
+            Governance
+          </p>
+
+          <h2 id="association-title">
+            The Yūdanshakai
+          </h2>
+
+        </div>
+
+        <div class="association-heading">
+
+          <span class="jp-name" lang="ja">
+            末中系有段者会
+          </span>
+
+          <span class="roman-name">
+            Suenaka-kei Yūdanshakai
+          </span>
+
+          <span class="translation">
+            Suenaka-Lineage Black Belt Association
+          </span>
+
+        </div>
+
+        <div class="text-content">
+
+          <p class="lead">
+            The Suenaka-kei Yūdanshakai
+            is being established as the
+            governing association of
+            Suenaka-kei Tetsugaku-hō Aikidō.
+          </p>
+
+          <p>
+            The association is intended
+            to unite qualified dan-ranked
+            practitioners connected through
+            Roy Suenaka's teachings.
+          </p>
+
+          <p>
+            Its responsibilities will include
+            supporting technical instruction,
+            maintaining standards of practice,
+            and preserving the continuity
+            of the tradition.
+          </p>
+
+          <p>
+            Founding membership and formal
+            governing authority are currently
+            being established.
+          </p>
+
+        </div>
+
       </div>
     </section>
 
@@ -943,17 +1092,18 @@
             <h3>Dōjō & Instructors</h3>
 
             <p>
-              Roy Suenaka's teachings were
-              transmitted through students
-              and instructors throughout the
-              United States and internationally.
+              Roy Suenaka's teachings
+              were transmitted through
+              students and instructors
+              throughout the United States
+              and internationally.
             </p>
 
             <p>
-              A current directory of participating
-              Suenaka-kei instructors and dōjō
-              will be published as membership
-              is established.
+              A directory of participating
+              Suenaka-kei instructors
+              and dōjō will be published
+              as membership is established.
             </p>
 
           </div>
@@ -963,8 +1113,8 @@
             <h3>Seminars & Events</h3>
 
             <p>
-              Traditional training activities
-              have included
+              Traditional training
+              activities have included
               <em>kangeiko</em>
               (寒稽古 — winter intensive training)
               and
@@ -973,20 +1123,21 @@
             </p>
 
             <p>
-              Regional seminars and technical
-              workshops provide additional
-              opportunities for practice
-              and instruction.
+              Regional seminars and
+              technical workshops offer
+              additional opportunities
+              for training and instruction.
             </p>
 
             <p>
-              Future association events will
-              be announced as scheduled.
+              Future association events
+              will be announced as scheduled.
             </p>
 
           </div>
 
         </div>
+
       </div>
     </section>
 
@@ -1004,33 +1155,50 @@
             Inquiries
           </p>
 
-          <h2 id="contact-title">Contact</h2>
+          <h2 id="contact-title">
+            Contact
+          </h2>
 
         </div>
 
         <div class="contact-details">
 
           <p>
-            <strong>Suenaka-kei Yūdanshakai</strong>
+            <strong>
+              Suenaka-kei Tetsugaku-hō Aikidō
+            </strong>
             <br>
-            末中系有段者会
-            <br>
-            Charleston, South Carolina, USA
+            <span lang="ja">
+              末中系哲学法合気道
+            </span>
           </p>
 
           <p>
-            For information about the association,
-            participating instructors, or
-            future training activities,
-            contact details will be published
-            as they become available.
+            Suenaka-kei Yūdanshakai
+            <br>
+            <span lang="ja">
+              末中系有段者会
+            </span>
+          </p>
+
+          <p>
+            Charleston,
+            South Carolina, USA
+          </p>
+
+          <p>
+            Contact information and
+            participating dōjō details
+            will be published as they
+            become available.
           </p>
 
           <span class="contact-status">
-            Independent Association in Formation
+            Governing Association in Formation
           </span>
 
         </div>
+
       </div>
     </section>
 
@@ -1043,11 +1211,20 @@
     <div class="container">
 
       <div class="footer-jp" lang="ja">
-        末中系有段者会
+        末中系哲学法合気道
       </div>
 
       <div class="footer-en">
+        Suenaka-kei Tetsugaku-hō Aikidō
+      </div>
+
+      <div class="footer-association">
+        Governing Association:
+        <br>
+        末中系有段者会
+        <br>
         Suenaka-kei Yūdanshakai
+        (in formation)
       </div>
 
       <div class="footer-location">
@@ -1055,7 +1232,8 @@
       </div>
 
       <div class="footer-small">
-        An independent association in formation.
+        Independent aikidō tradition
+        and governing association in formation.
       </div>
 
     </div>
