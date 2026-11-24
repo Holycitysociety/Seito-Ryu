@@ -2,1161 +2,617 @@
 <!DOCTYPE html>
 <html lang="en" data-mode="english" data-orientation="vertical">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#ffffff">
-<meta name="description" content="Seito-ryū Aiki Budō — bilingual institutional presentation and square editorial folios.">
-<title>Seito-ryū — Bilingual Folios</title>
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap" rel="stylesheet">
-
-<style>
-:root {
-  --black: #080808;
-  --gray: rgba(0,0,0,.25);
-  --white: #ffffff;
-  --vermilion: #e34219;
-  --vermilion-soft: rgba(227,66,25,.25);
-
-  --jp-font:
-    "Yuji Boku",
-    "Hiragino Mincho ProN",
-    "Yu Mincho",
-    serif;
-
-  --en-font:
-    "Avenir Next Condensed",
-    "AvenirNextCondensed-Regular",
-    "Arial Narrow",
-    sans-serif;
-
-  --body-font:
-    "Avenir Next",
-    "Helvetica Neue",
-    sans-serif;
-
-  --jp-vertical-size: clamp(37px,4.4vw,70px);
-  --en-vertical-size: clamp(30px,3vw,48px);
-  --jp-horizontal-size: clamp(34px,3vw,52px);
-  --en-horizontal-size: clamp(26px,3vw,42px);
-
-  --english-pair-gap: 8px;
-}
-
-* { box-sizing: border-box; }
-
-html, body {
-  margin: 0;
-  min-height: 100%;
-}
-
-body {
-  background: var(--white);
-  color: var(--black);
-}
-
-button { cursor: pointer; }
-
-/* LANGUAGE TOGGLE */
-
-.switch {
-  position: fixed;
-  top: 14px;
-  right: 14px;
-  z-index: 30;
-
-  display: flex;
-  gap: 2px;
-  padding: 3px;
-
-  border: 1px solid #ddd;
-  border-radius: 999px;
-  background: rgba(255,255,255,.96);
-  font-family: var(--en-font);
-}
-
-.switch button {
-  border: 0;
-  border-radius: 999px;
-  background: transparent;
-  padding: 9px 14px;
-
-  font: inherit;
-  font-size: 12px;
-  color: #555;
-}
-
-.switch button[aria-pressed="true"] {
-  background: var(--black);
-  color: white;
-}
-
-button:focus-visible {
-  outline: 2px solid var(--vermilion);
-  outline-offset: 3px;
-}
-
-/* JAPANESE INSTITUTIONAL LAYOUT */
-
-.japanese-layout {
-  max-width: 1600px;
-  min-height: 100svh;
-  margin: auto;
-
-  padding:
-    clamp(100px,11vh,145px)
-    clamp(30px,5vw,80px)
-    65px
-    clamp(16px,5vw,80px);
-
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: clamp(18px,2.5vw,45px);
-
-  align-items: start;
-  direction: rtl;
-}
-
-.jp-pair {
-  min-width: 0;
-  display: grid;
-  grid-template-columns: auto minmax(0,1fr);
-  align-items: start;
-  column-gap: clamp(15px,2.5vw,38px);
-  direction: rtl;
-}
-
-.jp-heading {
-  grid-column: 1;
-  grid-row: 1;
-  justify-self: start;
-}
-
-.jp-members {
-  grid-column: 2;
-  grid-row: 1;
-
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  align-items: start;
-  justify-items: center;
-  gap: clamp(5px,1vw,17.5px);
-  direction: rtl;
-}
-
-.vertical-name {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
-  gap: clamp(9px,1.5vw,23px);
-  min-width: 0;
-  direction: ltr;
-}
-
-.vertical-name .roman {
-  writing-mode: vertical-rl;
-  text-orientation: sideways;
-  white-space: nowrap;
-
-  font-family: var(--en-font);
-  font-size: var(--en-vertical-size);
-  font-weight: 400;
-  line-height: 1;
-  letter-spacing: 0;
-  color: var(--gray);
-}
-
-.vertical-name .kanji {
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  white-space: nowrap;
-
-  font-family: var(--jp-font);
-  font-size: var(--jp-vertical-size);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: .015em;
-  color: var(--black);
-}
-
-.jp-heading .kanji {
-  color: var(--vermilion);
-}
-
-.jp-heading .roman {
-  color: var(--vermilion-soft);
-}
-
-/* ENGLISH INSTITUTIONAL LAYOUT */
-
-.english-layout {
-  max-width: 1400px;
-  min-height: 100svh;
-  margin: auto;
-
-  padding:
-    105px
-    clamp(24px,5vw,70px)
-    90px;
-
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-}
-
-.english-pair {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 55px;
-}
-
-.english-members {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  column-gap: 17.5px;
-  justify-items: start;
-}
-
-.english-item {
-  width: 100%;
-  max-width: 500px;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  gap: var(--english-pair-gap);
-  margin: 0;
-  padding: 0;
-  text-align: left;
-}
-
-.kanji-row {
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-start;
-
-  width: max-content;
-  max-width: 100%;
-  gap: clamp(7px,1vw,13px);
-  white-space: nowrap;
-}
-
-.kanji-row .char {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  font-family: var(--jp-font);
-  font-size: var(--jp-horizontal-size);
-  line-height: 1;
-  color: var(--gray);
-
-  transform: rotate(-90deg);
-  transform-origin: center;
-}
-
-.english-name {
-  display: inline-block;
-  flex: none;
-  width: max-content;
-
-  font-family: var(--en-font);
-  font-size: var(--en-horizontal-size);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: 0;
-
-  white-space: nowrap;
-  text-transform: uppercase;
-  color: var(--black);
-}
-
-.english-heading .kanji-row .char {
-  color: var(--vermilion-soft);
-}
-
-.english-heading .english-name {
-  color: var(--vermilion);
-}
-
-/* SQUARE EDITORIAL FOLIOS */
-
-.folio-section {
-  max-width: 1150px;
-  margin: 0 auto;
-
-  padding:
-    50px
-    clamp(18px,5vw,60px)
-    110px;
-}
-
-.folio-toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-
-  gap: 15px;
-  margin-bottom: 24px;
-}
-
-.folio-section-label {
-  font-family: var(--en-font);
-  font-size: 16px;
-  letter-spacing: .15em;
-  color: var(--vermilion);
-}
-
-.jp-label {
-  font-family: var(--jp-font);
-  letter-spacing: .1em;
-}
-
-.orientation-toggle {
-  display: flex;
-  gap: 5px;
-}
-
-.orientation-toggle button {
-  padding: 7px 13px;
-
-  border: 1px solid #ddd;
-  background: white;
-  border-radius: 999px;
-
-  font-family: var(--jp-font);
-  font-size: 12px;
-  color: #555;
-}
-
-.orientation-toggle button[aria-pressed="true"] {
-  background: var(--black);
-  color: white;
-  border-color: var(--black);
-}
-
-.folio-grid {
-  display: grid;
-  grid-template-columns: repeat(2,minmax(0,1fr));
-  gap: 22px;
-}
-
-.folio {
-  position: relative;
-  aspect-ratio: 1 / 1;
-
-  width: 100%;
-  min-width: 0;
-  overflow: hidden;
-
-  border: 1px solid #e8e6e1;
-  background: white;
-}
-
-.folio-face {
-  position: absolute;
-  inset: 0;
-  padding: clamp(21px,5.5%,34px);
-}
-
-/* ENGLISH FOLIO TEXT */
-
-.folio-english {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.folio-kicker {
-  font-family: var(--en-font);
-  font-size: clamp(11px,1.2vw,14px);
-  letter-spacing: .12em;
-
-  color: var(--vermilion);
-  margin-bottom: 15px;
-}
-
-.folio-english h2 {
-  font-family: var(--en-font);
-  font-size: clamp(25px,3vw,39px);
-  font-weight: 400;
-  line-height: 1.05;
-  margin: 0 0 18px;
-}
-
-.folio-english p {
-  font-family: var(--body-font);
-  font-size: clamp(13px,1.55vw,17px);
-  line-height: 1.62;
-  font-weight: 400;
-  margin: 0;
-  max-width: 34ch;
-}
-
-/* JAPANESE FOLIO BRUSH TEXT */
-
-.folio-japanese {
-  font-family: var(--jp-font);
-  color: var(--black);
-}
-
-.jp-folio-content {
-  width: 100%;
-  height: 100%;
-
-  writing-mode: vertical-rl;
-  text-orientation: mixed;
-  font-family: var(--jp-font);
-}
-
-.jp-folio-content h2 {
-  font-family: inherit;
-  font-size: clamp(21px,2.4vw,31px);
-  font-weight: 400;
-  line-height: 1.35;
-  margin: 0 0 0 17px;
-  color: var(--vermilion);
-}
-
-.jp-folio-content p {
-  font-family: inherit;
-  font-size: clamp(15px,1.7vw,19px);
-  font-weight: 400;
-  line-height: 1.65;
-  letter-spacing: .035em;
-  margin: 0;
-}
-
-/* JAPANESE TEXT ORIENTATION */
-
-html[data-orientation="horizontal"] .jp-folio-content {
-  writing-mode: horizontal-tb;
-  text-orientation: mixed;
-}
-
-html[data-orientation="horizontal"] .jp-folio-content h2 {
-  margin: 0 0 18px;
-}
-
-.folio-number {
-  position: absolute;
-  bottom: 13px;
-  right: 18px;
-
-  font-family: var(--en-font);
-  font-size: 11px;
-  color: #aaa;
-}
-
-.line-capacity {
-  margin-top: 18px;
-  font-family: var(--jp-font);
-  font-size: 12px;
-  color: #777;
-}
-
-/* GLOBAL LANGUAGE VISIBILITY */
-
-html[data-mode="english"] .japanese-layout,
-html[data-mode="english"] .folio-japanese,
-html[data-mode="english"] .jp-only {
-  display: none;
-}
-
-html[data-mode="japanese"] .english-layout,
-html[data-mode="japanese"] .folio-english,
-html[data-mode="japanese"] .en-only {
-  display: none;
-}
-
-/* TABLET */
-
-@media (max-width: 900px) {
-  :root {
-    --jp-vertical-size: clamp(42px,6.4vw,64px);
-    --en-vertical-size: clamp(26px,4.3vw,43px);
-  }
-
-  .japanese-layout {
-    grid-template-columns: 1fr;
-    row-gap: 40px;
-  }
-
-  .folio-grid {
-    gap: 14px;
-  }
-
-  .folio-english p {
-    font-size: clamp(12px,1.8vw,16px);
-  }
-}
-
-/* MOBILE */
-
-@media (max-width: 600px) {
-  :root {
-    --jp-vertical-size: clamp(30px,8vw,42px);
-    --en-vertical-size: clamp(18px,5.5vw,27px);
-
-    --jp-horizontal-size: clamp(29px,8.2vw,39px);
-    --en-horizontal-size: clamp(22px,6.5vw,30px);
-
-    --english-pair-gap: 6px;
-  }
-
-  .japanese-layout {
-    padding: 85px 24px 45px 9px;
-    gap: 42px;
-  }
-
-  .jp-pair {
-    column-gap: 10px;
-  }
-
-  .jp-members {
-    gap: 3px;
-  }
-
-  .vertical-name {
-    gap: 7px;
-  }
-
-  .english-layout {
-    padding: 100px 18px 65px;
-    gap: 57.5px;
-  }
-
-  .english-pair {
-    gap: 45px;
-  }
-
-  .english-members {
-    grid-template-columns: 1fr;
-    row-gap: 35px;
-  }
-
-  .kanji-row {
-    gap: clamp(8px,3vw,14px);
-  }
-
-  .folio-section {
-    padding: 35px 18px 85px;
-  }
-
-  .folio-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
-
-  .folio {
-    max-width: 440px;
-    margin: 0 auto;
-  }
-
-  .folio-face {
-    padding: 25px;
-  }
-
-  .folio-english h2 {
-    font-size: clamp(28px,8vw,39px);
-  }
-
-  .folio-english p {
-    font-size: clamp(13px,4vw,17px);
-    line-height: 1.55;
-  }
-
-  .jp-folio-content h2 {
-    font-size: clamp(23px,6.8vw,30px);
-  }
-
-  .jp-folio-content p {
-    font-size: clamp(15px,4.3vw,18px);
-  }
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="description" content="Seito-ryū Aiki Budō — bilingual institutional presentation and square editorial folios.">
+  <title>Seito-ryū — Bilingual Landing</title>
+
+  <!-- The only external resource is the live Japanese brush font. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Yuji+Boku&display=swap" rel="stylesheet">
+
+  <!-- All page CSS is embedded in this HTML file. -->
+  <style>
+    :root {
+      --black: #080808;
+      --gray: rgba(0, 0, 0, .25);
+      --white: #ffffff;
+      --vermilion: #e34219;
+      --vermilion-soft: rgba(227, 66, 25, .25);
+      --jp-font: "Yuji Boku", "Hiragino Mincho ProN", "Yu Mincho", serif;
+      --en-font: "Avenir Next Condensed", "AvenirNextCondensed-Regular", "Arial Narrow", sans-serif;
+      --body-font: "Avenir Next", "Helvetica Neue", sans-serif;
+      --jp-vertical-size: clamp(37px, 4.4vw, 70px);
+      --en-vertical-size: clamp(30px, 3vw, 48px);
+      --jp-horizontal-size: clamp(34px, 3vw, 52px);
+      --en-horizontal-size: clamp(26px, 3vw, 42px);
+      --english-pair-gap: 8px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; min-height: 100%; }
+    body { background: var(--white); color: var(--black); }
+    button { cursor: pointer; }
+
+    /* Language toggle */
+    .switch {
+      position: fixed; top: 14px; right: 14px; z-index: 30;
+      display: flex; padding: 3px; gap: 2px;
+      border: 1px solid #ddd; border-radius: 999px;
+      background: rgba(255, 255, 255, .96);
+      font-family: var(--en-font);
+    }
+    .switch button {
+      border: 0; border-radius: 999px; background: transparent;
+      padding: 9px 14px; font: inherit; font-size: 12px; color: #555;
+    }
+    .switch button[aria-pressed="true"] { background: var(--black); color: white; }
+    button:focus-visible { outline: 2px solid var(--vermilion); outline-offset: 3px; }
+
+    /* Japanese institutional layout: right to left, title on the right */
+    .japanese-layout {
+      max-width: 1600px; min-height: 100svh; margin: auto;
+      padding: clamp(100px, 11vh, 145px) clamp(30px, 5vw, 80px) 65px clamp(16px, 5vw, 80px);
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(18px, 2.5vw, 45px); align-items: start; direction: rtl;
+    }
+    .jp-pair {
+      min-width: 0; display: grid; grid-template-columns: auto minmax(0, 1fr);
+      align-items: start; column-gap: clamp(15px, 2.5vw, 38px); direction: rtl;
+    }
+    .jp-heading { grid-column: 1; grid-row: 1; justify-self: start; }
+    .jp-members {
+      grid-column: 2; grid-row: 1;
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: start; justify-items: center;
+      gap: clamp(5px, 1vw, 17.5px); direction: rtl;
+    }
+    .vertical-name {
+      display: flex; flex-direction: row; align-items: flex-start; justify-content: center;
+      gap: clamp(9px, 1.5vw, 23px); min-width: 0; direction: ltr;
+    }
+    .vertical-name .roman {
+      writing-mode: vertical-rl; text-orientation: sideways; white-space: nowrap;
+      font-family: var(--en-font); font-size: var(--en-vertical-size);
+      font-weight: 400; line-height: 1; letter-spacing: 0; color: var(--gray);
+    }
+    .vertical-name .kanji {
+      writing-mode: vertical-rl; text-orientation: upright; white-space: nowrap;
+      font-family: var(--jp-font); font-size: var(--jp-vertical-size);
+      font-weight: 400; line-height: 1.1; letter-spacing: .015em; color: var(--black);
+    }
+    .jp-heading .kanji { color: var(--vermilion); }
+    .jp-heading .roman { color: var(--vermilion-soft); }
+
+    /* English institutional layout: flush left, close bilingual pairing */
+    .english-layout {
+      max-width: 1400px; min-height: 100svh; margin: auto;
+      padding: 105px clamp(24px, 5vw, 70px) 90px;
+      display: flex; flex-direction: column; gap: 50px;
+    }
+    .english-pair { width: 100%; display: flex; flex-direction: column; gap: 55px; }
+    .english-members {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 17.5px; justify-items: start;
+    }
+    .english-item {
+      width: 100%; max-width: 500px; display: flex; flex-direction: column;
+      align-items: flex-start; gap: var(--english-pair-gap);
+      margin: 0; padding: 0; text-align: left;
+    }
+    .kanji-row {
+      display: inline-flex; align-items: center; justify-content: flex-start;
+      width: max-content; max-width: 100%;
+      gap: clamp(7px, 1vw, 13px); white-space: nowrap;
+    }
+    .kanji-row .char {
+      display: inline-flex; align-items: center; justify-content: center;
+      font-family: var(--jp-font); font-size: var(--jp-horizontal-size);
+      line-height: 1; color: var(--gray);
+      transform: rotate(-90deg); transform-origin: center;
+    }
+    .english-name {
+      display: inline-block; flex: none; width: max-content;
+      font-family: var(--en-font); font-size: var(--en-horizontal-size);
+      font-weight: 400; line-height: 1.1; letter-spacing: 0;
+      white-space: nowrap; text-transform: uppercase; color: var(--black);
+    }
+    .english-heading .kanji-row .char { color: var(--vermilion-soft); }
+    .english-heading .english-name { color: var(--vermilion); }
+
+    /* Exactly two shadowed squares: one per institutional group. */
+    .org-card {
+      width: 100%; min-width: 0; aspect-ratio: 1 / 1;
+      padding: clamp(14px, 2.2vw, 26px);
+      border: 1px solid #eeebe7;
+      border-radius: 4px; background: var(--white);
+      box-shadow: 0 14px 32px rgba(23,21,18,.12),
+                  0 3px 8px rgba(23,21,18,.045);
+      overflow: hidden;
+    }
+    /* Japanese: two vertical names within the SAME square. */
+    .jp-card {
+      grid-column: 2; grid-row: 1;
+      display: grid; grid-template-columns: repeat(2, minmax(0,1fr));
+      direction: rtl; align-items: center; justify-items: center;
+      gap: clamp(4px, 1vw, 14px);
+    }
+    .jp-card .vertical-name {
+      align-items: center; justify-content: center;
+      gap: clamp(5px, .8vw, 11px);
+    }
+    /* English: two paired labels, stacked in the SAME square. */
+    .en-card {
+      display: flex; flex-direction: column;
+      justify-content: space-evenly; align-items: stretch;
+      gap: clamp(12px, 2vw, 28px);
+    }
+    .en-card .english-item { width: 100%; max-width: none; }
+    .en-card .kanji-row { max-width: none; }
+
+    /* Square editorial folios */
+    .folio-section {
+      max-width: 1150px; margin: 0 auto;
+      padding: 50px clamp(18px, 5vw, 60px) 110px;
+    }
+    .folio-toolbar {
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 15px; margin-bottom: 24px;
+    }
+    .folio-section-label {
+      font-family: var(--en-font); font-size: 16px;
+      letter-spacing: .15em; color: var(--vermilion);
+    }
+    .jp-label { font-family: var(--jp-font); letter-spacing: .1em; }
+    .orientation-toggle { display: flex; gap: 5px; }
+    .orientation-toggle button {
+      padding: 7px 13px; border: 1px solid #ddd;
+      background: white; border-radius: 999px;
+      font-family: var(--jp-font); font-size: 12px; color: #555;
+    }
+    .orientation-toggle button[aria-pressed="true"] {
+      background: var(--black); color: white; border-color: var(--black);
+    }
+    .folio-grid {
+      display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px;
+    }
+    .folio {
+      position: relative; aspect-ratio: 1 / 1; width: 100%; min-width: 0;
+      overflow: hidden; border: 1px solid #e8e6e1; background: white;
+    }
+    .folio-face {
+      position: absolute; inset: 0; padding: clamp(21px, 5.5%, 34px);
+    }
+    .folio-english {
+      display: flex; flex-direction: column; align-items: flex-start;
+    }
+    .folio-kicker {
+      font-family: var(--en-font); font-size: clamp(11px, 1.2vw, 14px);
+      letter-spacing: .12em; color: var(--vermilion); margin-bottom: 15px;
+    }
+    .folio-english h2 {
+      font-family: var(--en-font); font-size: clamp(25px, 3vw, 39px);
+      font-weight: 400; line-height: 1.05; margin: 0 0 18px;
+    }
+    .folio-english p {
+      font-family: var(--body-font); font-size: clamp(13px, 1.55vw, 17px);
+      line-height: 1.62; font-weight: 400; margin: 0; max-width: 34ch;
+    }
+    .folio-japanese { font-family: var(--jp-font); color: var(--black); }
+    .jp-folio-content {
+      width: 100%; height: 100%; writing-mode: vertical-rl;
+      text-orientation: mixed; font-family: var(--jp-font);
+    }
+    .jp-folio-content h2 {
+      font-family: inherit; font-size: clamp(21px, 2.4vw, 31px);
+      font-weight: 400; line-height: 1.35;
+      margin: 0 0 0 17px; color: var(--vermilion);
+    }
+    .jp-folio-content p {
+      font-family: inherit; font-size: clamp(15px, 1.7vw, 19px);
+      font-weight: 400; line-height: 1.65; letter-spacing: .035em; margin: 0;
+    }
+    html[data-orientation="horizontal"] .jp-folio-content {
+      writing-mode: horizontal-tb; text-orientation: mixed;
+    }
+    html[data-orientation="horizontal"] .jp-folio-content h2 { margin: 0 0 18px; }
+    .folio-number {
+      position: absolute; bottom: 13px; right: 18px;
+      font-family: var(--en-font); font-size: 11px; color: #aaa;
+    }
+    .line-capacity {
+      margin-top: 18px; font-family: var(--jp-font);
+      font-size: 12px; color: #777;
+    }
+
+    /* Visibility is controlled by the one global language toggle */
+    html[data-mode="english"] .japanese-layout,
+    html[data-mode="english"] .folio-japanese,
+    html[data-mode="english"] .jp-only { display: none; }
+    html[data-mode="japanese"] .english-layout,
+    html[data-mode="japanese"] .folio-english,
+    html[data-mode="japanese"] .en-only { display: none; }
+
+    @media (max-width: 900px) {
+      :root {
+        --jp-vertical-size: clamp(42px, 6.4vw, 64px);
+        --en-vertical-size: clamp(26px, 4.3vw, 43px);
+      }
+      .japanese-layout { grid-template-columns: 1fr; row-gap: 40px; }
+
+      .folio-grid { gap: 14px; }
+      .folio-english p { font-size: clamp(12px, 1.8vw, 16px); }
+    }
+
+    @media (max-width: 600px) {
+      :root {
+        --jp-vertical-size: clamp(30px, 8vw, 42px);
+        --en-vertical-size: clamp(18px, 5.5vw, 27px);
+        --jp-horizontal-size: clamp(29px, 8.2vw, 39px);
+        --en-horizontal-size: clamp(22px, 6.5vw, 30px);
+        --english-pair-gap: 6px;
+      }
+      .japanese-layout { padding: 85px 24px 45px 9px; gap: 42px; }
+      .jp-pair { column-gap: 10px; }
+      .jp-members { gap: 3px; }
+      .jp-card { gap: 3px; padding: 12px; }
+      .en-card { padding: 16px; }
+
+      .vertical-name { gap: 7px; }
+      .english-layout { padding: 100px 18px 65px; gap: 57.5px; }
+      .english-pair { gap: 45px; }
+      .english-members { grid-template-columns: 1fr; row-gap: 35px; }
+      .kanji-row { gap: clamp(8px, 3vw, 14px); }
+      .folio-section { padding: 35px 18px 85px; }
+      .folio-grid { grid-template-columns: 1fr; gap: 18px; }
+      .folio { max-width: 440px; margin: 0 auto; }
+      .folio-face { padding: 25px; }
+      .folio-english h2 { font-size: clamp(28px, 8vw, 39px); }
+      .folio-english p { font-size: clamp(13px, 4vw, 17px); line-height: 1.55; }
+      .jp-folio-content h2 { font-size: clamp(23px, 6.8vw, 30px); }
+      .jp-folio-content p { font-size: clamp(15px, 4.3vw, 18px); }
+    }
+  </style>
 </head>
-
 <body>
+  <nav class="switch" aria-label="Language">
+    <button type="button" data-view="japanese" aria-pressed="false">日本語</button>
+    <button type="button" data-view="english" aria-pressed="true">English</button>
+  </nav>
 
-<nav class="switch" aria-label="Language">
-  <button type="button"
-          data-view="japanese"
-          aria-pressed="false">日本語</button>
-  <button type="button"
-          data-view="english"
-          aria-pressed="true">English</button>
-</nav>
-
-<main>
-
-<!-- JAPANESE PRESENTATION -->
-
-<div class="japanese-layout">
-
-  <section class="jp-pair">
-
-    <header class="vertical-name jp-heading">
-      <span class="roman">KI MUSUBI</span>
-      <span class="kanji" lang="ja">気結び</span>
-    </header>
-
-    <div class="jp-members">
-
-      <section class="vertical-name">
-        <span class="roman">SEITO RYŪ AIKI BUDŌ</span>
-        <span class="kanji" lang="ja">聖都流合気武道</span>
-      </section>
-
-      <section class="vertical-name">
-        <span class="roman">HOLY CITY AIKI BUDŌKAI</span>
-        <span class="kanji" lang="ja">聖都合気武道会</span>
-      </section>
-
-    </div>
-  </section>
-
-  <section class="jp-pair">
-
-    <header class="vertical-name jp-heading">
-      <span class="roman">AIKI MUSUBI</span>
-      <span class="kanji" lang="ja">合気産び</span>
-    </header>
-
-    <div class="jp-members">
-
-      <section class="vertical-name">
-        <span class="roman">AIKI MUSUBI JIKKENJŌ</span>
-        <span class="kanji" lang="ja">合気産び実験場</span>
-      </section>
-
-      <section class="vertical-name">
-        <span class="roman">MUSUBI NO BUDŌ KŌBŌ</span>
-        <span class="kanji" lang="ja">産びの武道工房</span>
-      </section>
-
-    </div>
-  </section>
-
-</div>
-
-<!-- ENGLISH PRESENTATION -->
-
-<div class="english-layout">
-
-  <section class="english-pair">
-
-    <header class="english-item english-heading">
-      <div class="kanji-row"
-           data-characters="気結び"
-           lang="ja"></div>
-      <div class="english-name">KI MUSUBI</div>
-    </header>
-
-    <div class="english-members">
-
-      <section class="english-item">
-        <div class="kanji-row"
-             data-characters="聖都流合気武道"
-             lang="ja"></div>
-        <div class="english-name">
-          SEITO-RYŪ AIKI BUDŌ
+  <main>
+    <!-- JAPANESE: TWO ORGANIZATIONS IN EACH SQUARE -->
+    <div class="japanese-layout">
+      <section class="jp-pair">
+        <header class="vertical-name jp-heading">
+          <span class="roman">KI MUSUBI</span>
+          <span class="kanji" lang="ja">気結び</span>
+        </header>
+        <div class="jp-card org-card">
+          <section class="vertical-name">
+            <span class="roman">SEITO RYŪ AIKI BUDŌ</span>
+            <span class="kanji" lang="ja">聖都流合気武道</span>
+          </section>
+          <section class="vertical-name">
+            <span class="roman">HOLY CITY AIKI BUDŌKAI</span>
+            <span class="kanji" lang="ja">聖都合気武道会</span>
+          </section>
         </div>
       </section>
 
-      <section class="english-item">
-        <div class="kanji-row"
-             data-characters="聖都合気武道会"
-             lang="ja"></div>
-        <div class="english-name">
-          HOLY CITY AIKI BUDŌKAI
+      <section class="jp-pair">
+        <header class="vertical-name jp-heading">
+          <span class="roman">AIKI MUSUBI</span>
+          <span class="kanji" lang="ja">合気産び</span>
+        </header>
+        <div class="jp-card org-card">
+          <section class="vertical-name">
+            <span class="roman">AIKI MUSUBI JIKKENJŌ</span>
+            <span class="kanji" lang="ja">合気産び実験場</span>
+          </section>
+          <section class="vertical-name">
+            <span class="roman">MUSUBI NO BUDŌ KŌBŌ</span>
+            <span class="kanji" lang="ja">産びの武道工房</span>
+          </section>
+        </div>
+      </section>
+    </div>
+
+    <!-- ENGLISH: TWO ORGANIZATIONS IN EACH SQUARE -->
+    <div class="english-layout">
+      <section class="english-pair">
+        <header class="english-item english-heading">
+          <div class="kanji-row" data-characters="気結び" lang="ja"></div>
+          <div class="english-name">KI MUSUBI</div>
+        </header>
+        <div class="en-card org-card">
+          <section class="english-item">
+            <div class="kanji-row" data-characters="聖都流合気武道" lang="ja"></div>
+            <div class="english-name">SEITO-RYŪ AIKI BUDŌ</div>
+          </section>
+          <section class="english-item">
+            <div class="kanji-row" data-characters="聖都合気武道会" lang="ja"></div>
+            <div class="english-name">HOLY CITY AIKI BUDŌKAI</div>
+          </section>
         </div>
       </section>
 
-    </div>
-  </section>
-
-  <section class="english-pair">
-
-    <header class="english-item english-heading">
-      <div class="kanji-row"
-           data-characters="合気産び"
-           lang="ja"></div>
-      <div class="english-name">AIKI MUSUBI</div>
-    </header>
-
-    <div class="english-members">
-
-      <section class="english-item">
-        <div class="kanji-row"
-             data-characters="合気産び実験場"
-             lang="ja"></div>
-        <div class="english-name">
-          AIKI MUSUBI JIKKENJŌ
+      <section class="english-pair">
+        <header class="english-item english-heading">
+          <div class="kanji-row" data-characters="合気産び" lang="ja"></div>
+          <div class="english-name">AIKI MUSUBI</div>
+        </header>
+        <div class="en-card org-card">
+          <section class="english-item">
+            <div class="kanji-row" data-characters="合気産び実験場" lang="ja"></div>
+            <div class="english-name">AIKI MUSUBI JIKKENJŌ</div>
+          </section>
+          <section class="english-item">
+            <div class="kanji-row" data-characters="産びの武道工房" lang="ja"></div>
+            <div class="english-name">MUSUBI NO BUDŌ KŌBŌ</div>
+          </section>
         </div>
       </section>
-
-      <section class="english-item">
-        <div class="kanji-row"
-             data-characters="産びの武道工房"
-             lang="ja"></div>
-        <div class="english-name">
-          MUSUBI NO BUDŌ KŌBŌ
-        </div>
-      </section>
-
-    </div>
-  </section>
-
-</div>
-
-<!-- SQUARE EDITORIAL FOLIOS -->
-
-<section class="folio-section" aria-label="Bilingual editorial folios">
-
-  <div class="folio-toolbar">
-    <div class="folio-section-label en-only">
-      THE FOLIOS
     </div>
 
-    <div class="folio-section-label jp-label jp-only">
-      本文
-    </div>
-
-    <div class="orientation-toggle jp-only"
-         aria-label="Japanese reading orientation">
-      <button type="button"
-              data-orient="vertical"
-              aria-pressed="true">縦書き</button>
-
-      <button type="button"
-              data-orient="horizontal"
-              aria-pressed="false">横書き</button>
-    </div>
-  </div>
-
-  <div class="folio-grid">
-
-    <article class="folio">
-
-      <div class="folio-face folio-english" lang="en">
-        <div class="folio-kicker">
-          01 · KI MUSUBI
-        </div>
-
-        <h2>THE LIVING HOME</h2>
-
-        <p>
-          Seito-ryū gives the method a living form.
-          The Budōkai gathers the people who practice it.
-          Shared training establishes trust, discipline,
-          and responsibility. These relationships create
-          a home in which further work can grow.
-        </p>
-      </div>
-
-      <div class="folio-face folio-japanese" lang="ja">
-        <div class="jp-folio-content">
-
-          <h2>気結び</h2>
-
-          <p>
-            聖都流は、その道を生きた形で伝える。
-            武道会には、稽古を共にする人々が集う。
-            共に学ぶ時間が信頼と責任を育み、
-            新たな営みを生む場となる。
-          </p>
-
+    <!-- SQUARE EDITORIAL FOLIOS: demonstration content -->
+    <section class="folio-section" aria-label="Bilingual editorial folios">
+      <div class="folio-toolbar">
+        <div class="folio-section-label en-only">THE FOLIOS</div>
+        <div class="folio-section-label jp-label jp-only">本文</div>
+        <div class="orientation-toggle jp-only" aria-label="Japanese reading orientation">
+          <button type="button" data-orient="vertical" aria-pressed="true">縦書き</button>
+          <button type="button" data-orient="horizontal" aria-pressed="false">横書き</button>
         </div>
       </div>
 
-      <div class="folio-number">01</div>
-    </article>
+      <div class="folio-grid">
+        <article class="folio">
+          <div class="folio-face folio-english" lang="en">
+            <div class="folio-kicker">01 · KI MUSUBI</div>
+            <h2>THE LIVING HOME</h2>
+            <p>Seito-ryū gives the method a living form. The Budōkai gathers the people who practice it. Shared training establishes trust, discipline, and responsibility. These relationships create a home in which further work can grow.</p>
+          </div>
+          <div class="folio-face folio-japanese" lang="ja">
+            <div class="jp-folio-content">
+              <h2>気結び</h2>
+              <p>聖都流は、その道を生きた形で伝える。武道会には、稽古を共にする人々が集う。共に学ぶ時間が信頼と責任を育み、新たな営みを生む場となる。</p>
+            </div>
+          </div>
+          <div class="folio-number">01</div>
+        </article>
 
-    <article class="folio">
-
-      <div class="folio-face folio-english" lang="en">
-        <div class="folio-kicker">
-          02 · AIKI MUSUBI
-        </div>
-
-        <h2>THE GENERATIVE WORK</h2>
-
-        <p>
-          Within that home, questions become experiments.
-          The Jikkenjō investigates what practice reveals.
-          The Kōbō gives promising findings a teachable form:
-          folios, diagrams, and publications.
-          Discovery returns to practice for further testing.
-        </p>
+        <article class="folio">
+          <div class="folio-face folio-english" lang="en">
+            <div class="folio-kicker">02 · AIKI MUSUBI</div>
+            <h2>THE GENERATIVE WORK</h2>
+            <p>Within that home, questions become experiments. The Jikkenjō investigates what practice reveals. The Kōbō gives promising findings a teachable form: folios, diagrams, and publications. Discovery returns to practice for further testing.</p>
+          </div>
+          <div class="folio-face folio-japanese" lang="ja">
+            <div class="jp-folio-content">
+              <h2>合気産び</h2>
+              <p>この場から生まれた問いを、実験場で検証する。工房はその成果を冊子、図解、教材として形にする。発見は再び稽古へ戻り、確かめられ、磨かれていく。</p>
+            </div>
+          </div>
+          <div class="folio-number">02</div>
+        </article>
       </div>
 
-      <div class="folio-face folio-japanese" lang="ja">
-        <div class="jp-folio-content">
+      <div class="line-capacity jp-only" id="lineCapacity" aria-live="polite"></div>
+    </section>
+  </main>
 
-          <h2>合気産び</h2>
+  <!-- All behavior is embedded in this HTML file. -->
+  <script>
+    const root = document.documentElement;
+    const languageButtons = [...document.querySelectorAll('[data-view]')];
+    const orientationButtons = [...document.querySelectorAll('[data-orient]')];
 
-          <p>
-            この場から生まれた問いを、
-            実験場で検証する。工房はその成果を
-            冊子、図解、教材として形にする。
-            発見は再び稽古へ戻り、
-            確かめられ、磨かれていく。
-          </p>
-
-        </div>
-      </div>
-
-      <div class="folio-number">02</div>
-    </article>
-
-  </div>
-
-  <div class="line-capacity jp-only"
-       id="lineCapacity"
-       aria-live="polite"></div>
-
-</section>
-
-</main>
-
-<script>
-const root = document.documentElement;
-
-const languageButtons =
-  [...document.querySelectorAll('[data-view]')];
-
-const orientationButtons =
-  [...document.querySelectorAll('[data-orient]')];
-
-/* BUILD JAPANESE DISPLAY CHARACTERS */
-
-document.querySelectorAll('[data-characters]')
-  .forEach(row => {
-    const text = row.dataset.characters;
-
-    row.setAttribute('aria-label', text);
-    row.setAttribute('lang', 'ja');
-
-    Array.from(text).forEach(character => {
-      const span = document.createElement('span');
-      span.className = 'char';
-      span.textContent = character;
-      span.setAttribute('aria-hidden', 'true');
-      row.appendChild(span);
+    // Create visually rotated characters for the English-mode display lines.
+    document.querySelectorAll('[data-characters]').forEach(row => {
+      const text = row.dataset.characters;
+      row.setAttribute('aria-label', text);
+      Array.from(text).forEach(character => {
+        const span = document.createElement('span');
+        span.className = 'char';
+        span.textContent = character;
+        span.setAttribute('aria-hidden', 'true');
+        row.appendChild(span);
+      });
     });
-  });
 
-const jpNames = [
-  ...document.querySelectorAll(
-    '.jp-members .vertical-name'
-  )
-];
+    const jpNames = [...document.querySelectorAll('.jp-card .vertical-name')];
+    const jpTitles = [...document.querySelectorAll('.jp-heading')];
+    const enNames = [...document.querySelectorAll('.en-card .english-item')];
+    const enTitles = [...document.querySelectorAll('.english-heading')];
 
-const jpTitles = [
-  ...document.querySelectorAll('.jp-heading')
-];
-
-const enNames = [
-  ...document.querySelectorAll(
-    '.english-members .english-item'
-  )
-];
-
-const enTitles = [
-  ...document.querySelectorAll('.english-heading')
-];
-
-let frame = null;
-
-function measure(element, axis) {
-  const bounds = element.getBoundingClientRect();
-
-  return axis === 'height'
-    ? bounds.height
-    : bounds.width;
-}
-
-/* LETTER SPACING FIT */
-
-function expandTracking(element, target, axis) {
-  element.style.letterSpacing = '0px';
-
-  if (target <= 0 || measure(element, axis) >= target) {
-    return;
-  }
-
-  let low = 0;
-  let high = 1;
-
-  while (
-    measure(element, axis) < target &&
-    high < 100
-  ) {
-    high *= 2;
-    element.style.letterSpacing = high + 'px';
-  }
-
-  for (let i = 0; i < 20; i++) {
-    const mid = (low + high) / 2;
-
-    element.style.letterSpacing = mid + 'px';
-
-    if (measure(element, axis) <= target) {
-      low = mid;
-    } else {
-      high = mid;
-    }
-  }
-
-  element.style.letterSpacing =
-    Math.max(0, low - .02).toFixed(3) + 'px';
-}
-
-/* ORGANIZATION NAME FIT */
-
-function fitOrganizations(items, axis) {
-  const enSelector =
-    axis === 'height' ? '.roman' : '.english-name';
-
-  const jpSelector =
-    axis === 'height' ? '.kanji' : '.kanji-row';
-
-  items.forEach(item => {
-    const en = item.querySelector(enSelector);
-    en.style.fontSize = '';
-    en.style.letterSpacing = '0px';
-  });
-
-  const baseSize = parseFloat(
-    getComputedStyle(
-      items[0].querySelector(enSelector)
-    ).fontSize
-  );
-
-  const ratio = Math.min(
-    1,
-    ...items.map(item => {
-      const en = item.querySelector(enSelector);
-      const jp = item.querySelector(jpSelector);
-
-      return (
-        measure(jp, axis) - 2
-      ) / Math.max(1, measure(en, axis));
-    })
-  );
-
-  const size = baseSize * Math.max(.1, ratio);
-
-  items.forEach(item => {
-    const en = item.querySelector(enSelector);
-    const jp = item.querySelector(jpSelector);
-
-    en.style.fontSize =
-      size.toFixed(3) + 'px';
-
-    expandTracking(
-      en,
-      measure(jp, axis) - 2,
-      axis
-    );
-  });
-
-  return size;
-}
-
-/* VERMILION TITLE FIT */
-
-function fitTitles(items, axis, orgSize) {
-  const enSelector =
-    axis === 'height' ? '.roman' : '.english-name';
-
-  const jpSelector =
-    axis === 'height' ? '.kanji' : '.kanji-row';
-
-  const maxSize = orgSize * .75;
-
-  items.forEach(item => {
-    const en = item.querySelector(enSelector);
-    en.style.fontSize = maxSize + 'px';
-    en.style.letterSpacing = '0px';
-  });
-
-  const ratio = Math.min(
-    1,
-    ...items.map(item => {
-      const en = item.querySelector(enSelector);
-      const jp = item.querySelector(jpSelector);
-
-      return (
-        measure(jp, axis) - 2
-      ) / Math.max(1, measure(en, axis));
-    })
-  );
-
-  const size = maxSize * Math.max(.1, ratio);
-
-  items.forEach(item => {
-    const en = item.querySelector(enSelector);
-    const jp = item.querySelector(jpSelector);
-
-    en.style.fontSize =
-      size.toFixed(3) + 'px';
-
-    expandTracking(
-      en,
-      measure(jp, axis) - 2,
-      axis
-    );
-  });
-}
-
-/* TITLES ARE 25% SMALLER */
-
-function sizeJapaneseTitles() {
-  const verticalSize = parseFloat(
-    getComputedStyle(
-      jpNames[0].querySelector('.kanji')
-    ).fontSize
-  );
-
-  const horizontalSize = parseFloat(
-    getComputedStyle(
-      enNames[0].querySelector('.char')
-    ).fontSize
-  );
-
-  jpTitles.forEach(item => {
-    item.querySelector('.kanji').style.fontSize =
-      (verticalSize * .75) + 'px';
-  });
-
-  enTitles.forEach(item => {
-    item.querySelectorAll('.char').forEach(char => {
-      char.style.fontSize =
-        (horizontalSize * .75) + 'px';
-    });
-  });
-}
-
-/* APPROXIMATE JAPANESE LINE CAPACITY */
-
-function updateLineCapacity() {
-  const text = document.querySelector(
-    '.jp-folio-content p'
-  );
-
-  const box = document.querySelector(
-    '.jp-folio-content'
-  );
-
-  if (!text || !box) return;
-
-  const styles = getComputedStyle(text);
-  const fontSize = parseFloat(styles.fontSize);
-  const tracking = parseFloat(styles.letterSpacing) || 0;
-  const pitch = fontSize + tracking;
-
-  const bounds = box.getBoundingClientRect();
-
-  const vertical = Math.floor(
-    bounds.height / pitch
-  );
-
-  const horizontal = Math.floor(
-    bounds.width / pitch
-  );
-
-  document.getElementById('lineCapacity').textContent =
-    '最大行長の目安　縦書き：約' +
-    vertical +
-    '字／列　横書き：約' +
-    horizontal +
-    '字／行';
-}
-
-/* REFRESH */
-
-function updateLayout() {
-  if (frame !== null) {
-    cancelAnimationFrame(frame);
-  }
-
-  frame = requestAnimationFrame(() => {
-    sizeJapaneseTitles();
-
-    if (root.dataset.mode === 'japanese') {
-      const size = fitOrganizations(jpNames, 'height');
-      fitTitles(jpTitles, 'height', size);
-    } else {
-      const size = fitOrganizations(enNames, 'width');
-      fitTitles(enTitles, 'width', size);
+    let frame = null;
+    function measure(element, axis) {
+      const rect = element.getBoundingClientRect();
+      return axis === 'height' ? rect.height : rect.width;
     }
 
-    updateLineCapacity();
-  });
-}
+    // Expand letter spacing up to, but not beyond, the Japanese line length.
+    function expandTracking(element, target, axis) {
+      element.style.letterSpacing = '0px';
+      if (target <= 0 || measure(element, axis) >= target) return;
+      let low = 0, high = 1;
+      while (measure(element, axis) < target && high < 100) {
+        high *= 2;
+        element.style.letterSpacing = high + 'px';
+      }
+      for (let i = 0; i < 20; i++) {
+        const mid = (low + high) / 2;
+        element.style.letterSpacing = mid + 'px';
+        if (measure(element, axis) <= target) low = mid;
+        else high = mid;
+      }
+      element.style.letterSpacing = Math.max(0, low - .02).toFixed(3) + 'px';
+    }
 
-/* LANGUAGE SWITCH */
+    function fitOrganizations(items, axis) {
+      const enSelector = axis === 'height' ? '.roman' : '.english-name';
+      const jpSelector = axis === 'height' ? '.kanji' : '.kanji-row';
+      items.forEach(item => {
+        const en = item.querySelector(enSelector);
+        en.style.fontSize = '';
+        en.style.letterSpacing = '0px';
+      });
+      const baseSize = parseFloat(getComputedStyle(items[0].querySelector(enSelector)).fontSize);
+      const ratio = Math.min(1, ...items.map(item => {
+        const en = item.querySelector(enSelector);
+        const jp = item.querySelector(jpSelector);
+        return (measure(jp, axis) - 2) / Math.max(1, measure(en, axis));
+      }));
+      const size = baseSize * Math.max(.1, ratio);
+      items.forEach(item => {
+        const en = item.querySelector(enSelector);
+        const jp = item.querySelector(jpSelector);
+        en.style.fontSize = size.toFixed(3) + 'px';
+        expandTracking(en, measure(jp, axis) - 2, axis);
+      });
+      return size;
+    }
 
-languageButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    root.dataset.mode = button.dataset.view;
-    root.lang =
-      root.dataset.mode === 'japanese' ? 'ja' : 'en';
+    function fitTitles(items, axis, orgSize) {
+      const enSelector = axis === 'height' ? '.roman' : '.english-name';
+      const jpSelector = axis === 'height' ? '.kanji' : '.kanji-row';
+      const maxSize = orgSize * .75;
+      items.forEach(item => {
+        const en = item.querySelector(enSelector);
+        en.style.fontSize = maxSize + 'px';
+        en.style.letterSpacing = '0px';
+      });
+      const ratio = Math.min(1, ...items.map(item => {
+        const en = item.querySelector(enSelector);
+        const jp = item.querySelector(jpSelector);
+        return (measure(jp, axis) - 2) / Math.max(1, measure(en, axis));
+      }));
+      const size = maxSize * Math.max(.1, ratio);
+      items.forEach(item => {
+        const en = item.querySelector(enSelector);
+        const jp = item.querySelector(jpSelector);
+        en.style.fontSize = size.toFixed(3) + 'px';
+        expandTracking(en, measure(jp, axis) - 2, axis);
+      });
+    }
 
-    languageButtons.forEach(other => {
-      other.setAttribute(
-        'aria-pressed',
-        String(other === button)
-      );
+    // Fit all four Japanese names consistently inside the two square cards.
+    function fitSquareCards() {
+      jpNames.forEach(item => {
+        item.querySelector('.kanji').style.fontSize = '';
+      });
+      const baseJP = parseFloat(getComputedStyle(jpNames[0].querySelector('.kanji')).fontSize);
+      const jpRatio = Math.min(1, ...jpNames.map(item => {
+        const card = item.closest('.jp-card');
+        const pad = parseFloat(getComputedStyle(card).paddingTop);
+        const available = card.clientHeight - 2 * pad - 8;
+        return available / Math.max(1, measure(item.querySelector('.kanji'), 'height'));
+      }));
+      jpNames.forEach(item => {
+        item.querySelector('.kanji').style.fontSize =
+          (baseJP * Math.max(.25, jpRatio)).toFixed(3) + 'px';
+      });
+
+      // Fit the seven-character rows without extending beyond a square.
+      const allChars = enNames.flatMap(item =>
+        [...item.querySelectorAll('.kanji-row .char')]);
+      allChars.forEach(char => { char.style.fontSize = ''; });
+      const baseENJP = parseFloat(getComputedStyle(allChars[0]).fontSize);
+      const glyphRatio = Math.min(1, ...enNames.map(item => {
+        const card = item.closest('.en-card');
+        const row = item.querySelector('.kanji-row');
+        const style = getComputedStyle(card);
+        const available = card.clientWidth -
+          parseFloat(style.paddingLeft) - parseFloat(style.paddingRight) - 8;
+        const count = row.querySelectorAll('.char').length;
+        const gap = parseFloat(getComputedStyle(row).columnGap) || 0;
+        const gaps = (count - 1) * gap;
+        return Math.max(0, available - gaps) /
+          Math.max(1, row.scrollWidth - gaps);
+      }));
+      allChars.forEach(char => {
+        char.style.fontSize =
+          (baseENJP * Math.max(.25, glyphRatio)).toFixed(3) + 'px';
+      });
+    }
+
+    function sizeJapaneseTitles() {
+      const verticalSize = parseFloat(
+        getComputedStyle(jpNames[0].querySelector('.kanji')).fontSize);
+      const horizontalSize = parseFloat(
+        getComputedStyle(enNames[0].querySelector('.char')).fontSize);
+      jpTitles.forEach(item => {
+        item.querySelector('.kanji').style.fontSize =
+          (verticalSize * .75).toFixed(3) + 'px';
+      });
+      enTitles.forEach(item => {
+        item.querySelectorAll('.char').forEach(char => {
+          char.style.fontSize =
+            (horizontalSize * .75).toFixed(3) + 'px';
+        });
+      });
+    }
+
+    function updateLineCapacity() {
+      const text = document.querySelector('.jp-folio-content p');
+      const box = document.querySelector('.jp-folio-content');
+      if (!text || !box) return;
+      const style = getComputedStyle(text);
+      const pitch = parseFloat(style.fontSize) + (parseFloat(style.letterSpacing) || 0);
+      const bounds = box.getBoundingClientRect();
+      const vertical = Math.floor(bounds.height / pitch);
+      const horizontal = Math.floor(bounds.width / pitch);
+      document.getElementById('lineCapacity').textContent =
+        '最大行長の目安　縦書き：約' + vertical + '字／列　横書き：約' + horizontal + '字／行';
+    }
+
+    function updateLayout() {
+      if (frame !== null) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        fitSquareCards();
+        sizeJapaneseTitles();
+        if (root.dataset.mode === 'japanese') {
+          const orgSize = fitOrganizations(jpNames, 'height');
+          fitTitles(jpTitles, 'height', orgSize);
+        } else {
+          const orgSize = fitOrganizations(enNames, 'width');
+          fitTitles(enTitles, 'width', orgSize);
+        }
+        updateLineCapacity();
+      });
+    }
+
+    languageButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        root.dataset.mode = button.dataset.view;
+        root.lang = root.dataset.mode === 'japanese' ? 'ja' : 'en';
+        languageButtons.forEach(other => {
+          other.setAttribute('aria-pressed', String(other === button));
+        });
+        updateLayout();
+      });
     });
 
-    updateLayout();
-  });
-});
-
-/* JAPANESE READING ORIENTATION */
-
-orientationButtons.forEach(button => {
-  button.addEventListener('click', () => {
-    root.dataset.orientation = button.dataset.orient;
-
-    orientationButtons.forEach(other => {
-      other.setAttribute(
-        'aria-pressed',
-        String(other === button)
-      );
+    orientationButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        root.dataset.orientation = button.dataset.orient;
+        orientationButtons.forEach(other => {
+          other.setAttribute('aria-pressed', String(other === button));
+        });
+        updateLayout();
+      });
     });
 
+    window.addEventListener('resize', updateLayout, { passive: true });
+    window.addEventListener('load', updateLayout);
+    if (document.fonts) {
+      document.fonts.ready.then(updateLayout);
+      document.fonts.addEventListener?.('loadingdone', updateLayout);
+    }
     updateLayout();
-  });
-});
-
-window.addEventListener(
-  'resize',
-  updateLayout,
-  { passive: true }
-);
-
-window.addEventListener('load', updateLayout);
-
-if (document.fonts) {
-  document.fonts.ready.then(updateLayout);
-  document.fonts.addEventListener?.(
-    'loadingdone',
-    updateLayout
-  );
-}
-
-updateLayout();
-</script>
-
+  </script>
 </body>
 </html>
